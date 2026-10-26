@@ -113,6 +113,13 @@ aside#board{
   border-radius:12px;font-size:14px;font-weight:500;
 }
 .side-nav a:hover{background:rgba(255,246,224,.2)}
+.side-nav .side-nav-btn{
+  display:block;width:100%;margin-top:10px;padding:12px;
+  color:#ffd9cf;cursor:pointer;font-size:14px;font-weight:600;font-family:inherit;
+  background:rgba(196,80,63,.18);border:1px solid rgba(255,158,140,.45);
+  border-radius:12px;transition:background .15s;
+}
+.side-nav .side-nav-btn:hover{background:rgba(196,80,63,.32)}
 
 /* ===== 主区域 ===== */
 main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
@@ -772,6 +779,7 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
 
     <nav class="side-nav">
       <a href="#/" id="homeLink">Back to Market · 回到市场</a>
+      <button type="button" class="side-nav-btn" id="resetAllBtn">Restart · 重新开始</button>
     </nav>
   </aside>
 
@@ -1758,13 +1766,23 @@ function render(){
 function isChapter1Complete(){
   return SCENES.every(s => isSceneDone(s.id));
 }
-/* 首次进入第二章时初始化工厂资金：固定 200 + 第一章带入金币总额 */
+/* 首次进入第二章时初始化工厂资金：固定 200 + 第一章带入金币总额；进入即锁定第一章 */
 function enterChapter2(){
   if(!state.ch2){
     state.ch2 = { coins: CH2_BASE_FUNDS + totals().coins, sceneStates: {} };
-    saveState();
   }
+  if(isChapter1Complete() && !state.ch1Locked){
+    state.ch1Locked = true;
+  }
+  saveState();
   location.hash = "#/ch2";
+}
+/* 彻底重置全部游戏进度（全局可用，不受任何章节锁定影响） */
+function hardReset(){
+  try{ localStorage.removeItem(STORE_KEY); }catch(e){}
+  state = loadState();
+  location.hash = "#/";
+  render();
 }
 
 /* —— 第二章主页 —— */
@@ -2211,10 +2229,6 @@ function renderCh2Result(sc, st){
   const opt = round.options[st.picked];
   const stars = round.starsFn ? round.starsFn(opt) : opt.stars;
   const result = round.dynamicResult ? round.dynamicResult(opt, stars) : opt.result;
-  let verdict;
-  if(stars >= 3) verdict = { en:"Perfect! · 完美！", zh:"Perfect choice · 完美的选择", cls:"perfect" };
-  else if(stars >= 1) verdict = { en:"Not bad · 还行", zh:"A fair choice · 中规中矩", cls:"ok" };
-  else verdict = { en:"Not this time · 这次不行", zh:"The goal was not met · 没有达成目标", cls:"no" };
 
   const isLast = st.round >= sc.rounds.length;
   // 金币明细：独立预算 / 长期成本分析 / 支出收入
@@ -2255,10 +2269,6 @@ function renderCh2Result(sc, st){
   }
   return (
     '<div class="result-panel">' +
-      '<div class="result-verdict ' + verdict.cls + '">' +
-        '<span class="v-icon">' + (verdict.cls === 'perfect' ? ICON.check : (verdict.cls === 'ok' ? ICON.coin : ICON.lock)) + '</span>' +
-        '<div><h4>' + verdict.en + '</h4><span class="zh">' + verdict.zh + '</span></div>' +
-      '</div>' +
       '<div class="ch2-settle">' +
         coinRows +
         '<div class="settle-row"><span>Trade stars earned · 获得贸易之星</span><span>' + ICON.star + ' +' + stars + '</span></div>' +
@@ -3063,7 +3073,15 @@ function renderSceneComplete(s){
 /* 章节卡：点击快速进入对应章节 */
 $("#ch1Plank").addEventListener("click", () => { location.hash = "#/"; });
 $("#ch2Plank").addEventListener("click", () => {
-  if(isChapter1Complete()){ enterChapter2(); }
+  if(!isChapter1Complete()) return;
+  if(state.ch1Locked){ enterChapter2(); return; }
+  showConfirm({
+    titleEn: 'Enter Chapter 2?', titleZh: '进入第二章？',
+    msgEn: 'Once you enter the next chapter, your Chapter 1 progress will be locked and cannot be replayed until you complete Chapter 2. Are you sure you want to enter Chapter 2?',
+    msgZh: '一旦进入下一章节，第一章的游戏状态将会被锁定，直到完成第二章后才能选择重置重玩。确定进入第二章吗？',
+    okText: 'Enter · 进入', noText: 'Cancel · 取消',
+    onOk: () => { enterChapter2(); }
+  });
 });
 [["#ch1Plank","#/"],["#ch2Plank",null]].forEach(pair => {
   const el = document.querySelector(pair[0]);
@@ -3071,8 +3089,30 @@ $("#ch2Plank").addEventListener("click", () => {
     if(e.key === "Enter" || e.key === " "){
       e.preventDefault();
       if(pair[1]){ location.hash = pair[1]; }
-      else if(isChapter1Complete()){ enterChapter2(); }
+      else if(isChapter1Complete()){
+        if(state.ch1Locked){ enterChapter2(); }
+        else {
+          showConfirm({
+            titleEn: 'Enter Chapter 2?', titleZh: '进入第二章？',
+            msgEn: 'Once you enter the next chapter, your Chapter 1 progress will be locked and cannot be replayed until you complete Chapter 2. Are you sure you want to enter Chapter 2?',
+            msgZh: '一旦进入下一章节，第一章的游戏状态将会被锁定，直到完成第二章后才能选择重置重玩。确定进入第二章吗？',
+            okText: 'Enter · 进入', noText: 'Cancel · 取消',
+            onOk: () => { enterChapter2(); }
+          });
+        }
+      }
     }
+  });
+});
+
+/* 全局"重新开始"：彻底重置所有游戏进度，不受章节锁定影响 */
+$("#resetAllBtn").addEventListener("click", () => {
+  showConfirm({
+    titleEn: 'Restart the Game?', titleZh: '重新开始？',
+    msgEn: 'This will completely reset all your game progress and start from zero. Are you sure you want to restart?',
+    msgZh: '这会彻底重置你目前的所有游戏进度，从零开始，确定要重新开始吗？',
+    okText: 'Restart · 重新开始', noText: 'Cancel · 取消',
+    onOk: () => { hardReset(); }
   });
 });
 
