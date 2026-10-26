@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Quest · 市场大冒险 — Chapter 1: Into The Market Place</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --wood-900:#3a2918;
+  --wood-700:#5f4430;
+  --wood-500:#8a623f;
+  --wood-300:#bf9a6d;
+  --wood-100:#e7d3b5;
+  --cream:#f5ead2;
+  --paper:#fdf7e9;
+  --gold:#e8a33d;
+  --gold-deep:#bd7d1e;
+  --teal:#2f7e74;
+  --teal-deep:#225e56;
+  --teal-soft:#dceee8;
+  --ember:#d96c3f;
+  --ember-deep:#b34f28;
+  --ember-soft:#f8e4d8;
+  --ink:#3e2f23;
+  --ink-soft:#7c6a56;
+  --ink-300:#b9ab99;
+  --ok:#3f8f5f;
+  --warn:#d9a13b;
+  --bad:#c4503f;
+  --radius:16px;
+  --shadow:0 6px 18px rgba(58,41,24,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans SC","Noto Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  min-height:100vh;
+}
+h1,h2,h3,.serif{font-family:"Noto Serif SC","Georgia","Times New Roman",serif}
+button{font-family:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+
+/* ===== 全局布局 ===== */
+#app{display:grid;grid-template-columns:312px 1fr;min-height:100vh}
+
+/* ===== 左侧进度栏（市场公告板） ===== */
+aside#board{
+  background:linear-gradient(160deg,var(--wood-700),var(--wood-900));
+  color:var(--cream);
+  padding:26px 20px;
+  display:flex;flex-direction:column;gap:20px;
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+}
+.board-title{display:flex;align-items:center;gap:10px}
+.board-title .logo{
+  width:44px;height:44px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#f6c76a,var(--gold) 60%,var(--gold-deep));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 -3px 6px rgba(0,0,0,.25),0 2px 6px rgba(0,0,0,.3);
+}
+.board-title h1{font-size:19px;line-height:1.25}
+.board-title small{display:block;font-size:11px;font-weight:400;color:var(--wood-100);letter-spacing:.12em}
+
+.plank{
+  background:rgba(255,246,224,.08);
+  border:1px solid rgba(255,246,224,.18);
+  border-radius:var(--radius);
+  padding:16px;
+}
+.plank h3{
+  font-size:12px;letter-spacing:.14em;color:var(--wood-100);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.chapter-plank{cursor:pointer;transition:border-color .15s,background .15s}
+.chapter-plank:not(.locked):hover{border-color:rgba(255,246,224,.5);background:rgba(255,246,224,.15)}
+.chapter-plank.locked{opacity:.62;cursor:not-allowed}
+.ch-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ch-kicker{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--wood-100)}
+.ch-status{font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;background:rgba(0,0,0,.32);color:var(--wood-100);white-space:nowrap}
+.ch-status.ready{background:var(--teal-soft);color:var(--teal-deep)}
+.ch-status.done{background:#e3f1e6;color:var(--ok)}
+.ch-title{font-size:17px;font-weight:700;line-height:1.25}
+.ch-title-zh{font-size:12px;color:var(--wood-100);margin-top:2px}
+.ch-progress{font-size:12px;color:var(--wood-100);margin-top:8px}
+.ch-sub{font-size:11px;color:var(--wood-100);margin-top:8px;letter-spacing:.05em}
+.plank .big{font-size:26px;font-weight:700;line-height:1.1}
+.plank .sub{font-size:13px;color:var(--wood-100);margin-top:4px}
+
+.progress-track{height:10px;background:rgba(0,0,0,.3);border-radius:99px;overflow:hidden;margin-top:10px}
+.progress-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),#f2c06a);transition:width .4s ease}
+
+.coin-row{display:flex;align-items:center;gap:10px}
+.coin-row .coin{flex:none}
+
+.badge-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.badge{
+  border-radius:12px;padding:12px;text-align:center;
+  background:rgba(0,0,0,.22);border:1px solid rgba(255,246,224,.15);
+}
+.badge .b-name{font-size:12px;color:var(--wood-100)}
+.badge .b-num{font-size:22px;font-weight:700;margin-top:2px}
+.badge.consumer .b-num{color:#9fe3d4}
+.badge.supplier .b-num{color:#ffc3a3}
+
+.side-nav{margin-top:auto}
+.side-nav a{
+  display:block;text-align:center;padding:12px;
+  color:var(--cream);text-decoration:none;
+  background:rgba(255,246,224,.1);border:1px solid rgba(255,246,224,.2);
+  border-radius:12px;font-size:14px;font-weight:500;
+}
+.side-nav a:hover{background:rgba(255,246,224,.2)}
+
+/* ===== 主区域 ===== */
+main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
+
+/* 页眉路径 */
+.breadcrumb{font-size:13px;color:var(--ink-soft);margin-bottom:18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.breadcrumb .sep{color:var(--wood-300)}
+.breadcrumb button{
+  background:none;border:none;color:var(--teal);font-size:13px;font-weight:500;padding:4px 2px;
+}
+.breadcrumb button:hover{text-decoration:underline}
+
+/* ===== 主界面 hero ===== */
+.hero{
+  position:relative;border-radius:22px;overflow:hidden;
+  box-shadow:var(--shadow);margin-bottom:30px;
+}
+.hero img{width:100%;height:280px;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,26,12,.05) 20%,rgba(40,26,12,.78) 100%)}
+.hero-copy{position:absolute;left:28px;right:28px;bottom:22px;z-index:2;color:#fff}
+.hero-kicker{
+  display:inline-block;font-size:12px;letter-spacing:.2em;font-weight:700;
+  background:var(--gold);color:var(--wood-900);
+  padding:4px 12px;border-radius:99px;margin-bottom:10px;
+}
+.hero-copy h2{font-size:32px;line-height:1.2;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.hero-copy .zh-title{font-size:18px;font-weight:500;color:#ffe9c4;margin-top:4px;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+.hero-copy p{font-size:14px;color:#f3e6d2;margin-top:8px;max-width:640px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.section-head h3{font-size:22px}
+.section-head .hint{font-size:13px;color:var(--ink-soft)}
+
+/* ===== 场景卡片 ===== */
+.scene-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.scene-card{
+  background:var(--paper);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid rgba(58,41,24,.08);
+  display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease;
+  position:relative;
+}
+.scene-card:not(.locked):hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(58,41,24,.2)}
+.scene-card .awning{height:14px;background:repeating-linear-gradient(90deg,var(--ember) 0 26px,var(--cream) 26px 52px)}
+.scene-card .card-body{padding:20px 20px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.scene-no{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--gold-deep)}
+.scene-title h4{font-size:20px}
+.scene-title .zh{font-size:14px;color:var(--ink-soft);font-weight:500}
+.missions{display:flex;flex-direction:column;gap:8px;margin-top:2px}
+.mission-line{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--teal-soft);border-radius:10px;padding:9px 12px;font-size:13px;
+}
+.mission-line.supplier{background:var(--ember-soft)}
+.mission-line .role{flex:none;font-weight:700;font-size:12px}
+.mission-line.consumer .role{color:var(--teal-deep)}
+.mission-line.supplier .role{color:var(--ember-deep)}
+.mission-line .txt{color:var(--ink)}
+.mission-line .txt .zh{display:block;color:var(--ink-soft);font-size:12px}
+.scene-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:4px}
+.state-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px;
+}
+.state-chip.done{background:#e3f1e6;color:var(--ok)}
+.state-chip.locked{background:#eee6d8;color:var(--ink-soft)}
+.state-chip.ready{background:#fdeed6;color:var(--gold-deep)}
+.scene-card.locked{filter:saturate(.4);opacity:.75}
+.scene-card.locked .card-body{cursor:not-allowed}
+.scene-card .play-btn{
+  border:none;border-radius:11px;padding:9px 16px;font-size:14px;font-weight:700;
+  background:var(--wood-500);color:#fff;
+}
+.scene-card:not(.locked) .play-btn{background:linear-gradient(135deg,var(--teal),var(--teal-deep))}
+.scene-card .play-btn:hover{filter:brightness(1.08)}
+
+/* ===== 游戏界面 ===== */
+.game-panel{
+  background:var(--paper);border-radius:22px;box-shadow:var(--shadow);
+  border:1px solid rgba(58,41,24,.08);overflow:hidden;
+}
+.game-head{
+  position:relative;background:var(--wood-700);color:#fff;padding:26px 30px;
+}
+.game-head::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(90deg,var(--ember) 0 40px,transparent 40px 80px),
+    linear-gradient(135deg,var(--wood-700),var(--wood-900));
+  opacity:.9;
+}
+.game-head>*{position:relative;z-index:1}
+.game-head .crumb{font-size:12px;letter-spacing:.14em;color:var(--wood-100);text-transform:uppercase}
+.game-head h2{font-size:28px;margin-top:6px}
+.game-head .zh{font-size:15px;color:#ffe0b0;font-weight:500;margin-top:2px}
+.game-body{padding:30px}
+.mission-banner{
+  display:flex;gap:14px;align-items:flex-start;
+  background:linear-gradient(135deg,#fff8e8,var(--cream));
+  border:2px dashed var(--gold);
+  border-radius:14px;padding:16px 18px;margin-bottom:26px;
+}
+.mission-banner .flag{flex:none;margin-top:2px}
+.mission-banner b{display:block;font-size:15px}
+.mission-banner .zh{display:block;font-size:13px;color:var(--ink-soft);margin-top:2px}
+
+/* 角色选择 */
+.role-pick{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.role-card{
+  border:2px solid rgba(58,41,24,.12);border-radius:18px;overflow:hidden;
+  background:#fff;cursor:pointer;text-align:left;transition:transform .15s ease,box-shadow .15s ease,border-color .15s;
+}
+.role-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.role-card:disabled{cursor:default;transform:none;box-shadow:none;opacity:.92}
+.role-card.done{border-color:var(--ok)}
+.role-card .role-img{height:150px;overflow:hidden;background:var(--cream)}
+.role-card .role-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.role-card .role-meta{padding:16px 18px}
+.role-card h4{font-size:18px;display:flex;align-items:center;gap:8px}
+.role-card .zh{font-size:13px;color:var(--ink-soft)}
+.role-card .role-goal{font-size:13px;color:var(--ink);margin-top:8px;line-height:1.55}
+.role-card .role-goal .zh{display:block;margin-top:2px}
+.role-card.done .done-tag{
+  display:inline-flex;align-items:center;gap:5px;background:#e3f1e6;color:var(--ok);
+  font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;
+}
+
+/* 剧情 + 选项 */
+.story-row{display:grid;grid-template-columns:150px 1fr;gap:24px;margin-bottom:26px}
+.story-avatar{border-radius:16px;overflow:hidden;background:var(--cream);border:2px solid rgba(58,41,24,.1)}
+.story-avatar img{width:100%;height:190px;object-fit:cover;object-position:center 25%}
+.story-copy .story-label{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.story-copy .story-label.consumer{color:var(--teal-deep)}
+.story-copy .story-label.supplier{color:var(--ember-deep)}
+/* 第二章场景回合标题：大号醒目 */
+.round-label{
+  display:block;font-family:"Noto Serif SC","Georgia","Times New Roman",serif;
+  font-size:30px;font-weight:800;line-height:1.2;letter-spacing:.03em;
+  color:var(--ember-deep);margin-bottom:10px;
+}
+.round-label .zh{display:block;font-size:22px;font-weight:700;letter-spacing:.1em;color:var(--ink);margin-top:6px}
+.story-copy p{font-size:16px;line-height:1.75;margin-top:8px}
+.story-copy p .zh{display:block;font-size:14px;color:var(--ink-soft);margin-top:4px}
+
+.info-note{
+  background:var(--teal-soft);border-radius:12px;padding:12px 16px;font-size:13px;color:var(--teal-deep);
+  margin-bottom:24px;line-height:1.6;
+}
+.info-note .zh{color:var(--ink-soft);display:block;margin-top:2px}
+
+.opt-list{display:flex;flex-direction:column;gap:14px}
+.opt{
+  display:flex;gap:14px;align-items:center;
+  background:#fff;border:2px solid rgba(58,41,24,.14);border-radius:14px;
+  padding:16px 18px;text-align:left;width:100%;
+  transition:border-color .15s,transform .15s,box-shadow .15s;
+}
+.opt:hover:not(:disabled){border-color:var(--teal);transform:translateX(4px);box-shadow:var(--shadow)}
+.opt:disabled{cursor:default;opacity:.55}
+.opt .letter{
+  flex:none;width:38px;height:38px;border-radius:50%;
+  background:var(--wood-100);color:var(--wood-900);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;
+}
+.opt .opt-txt{font-size:15px;line-height:1.5}
+.opt .opt-txt .zh{display:block;font-size:13px;color:var(--ink-soft);margin-top:2px}
+.opt .coins{
+  margin-left:auto;flex:none;display:flex;align-items:center;gap:5px;
+  font-size:13px;font-weight:700;color:var(--gold-deep);
+}
+
+/* 结果面板 */
+.result-panel{animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.result-verdict{
+  display:flex;align-items:center;gap:16px;
+  border-radius:14px;padding:18px 20px;margin-bottom:20px;
+}
+.result-verdict.perfect{background:#e3f1e6;border:2px solid var(--ok)}
+.result-verdict.ok{background:#fdf3dd;border:2px solid var(--warn)}
+.result-verdict.no{background:#f8e3e0;border:2px solid var(--bad)}
+.result-verdict .v-icon{flex:none}
+.result-verdict h4{font-size:18px}
+.result-verdict .zh{display:block;font-size:13px;color:var(--ink-soft);font-weight:400;margin-top:2px}
+.result-text{font-size:15px;line-height:1.7;margin-bottom:20px}
+.result-text .zh{display:block;color:var(--ink-soft);font-size:13px;margin-top:4px}
+.new-best-tag{
+  display:inline-flex;align-items:center;gap:4px;margin-left:8px;
+  background:#fff;border:1px solid var(--ok);color:var(--ok);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap;
+}
+
+.concept-card{
+  background:linear-gradient(135deg,#fff8e8,var(--cream));
+  border:1px solid rgba(232,163,61,.5);border-radius:14px;padding:16px 18px;margin-bottom:24px;
+}
+.concept-card .c-head{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.concept-card p{font-size:14px;line-height:1.7}
+.concept-card p .zh{display:block;color:var(--ink-soft);font-size:13px;margin-top:4px}
+
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  border:none;border-radius:12px;padding:13px 24px;font-size:15px;font-weight:700;
+  transition:filter .15s,transform .15s;
+}
+.btn:hover{filter:brightness(1.07)}
+.btn.primary{background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#fff}
+.btn.gold{background:linear-gradient(135deg,#f2c06a,var(--gold));color:var(--wood-900)}
+.btn.ghost{background:rgba(58,41,24,.07);color:var(--ink)}
+.btn:active{transform:scale(.98)}
+
+/* 场景完成 / 章节完成 */
+.complete-hero{
+  text-align:center;padding:30px 20px 10px;
+}
+.complete-hero .seal{
+  width:88px;height:88px;margin:0 auto 18px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#f6c76a,var(--gold) 60%,var(--gold-deep));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 -4px 8px rgba(0,0,0,.25),0 4px 14px rgba(189,125,30,.4);
+  animation:pop .4s ease;
+}
+@keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1)}}
+.complete-hero h2{font-size:26px}
+.complete-hero .zh{font-size:15px;color:var(--ink-soft);margin-top:4px}
+.review-list{display:flex;flex-direction:column;gap:12px;margin:26px 0}
+.review-item{
+  display:flex;gap:14px;align-items:flex-start;
+  background:#fff;border:1px solid rgba(58,41,24,.1);border-radius:12px;padding:14px 16px;
+}
+.review-item .r-num{
+  flex:none;width:30px;height:30px;border-radius:50%;
+  background:var(--teal-soft);color:var(--teal-deep);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+}
+.review-item p{font-size:14px;line-height:1.6}
+.review-item p .zh{display:block;color:var(--ink-soft);font-size:12px;margin-top:2px}
+
+/* 空态 */
+.empty-state{text-align:center;padding:60px 20px;color:var(--ink-soft)}
+.empty-state h3{font-size:20px;color:var(--ink);margin-bottom:8px}
+
+/* ===== 第二章起始页 ===== */
+.ch2-welcome{
+  background:var(--paper);border-radius:16px;border:1px solid rgba(58,41,24,.08);
+  box-shadow:var(--shadow);padding:26px 28px;margin:26px 0 20px;
+}
+.ch2-welcome .en{font-size:16px;line-height:1.75}
+.ch2-welcome .zh{display:block;font-size:15px;color:var(--ink-soft);line-height:1.75;margin-top:8px}
+.funds-card{
+  background:linear-gradient(135deg,var(--wood-700),var(--wood-900));
+  border-radius:18px;padding:24px 28px;color:#fff;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  margin-bottom:14px;box-shadow:var(--shadow);
+}
+.funds-card .f-label{font-size:13px;letter-spacing:.1em;color:var(--wood-100);text-transform:uppercase}
+.funds-total{display:flex;align-items:center;gap:10px;font-size:34px;font-weight:700;color:#ffe3ae}
+.funds-breakdown{font-size:13px;color:var(--wood-100);margin-top:8px}
+.funds-breakdown .zh{display:block;margin-top:2px}
+.funds-note{
+  background:var(--teal-soft);border-radius:12px;padding:12px 16px;font-size:13px;color:var(--teal-deep);
+  line-height:1.6;margin-bottom:22px;
+}
+.funds-note .zh{display:block;color:var(--ink-soft);margin-top:2px}
+.coming-soon{
+  text-align:center;border:2px dashed var(--gold);border-radius:14px;
+  padding:18px;color:var(--gold-deep);font-weight:700;font-size:14px;margin-bottom:22px;
+}
+.ch2-best{font-size:12px;color:var(--ink-soft);margin-top:2px}
+/* 场景起始页：主要任务卡 */
+.mission-card{
+  background:var(--paper);border:1px solid rgba(58,41,24,.14);border-radius:16px;
+  box-shadow:var(--shadow);padding:24px;margin-bottom:20px;
+}
+.m-label{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:10px}
+.mission-card p{font-size:17px;line-height:1.75;margin:0}
+.mission-card p .zh{display:block;font-size:15px;color:var(--ink-soft);margin-top:6px}
+.mission-note{
+  margin-top:14px;padding:12px 14px;background:var(--ember-soft);border-radius:10px;
+  font-size:13px;color:var(--ember-deep);font-weight:700;line-height:1.6;
+  display:flex;align-items:flex-start;gap:8px;
+}
+.mission-note .zh{display:block;color:var(--ink-soft);font-weight:400;margin-top:2px}
+.ch2-settle{
+  background:var(--cream);border:1px solid rgba(58,41,24,.12);border-radius:14px;
+  padding:16px 18px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px;
+}
+.settle-row,.sum-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  font-size:15px;
+}
+.settle-row span:last-child{font-weight:700;display:inline-flex;align-items:center;gap:5px}
+.settle-row.spend span:last-child{color:var(--ember-deep)}
+.settle-row.promised span:last-child{color:var(--warn)}
+.settle-row.net span:last-child{color:var(--teal-deep);font-size:16px}
+.settle-row.risk span:last-child{color:var(--bad)}
+.settle-row.risk.base span:last-child{color:var(--warn)}
+.settle-row.risk.total span:last-child{color:var(--bad);font-size:17px}
+.p-stat.earn{color:var(--ok)}
+.p-stat.promised{color:var(--warn)}
+.link-note{
+  margin-top:16px;padding:13px 15px;background:var(--cream-soft);border:1px dashed var(--teal-soft);
+  border-radius:10px;font-size:13px;line-height:1.65;display:flex;align-items:flex-start;gap:9px;
+}
+.link-note strong{display:block;color:var(--teal-deep);margin-bottom:4px;letter-spacing:.04em}
+.link-note .en{display:block;color:var(--ink-soft)}
+.link-note .zh{display:block;color:var(--ink-mute);margin-top:2px}
+.focus-note{
+  margin-top:16px;padding:13px 15px;background:var(--gold-soft);border-left:4px solid var(--gold-deep);
+  border-radius:0 10px 10px 0;font-size:13px;line-height:1.65;
+}
+.focus-note strong{display:block;color:var(--gold-deep);margin-bottom:4px;letter-spacing:.04em}
+.focus-note .en{display:block;color:var(--ink-soft)}
+.focus-note .zh{display:block;color:var(--ink-mute);margin-top:2px}
+.ch2-summary{
+  background:var(--cream);border:1px solid rgba(58,41,24,.12);border-radius:14px;
+  padding:18px;margin:26px 0;display:flex;flex-direction:column;gap:12px;
+}
+.sum-row span:last-child{font-weight:700;display:inline-flex;align-items:center;gap:5px}
+/* —— 工厂档案：签字板 —— */
+.profile-board{
+  position:relative;background:var(--paper);border-radius:18px;
+  border:1px solid rgba(58,41,24,.16);box-shadow:var(--shadow);
+  padding:26px 24px 24px;margin:10px 0 6px;
+}
+.board-clip{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  width:120px;height:26px;background:linear-gradient(180deg,#8a6a4a,#6f5237);
+  border-radius:10px 10px 6px 6px;box-shadow:0 3px 6px rgba(0,0,0,.22);z-index:2;
+}
+.board-clip::after{content:"";position:absolute;left:16px;right:16px;top:9px;height:4px;background:rgba(255,255,255,.28);border-radius:2px}
+.profile-head{text-align:center;padding-top:6px;margin-bottom:18px;border-bottom:2px dashed rgba(58,41,24,.25);padding-bottom:16px}
+.profile-head h3{font-size:28px;margin:0}
+.profile-head .zh{color:var(--ink-soft);font-size:14px;margin-top:4px;letter-spacing:.12em}
+.profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.pstat-card{background:var(--cream);border:1px solid rgba(58,41,24,.12);border-radius:12px;padding:12px 8px;text-align:center}
+.pstat-icon{display:inline-flex;vertical-align:middle}
+.pstat-icon.risk{color:var(--bad)}
+.pstat-label{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:6px;line-height:1.4}
+.pstat-value{display:block;font-size:28px;font-weight:800;margin-top:4px;font-family:"Noto Serif SC","Georgia","Times New Roman",serif}
+.newbest{display:block;font-style:normal;font-size:11px;color:var(--ok);font-weight:700;margin-top:2px}
+.risk-report{background:var(--cream);border:1px solid rgba(58,41,24,.12);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.risk-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.risk-badge{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:16px;padding:7px 16px;border-radius:999px;color:#fff;letter-spacing:.03em}
+.risk-badge.low{background:var(--ok)}
+.risk-badge.mod{background:var(--warn)}
+.risk-badge.high{background:var(--ember)}
+.risk-badge.crit{background:var(--bad)}
+.risk-check{font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+.risk-desc{font-size:14.5px;line-height:1.7;margin:0}
+.risk-desc .zh{display:block;color:var(--ink-soft);font-size:13px;margin-top:4px}
+.risk-footnote{font-size:12.5px;color:var(--warn);font-weight:700;text-align:center;margin:0 0 20px;line-height:1.6}
+.risk-footnote .zh{display:block;color:var(--ink-soft);font-weight:400;margin-top:2px}
+.profile-table{width:100%;border-collapse:collapse}
+.profile-table th{
+  text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  padding:8px 12px;border-bottom:2px solid rgba(58,41,24,.25);
+}
+.profile-table th.right{text-align:right}
+.profile-table td{padding:11px 12px;border-bottom:1px dashed rgba(58,41,24,.16);vertical-align:top}
+.profile-table tbody tr:last-child td{border-bottom:none}
+.prof-left .p-round{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--ember-deep);text-transform:uppercase}
+.prof-left .p-item{display:block;font-size:16px;font-weight:700;margin-top:2px;font-family:"Noto Serif SC","Georgia","Times New Roman",serif}
+.prof-left .p-pick{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+.prof-left .p-pick .zh{display:block;margin-top:1px}
+.prof-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;font-size:14px;font-weight:700;white-space:nowrap}
+.prof-right .p-stat{display:inline-flex;align-items:center;gap:5px}
+.prof-right .p-stat.spend{color:var(--ember-deep)}
+.prof-right .p-stat.risk{color:var(--bad)}
+.profile-best{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:14px}
+/* 证据检查（场景三 R3）：线索按钮 + 品牌卡 */
+.ev-clue-list{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.ev-clue{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#fff;border:2px solid rgba(58,41,24,.2);border-radius:999px;
+  padding:9px 16px;font-size:13px;font-weight:700;transition:border-color .15s,background .15s;
+}
+.ev-clue:hover{border-color:var(--teal)}
+.ev-clue.checked{background:var(--teal-soft);border-color:var(--teal);color:var(--teal-deep)}
+.brand-card{flex-direction:column;align-items:stretch;gap:0;padding:14px 16px}
+.brand-card .brand-head{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+.brand-card .brand-name{font-size:17px;font-weight:800;line-height:1.3}
+.brand-card .brand-name .zh{display:block;font-size:13px;color:var(--ink-soft);font-weight:400;margin-top:1px}
+.brand-evrows{display:flex;flex-direction:column;gap:8px;width:100%}
+.brand-ev{background:#f7f4ec;border-left:3px solid var(--teal);border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.55}
+.brand-ev .ev-dim{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:3px}
+.brand-ev .en{display:block}
+.brand-ev .zh{display:block;color:var(--ink-soft);font-size:12px;margin-top:2px}
+.brand-empty{font-size:12.5px;color:var(--ink-soft);font-style:italic;padding:2px 0 4px}
+.ev-hint{font-size:13px;font-weight:700;color:var(--warn);margin-bottom:16px;line-height:1.5}
+.ev-hint.ok{color:var(--ok)}
+/* 红色警示条 */
+.warn-bar{
+  display:flex;gap:10px;align-items:flex-start;
+  background:#fbe9e6;border:2px solid var(--bad);border-radius:12px;
+  padding:13px 16px;margin-bottom:16px;color:var(--bad);font-weight:700;font-size:14px;line-height:1.65;
+}
+.warn-bar .zh{display:block;color:#a63a2e;font-weight:500;font-size:13px;margin-top:3px}
+/* 产品对比（场景三 R5） */
+.compare-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.compare-card{border-radius:14px;padding:16px;border:2px solid rgba(58,41,24,.14)}
+.compare-card.mine{background:linear-gradient(135deg,#eaf4ef,#f7fbf8);border-color:var(--teal)}
+.compare-card.rival{background:linear-gradient(135deg,#f6f0e4,#fdf9f0);border-color:var(--gold)}
+.cmp-head{font-size:14px;font-weight:800;margin-bottom:10px;letter-spacing:.02em}
+.compare-card.mine .cmp-head{color:var(--teal-deep)}
+.compare-card.rival .cmp-head{color:var(--gold-deep)}
+.cmp-row{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:5px 0;border-top:1px dashed rgba(58,41,24,.14)}
+.cmp-row span{color:var(--ink-soft);flex:none}
+.cmp-row b{text-align:right;line-height:1.4}
+.cmp-row b .zh{display:block;font-size:12px;color:var(--ink-soft);font-weight:400}
+/* 市场报告（场景三 R6） */
+.report-card{background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px}
+.report-head{background:linear-gradient(135deg,#2f6d5a,#3d8a72);color:#fff;padding:18px 22px}
+.report-head h3{margin:0;font-size:20px}
+.report-head .r-sub{display:block;font-size:12.5px;opacity:.85;margin-top:4px}
+.report-body{padding:20px 22px}
+.pie-wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-bottom:18px}
+.pie{
+  width:170px;height:170px;border-radius:50%;position:relative;flex:none;
+  background:conic-gradient(var(--ok) 0 var(--p), var(--bad) var(--p) calc(var(--p) + var(--n)), var(--ink-300) calc(var(--p) + var(--n)) 100%);
+}
+.pie::after{content:'';position:absolute;inset:36px;border-radius:50%;background:#fff}
+.pie-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.pie-center b{font-size:30px;line-height:1}
+.pie-center span{font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:1.35}
+.pie-legend{display:flex;flex-direction:column;gap:8px;font-size:13.5px}
+.pie-legend .lg{display:flex;align-items:center;gap:8px;font-weight:700}
+.pie-legend .lg::before{content:'';width:14px;height:14px;border-radius:4px;flex:none}
+.lg.ok::before{background:var(--ok)}
+.lg.bad::before{background:var(--bad)}
+.lg.mut::before{background:var(--ink-300)}
+.report-summary{background:#f7f4ec;border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.report-summary .lvl{display:inline-block;font-weight:800;font-size:13px;padding:3px 12px;border-radius:99px;color:#fff;margin-bottom:8px}
+.report-summary .lvl.ok{background:var(--ok)}
+.report-summary .lvl.warn{background:var(--warn)}
+.report-summary .lvl.bad{background:var(--bad)}
+.report-summary p{font-size:14px;line-height:1.7;margin:0}
+.report-summary p .zh{display:block;color:var(--ink-soft);font-size:12.5px;margin-top:3px}
+.report-summary .risk-note{margin-top:8px;font-size:12.5px;color:var(--ink-soft)}
+.comments-box{background:#faf7f0;border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.c-title{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+.comment{font-size:14px;line-height:1.55;padding:8px 0 8px 22px;position:relative;border-top:1px dashed rgba(58,41,24,.12)}
+.comment .q{position:absolute;left:0;top:6px;font-size:20px;color:var(--gold-deep);font-family:Georgia,serif}
+.comment .zh{display:block;color:var(--ink-soft);font-size:12.5px;margin-top:2px}
+.market-outcome{border:2px solid var(--teal);border-radius:12px;padding:14px 16px}
+.market-outcome h4{margin:0 0 12px;font-size:15px;color:var(--teal-deep)}
+.mo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mo{background:#f2f8f5;border-radius:10px;padding:10px;text-align:center}
+.mo span{display:block;font-size:11px;color:var(--ink-soft);margin-bottom:4px}
+.mo b{font-size:17px}
+.mo b.ok{color:var(--ok)}
+.mo b.bad{color:var(--bad)}
+.mo-note{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+/* 档案页 R6 摘要 */
+.report-mini{background:#f2f8f5;border:2px solid var(--teal);border-radius:12px;padding:14px 16px;margin-top:16px}
+.rm-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.rm-head b{font-size:14px}
+.rm-head .lvl{font-size:12px;font-weight:800;padding:3px 12px;border-radius:99px;color:#fff}
+.rm-head .lvl.ok{background:var(--ok)}
+.rm-head .lvl.warn{background:var(--warn)}
+.rm-head .lvl.bad{background:var(--bad)}
+.rm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.rm{background:#fff;border-radius:10px;padding:10px;text-align:center}
+.rm span{display:block;font-size:11px;color:var(--ink-soft);margin-bottom:4px}
+.rm b{font-size:16px}
+.rm b.ok{color:var(--ok)}
+.rm b.bad{color:var(--bad)}
+/* 第二章完成提示 */
+.ch2-complete-note{
+  display:flex;align-items:center;gap:8px;text-align:left;
+  background:#e3f1e6;border:2px solid var(--ok);color:var(--teal-deep);
+  font-size:13.5px;font-weight:700;line-height:1.6;border-radius:12px;padding:14px 16px;
+}
+/* 确认弹窗 */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(40,28,16,.55);z-index:999;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.modal-card{
+  background:var(--paper);border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.35);
+  max-width:500px;width:100%;padding:30px 28px 24px;text-align:center;
+  animation:modal-in .18s ease-out;
+}
+@keyframes modal-in{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+.modal-card h3{font-size:24px;margin:0 0 14px}
+.modal-card h3 .zh{display:block;font-size:16px;color:var(--ink-soft);margin-top:6px}
+.modal-card p{font-size:15.5px;line-height:1.8;margin:0 0 22px;color:var(--ink)}
+.modal-card p .zh{display:block;color:var(--ink-soft);font-size:14px;margin-top:8px}
+.modal-card .btn-row{justify-content:center}
+.ch2-reset-row{margin-top:22px;text-align:center;padding-top:18px;border-top:1px dashed rgba(58,41,24,.2)}
+.ch2-reset-note{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+
+/* 场景四：危机事件卡 */
+.crisis-card{
+  background:linear-gradient(160deg,#fffdf6,#fdf0ec);
+  border:2px solid rgba(196,80,63,.45);border-radius:18px;
+  padding:22px 24px;margin-bottom:20px;box-shadow:0 10px 26px rgba(122,53,35,.08);
+}
+.crisis-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--bad);color:#fff;font-size:12px;font-weight:800;
+  letter-spacing:.08em;border-radius:999px;padding:7px 14px;margin-bottom:14px;
+}
+.crisis-card h3{font-size:26px;margin:0 0 4px;color:var(--bad)}
+.crisis-card h3 .zh{display:block;font-size:15px;color:#a63a2e;margin-top:4px}
+.crisis-row{border-top:1px dashed rgba(196,80,63,.3);padding:12px 0}
+.crisis-row > span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#b04a3a;margin-bottom:5px}
+.crisis-row p{margin:0;font-size:15px;font-weight:700;line-height:1.6}
+.crisis-row p .zh{display:block;font-weight:500;color:var(--ink-soft);font-size:13.5px;margin-top:3px}
+.crisis-desc{
+  background:rgba(255,255,255,.75);border-radius:12px;border:1px solid rgba(196,80,63,.25);
+  padding:13px 15px;font-size:14.5px;line-height:1.7;margin:6px 0 12px;
+}
+.crisis-desc .zh{display:block;color:var(--ink-soft);font-size:13px;margin-top:4px}
+.crisis-note{
+  display:flex;gap:8px;align-items:flex-start;
+  font-size:12.5px;font-weight:700;color:#b04a3a;line-height:1.6;
+}
+
+/* 第二章结算画面 */
+.finale-page .complete-hero{margin-bottom:20px}
+.finale-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.finale-grade{
+  border-radius:16px;padding:18px 22px;margin-bottom:18px;color:#fff;
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+}
+.finale-grade.excellent{background:linear-gradient(135deg,#2f9e6e,#1f7a55)}
+.finale-grade.good{background:linear-gradient(135deg,#d9902f,#b5711c)}
+.finale-grade.poor{background:linear-gradient(135deg,#c4503f,#96382c)}
+.fg-badge{font-size:22px;font-weight:800;letter-spacing:.04em;white-space:nowrap}
+.finale-grade p{margin:0;font-size:14.5px;line-height:1.7;flex:1;min-width:240px}
+.finale-grade p .zh{display:block;opacity:.92;font-size:13px;margin-top:3px}
+.finale-risk{
+  background:#fffdf6;border:2px solid rgba(58,41,24,.14);border-radius:16px;
+  padding:18px 20px;margin-bottom:20px;
+}
+.finale-bars{display:flex;flex-direction:column;gap:11px;margin:14px 0 16px}
+.finale-bar{display:flex;align-items:center;gap:12px;font-size:13.5px}
+.finale-bar .fb-label{flex:none;width:230px;font-weight:700}
+.finale-bar .fb-track{flex:1;height:14px;border-radius:999px;background:rgba(58,41,24,.1);overflow:hidden}
+.finale-bar .fb-fill{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#d9902f,#c4503f)}
+.finale-bar .fb-val{flex:none;width:76px;text-align:right;font-weight:800}
+.finale-bar.top .fb-label{color:var(--bad)}
+.finale-bar.top .fb-fill{background:linear-gradient(90deg,#c4503f,#8e2c22)}
+.finale-source{
+  display:flex;gap:8px;align-items:center;
+  background:#fbe9e6;border:2px solid rgba(196,80,63,.35);color:var(--bad);
+  font-weight:700;font-size:14px;line-height:1.6;border-radius:12px;padding:12px 15px;
+}
+.finale-source.none{background:#e3f1e6;border-color:var(--ok);color:var(--teal-deep)}
+.pstat-sub{font-style:normal;font-size:14px;color:var(--ink-soft);font-weight:400}
+
+/* ===== 响应式 ===== */
+@media (max-width:880px){
+  #app{grid-template-columns:1fr}
+  aside#board{
+    position:static;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;
+    padding:14px 16px;gap:12px;
+  }
+  aside#board .board-title{width:100%}
+  .plank{flex:1;min-width:120px;padding:10px 12px}
+  .plank h3{font-size:10px;margin-bottom:6px}
+  .plank .big{font-size:18px}
+  .plank .sub{font-size:11px}
+  .side-nav{display:none}
+  .badge-row{flex:1;min-width:150px}
+  main#view{padding:22px 16px 44px}
+  .hero img{height:210px}
+  .hero-copy h2{font-size:24px}
+  .role-pick{grid-template-columns:1fr}
+  .story-row{grid-template-columns:1fr}
+  .story-avatar img{height:130px}
+  .scene-grid{grid-template-columns:1fr}
+  .ev-list{grid-template-columns:1fr}
+  .compare-wrap{grid-template-columns:1fr}
+  .mo-grid{grid-template-columns:1fr 1fr}
+  .rm-grid{grid-template-columns:1fr 1fr}
+  .pie-wrap{justify-content:center}
+}
+@media (max-width:480px){
+  .hero-copy{left:18px;right:18px;bottom:16px}
+  .hero-copy h2{font-size:21px}
+  .game-body{padding:20px 16px}
+  .game-head{padding:20px 18px}
+  .game-head h2{font-size:23px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <!-- ===== 左侧进度栏 ===== -->
+  <aside id="board">
+    <div class="board-title">
+      <div class="logo">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3a2918" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21"/></svg>
+      </div>
+      <h1>Market Quest<small>MARKET QUEST · 市场大冒险</small></h1>
+    </div>
+
+    <div class="plank chapter-plank" id="ch1Plank" role="button" tabindex="0" aria-label="Chapter 1">
+      <div class="ch-head">
+        <span class="ch-kicker">Chapter 1 · 第一章</span>
+        <span class="ch-status" id="ch1Status">In progress</span>
+      </div>
+      <div class="ch-title">Into The Market Place</div>
+      <div class="ch-title-zh">进入市场</div>
+      <div class="progress-track"><div class="progress-fill" id="ch1Bar" style="width:0%"></div></div>
+      <div class="ch-progress" id="ch1Label">Scene 0 / 5</div>
+    </div>
+
+    <div class="plank chapter-plank locked" id="ch2Plank" role="button" tabindex="0" aria-label="Chapter 2">
+      <div class="ch-head">
+        <span class="ch-kicker">Chapter 2 · 第二章</span>
+        <span class="ch-status locked" id="ch2Status">Locked · 未解锁</span>
+      </div>
+      <div class="ch-title">Beyond the Price Tag</div>
+      <div class="ch-title-zh">价格标签的背后</div>
+      <div class="ch-sub">Your clothing factory · 你的服装工厂</div>
+    </div>
+
+    <div class="plank">
+      <h3>Trade Stars · 贸易之星</h3>
+      <div class="coin-row">
+        <svg class="star" width="30" height="30" viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z" fill="#f0b429" stroke="#c98a12" stroke-width="1.2"/></svg>
+        <div class="big" id="starTotal">0</div>
+      </div>
+      <div class="sub">Best trade choices · 最优贸易选择</div>
+    </div>
+
+    <div class="plank">
+      <h3>Business Risk · 商业风险</h3>
+      <div class="coin-row">
+        <svg width="30" height="30" viewBox="0 0 24 24"><path d="M12 3.2L22 20H2z" fill="#d96c3f" stroke="#b34f28" stroke-width="1.4"/><path d="M12 9.2v4.8" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.4" fill="#fff"/></svg>
+        <div class="big" id="riskTotal">0</div>
+      </div>
+      <div class="sub">Risk from your choices · 选择带来的风险</div>
+    </div>
+
+    <div class="plank">
+      <h3>Coins · 金币</h3>
+      <div class="coin-row">
+        <svg class="coin" width="30" height="30" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#e8a33d" stroke="#bd7d1e" stroke-width="1.6"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="#f6c76a" stroke-width="1.4"/><circle cx="12" cy="12" r="3" fill="#f6c76a"/></svg>
+        <div class="big" id="coinTotal">0</div>
+      </div>
+      <div class="sub">Trade income earned · 贸易所得</div>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge consumer">
+        <div class="b-name">Shopper<br>消费者</div>
+        <div class="b-num" id="consumerDone">0/5</div>
+      </div>
+      <div class="badge supplier">
+        <div class="b-name">Seller<br>商家</div>
+        <div class="b-num" id="supplierDone">0/5</div>
+      </div>
+    </div>
+
+    <nav class="side-nav">
+      <a href="#/" id="homeLink">Back to Market · 回到市场</a>
+    </nav>
+  </aside>
+
+  <!-- ===== 主视图 ===== -->
+  <main id="view"></main>
+</div>
+
+<script>
+/* ================= 数据 ================= */
+const IMG = {
+  market: "https://aka.doubaocdn.com/s/KnMeWvMBz8",
+  factory: "https://aka.doubaocdn.com/s/E3KBPp5MBR",
+  consumer: "https://aka.doubaocdn.com/s/5rOSR5OJb5",
+  supplier: "https://aka.doubaocdn.com/s/4ZrXYU285V"
+};
+const STORE_KEY = "marketQuestSave_v8";
+const CH2_BASE_FUNDS = 200;
+
+const CHAPTER2 = {
+  en: "Beyond the Price Tag",
+  zh: "价格标签的背后",
+  subEn: "Your clothing factory",
+  subZh: "你的服装工厂",
+  welcomeEn: "Now you are ready to become part of the trading system. You will run a clothing factory of your own — take a look at your starting funds!",
+  welcomeZh: "现在你已经准备好成为贸易系统的一员了。你将会自己运行一间生产服装的工厂，先来看看你的初始资金吧！"
+};
+
+const CHAPTER = {
+  en: "Into The Market Place",
+  zh: "进入市场",
+  kicker: "Chapter 1",
+  subEn: "Play both sides of every trade and discover how markets really work.",
+  subZh: "扮演每笔交易的两方，发现市场真正如何运作。"
+};
+
+const SCENES = [
+  {
+    id: 1, en: "First Trade", zh: "第一次交易",
+    concept: { en: "Budget & Cost", zh: "预算与成本" },
+    conceptText: {
+      en: "Budget means the money you are allowed to spend. Profit = selling price − cost. A seller must sell above cost to keep the shop growing.",
+      zh: "预算就是你被允许花的钱。利润 = 售价 − 成本。商家必须高于成本卖出，店铺才能持续成长。"
+    },
+    consumer: {
+      mission: { en: "Buy an item within budget", zh: "在预算内买到一件商品" },
+      intro: {
+        en: "You arrive at the market with 10 coins. Your mission: buy a basket of apples and stay within your budget.",
+        zh: "你带着 10 枚金币来到市场。任务：买一篮苹果，并且不超出预算。"
+      },
+      options: [
+        { en: "Stall A: apples for 5 coins", zh: "摊位 A：苹果 5 金币", stars: 3, coins: 5,
+          result: { en: "Perfect! You bought the apples and still have 5 coins left. Budget kept, mission done!", zh: "完美！你买到苹果，还剩 5 枚金币。守住预算，任务完成！" } },
+        { en: "Stall B: apples for 8 coins", zh: "摊位 B：苹果 8 金币", stars: 1, coins: 2,
+          result: { en: "You bought them and kept 2 coins — but a careful shopper could have saved 3 more.", zh: "你买到了，还剩 2 枚金币——但精明的买家本可以再省下 3 枚。" } },
+        { en: "Stall C: apples for 11 coins", zh: "摊位 C：苹果 11 金币", stars: 0, coins: 0,
+          result: { en: "Purchase failed! 11 coins is over your 10-coin budget. You simply can't afford them.", zh: "购买失败！11 枚金币超出了你 10 枚的预算，你根本买不起。" } }
+      ]
+    },
+    supplier: {
+      mission: { en: "Sell an item above cost", zh: "以高于成本的价格卖出商品" },
+      intro: {
+        en: "You are the apple seller. Each basket costs you 3 coins. Your first customer of the day walks up — what price do you set?",
+        zh: "你是苹果摊主，每篮苹果的成本是 3 枚金币。今天第一位顾客走来——你定价多少？"
+      },
+      options: [
+        { en: "Price a basket at 5 coins", zh: "定价 5 金币", stars: 3, coins: 2,
+          result: { en: "Excellent! You sold above cost and earned 2 coins of profit on one basket.", zh: "太棒了！你高于成本卖出，一篮就赚了 2 枚金币利润。" } },
+        { en: "Price a basket at 3 coins", zh: "定价 3 金币", stars: 1, coins: 0,
+          result: { en: "You broke even — no profit, no loss. The shop didn't grow today, and you earned nothing.", zh: "你刚好保本——不赚不亏。店铺今天没有增长，你也没有赚到金币。" } },
+        { en: "Price a basket at 2 coins", zh: "定价 2 金币", stars: 0, coins: 0,
+          result: { en: "Below cost! Every basket you sell at this price loses you 1 coin.", zh: "低于成本！按这个价每卖一篮你就亏 1 枚金币。" } }
+      ]
+    }
+  },
+  {
+    id: 2, en: "Compare Prices", zh: "货比三家",
+    concept: { en: "Competition", zh: "竞争" },
+    conceptText: {
+      en: "When sellers compete, shoppers win — the same item can cost very different prices. Always compare before you buy!",
+      zh: "商家竞争，买家得利——同样的商品价格可能天差地别。买之前一定要货比三家！"
+    },
+    consumer: {
+      mission: { en: "Choose between competing shops", zh: "在互相竞争的店铺中做出选择" },
+      intro: {
+        en: "You have 15 coins in your budget. You need a sun hat. Three shops sell the exact same hat — but at three different prices.",
+        zh: "你的预算是 15 枚金币。你需要一顶遮阳帽。三家店卖一模一样的帽子——但价格各不相同。"
+      },
+      options: [
+        { en: "Discount shop: 9 coins", zh: "折扣店：9 金币", stars: 3, coins: 6,
+          result: { en: "Same hat, best price! You bought it and kept 6 coins compared with the fancy shop.", zh: "同一顶帽子，最优价格！你买到了它，相比精品店省下了 6 枚金币。" } },
+        { en: "Regular shop: 12 coins", zh: "普通店：12 金币", stars: 1, coins: 3,
+          result: { en: "You bought it and kept 3 coins — but a careful shopper could have saved 6 more.", zh: "你买到了，还剩 3 枚金币——但精明的买家本可以再省 6 枚。" } },
+        { en: "Fancy shop: 15 coins", zh: "精品店：15 金币", stars: 0, coins: 0,
+          result: { en: "Same hat, highest price! You spent your whole budget on nothing extra.", zh: "同一顶帽子，最贵的价格！你花光了全部预算，却没有多得到任何东西。" } }
+      ]
+    },
+    supplier: {
+      mission: { en: "Set prices against competitors", zh: "针对竞争对手制定价格" },
+      intro: {
+        en: "The market sells about 10 jars of honey a day. Your honey costs 6 coins per jar. The shop next door sells the same honey for 10 coins. What price do you set today?",
+        zh: "市场每天能卖出约 10 罐蜂蜜。你的蜂蜜每罐成本 6 枚金币。隔壁店同样的蜂蜜卖 10 金币。今天你定什么价？"
+      },
+      options: [
+        { en: "9 coins — cheaper than your rival", zh: "9 金币——比对手便宜", stars: 3, coins: 24,
+          result: { en: "Your lower price brought higher sales — you sold 8 jars, earning 3 coins of profit on each!", zh: "比对手更低的定价带来了更高的销量，你卖出了 8 罐蜂蜜，每罐还能赚到 3 金币！" } },
+        { en: "10 coins — same as your rival", zh: "10 金币——和对手同价", stars: 1, coins: 20,
+          result: { en: "Same price means you split the customers — 5 jars sold, 4 coins of profit each.", zh: "同价意味着与对手平分顾客——卖出 5 罐，每罐赚 4 枚金币。" } },
+        { en: "12 coins — more than your rival", zh: "12 金币——比对手贵", stars: 0, coins: 12,
+          result: { en: "Your higher price only attracted customers who don't care about price — you sold 2 jars, earning 6 coins each.", zh: "比对手的定价更高让你只吸引到了一些不在乎价格的顾客，每罐赚到了 6 金币，但是只卖出了 2 罐。" } }
+      ]
+    }
+  },
+  {
+    id: 3, en: "Let's Bargain", zh: "讨价还价",
+    concept: { en: "Negotiation", zh: "谈判" },
+    conceptText: {
+      en: "Negotiation is a conversation. A great deal works for both sides — know your limit, stay polite, and be ready to compromise.",
+      zh: "谈判是一场对话。一笔好交易让双方都满意——知道自己的底线，保持礼貌，并准备好让步。"
+    },
+    consumer: {
+      mission: { en: "Negotiate a better deal", zh: "谈出一个更优惠的价格" },
+      intro: {
+        en: "The seller asks 20 coins for a vase, but you don't think it's worth that much. Time to negotiate!",
+        zh: "店主开价 20 金币卖一只花瓶，但你觉得不太值得。该谈判了！"
+      },
+      options: [
+        { en: "Say honestly: \"I love it, but I only have 16 coins. Could you lower the price?\"", zh: "真诚地说：“我很喜欢它，但我只有 16 枚金币，能便宜些吗？”", stars: 3, coins: 5,
+          result: { en: "Your honest offer worked — the seller agreed to 15 coins. You saved 5 coins!", zh: "你的真诚奏效了——店主同意 15 金币成交。你省下了 5 枚金币！" } },
+        { en: "Offer 10 coins right away", zh: "直接还价 10 金币", stars: 0, coins: 0,
+          result: { en: "Too low! The seller felt insulted and refused. You lost the deal.", zh: "太低了！店主觉得没诚意而拒绝，你错过了这笔交易。" } },
+        { en: "Pretend to walk away and see what happens", zh: "假装离开，看看会发生什么", stars: 1, coins: 2,
+          result: { en: "The seller called you back — but only lowered the price to 18 coins. You saved just 2.", zh: "店主叫住了你——但只降到 18 金币。你只省了 2 枚金币。" } }
+      ]
+    },
+    supplier: {
+      mission: { en: "Decide whether to accept an offer", zh: "决定是否接受还价" },
+      intro: {
+        en: "Your vase is priced at 20 coins in your shop. A customer offers 12 coins for it — and your cost is 10 coins. What do you do?",
+        zh: "店铺里的花瓶标价 20 金币。顾客还价 12 金币买它——而你的成本是 10 金币。你会怎么做？"
+      },
+      options: [
+        { en: "Say no politely, then counter-offer 17 coins", zh: "礼貌拒绝，然后还价 17 金币", stars: 3, coins: 7,
+          result: { en: "You kept the deal alive and protected your profit. A master negotiator!", zh: "你保住了交易，也守住了利润。谈判大师！" } },
+        { en: "Accept 12 coins", zh: "接受 12 金币", stars: 1, coins: 2,
+          result: { en: "Sold — but now every customer wants the 12-coin price, and nobody will ever pay 20 coins again.", zh: "成交了——但其他的顾客也都要求用 12 金币购买花瓶，再也没人愿意出 20 金币了。" } },
+        { en: "Refuse flatly and send the customer away", zh: "一口回绝，把顾客赶走", stars: 0, coins: 0,
+          result: { en: "You kept your profit margin, but you never actually sold the vase — and you lost a customer who might have returned.", zh: "你守住了利润空间，但是并没有真的卖掉商品，还失去了一位可能回头的顾客。" } }
+      ]
+    }
+  },
+  {
+    id: 4, en: "Special Discount", zh: "特价优惠",
+    concept: { en: "Discount & Break-even", zh: "折扣与保本" },
+    conceptText: {
+      en: "A discount is only a real gift if the seller still covers costs. Below the cost line, every \"deal\" quietly loses money.",
+      zh: "只有不亏本的折扣才是真优惠。一旦低于成本线，每一笔“优惠”都在悄悄亏钱。"
+    },
+    consumer: {
+      mission: { en: "Evaluate a promotional offer", zh: "评估一个促销优惠" },
+      intro: {
+        en: "You are buying bread with two friends. Each loaf costs 5 coins, three loaves cost 12 coins, and buy four loaves get one free. What will you three choose?",
+        zh: "你和两个朋友一起买面包，每个面包 5 金币，三个面包 12 金币，买四个面包送一个。你们会怎么选？"
+      },
+      options: [
+        { en: "Pay 12 coins for 3 loaves", zh: "花 12 金币买 3 个面包", stars: 3, coins: 3,
+          result: { en: "Each of you pays 4 coins, gets a loaf, and enjoys the discount!", zh: "每人花 4 金币，获得了面包，享受了优惠！" } },
+        { en: "Each buy 1 loaf at the full price of 5 coins", zh: "花 5 金币原价各自购买面包", stars: 1, coins: 0,
+          result: { en: "You each pay the full 5 coins — no waste, but you missed the 3-for-12 deal.", zh: "每人按原价花 5 金币——不浪费，但错过了 3 个 12 金币的优惠。" } },
+        { en: "Buy 4, Get 1 Free: pay 17 coins, get 5 loaves", zh: "买四送一：花 17 金币获得 5 个面包", stars: 0, coins: 0,
+          result: { en: "Five loaves for three people is more than you need — the extra ones may go stale. Wasted money!", zh: "三个人的面包买五个太多了——多出的会放坏。白花钱！" } }
+      ]
+    },
+    supplier: {
+      mission: { en: "Create a discount without losing money", zh: "设计一个不亏本的折扣" },
+      intro: {
+        en: "Your toys cost 8 coins each and sell for 12. You want a promotion that attracts customers — but never loses money.",
+        zh: "你的玩具每个成本 8 金币，卖 12 金币。你想搞一个吸引顾客、但绝不亏本的促销。"
+      },
+      options: [
+        { en: "\"Spend 20, save 3\": two toys for 21 coins", zh: "“满 20 减 3”：买两个 21 金币", stars: 3, coins: 5,
+          result: { en: "Customers save 3 coins, and you still earn 2.5 coins per toy. Win-win!", zh: "顾客省了 3 金币，你每个仍赚 2.5 金币。双赢！" } },
+        { en: "50% off: every toy for 6 coins", zh: "打五折：每个玩具 6 金币", stars: 0, coins: 0,
+          result: { en: "Below your 8-coin cost! Every single sale loses you 2 coins.", zh: "低于 8 金币的成本！每一单都让你亏 2 金币。" } },
+        { en: "\"Buy 2, Get 1 Free\": 24 coins for 3 toys", zh: "“买二送一”：花 24 金币得 3 个玩具", stars: 1, coins: 0,
+          result: { en: "The free toy wipes out all your profit — you only break even.", zh: "送出的玩具吃掉了全部利润——你只是保本。" } }
+      ]
+    }
+  },
+  {
+    id: 5, en: "Market Day", zh: "赶集日",
+    concept: { en: "Planning & Service", zh: "规划与服务" },
+    conceptText: {
+      en: "A great trader plans ahead, serves every customer well, and counts every single coin. Small choices add up to big results.",
+      zh: "优秀的商人提前规划、用心服务每一位顾客、算清每一枚金币。小小的选择，累积成大成果。"
+    },
+    consumer: {
+      mission: { en: "Complete a shopping challenge", zh: "完成一个购物挑战" },
+      intro: {
+        en: "Big challenge! With 20 coins you must buy: 1 basket of apples, 1 loaf of bread, and 1 bottle of juice. Choose your market.",
+        zh: "大挑战！用 20 枚金币买齐：1 篮苹果、1 个面包、1 瓶果汁。选择你要逛的市场吧。"
+      },
+      options: [
+        { en: "Fair Market: 4 + 3 + 6 = 13 coins", zh: "实惠市场：4 + 3 + 6 = 13 金币", stars: 3, coins: 7,
+          result: { en: "Everything on your list, and 7 coins left over. Superb budgeting!", zh: "清单全部买齐，还剩 7 枚金币。预算大师！" } },
+        { en: "Style Market: 5 + 5 + 8 = 18 coins", zh: "精品市场：5 + 5 + 8 = 18 金币", stars: 1, coins: 2,
+          result: { en: "All bought — but only 2 coins left. It works, just barely.", zh: "都买齐了——但只剩 2 枚金币。勉强过关。" } },
+        { en: "Luxury Bazaar: 6 + 8 + 10 = 24 coins", zh: "豪华集市：6 + 8 + 10 = 24 金币", stars: 0, coins: 0,
+          result: { en: "Over budget by 4 coins! You can't buy everything on your list.", zh: "超出预算 4 枚金币！清单上的东西买不齐。" } }
+      ]
+    },
+    supplier: {
+      mission: { en: "Manage multiple customer requests", zh: "应对多位顾客的需求" },
+      intro: {
+        en: "Market day! Apples cost you 4 coins a basket; bread costs 2 coins. Your stock: 3 baskets of apples + 2 loaves of bread.",
+        zh: "赶集日！苹果每篮成本 4 金币，面包每个成本 2 金币。你的库存：3 篮苹果 + 2 个面包。"
+      },
+      customers: [
+        { en: "Customer A: 2 baskets of apples, offers 10 coins", zh: "顾客 A：要 2 篮苹果，出价 10 金币" },
+        { en: "Customer B: 1 basket + 1 loaf, offers 7 coins", zh: "顾客 B：要 1 篮苹果 + 1 个面包，出价 7 金币" },
+        { en: "Customer C: in a hurry, offers 8 coins for 1 basket", zh: "顾客 C：赶时间，愿出 8 金币买 1 篮苹果" }
+      ],
+      options: [
+        { en: "Serve everyone: 10 + 7 + 8 = 25 coins", zh: "全部接待：10 + 7 + 8 = 25 金币", stars: 3, coins: 7,
+          result: { en: "You served everyone! Revenue 25, cost 18, profit 7 coins. The till is full!", zh: "你接待了所有顾客！收入 25，成本 18，利润 7 金币。钱箱满满！" } },
+        { en: "Turn away haggler B; serve A and C: 18 coins", zh: "拒绝砍价的 B；只接待 A 和 C：18 金币", stars: 1, coins: 6,
+          result: { en: "Fine — but you turned away a paying customer. The till could be fuller.", zh: "还行——但你赶走了一位付钱的顾客。钱箱本可以更满。" } },
+        { en: "Only serve big customer A: 10 coins", zh: "只接待大客户 A：10 金币", stars: 0, coins: 2,
+          result: { en: "Safe, but you missed most of the morning's money.", zh: "保守，但你错过了上午的大部分收入。" } }
+      ]
+    }
+  }
+];
+
+/* ================= 第二章场景数据 ================= */
+const CH2_SCENES = [
+  {
+    id: 1,
+    en: "Behind a T-shirt",
+    zh: "一件T-shirt的背后",
+    missionEn: "Make 7 pre-production investment decisions for your factory",
+    missionZh: "为工厂做出 7 项开工前投资决策",
+    rounds: [
+      {
+        en: "Factory Site", zh: "工厂选址",
+        introEn: "Your factory needs a home. Where you build it decides whether workers are safe and production runs smoothly.",
+        introZh: "你的工厂需要一个落脚点。选址决定了工人是否安全、生产是否顺利。",
+        options: [
+          { en: "Industrial zone: fully equipped and approved", zh: "工业区：设施齐全、已获批准", stars: 3, risk: 1, cost: 28,
+            result: { en: "Great pick! Good facilities, safety and approvals — workers can work with peace of mind.", zh: "好选择！设施齐全、安全合规，工人可以安心工作。" } },
+          { en: "Smaller approved industrial site", zh: "较小的获批工业厂址", stars: 1, risk: 2, cost: 18,
+            result: { en: "Acceptable — legal and safe enough, but cramped. Expansion will be hard later.", zh: "可以接受——合法也够安全，但空间拥挤，将来扩充会很麻烦。" } },
+          { en: "Cheap spot near homes, no proper facilities", zh: "靠近居民区、设施不全的便宜地点", stars: 0, risk: 4, cost: 9,
+            result: { en: "Not acceptable! Unsafe, unsuitable, and it disturbs the neighbours too.", zh: "不可接受！不安全也不适合生产，还会打扰周边居民。" } }
+        ]
+      },
+      {
+        en: "Workers", zh: "工人",
+        introEn: "Now decide how you treat your workers: pay, safety, hours and training.",
+        introZh: "现在决定如何对待工人：工资、安全、工时与培训。",
+        options: [
+          { en: "Fair pay, safe conditions, reasonable hours, full training", zh: "公平工资、安全条件、合理工时、完整培训", stars: 3, risk: 0, cost: 34,
+            result: { en: "Happy, skilled workers stay longer and work better. A strong foundation!", zh: "开心又熟练的工人待得更久、做得更好。坚实的基础！" } },
+          { en: "Legal minimum pay, fewer benefits, little training", zh: "法定最低工资、福利较少、培训很少", stars: 1, risk: 2, cost: 22,
+            result: { en: "It meets the law, but workers feel less valued — expect higher turnover.", zh: "符合法律，但工人感到不被重视——人员流动会更高。" } },
+          { en: "Low pay, unsafe conditions, very long hours", zh: "低工资、不安全条件、超长工时", stars: 0, risk: 4, cost: 12,
+            result: { en: "Exploitative and dangerous! This factory is asking for trouble.", zh: "剥削又危险！这样的工厂是在自找麻烦。" } }
+        ]
+      },
+      {
+        en: "Raw Materials", zh: "原材料",
+        introEn: "Choose a fabric supplier. Behind cotton and textiles hides a story — think about the Consumer Iceberg worksheet.",
+        introZh: "选择布料供应商。棉花和纺织品的背后藏着一段故事——想一想《消费者冰山》工作表。",
+        options: [
+          { en: "Transparent supplier: shares cotton origin and factory info, fair price", zh: "透明供应商：公开棉花来源与工厂信息，价格公道", stars: 3, risk: 1, cost: 28,
+            result: { en: "You know where your fabric comes from. That's the first step to a responsible T-shirt.", zh: "你知道布料的来处。这是做一件负责任 T-shirt 的第一步。" } },
+          { en: "Cheaper supplier, almost no info about production", zh: "更便宜的供应商，几乎没有生产信息", stars: 1, risk: 2, cost: 18,
+            result: { en: "You save coins now — but you're blind to what happens behind the scenes.", zh: "现在省了金币——但对幕后发生的事一无所知。" } },
+          { en: "Cheapest fabric, unknown origin, possibly harmful practices", zh: "最便宜的布料，来源不明，可能存在不良生产", stars: 0, risk: 4, cost: 9,
+            result: { en: "A hidden story of pollution or unfair labour may be stitched into every shirt.", zh: "污染或不公平劳工的隐秘故事，可能缝进了每一件衬衫里。" } }
+        ]
+      },
+      {
+        en: "Energy", zh: "能源",
+        introEn: "How does your factory get electricity? Compare cost, reliability and environmental impact.",
+        introZh: "工厂如何获得电力？比较成本、可靠性以及对环境的影响。",
+        options: [
+          { en: "Grid power + energy-efficient machines", zh: "电网供电 + 节能机器", stars: 3, risk: 1, cost: 24,
+            result: { en: "Reliable, reasonably priced and less wasteful. A balanced energy choice.", zh: "稳定可靠、价格合理、浪费更少。平衡的能源选择。" } },
+          { en: "Cheapest old diesel generator", zh: "最便宜的老式柴油发电机", stars: 1, risk: 2, cost: 14,
+            result: { en: "Cheap, but noisy and dirty — and it breaks down just when you need it.", zh: "便宜，但又吵又脏——而且总在最需要时出故障。" } },
+          { en: "Illegal power hook-up, no proper wiring", zh: "非法接电、没有正规线路", stars: 0, risk: 4, cost: 9,
+            result: { en: "Dangerous, illegal and unreliable. This \"saving\" could cost everything.", zh: "危险、违法又不可靠。这种“省钱”可能让一切付之一炬。" } }
+        ]
+      },
+      {
+        en: "Transportation", zh: "运输",
+        introEn: "Choose a transport contract. Compare speed, cost, reliability and emissions — the fastest or priciest isn't automatically best.",
+        introZh: "选择运输合同。比较速度、成本、可靠性与排放——最快或最贵的不一定最好。",
+        options: [
+          { en: "Balanced: reliable trucks, fair cost, moderate emissions", zh: "均衡方案：可靠的卡车、合理成本、中等排放", stars: 3, risk: 1, cost: 26,
+            result: { en: "Steady deliveries at a fair price. The sweet spot of logistics.", zh: "价格公道、交付稳定。物流的甜点区。" } },
+          { en: "Fastest air freight — very expensive, high emissions", zh: "最快的空运——非常昂贵、排放高", stars: 1, risk: 2, cost: 32,
+            result: { en: "It's fast, but the cost and carbon footprint eat into your factory's future.", zh: "是很快，但成本和碳足迹在啃食工厂的未来。" } },
+          { en: "Cheapest unreliable carrier — delays and damaged goods", zh: "最便宜但不靠谱的货运——延误与货损", stars: 0, risk: 3, cost: 13,
+            result: { en: "Late deliveries and broken boxes will lose you customers fast.", zh: "延误和破损的箱子会很快让你失去顾客。" } }
+        ]
+      },
+      {
+        en: "Pollution Treatment", zh: "污染处理",
+        introEn: "Your factory dyes and washes fabric, so it produces coloured wastewater. How do you treat it?",
+        introZh: "你的工厂会染色和洗涤布料，因此会产生染色废水。你如何处理？",
+        options: [
+          { en: "Install a wastewater treatment system before release", zh: "安装废水处理系统，处理达标后再排放", stars: 3, risk: 0, cost: 26,
+            result: { en: "Clean water out, clean conscience. The river stays alive.", zh: "排出的水干净，良心也干净。河流保持生机。" } },
+          { en: "Dilute the wastewater and then release it", zh: "把废水稀释后再排放", stars: 1, risk: 2, cost: 14,
+            result: { en: "Looks fine on paper — but pollution still reaches the river.", zh: "纸面上看着合规——但污染还是流进了河流。" } },
+          { en: "Dump the wastewater straight into the river", zh: "把废水直接倒进河里", stars: 0, risk: 4, cost: 7,
+            result: { en: "The river, the fish and the people downstream pay for your shortcut.", zh: "河流、鱼群和下游的人们为你的捷径买单。" } }
+        ]
+      },
+      {
+        en: "Waste Treatment", zh: "废弃物处理",
+        introEn: "How do you handle fabric scraps, packaging and other production waste?",
+        introZh: "你如何处理布料边角料、包装和其他生产废料？",
+        options: [
+          { en: "Reduce waste, reuse fabric scraps, arrange responsible recycling", zh: "减少浪费、再利用边角料、安排负责任的回收", stars: 3, risk: 0, cost: 19,
+            result: { en: "Less waste, more value — scraps even become new products.", zh: "浪费更少、价值更多——边角料还能变成新产品。" } },
+          { en: "Standard collection and landfill", zh: "常规收集并填埋", stars: 1, risk: 2, cost: 12,
+            result: { en: "Legal, but the mountain of waste keeps growing somewhere.", zh: "合法，但废料山仍在某处不断长高。" } },
+          { en: "Dump the waste improperly", zh: "随意倾倒废料", stars: 0, risk: 4, cost: 6,
+            result: { en: "Illegal dumping pollutes land and water — and it will catch up with you.", zh: "违法倾倒污染土地和水源——迟早会找上门来。" } }
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    en: "Global Product Web",
+    zh: "全球产品网络",
+    missionEn: "Your clothing factory is ready to start. Connect to the global market, produce your first batch of T-shirts, and sell them to customers around the world!",
+    missionZh: "你的服装工厂已经准备好开工了，准备连接到全球市场，生产第一批T-shirt，然后卖给全世界的消费者吧！",
+    earn: true,
+    intro: true,
+    rounds: [
+      {
+        en: "Where Does It Come From?", zh: "原材料从哪里来？",
+        introEn: "Your factory has received its first fabric shipment. You discover that the cotton was grown in Country A, spun into yarn in Country B, and made into fabric in Country C. Your supplier offers three ways to manage the information and documentation for future shipments. You need to decide how carefully your factory will track where its materials come from.",
+        introZh: "工厂收到了第一批布料。你发现：棉花在A国种植，在B国纺成纱线，在C国织成布料。供应商提供三种方式管理未来批次的信息和文件。你需要决定工厂在追踪材料来源这件事上有多认真。",
+        baseFrom: [3],
+        linkEn: "The raw-material supplier you chose earlier sets your factory's existing material-related risk. These new risk changes are added to that total, not used to replace it.",
+        linkZh: "你此前选择的原材料供应商，决定了工厂现有的材料相关风险。新增的风险变化会叠加到这个总数上，而不是取代它。",
+        focusEn: "A product can involve multiple countries, and knowing its origin requires looking beyond the final supplier.",
+        focusZh: "一件产品可能涉及多个国家，想了解它的来源，就不能只看最终的供应商。",
+        options: [
+          { en: "Request full origin records from all 3 countries, including the cotton farm and fabric mill", zh: "要求提供全部3个国家的完整来源记录，包括棉田和织布厂", stars: 3, risk: 0, cost: 12,
+            result: { en: "Full traceability — every T-shirt can tell its own honest story.", zh: "全链条可追溯——每一件T-shirt都能讲出自己诚实的故事。" } },
+          { en: "Request records from the fabric mill in Country C only", zh: "只向C国的织布厂索取记录", stars: 1, risk: 2, cost: 5,
+            result: { en: "The mill's records look fine — but the cotton's story stays invisible.", zh: "织布厂的记录看起来没问题——但棉花的故事依然无从知晓。" } },
+          { en: "Accept the shipment without checking any origin records", zh: "不核对任何来源记录，直接收下这批货", stars: 0, risk: 4, cost: 0,
+            result: { en: "No paperwork, no questions — and no idea what you just bought.", zh: "没有文件、没有疑问——但你对自己刚买下的东西一无所知。" } }
+        ]
+      },
+      {
+        en: "Connecting the World", zh: "连接全球",
+        introEn: "Your next fabric shipment needs to travel 2,000 km to your factory. You already have a transportation contract from Scene 1, but you must now choose how this particular shipment will be delivered. Three delivery arrangements are available.",
+        introZh: "下一批布料需要运输2000公里才能到达工厂。场景一中你已经签过运输合同，但现在你必须决定这批货具体怎么运。有三种运输方案可选。",
+        baseFrom: [1, 5],
+        linkEn: "Your previous transportation contract adds its established operating cost and risk conditions to this shipment.",
+        linkZh: "你之前签的运输合同，会把既定的运营成本和风险条件叠加到这批货上。",
+        focusEn: "Transportation decisions involve distance, speed, cost, and environmental consequences.",
+        focusZh: "运输决策涉及距离、速度、成本和环境影响。",
+        options: [
+          { en: "Consolidated rail and truck delivery, arriving in 8 days", zh: "铁路加卡车联运，8天到达", stars: 3, risk: 1, cost: 8,
+            result: { en: "Balanced, reliable and on schedule — the smart middle path.", zh: "均衡、可靠、准点——聪明的中间路线。" } },
+          { en: "Standard truck delivery, arriving in 5 days", zh: "标准卡车运输，5天到达", stars: 1, risk: 1, cost: 12,
+            result: { en: "Fast enough for now, but the bill is heavier than the route deserves.", zh: "目前看够快，但账单比这条路线应有的成本更重。" } },
+          { en: "Express air delivery, arriving in 2 days", zh: "空运快递，2天到达", stars: 0, risk: 0, cost: 25,
+            result: { en: "Fastest possible — yet no deadline made it necessary. The extra cost and emissions were avoidable.", zh: "最快——但没有截止日期需要它这么快。这笔花费和排放本可避免。" } }
+        ]
+      },
+      {
+        en: "The Broken Link", zh: "断裂的供应链",
+        introEn: "Heavy rain closes a major transport route. Your fabric shipment will be delayed by 6 days. A retailer expects your next production batch in 5 days. You need to respond before the delay affects your customer.",
+        introZh: "暴雨封堵了一条主要运输路线。你的布料将延误6天，而一家零售商期望5天内收到你的下一批产品。你必须在延误影响到顾客之前做出回应。",
+        baseFrom: [5, 3],
+        linkEn: "Factories with higher transportation risk may face extra delivery expenses or less flexibility, based on their locked contracts.",
+        linkZh: "运输风险更高的工厂，可能会因为已锁定的合同而承担额外运输费用，或失去应变灵活性。",
+        focusEn: "When one connection is interrupted, the consequences can spread to factories, retailers, and consumers.",
+        focusZh: "当一环中断时，后果会波及工厂、零售商和消费者。",
+        options: [
+          { en: "Use an alternative route and inform the retailer; delivery will be 1 day late", zh: "改走备选路线并告知零售商；交货将晚1天", stars: 3, risk: 1, cost: 10,
+            result: { en: "Honest communication and a working detour — the customer stays on your side.", zh: "坦诚沟通加上可行的绕行——顾客依然站在你这边。" } },
+          { en: "Wait for the original route and tell the retailer about the 6-day delay", zh: "等原路线恢复，并告知零售商将延误6天", stars: 1, risk: 3, cost: 0,
+            result: { en: "At least you told them... but 6 days is a long, expensive wait.", zh: "至少你说了……但6天是一段漫长而昂贵的等待。" } },
+          { en: "Promise the original delivery date without explaining the disruption", zh: "承诺按原日期交货，却闭口不谈中断", stars: 0, risk: 5, cost: 0,
+            result: { en: "A broken promise travels faster than any shipment — trust is gone.", zh: "食言比任何货物传播得都快——信任没了。" } }
+        ]
+      },
+      {
+        en: "Our First Customers!", zh: "我们的第一批客户！",
+        introEn: "Your factory has 30 T-shirts ready for sale. Three local buyers contact you with their first orders. You can accept one offer.",
+        introZh: "工厂有30件T-shirt待售。三位本地买家发来了首批订单。你可以接受其中一个报价。",
+        baseFrom: [2, 3],
+        linkEn: "Material quality and worker conditions could influence order fulfillment or the buyer's willingness to continue purchasing.",
+        linkZh: "材料质量和工人条件会影响订单履行，也会影响买家是否愿意继续采购。",
+        focusEn: "Factories sell to other businesses, not only individual consumers. Larger orders can bring more revenue but may involve greater uncertainty.",
+        focusZh: "工厂的客户不只是个人消费者，还有别的企业。更大的订单可能带来更多收入，但也伴随更大的不确定性。",
+        options: [
+          { en: "Sell 10 T-shirts to a verified local clothing shop at 9 coins each", zh: "卖给一家经过核实的本地服装店10件，每件9金币", stars: 3, risk: 0, revenue: 90,
+            result: { en: "A trustworthy shop, cash in hand — steady and real.", zh: "可信的店铺、到手的现金——又稳又实。" } },
+          { en: "Sell 15 T-shirts to a new online retailer at 7 coins each", zh: "卖给一家新的线上零售商15件，每件7金币", stars: 1, risk: 2, revenue: 105,
+            result: { en: "More coins on paper — but a brand-new partner brings brand-new risk.", zh: "纸面上赚得更多——但全新伙伴带来全新风险。" } },
+          { en: "Sell 25 T-shirts to an unverified distributor at 6 coins each, with payment promised later", zh: "卖给一家未经验证的经销商25件，每件6金币，货款以后再付", stars: 0, risk: 5, promised: 150,
+            result: { en: "+150 promised, 0 in hand. A huge order means nothing until the coins actually arrive.", zh: "承诺150，到手0。在金币真正到账之前，大订单一文不值。" } }
+        ]
+      },
+      {
+        en: "The Price Game", zh: "价格博弈",
+        introEn: "Your factory is preparing to sell T-shirts through a local market. A customer survey suggests different levels of demand depending on the price. You must choose one selling price. This round uses a separate production batch of 20 T-shirts.",
+        introZh: "工厂准备通过本地市场销售T-shirt。顾客调查显示，不同价格对应不同的需求量。你必须选择一个售价。本回合使用独立的20件T-shirt批次。",
+        baseFrom: [3, 4],
+        linkEn: "Your material and energy decisions affect the operating cost of producing these T-shirts. A higher-cost factory may earn less profit even at the same selling price.",
+        linkZh: "你在材料和能源上的决策会影响生产这些T-shirt的运营成本。成本更高的工厂，即使售价相同，利润也更少。",
+        focusEn: "Higher prices can reduce demand, and selling more products does not necessarily mean earning more profit. The stars evaluate how well the price matches the market information — not whether the price is low.",
+        focusZh: "更高的价格会降低需求，而卖得更多不一定赚得更多。星级评价的是价格与市场信息的匹配度——而不是价格够不够低。",
+        options: [
+          { en: "Price at 8 coins each — about 18 buyers expected", zh: "每件定价8金币——预计约18位买家", stars: 3, risk: 1, revenue: 144,
+            result: { en: "The price matches the market — shelves nearly empty, profits solid.", zh: "价格与市场匹配——货架几乎清空，利润扎实。" } },
+          { en: "Price at 10 coins each — about 12 buyers expected", zh: "每件定价10金币——预计约12位买家", stars: 1, risk: 0, revenue: 120,
+            result: { en: "Safe and steady, but the survey said the market wanted a better deal.", zh: "稳妥，但调查显示市场想要更实惠的价格。" } },
+          { en: "Price at 14 coins each — about 5 buyers expected", zh: "每件定价14金币——预计约5位买家", stars: 0, risk: 2, revenue: 70,
+            result: { en: "High price, lonely shelf. A few sales can't hide the empty demand.", zh: "高价、冷清货架。零星几单掩盖不了需求不足。" } }
+        ]
+      },
+      {
+        en: "What Do Consumers Want?", zh: "消费者想要什么？",
+        introEn: "A school wants to purchase 20 T-shirts for a student event. The school has a budget of 220 coins and asks for durable products with clear information about their materials. Your factory must decide what kind of offer to make.",
+        introZh: "一所学校想为学生活动采购20件T-shirt。学校预算是220金币，要求产品耐用，并清楚说明材料信息。你的工厂必须决定提供什么样的方案。",
+        baseFrom: [2, 6, 7],
+        linkEn: "Factories that chose traceable materials and responsible practices may pay less to verify claims. Others may need extra inspections or documentation.",
+        linkZh: "选择可追溯材料和负责任做法的工厂，核实宣称的成本更低。其他工厂可能需要额外的检查和文件。",
+        focusEn: "Consumer expectations influence what producers make, how they communicate, and which products buyers choose.",
+        focusZh: "消费者期待影响生产者做什么、如何宣传，以及买家最终选择什么产品。",
+        options: [
+          { en: "Provide durability checks and verified material information; sell 20 at 11 coins each", zh: "提供耐用性检测和经过核实的材料信息；以每件11金币卖出20件", stars: 3, risk: 0, cost: 20, revenue: 220,
+            result: { en: "Verified and durable — the school trusts you, and the coins are real.", zh: "经核实又耐用——学校信任你，金币也是真的。" } },
+          { en: "Provide basic quality checks only; sell 20 at 9 coins each", zh: "只提供基础质检；以每件9金币卖出20件", stars: 1, risk: 1, cost: 8, revenue: 180,
+            result: { en: "Cheaper to make, but the school notices what you left out.", zh: "做得便宜些，但学校注意到了你省略的部分。" } },
+          { en: "Advertise the T-shirts as fully sustainable without checking the claim; sell 20 at 11 coins each", zh: "不核实就宣称T-shirt完全可持续；以每件11金币卖出20件", stars: 0, risk: 5, promised: 220,
+            result: { en: "A claim with no evidence — the sale only happens if the school still accepts it.", zh: "没有证据的宣称——只有学校仍然接受，这笔交易才会发生。" } }
+        ]
+      },
+      {
+        en: "T-Shirts Around the World", zh: "T恤走向世界",
+        introEn: "Your factory receives three international sales opportunities. You can accept one contract for your next production batch. The factory has a production capacity of 40 T-shirts for this round.",
+        introZh: "工厂收到三个国际销售机会。你可以为下一批产品接受一份合同。本回合工厂的产能为40件T-shirt。",
+        baseFrom: [1, 5, 4],
+        linkEn: "Factory location, transportation contracts, and production conditions influence delivery expenses and reliability.",
+        linkZh: "工厂选址、运输合同和生产条件，会影响运输费用与交付可靠性。",
+        focusEn: "Global trade creates opportunities, but producers must consider capacity, transportation, reliability, and the expectations of international buyers.",
+        focusZh: "全球贸易带来机会，但生产者必须考虑产能、运输、可靠性以及国际买家的期待。",
+        options: [
+          { en: "Sell 25 T-shirts to a verified regional retailer for 12 coins each, with 30-coin delivery cost", zh: "卖给一家经核实的区域零售商25件，每件12金币，运费30金币", stars: 3, risk: 1, cost: 30, revenue: 300,
+            result: { en: "Within capacity, delivered on time — your global reputation grows.", zh: "在产能之内、准时交付——你的全球口碑不断增长。" } },
+          { en: "Sell 35 T-shirts to a new overseas distributor for 10 coins each, with 45-coin delivery cost", zh: "卖给一家新的海外分销商35件，每件10金币，运费45金币", stars: 1, risk: 3, cost: 45, revenue: 350,
+            result: { en: "A big contract on paper — but the new partner and tight capacity add strain.", zh: "纸面上的大合同——但新伙伴和紧张的产能都增加了压力。" } },
+          { en: "Accept an urgent order for 50 T-shirts at 11 coins each, despite having capacity for only 40", zh: "接受一个50件的加急订单，每件11金币——尽管你的产能只有40件", stars: 0, risk: 6, cost: 60, promised: 550,
+            result: { en: "You promised 50 shirts you cannot make. The 550 coins never arrive; the complaints do.", zh: "你承诺了做不出来的50件T-shirt。550金币不会到账，投诉倒会来。" } }
+        ]
+      }
+    ]
+  },
+  {
+    id: 3,
+    en: "The Responsible Consumer",
+    zh: "负责任的消费者",
+    missionEn: "You have run a factory — now see the world through a responsible consumer's eyes. Shop wisely, demand evidence, and discover how consumer choices shape your factory's future.",
+    missionZh: "你已经经营过工厂——现在用负责任消费者的眼光看世界。精明购物、索要证据，发现消费者的选择如何塑造你工厂的未来。",
+    intro: true,
+    rounds: [
+      {
+        en: "The Shopping Challenge", zh: "购物挑战",
+        introEn: "Your personal shopping budget is 100 coins. You need a water bottle for use while working at the factory. Think about your needs and your budget before you choose.",
+        introZh: "你的个人购物预算是100金币。你需要买一个在工厂工作时使用的水杯。选择之前，先想想你的需求和预算。",
+        budget: 100,
+        options: [
+          { en: "Single-use plastic bottle — 8 coins", zh: "一次性塑料瓶——8金币", price: 8, stars: 0, risk: 3,
+            result: { en: "Cheap now — but a single-use bottle becomes waste by lunchtime.", zh: "现在便宜——但一次性水瓶午饭前就变成了垃圾。" } },
+          { en: "Reusable bottle, expected to last about one year — 45 coins", zh: "可重复使用水瓶，预计能用约一年——45金币", price: 45, stars: 3, risk: 1,
+            result: { en: "Fits your need and your budget — a smart, responsible buy.", zh: "既满足需求又符合预算——聪明又负责任的购买。" } },
+          { en: "Premium reusable bottle, expected to last three years — 90 coins", zh: "高端可重复使用水瓶，预计能用三年——90金币", price: 90, stars: 1, risk: 2,
+            result: { en: "Durable, yes — but 90 coins leaves little room for your other needs.", zh: "确实耐用——但90金币挤占了其他需求的空间。" } }
+        ]
+      },
+      {
+        en: "Look Beyond the Price", zh: "不要只看价格",
+        introEn: "You need a T-shirt for use while working at the factory over the next two years. Compare the real long-term cost — not just the sticker price. Assume each shirt is used until it wears out.",
+        introZh: "你需要一件接下来两年在工厂工作时穿的T-shirt。比较真实的长期成本——而不只是标价。假设每件T-shirt都穿到坏为止。",
+        cost2y: true,
+        options: [
+          { en: "Cheap shirt — 25 coins, lasts about 6 months", zh: "便宜T恤——25金币，寿命约6个月", price2y: 100, stars: 0, risk: 3,
+            result: { en: "The cheapest tag hides the biggest bill: 100 coins over two years.", zh: "最便宜的标签背后是最高的账单：两年100金币。" } },
+          { en: "Mid-price shirt — 45 coins, lasts about 12 months", zh: "中等价位T恤——45金币，寿命约12个月", price2y: 90, stars: 1, risk: 2,
+            result: { en: "90 coins over two years — better, but still not the best deal.", zh: "两年90金币——好些了，但还不是最划算的。" } },
+          { en: "Quality shirt — 75 coins, lasts about 24 months", zh: "优质T恤——75金币，寿命约24个月", price2y: 75, stars: 3, risk: 1,
+            result: { en: "75 coins over two years — quality pays for itself.", zh: "两年75金币——质量自己就把钱赚回来了。" } }
+        ]
+      },
+      {
+        en: "Show Me the Evidence!", zh: "请给我证据！",
+        introEn: "Three T-shirts for your work at the factory all claim to be 'environmentally responsible'. Each brand shows only its name at first — inspect the evidence clues to reveal what each brand really offers. You need at least two clues to make your choice.",
+        introZh: "三件供你在工厂工作时穿的T-shirt都宣称'对环境负责'。每个品牌一开始只显示名称——查验线索，才能看清每个品牌到底提供了什么。至少查验 2 条线索后才能做出选择。",
+        evidenceItems: [
+          { key: 'materials', en: "Materials & sourcing", zh: "材料与来源" },
+          { key: 'workers', en: "Worker treatment", zh: "工人待遇" },
+          { key: 'certs', en: "Environmental certificates", zh: "环保认证" },
+          { key: 'durability', en: "Durability", zh: "耐用度" }
+        ],
+        options: [
+          { en: "Eco-Smart Tee", zh: "环保智慧T恤", stars: 0, risk: 3,
+            evidence: {
+              materials: { en: "Advertised as using 'green materials' — but no documents to verify.", zh: "广告宣称使用'绿色材料'——但没有文件可以核实。" },
+              workers: { en: "Ads show smiling workers — yet on social media, a self-described former employee says the factory treats workers badly.", zh: "广告里有工人满脸笑容制作衣服的照片——但社交平台上，一位自称前员工的人说工厂对待工人很差劲。" },
+              certs: { en: "No government-verified environmental documents provided.", zh: "未提供有政府检验的环保类文件。" },
+              durability: { en: "Advertised as comfortable and durable — a claim only.", zh: "广告反复宣称舒适耐穿——仅仅是宣称。" }
+            },
+            result: { en: "A beautiful slogan with nothing behind it. Choose → Evidence → Explain: the evidence was missing.", zh: "漂亮的口号背后空空如也。选择→证据→解释：证据缺失。" } },
+          { en: "Verified Thread", zh: "认证棉麻", stars: 3, risk: 1,
+            evidence: {
+              materials: { en: "Product label states 100% cotton & linen materials.", zh: "产品标签标明使用全棉麻材料。" },
+              workers: { en: "Official website provides a documentary of the factory work areas and workers making T-shirts.", zh: "官方网站提供了工厂工作区域和工人生产T恤过程的纪录片。" },
+              certs: { en: "No green slogans in the ads — third-party inspection & testing reports are provided.", zh: "广告里没有提到绿色或环保——但提供了第三方机构的合格检测报告。" },
+              durability: { en: "Label states comfortable and durable.", zh: "产品标签标明舒适耐穿。" }
+            },
+            result: { en: "Every claim checks out. This is what responsible production looks like.", zh: "每一条宣称都经得起核对。这就是负责任的生产。" } },
+          { en: "NatureLine", zh: "自然之线", stars: 1, risk: 2,
+            evidence: {
+              materials: { en: "Lists natural materials: cotton & linen — percentages not shown.", zh: "提供天然材料清单：棉、麻——未标明所占百分比。" },
+              workers: { en: "No worker information provided.", zh: "未提供工人信息。" },
+              certs: { en: "The factory and its working environment are not mentioned.", zh: "没有提到工厂和工作环境。" },
+              durability: { en: "No durability information provided.", zh: "未提供衣服耐用度信息。" }
+            },
+            result: { en: "Some information — but not enough to back the eco label.", zh: "有一些信息——但不足以支撑环保标签。" } }
+        ]
+      },
+      {
+        en: "Meet Your Customers", zh: "认识你的顾客",
+        introEn: "Back at the factory. Three customer groups are considering your T-shirts. Look at what each group values, then choose the customer your factory is currently best equipped to meet. Affordability is a legitimate need — no group is 'wrong'.",
+        introZh: "回到工厂。三个顾客群体正在考虑购买你的T-shirt。看看每个群体重视什么，然后选择你的工厂目前最擅长满足的顾客。负担得起的价格是正当需求——没有哪个群体是'错的'。",
+        warnEn: "Please note: consider your factory's current operations and choose the customer group that best fits your factory. Choosing an unsuitable group will bring extra business risk.",
+        warnZh: "请注意：你需要考虑你的工厂目前的运营状态，选择最适合你的工厂的顾客群体。选择不适合的顾客群体会带来额外的商业风险。",
+        starsFn: ch3StarsR4,
+        dynamicResult: ch3ResultR4,
+        options: [
+          { en: "Budget-conscious families — they need low prices. No special quality demands; as long as the price is right, sales volume is huge.", zh: "价格敏感型家庭消费者——需要低价商品，对品质没有特别要求，只要价格合适，销量非常大。", i: 0, risk: 2, stars: 1,
+            best: { en: "Your low prices fit budget-conscious families perfectly.", zh: "你的低价格完美契合价格敏感型家庭消费者。" },
+            mid: { en: "You could serve them, but your strengths lie elsewhere.", zh: "你也能服务他们，但你的强项在别处。" },
+            low: { en: "Your price structure doesn't match what they need.", zh: "你的价格结构不符合他们的需求。" } },
+          { en: "School activity organizers — they supply student sportswear and event uniforms. Moderate prices, but very high demands on quality, durability and safety. Satisfy them and they become long-term regular orders with stable sales.", zh: "学校活动组织者——主要提供各种学生体育服和活动统一服装，价格适中，对服装品质、耐用度、还有安全性要求非常高，只要满足需求，会转变为长期的固定订单，带来稳定的销售。", i: 1, risk: 1, stars: 1,
+            best: { en: "Reliable delivery and steady workers — exactly what organizers need.", zh: "可靠交付和稳定的工人——正是组织者需要的。" },
+            mid: { en: "You could handle it, but reliability is not your strongest suit.", zh: "你能应付，但可靠性不是你的最强项。" },
+            low: { en: "Missed delivery could hurt — this group is risky for you right now.", zh: "错过交付会很受伤——这个群体目前对你有风险。" } },
+          { en: "Radical environmentalists — they value eco-friendly and green organic production. Clothing must be harmless to the environment at every stage: materials, transport, production, waste treatment and sales. They accept shorter lifespans, are not price-sensitive, and will pay very high prices — low volume, but loyal customers for a very long time.", zh: "激进的环保主义者——非常注重环保和绿色有机产业。要求服装在原料、运输、生产、废料处理、销售的过程中都完全做到对环境无害。愿意接受衣物的使用寿命较短的缺点。对价格非常不敏感，只要满足要求，愿意支付非常高的价格购买衣物，虽然销量不高，但是会变成非常长时间的固定消费者。", i: 2, risk: 1, stars: 1,
+            best: { en: "Traceable materials and clean practices — eco shoppers will trust you.", zh: "可追溯的材料和清洁的做法——环保主义者会信任你。" },
+            mid: { en: "Some evidence exists, but not enough to win them over.", zh: "有一些证据，但不足以赢得他们。" },
+            low: { en: "Without verifiable claims, this group will walk away.", zh: "没有可验证的宣称，这个群体会转身离开。" } }
+        ]
+      },
+      {
+        en: "Would You Buy Your Own T-Shirt?", zh: "你会买自己的T恤吗？",
+        introEn: "Two T-shirts, side by side. Yours — built from your own earlier decisions. The competitor's — a fixed product at 50 coins. If you were a consumer, which would you choose? Be honest — critical thinking is a skill.",
+        introZh: "两件T-shirt并排摆放。你的——由你此前的决策造就。对手的——定价50金币的标准产品。如果你是消费者，你会选哪一件？请诚实作答——批判性思维也是一种能力。",
+        showComparison: true,
+        starsFn: ch3StarsR5,
+        dynamicResult: ch3ResultR5,
+        options: [
+          { en: "My factory's T-shirt", zh: "我自己工厂的T-shirt", i: 0, risk: 1, stars: 1, result: { en: "", zh: "" } },
+          { en: "The competitor's T-shirt — 50 coins, standard quality, basic info", zh: "竞争对手的T-shirt——50金币，标准质量，有基本信息", i: 1, risk: 1, stars: 1, result: { en: "", zh: "" } },
+          { en: "I need more information before deciding", zh: "在做决定之前我还需要更多信息", i: 2, risk: 0, stars: 0,
+            result: { en: "Waiting for more information is a responsible choice too.", zh: "等待更多信息也是负责任的选择。" } }
+        ]
+      },
+      {
+        en: "The Power of Consumer Choice", zh: "消费者选择的力量",
+        introEn: "100 consumers just saw your T-shirt. Here is their report — and what it means for your factory.",
+        introZh: "100位消费者刚刚看到了你的T-shirt。这是他们的反馈报告——以及它对你工厂意味着什么。",
+        auto: true
+      }
+    ]
+  },
+  {
+    id: 4,
+    en: "The Domino Effect", zh: "多米诺骨牌效应",
+    missionEn: "An operating crisis has hit your factory. Read the crisis event, then respond across four rounds as the effects spread through your trade network.",
+    missionZh: "一场运营危机降临你的工厂。请阅读危机事件，然后在四轮中应对它沿贸易网络逐步扩散的影响。",
+    intro: true,
+    rounds: [
+      {
+        en: "The First Domino — Consumers Stop Buying", zh: "第一张骨牌：消费者停止购买",
+        introEn: "A report raises concerns about waste from your factory. Twenty-five customers cancel their planned purchases, and more customers are asking questions.",
+        introZh: "一份报告对你工厂的废弃物处理提出质疑。25位顾客取消了计划中的购买，更多顾客正在询问。",
+        options: [
+          { en: "Investigate the waste problem, publish verified findings, and announce corrective action", zh: "调查废弃物问题，公布经核实的发现，并宣布整改措施", i: 0, cost: 25, risk: -3, stars: 3,
+            crisisTexts: {
+              quality: { en: "Investigate the quality problems with your T-shirts, publish verified findings, and announce corrective action", zh: "调查你T恤的质量问题，公布经核实的发现，并宣布整改措施" },
+              worker: { en: "Investigate the working conditions at your factory, publish verified findings, and announce corrective action", zh: "调查你工厂的工作条件，公布经核实的发现，并宣布整改措施" },
+              delivery: { en: "Investigate the delivery failures, publish verified findings, and announce corrective action", zh: "调查交付失败的问题，公布经核实的发现，并宣布整改措施" },
+              transparency: { en: "Investigate the unsupported claims and missing information, publish verified findings, and announce corrective action", zh: "调查无支撑的宣称和缺失的信息，公布经核实的发现，并宣布整改措施" }
+            },
+            result: { en: "Investigating and correcting takes time — trust is not restored instantly, but the public sees you acting responsibly.", zh: "调查与整改需要时间——信任不会瞬间恢复，但公众看到了你负责任的态度。" } },
+          { en: "Offer a 10% discount while reviewing the complaints", zh: "在审查投诉的同时提供9折优惠", i: 1, cost: 10, risk: 1, stars: 1,
+            result: { en: "A discount calms some complaints, but the underlying problem remains.", zh: "折扣安抚了一些抱怨，但根本问题仍然存在。" } },
+          { en: "Delete negative comments and claim there is no problem", zh: "删除负面评论并声称没有问题", i: 2, cost: 0, risk: 5, stars: 0,
+            crisisTexts: {
+              quality: { en: "Delete negative comments and claim the shirts are fine", zh: "删除负面评论并声称衣服没有问题" },
+              worker: { en: "Dismiss the report and claim workers are well treated", zh: "驳斥报道并声称工人待遇良好" },
+              delivery: { en: "Deny any delivery problems", zh: "否认存在任何交付问题" },
+              transparency: { en: "Delete the questions and keep the original claims", zh: "删除质疑并维持原来的宣称" }
+            },
+            result: { en: "Deleted comments cannot delete the problem — mistrust grows.", zh: "删除评论删不掉问题——不信任在加剧。" } }
+        ]
+      },
+      {
+        en: "The Second Domino — Retailers Reduce Orders", zh: "第二张骨牌：零售商减少订单",
+        introEn: "Because consumers worry about environmental damage, two clothing shops reduce their orders from 40 T-shirts to 20.",
+        introZh: "因为消费者担心环境破坏，两家服装店把订单从40件T恤减到20件。",
+        options: [
+          { en: "Share a verified improvement plan and negotiate smaller, realistic deliveries", zh: "分享经核实的改进计划，协商更小、更现实的交付", i: 0, cost: 8, risk: -2, stars: 3,
+            result: { en: "Realistic deliveries and a clear plan keep your retailers on board.", zh: "现实的交付与清晰的计划留住了零售商。" } },
+          { en: "Offer a temporary discount to maintain some orders", zh: "提供临时折扣以维持部分订单", i: 1, cost: 15, risk: 1, stars: 1,
+            result: { en: "Discounts hold some orders, but retailers stay cautious.", zh: "折扣保住了部分订单，但零售商仍然谨慎。" } },
+          { en: "Promise large deliveries despite uncertain demand", zh: "在需求不确定的情况下承诺大批量交付", i: 2, cost: 0, risk: 4, stars: 0,
+            result: { en: "Over-promising without certainty erodes retailer confidence further.", zh: "在不确定时过度承诺，进一步侵蚀了零售商的信心。" } }
+        ]
+      },
+      {
+        en: "The Third Domino — Suppliers and Workers Feel the Impact", zh: "第三张骨牌：供应商和工人受到影响",
+        introEn: "Production falls because retailers are ordering fewer T-shirts. Your fabric supplier has already prepared materials, and factory workers are concerned about their jobs.",
+        introZh: "由于零售商订单减少，产量下降。你的面料供应商已经备好了材料，工厂工人开始担心工作。",
+        options: [
+          { en: "Negotiate a smaller material order and temporarily reduce production while protecting worker agreements", zh: "协商更小的材料订单并暂时减产，同时保护工人协议", i: 0, cost: 18, risk: -2, stars: 3,
+            result: { en: "Protecting suppliers and workers keeps your network stable — and your people loyal.", zh: "保护供应商与工人让网络保持稳定，也赢得人心。" } },
+          { en: "Delay new material orders and reduce working hours with clear notice", zh: "推迟新的材料订单，并在明确通知后减少工时", i: 1, cost: 5, risk: 1, stars: 1,
+            result: { en: "Clear notice softens the blow, but incomes still shrink.", zh: "明确的告知减轻了冲击，但收入仍在缩水。" } },
+          { en: "Cancel supplier payments and dismiss workers without proper notice", zh: "取消供应商付款并无通知地解雇工人", i: 2, cost: 0, risk: 5, stars: 0,
+            result: { en: "Breaking promises to suppliers and workers spreads damage beyond your factory.", zh: "对供应商和工人违约，把伤害扩散到了工厂之外。" } }
+        ]
+      },
+      {
+        en: "The Fourth Domino — The Wider Trade Network Reacts", zh: "第四张骨牌：更广泛的贸易网络受到影响",
+        introEn: "Your reduced production affects transportation companies and international partners. Some businesses are considering ending their contracts.",
+        introZh: "减产影响了运输公司和国际伙伴。一些企业正在考虑终止合同。",
+        options: [
+          { en: "Negotiate realistic delivery schedules and share a recovery plan with trading partners", zh: "协商现实的交付计划，并与贸易伙伴分享复苏计划", i: 0, cost: 15, risk: -3, stars: 3,
+            result: { en: "A realistic recovery plan restores partners' confidence in your network.", zh: "现实的复苏计划恢复了伙伴对你网络的信心。" } },
+          { en: "Temporarily pause overseas orders while keeping partners informed", zh: "暂时暂停海外订单，同时让伙伴保持知情", i: 1, cost: 5, risk: 1, stars: 1,
+            result: { en: "Pausing orders with clear communication is a patient step forward.", zh: "暂停订单并保持沟通——这是稳妥的一步。" } },
+          { en: "Continue accepting orders without explaining the factory's difficulties", zh: "继续接受订单而不解释工厂的困难", i: 2, cost: 0, risk: 5, stars: 0,
+            result: { en: "Silence on your difficulties makes partners question your reliability.", zh: "对困难保持沉默，让伙伴质疑你的可靠性。" } }
+        ]
+      }
+    ]
+  }
+];
+
+/* ================= 第二章场景四：危机库 ================= */
+const CH4_CRISES = {
+  quality: {
+    typeEn: "Quality Crisis", typeZh: "质量危机",
+    triggerEn: "Cheap materials, limited quality checks", triggerZh: "廉价材料、有限的质检",
+    trustEn: "T-shirts wear out too quickly", trustZh: "T恤磨损得太快",
+    descEn: "Your T-shirts are wearing out too quickly. Customers trusted your low prices, and now they doubt the product itself.",
+    descZh: "你的T恤磨损得太快。顾客当初相信了你的低价，现在他们开始怀疑产品本身。"
+  },
+  worker: {
+    typeEn: "Worker Crisis", typeZh: "劳工危机",
+    triggerEn: "Poor worker conditions", triggerZh: "糟糕的工人条件",
+    trustEn: "Customers question how workers are treated", trustZh: "顾客质疑工人的待遇",
+    descEn: "Customers are questioning how your workers are treated. The way you cut costs inside the factory is now visible to the public.",
+    descZh: "顾客开始质疑你的工人受到怎样的对待。你在工厂内部削减成本的方式，如今被公众看见了。"
+  },
+  environmental: {
+    typeEn: "Environmental Crisis", typeZh: "环境危机",
+    triggerEn: "High pollution or waste risk", triggerZh: "高污染或废弃物风险",
+    trustEn: "Customers worry about environmental damage", trustZh: "顾客担心环境破坏",
+    descEn: "High pollution or waste risk from your factory has made customers worry about environmental damage. The report is spreading.",
+    descZh: "你工厂的高污染或废弃物风险让顾客担心环境破坏。相关报道正在扩散。"
+  },
+  delivery: {
+    typeEn: "Delivery Crisis", typeZh: "运输危机",
+    triggerEn: "Unreliable transport, missed orders", triggerZh: "不可靠的运输、错过的订单",
+    trustEn: "Retailers and customers lose confidence", trustZh: "零售商和顾客失去信心",
+    descEn: "Unreliable transport and missed orders have shaken confidence. Retailers and customers no longer trust your delivery.",
+    descZh: "不可靠的运输和错过的订单动摇了信心。零售商和顾客不再信任你的交付。"
+  },
+  transparency: {
+    typeEn: "Transparency Crisis", typeZh: "信息透明危机",
+    triggerEn: "Unsupported claims, missing production information", triggerZh: "无支撑的宣称、缺失的生产信息",
+    trustEn: "Customers do not trust the company's statements", trustZh: "顾客不信任公司的声明",
+    descEn: "Unsupported claims and missing production information have made customers distrust everything your company says.",
+    descZh: "无支撑的宣称和缺失的生产信息，让顾客不再信任你公司说的一切。"
+  }
+};
+/* 危机触发映射：前期场景中的高风险选择 → 危机类型（权重为该选项的风险值） */
+const CH4_TRIGGER_MAP = [
+  { s: '1', r: 2, p: [1, 2], tag: 'worker' },
+  { s: '1', r: 3, p: [1, 2], tag: 'quality' },
+  { s: '1', r: 5, p: [1, 2], tag: 'delivery' },
+  { s: '1', r: 6, p: [1, 2], tag: 'environmental' },
+  { s: '1', r: 7, p: [1, 2], tag: 'environmental' },
+  { s: '2', r: 3, p: [1, 2], tag: 'delivery' },
+  { s: '2', r: 6, p: [2], tag: 'transparency' },
+  { s: '3', r: 2, p: [0], tag: 'quality' },
+  { s: '3', r: 3, p: [0], tag: 'transparency' }
+];
+/* 每轮情境按危机类型变化；R3/R4 与危机类型关联弱，统一用 base */
+const CH4_SITUATIONS = {
+  base: {
+    3: {
+      en: "Production falls because retailers are ordering fewer T-shirts. Your fabric supplier has already prepared materials, and factory workers are concerned about their jobs.",
+      zh: "由于零售商订单减少，产量下降。你的面料供应商已经备好了材料，工厂工人开始担心工作。"
+    },
+    4: {
+      en: "Your reduced production affects transportation companies and international partners. Some businesses are considering ending their contracts.",
+      zh: "减产影响了运输公司和国际伙伴。一些企业正在考虑终止合同。"
+    }
+  },
+  quality: {
+    1: { en: "A report questions the durability of your T-shirts. Twenty-five customers cancel their planned purchases, and more customers are asking questions.", zh: "一份报告质疑你T恤的耐用度。25位顾客取消了计划中的购买，更多顾客正在询问。" },
+    2: { en: "Because consumers doubt the quality, two clothing shops reduce their orders from 40 T-shirts to 20.", zh: "因为消费者质疑质量，两家服装店把订单从40件T恤减到20件。" }
+  },
+  worker: {
+    1: { en: "A report raises concerns about how workers are treated in your factory. Twenty-five customers cancel their planned purchases, and more customers are asking questions.", zh: "一份报告对你工厂工人的待遇提出质疑。25位顾客取消了计划中的购买，更多顾客正在询问。" },
+    2: { en: "Because consumers question working conditions, two clothing shops reduce their orders from 40 T-shirts to 20.", zh: "因为消费者质疑工作条件，两家服装店把订单从40件T恤减到20件。" }
+  },
+  environmental: {
+    1: { en: "A report raises concerns about waste from your factory. Twenty-five customers cancel their planned purchases, and more customers are asking questions.", zh: "一份报告对你工厂的废弃物处理提出质疑。25位顾客取消了计划中的购买，更多顾客正在询问。" },
+    2: { en: "Because consumers worry about environmental damage, two clothing shops reduce their orders from 40 T-shirts to 20.", zh: "因为消费者担心环境破坏，两家服装店把订单从40件T恤减到20件。" }
+  },
+  delivery: {
+    1: { en: "A report reveals missed deliveries and unreliable transport from your factory. Twenty-five customers cancel their planned purchases, and more customers are asking questions.", zh: "一份报告披露了你工厂错过的订单和不可靠的运输。25位顾客取消了计划中的购买，更多顾客正在询问。" },
+    2: { en: "Because consumers have lost trust in delivery, two clothing shops reduce their orders from 40 T-shirts to 20.", zh: "因为消费者对交付失去信任，两家服装店把订单从40件T恤减到20件。" }
+  },
+  transparency: {
+    1: { en: "A report questions your product claims and missing production information. Twenty-five customers cancel their planned purchases, and more customers are asking questions.", zh: "一份报告质疑你的产品宣称和缺失的生产信息。25位顾客取消了计划中的购买，更多顾客正在询问。" },
+    2: { en: "Because consumers do not trust your statements, two clothing shops reduce their orders from 40 T-shirts to 20.", zh: "因为消费者不信任你的声明，两家服装店把订单从40件T恤减到20件。" }
+  }
+};
+/* 依据前期场景的实际选择选出本场运营危机：风险贡献最高者胜出；全部最优时默认 quality */
+function ch4PickCrisis(){
+  const score = { quality: 0, worker: 0, environmental: 0, delivery: 0, transparency: 0 };
+  let bestTag = 'quality', bestScore = 0;
+  CH4_TRIGGER_MAP.forEach(m => {
+    const s = state.ch2 && state.ch2.sceneStates[m.s];
+    if(!s || !s.choices) return;
+    const c = s.choices.find(x => x.round === m.r);
+    if(!c || m.p.indexOf(c.pick) < 0) return;
+    const sc = CH2_SCENES.find(x => x.id === Number(m.s));
+    const rd = sc.rounds[m.r - 1];
+    const opt = rd.options[c.pick];
+    const w = (opt && opt.risk) ? opt.risk : 1;
+    score[m.tag] += w;
+    if(score[m.tag] > bestScore){ bestScore = score[m.tag]; bestTag = m.tag; }
+  });
+  return { type: bestTag, data: CH4_CRISES[bestTag] };
+}
+
+/* ================= 状态 ================= */
+let state = loadState();
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw) return Object.assign({ best:{}, roleDone:{}, sceneDone:[], ch2:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null }, JSON.parse(raw));
+  }catch(e){}
+  return { best:{}, roleDone:{}, sceneDone:[], ch2:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null };
+}
+function saveState(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
+}
+/* 总贸易之星与总金币 = 各角色历史最佳纪录之和 */
+function totals(){
+  let stars = 0, coins = 0;
+  Object.keys(state.best).forEach(sid => {
+    const m = state.best[sid];
+    Object.keys(m).forEach(r => { stars += m[r].stars; coins += m[r].coins; });
+  });
+  return { stars: stars, coins: coins };
+}
+
+/* ================= 工具 ================= */
+const $ = s => document.querySelector(s);
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function isRoleDone(sceneId, role){
+  return !!(state.roleDone[sceneId] && state.roleDone[sceneId].indexOf(role) !== -1);
+}
+function isSceneDone(sceneId){ return state.sceneDone.indexOf(sceneId) !== -1; }
+function isSceneUnlocked(sceneId){ return sceneId === 1 || isSceneDone(sceneId - 1); }
+/* 第二章场景解锁：场景一在第二章解锁后可玩，后续场景需前一场景完成 */
+function ch2SceneUnlocked(sceneId){
+  if(!state.ch2 || !state.ch2.sceneStates) return false;
+  if(sceneId === 1) return true;
+  const prev = state.ch2.sceneStates[String(sceneId - 1)];
+  return !!(prev && prev.phase === 'done');
+}
+/* 场景是否已被锁定：进入下一场景后，此前所有场景成绩锁定为后续事件基准 */
+function ch2SceneLocked(sceneId){
+  return !!(state.ch2 && state.ch2.sceneStates && state.ch2.sceneStates[sceneId]
+    && state.ch2.sceneStates[sceneId].locked);
+}
+/* 进入场景 enterSceneId 时，锁定此前所有场景（成绩作为后续场景的事件基准） */
+function lockPreviousScenes(enterSceneId){
+  if(!state.ch2 || !state.ch2.sceneStates) return;
+  let changed = false;
+  for(let i = 1; i < enterSceneId; i++){
+    const s = state.ch2.sceneStates[String(i)];
+    if(s && !s.locked){ s.locked = true; changed = true; }
+  }
+  // 全局规则：进入第二章场景二起，第一章的数值同步锁定（不可再重玩）
+  if(enterSceneId >= 2 && !state.ch1Locked){ state.ch1Locked = true; changed = true; }
+  if(changed) saveState();
+}
+/* 整个第二章是否已完成（所有场景均完成） */
+function ch2AllDone(){
+  if(!state.ch2 || !state.ch2.sceneStates) return false;
+  return CH2_SCENES.every(sc => {
+    const s = state.ch2.sceneStates[sc.id];
+    return !!(s && s.phase === 'done');
+  });
+}
+/* 重置整个第二章：清空场景成绩与锁定，金币恢复到初始资金 */
+function resetChapter2(){
+  if(!state.ch2) return;
+  const base = CH2_BASE_FUNDS + totals().coins;
+  state.ch2.coins = base;
+  state.ch2.sceneStates = {};
+  state.ch1Locked = false;
+  saveState();
+}
+
+/* —— 确认弹窗（自定义模态，替代 alert/confirm） —— */
+let _modalRoot = null;
+function ensureModalRoot(){
+  if(!_modalRoot){
+    _modalRoot = document.createElement('div');
+    _modalRoot.id = 'modalRoot';
+    document.body.appendChild(_modalRoot);
+  }
+  return _modalRoot;
+}
+function showConfirm(opts){
+  const root = ensureModalRoot();
+  root.innerHTML =
+    '<div class="modal-overlay">' +
+      '<div class="modal-card">' +
+        '<h3>' + esc(opts.titleEn) + '<span class="zh">' + esc(opts.titleZh) + '</span></h3>' +
+        '<p>' + esc(opts.msgEn) + '<span class="zh">' + esc(opts.msgZh) + '</span></p>' +
+        '<div class="btn-row">' +
+          '<button class="btn primary" data-modal-ok>' + esc(opts.okText) + '</button>' +
+          '<button class="btn ghost" data-modal-no>' + esc(opts.noText) + '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  root.querySelector('[data-modal-ok]').addEventListener('click', () => {
+    root.innerHTML = '';
+    if(opts.onOk) opts.onOk();
+  });
+  root.querySelector('[data-modal-no]').addEventListener('click', () => {
+    root.innerHTML = '';
+    if(opts.onCancel) opts.onCancel();
+  });
+}
+
+/* 图标 */
+const ICON = {
+  coin:'<svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#e8a33d" stroke="#bd7d1e" stroke-width="1.6"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="#f6c76a" stroke-width="1.4"/><circle cx="12" cy="12" r="3" fill="#f6c76a"/></svg>',
+  star:'<svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z" fill="#f0b429" stroke="#c98a12" stroke-width="1.2"/></svg>',
+  check:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>',
+  lock:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>',
+  cart:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h2l2.2 9.5a1.5 1.5 0 0 0 1.47 1.17h6.9a1.5 1.5 0 0 0 1.44-1.1L20.5 9H7.3"/><circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>',
+  stall:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9"/><path d="M3 18h18"/><path d="M9.5 12h5"/></svg>',
+  book:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20"/></svg>',
+  arrow:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+  risk:'<svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.3l10.6 18.3a1.15 1.15 0 0 1-1 1.72H2.4a1.15 1.15 0 0 1-1-1.72z" fill="#c4503f"/><path d="M12 7.4v6.3" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1.5" fill="#fff"/></svg>'
+};
+
+/* ================= 渲染：左侧栏 ================= */
+function renderBoard(){
+  const total = SCENES.length;
+  let doneCount = 0, consumerCount = 0, supplierCount = 0;
+  SCENES.forEach(s => {
+    if(isSceneDone(s.id)) doneCount++;
+    if(isRoleDone(s.id,'consumer')) consumerCount++;
+    if(isRoleDone(s.id,'supplier')) supplierCount++;
+  });
+  const t = totals();
+  const view = location.hash || "#/";
+
+  // 金币计数器：第二章视图显示第二章当前总额，第一章视图显示第一章历史最佳累计
+  if(view.indexOf("#/ch2") === 0 && state.ch2){
+    $("#coinTotal").textContent = state.ch2.coins;
+  } else {
+    $("#coinTotal").textContent = t.coins;
+  }
+
+  // 贸易之星：第一章历史最佳 + 第二章各场景历史最佳
+  let ch2Stars = 0;
+  if(state.ch2 && state.ch2.sceneStates){
+    Object.keys(state.ch2.sceneStates).forEach(sid => {
+      const s = state.ch2.sceneStates[sid];
+      if(typeof s.bestStars === 'number') ch2Stars += s.bestStars;
+    });
+  }
+  $("#starTotal").textContent = t.stars + ch2Stars;
+
+  // 商业风险：第二章全部场景风险累计（全局；重玩当前场景时随该场景清零而回滚）
+  let risk = 0;
+  if(state.ch2 && state.ch2.sceneStates){
+    Object.keys(state.ch2.sceneStates).forEach(sid => {
+      const s = state.ch2.sceneStates[sid];
+      if(s && typeof s.risk === 'number') risk += s.risk;
+    });
+  }
+  const riskEl = $("#riskTotal");
+  riskEl.textContent = risk;
+  riskEl.style.color = risk >= 20 ? "#ff9d8a" : (risk >= 10 ? "#ffc3a3" : "");
+
+  // 第一章章节卡：进度 + 状态
+  const ch1Complete = doneCount === total;
+  $("#ch1Bar").style.width = (doneCount / total * 100) + "%";
+  $("#ch1Label").textContent = ch1Complete
+    ? ("Completed · 已完成 " + doneCount + "/" + total)
+    : ("Scene " + doneCount + " / " + total + " · 场景 " + doneCount + " / " + total);
+  const ch1Status = $("#ch1Status");
+  if(state.ch1Locked){
+    ch1Status.textContent = "Locked · 已锁定";
+    ch1Status.className = "ch-status locked";
+  } else if(ch1Complete){
+    ch1Status.textContent = "Done · 已完成";
+    ch1Status.className = "ch-status done";
+  } else if(doneCount > 0){
+    ch1Status.textContent = "In progress · 进行中";
+    ch1Status.className = "ch-status ready";
+  } else {
+    ch1Status.textContent = "Not started · 未开始";
+    ch1Status.className = "ch-status";
+  }
+
+  // 第二章章节卡：解锁状态
+  const ch2El = $("#ch2Plank");
+  const ch2Status = $("#ch2Status");
+  if(ch1Complete){
+    ch2El.classList.remove("locked");
+    ch2Status.textContent = state.ch2 ? ("Started · 已开始 (" + state.ch2.coins + ")") : "Ready · 可开始";
+    ch2Status.className = "ch-status ready";
+  } else {
+    ch2El.classList.add("locked");
+    ch2Status.textContent = "Locked · 未解锁";
+    ch2Status.className = "ch-status locked";
+  }
+
+  $("#consumerDone").textContent = consumerCount + "/" + total;
+  $("#supplierDone").textContent = supplierCount + "/" + total;
+}
+
+/* ================= 渲染：主视图 ================= */
+function render(){
+  renderBoard();
+  const hash = location.hash || "#/";
+  if(hash.indexOf("#/scene/") === 0){
+    const id = parseInt(hash.split("/")[2], 10);
+    renderScene(id);
+  } else if(hash.indexOf("#/ch2/scene/") === 0){
+    const id = parseInt(hash.split("/")[3], 10);
+    renderCh2Scene(id);
+  } else if(hash.indexOf("#/ch2") === 0){
+    renderChapter2();
+  } else {
+    renderMenu();
+  }
+  window.scrollTo(0,0);
+}
+
+/* ================= 章节逻辑 ================= */
+function isChapter1Complete(){
+  return SCENES.every(s => isSceneDone(s.id));
+}
+/* 首次进入第二章时初始化工厂资金：固定 200 + 第一章带入金币总额 */
+function enterChapter2(){
+  if(!state.ch2){
+    state.ch2 = { coins: CH2_BASE_FUNDS + totals().coins, sceneStates: {} };
+    saveState();
+  }
+  location.hash = "#/ch2";
+}
+
+/* —— 第二章主页 —— */
+function renderChapter2(){
+  if(!isChapter1Complete() && !state.ch2){
+    location.hash = "#/";
+    return;
+  }
+  if(!state.ch2){
+    state.ch2 = { coins: CH2_BASE_FUNDS + totals().coins, sceneStates: {} };
+    saveState();
+  }
+  const base = CH2_BASE_FUNDS;
+  const carried = state.ch2.coins - base;
+
+  // 第二章场景卡列表
+  const sceneCards = CH2_SCENES.map(sc => {
+    const st = state.ch2.sceneStates[sc.id];
+    const notUnlocked = !ch2SceneUnlocked(sc.id);
+    const scoreLocked = !notUnlocked && ch2SceneLocked(sc.id);
+    const locked = notUnlocked || scoreLocked;
+    let chip;
+    if(notUnlocked) chip = '<span class="state-chip locked">' + ICON.lock + ' Locked · 未解锁</span>';
+    else if(scoreLocked) chip = '<span class="state-chip locked">' + ICON.lock + ' Locked · 已锁定</span>';
+    else if(st && st.phase === 'done') chip = '<span class="state-chip done">' + ICON.check + ' Done · 已完成</span>';
+    else if(st && st.started) chip = '<span class="state-chip ready">In progress · 进行中</span>';
+    else chip = '<span class="state-chip ready">Ready · 可开始</span>';
+    const bestTxt = (st && st.bestStars !== null)
+      ? '<div class="ch2-best">Best: ' + ICON.star + ' ' + st.bestStars + ' · Risk ' + st.risk + ' · 最佳：' + st.bestStars + ' 星 / 风险 ' + st.risk + '</div>'
+      : (sc.rounds && sc.rounds.length ? '<div class="ch2-best">' + sc.rounds.length + ' rounds · ' + sc.rounds.length + ' 个回合</div>' : '<div class="ch2-best">Coming soon · 即将上线</div>');
+    const playBtn = locked
+      ? '<button class="play-btn" disabled>' + (notUnlocked ? 'Locked · 未解锁' : 'Locked · 已锁定') + '</button>'
+      : '<button class="play-btn" data-ch2-go="' + sc.id + '">Play · 开始</button>';
+    return (
+      '<article class="scene-card">' +
+        '<div class="awning"></div>' +
+        '<div class="card-body">' +
+          '<div class="scene-no">SCENE ' + String(sc.id).padStart(2,"0") + ' · 场景 ' + sc.id + '</div>' +
+          '<div class="scene-title"><h4>' + esc(sc.en) + '</h4><div class="zh">' + esc(sc.zh) + '</div></div>' +
+          '<div class="missions">' +
+            '<div class="mission-line consumer"><span class="role">' + ICON.stall + '</span><span class="txt">' + esc(sc.missionEn) + '<span class="zh">' + esc(sc.missionZh) + '</span></span></div>' +
+          '</div>' +
+          bestTxt +
+          '<div class="scene-foot">' + chip + playBtn + '</div>' +
+        '</div>' +
+      '</article>'
+    );
+  }).join("");
+
+  // 整个第二章完成后：重置入口
+  const resetRow = ch2AllDone()
+    ? '<div class="ch2-reset-row">' +
+        '<button class="btn ghost" data-ch2-reset>Reset Chapter 2 · 重置第二章</button>' +
+        '<div class="ch2-reset-note">All scenes complete — reset to try other choices. · 第二章全部完成——重置后可尝试其它选择。</div>' +
+      '</div>'
+    : '';
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-home>Market · 市场</button><span class="sep">/</span>' +
+      '<span>Chapter 2 · 第二章</span>' +
+    '</div>' +
+    '<section class="hero">' +
+      '<img src="' + IMG.factory + '" alt="A clothing factory / 服装工厂">' +
+      '<div class="hero-copy">' +
+        '<span class="hero-kicker">Chapter 2 · 第二章</span>' +
+        '<h2>' + esc(CHAPTER2.en) + '</h2>' +
+        '<div class="zh-title">' + esc(CHAPTER2.zh) + '</div>' +
+      '</div>' +
+    '</section>' +
+    '<div class="ch2-welcome">' +
+      '<p class="en">' + esc(CHAPTER2.welcomeEn) + '<span class="zh">' + esc(CHAPTER2.welcomeZh) + '</span></p>' +
+    '</div>' +
+    '<div class="funds-card">' +
+      '<div>' +
+        '<div class="f-label">Your funds · 当前资金</div>' +
+        '<div class="funds-total">' + ICON.coin + ' ' + state.ch2.coins + ' coins · 金币</div>' +
+        '<div class="funds-breakdown">Started with ' + base + ' coins base + ' + carried + ' carried from Chapter 1' +
+          '<span class="zh">初始为固定 ' + base + ' 金币 + 第一章带入 ' + carried + ' 金币</span></div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="funds-note">' +
+      'From Chapter 2 on, your coins rise and fall with every choice you make. Choose a scene to begin.' +
+      '<span class="zh">从第二章开始，金币会随着你的每次选择而增加或减少。选择一个场景开始吧。</span>' +
+    '</div>' +
+    '<div class="section-head" style="margin-bottom:16px"><h3>Choose a Scene · 选择场景</h3></div>' +
+    '<div class="scene-grid">' + sceneCards + '</div>' +
+    resetRow;
+
+  $("#view").querySelectorAll("[data-home]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/"; });
+  });
+  $("#view").querySelectorAll("[data-ch2-go]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = parseInt(btn.getAttribute("data-ch2-go"),10);
+      location.hash = "#/ch2/scene/" + id;
+    });
+  });
+  $("#view").querySelectorAll("[data-ch2-reset]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      showConfirm({
+        titleEn: 'Reset Chapter 2?', titleZh: '重置第二章？',
+        msgEn: 'Resetting will clear all Chapter 2 scene results, unlock every scene, and restore your coins to the starting funds. Are you sure?',
+        msgZh: '重置将清空第二章所有场景的成绩、解除全部锁定，并把金币恢复到初始资金。确定吗？',
+        okText: 'Reset · 重置', noText: 'Cancel · 取消',
+        onOk: () => { resetChapter2(); render(); }
+      });
+    });
+  });
+}
+
+/* —— 第二章场景：起始页（任务介绍 + 开始按钮） —— */
+function renderCh2Intro(sc, st){
+  const hasRounds = !!(sc.rounds && sc.rounds.length);
+  // 场景四：根据场景三结算报告生成运营危机事件卡
+  let crisisBlock = '';
+  let startLabel = 'Start · 开始';
+  if(sc.id === 4){
+    if(!st.crisis){ st.crisis = ch4PickCrisis(); saveState(); }
+    const c = st.crisis.data;
+    crisisBlock =
+      '<div class="crisis-card">' +
+        '<div class="crisis-badge">' + ICON.risk + ' Operating Crisis Report · 运营危机报告</div>' +
+        '<h3>' + esc(c.typeEn) + '<span class="zh">' + esc(c.typeZh) + '</span></h3>' +
+        '<div class="crisis-row"><span>Trigger from earlier scenes · 前期场景触发因素</span>' +
+          '<p class="en">' + esc(c.triggerEn) + '<span class="zh">' + esc(c.triggerZh) + '</span></p></div>' +
+        '<div class="crisis-row"><span>Customer trust problem · 客户信任问题</span>' +
+          '<p class="en">' + esc(c.trustEn) + '<span class="zh">' + esc(c.trustZh) + '</span></p></div>' +
+        '<p class="crisis-desc en">' + esc(c.descEn) + '<span class="zh">' + esc(c.descZh) + '</span></p>' +
+        '<div class="crisis-note">' + ICON.risk + ' Your earlier decisions triggered this crisis. Read it carefully — the effects will spread across four rounds. · 你此前的决策引发了这场危机。请仔细阅读——影响将沿四轮逐步扩散。</div>' +
+      '</div>';
+    startLabel = 'Start the Crisis Response · 开始危机响应';
+  }
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-ch2>Chapter 2 · 第二章</button><span class="sep">/</span>' +
+      '<span>Scene ' + sc.id + ' · 场景 ' + sc.id + '</span>' +
+    '</div>' +
+    '<section class="hero">' +
+      '<img src="' + IMG.factory + '" alt="A clothing factory / 服装工厂">' +
+      '<div class="hero-copy">' +
+        '<span class="hero-kicker">Scene ' + sc.id + ' · 场景 ' + sc.id + '</span>' +
+        '<h2>' + esc(sc.en) + '</h2>' +
+        '<div class="zh-title">' + esc(sc.zh) + '</div>' +
+      '</div>' +
+    '</section>' +
+    '<div class="mission-card">' +
+      '<div class="m-label">Main Mission · 主要任务</div>' +
+      '<p class="en">' + esc(sc.missionEn) + '<span class="zh">' + esc(sc.missionZh) + '</span></p>' +
+      ((sc.rounds && sc.rounds[0] && sc.rounds[0].baseFrom)
+        ? '<div class="mission-note">' + ICON.risk + ' Every decision here adds to the hidden risks your Scene 1 choices left behind. · 这里的每个决策都会叠加场景一选择留下的隐患。' + '</div>'
+        : '') +
+    '</div>' +
+    crisisBlock +
+    (hasRounds
+      ? '<div class="btn-row">' +
+          '<button class="btn primary" data-ch2-start>' + startLabel + '</button>' +
+          '<button class="btn ghost" data-ch2>Back to Chapter 2 · 返回第二章</button>' +
+        '</div>'
+      : '<div class="coming-soon">More scenes coming soon · 更多场景内容即将上线</div>' +
+        '<div class="btn-row"><button class="btn gold" data-ch2>Back to Chapter 2 · 返回第二章</button></div>');
+  $("#view").querySelectorAll("[data-ch2]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch2"; });
+  });
+  $("#view").querySelectorAll("[data-ch2-start]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st){
+        st.started = true;
+        st.startCoins = state.ch2.coins;
+        saveState();
+        render();
+      }
+    });
+  });
+}
+
+/* —— 第二章场景一：连续七回合的前期投入 —— */
+function getCh2SceneState(sceneId){
+  if(!state.ch2){
+    state.ch2 = { coins: CH2_BASE_FUNDS + totals().coins, sceneStates: {} };
+    saveState();
+  }
+  if(!state.ch2.sceneStates[sceneId]){
+    state.ch2.sceneStates[sceneId] = {
+      started: false, startCoins: null, round: 1, risk: 0,
+      starsTotal: 0, bestStars: null, phase: 'play', picked: null, choices: [], locked: false,
+      evChecked: [], report: null
+    };
+    saveState();
+  }
+  return state.ch2.sceneStates[sceneId];
+}
+
+function renderCh2Scene(sceneId){
+  const sc = CH2_SCENES.find(x => x.id === sceneId);
+  if(!sc){ renderChapter2(); return; }
+  if(!isChapter1Complete() && !state.ch2){ location.hash = "#/"; return; }
+  if(!ch2SceneUnlocked(sceneId)){ location.hash = "#/ch2"; return; }
+  if(ch2SceneLocked(sceneId)){ location.hash = "#/ch2"; return; }
+  // 进入场景即锁定此前所有场景的成绩（作为后续场景的事件基准）
+  lockPreviousScenes(sceneId);
+  const st = getCh2SceneState(sceneId);
+  // 带起始页的场景（intro）：未开始前先显示任务卡与开始按钮
+  if((sc.intro && !st.started) || !sc.rounds || !sc.rounds.length){ renderCh2Intro(sc, st); return; }
+  if(!st.started){
+    st.started = true;
+    st.startCoins = state.ch2.coins;
+    saveState();
+  }
+  let body;
+  if(st.phase === 'result' && st.picked !== null) body = renderCh2Result(sc, st);
+  else if(st.phase === 'done') body = (sc.id === 4) ? renderCh2Finale(sc, st) : renderCh2Done(sc, st);
+  else {
+    const cur = sc.rounds[st.round - 1];
+    body = (cur && cur.auto) ? renderCh3Report(sc, st) : renderCh2Round(sc, st);
+  }
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-ch2>Chapter 2 · 第二章</button><span class="sep">/</span>' +
+      '<span>Scene ' + sc.id + ' · 场景 ' + sc.id + '</span>' +
+    '</div>' +
+    '<section class="game-panel">' +
+      '<div class="game-head">' +
+        '<div class="crumb">Chapter 2 · Beyond the Price Tag · 第二章 价格标签的背后</div>' +
+        '<h2>Scene ' + sc.id + ': ' + esc(sc.en) + '</h2>' +
+        '<div class="zh">场景 ' + sc.id + '：' + esc(sc.zh) + '</div>' +
+      '</div>' +
+      '<div class="game-body">' + body + '</div>' +
+    '</section>';
+
+  $("#view").querySelectorAll("[data-ch2]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch2"; });
+  });
+  bindCh2SceneEvents(sc, st);
+}
+
+function bindCh2SceneEvents(sc, st){
+  const v = $("#view");
+  v.querySelectorAll("[data-ch3-ev]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(!st.evChecked) st.evChecked = [];
+      const key = btn.getAttribute("data-ch3-ev");
+      const at = st.evChecked.indexOf(key);
+      if(at >= 0) st.evChecked.splice(at,1);
+      else st.evChecked.push(key);
+      saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-ch2-opt]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      st.picked = parseInt(btn.getAttribute("data-ch2-opt"),10);
+      st.phase = 'result';
+      saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-ch2-continue]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const round = sc.rounds[st.round - 1];
+      const opt = (st.picked !== null) ? round.options[st.picked] : null;
+      if(round && round.auto){
+        // 自动回合（场景三 R6）：结算市场报告，再进入档案页
+        const rep = ch3Report();
+        state.ch2.coins += rep.revenue;
+        st.risk = Math.max(0, (st.risk || 0) + rep.riskDelta);
+        st.report = rep;
+        st.phase = 'done';
+        if(st.bestStars === null || st.starsTotal > st.bestStars) st.bestStars = st.starsTotal;
+      } else if(opt){
+        // 金币变化 = 实际收入 − 支出；独立预算/长期成本分析回合不动工厂现金；承诺收入不计入余额
+        if(!round.budget && !round.cost2y){
+          state.ch2.coins += (opt.revenue || 0) - (opt.cost || 0);
+        }
+        st.risk = Math.max(0, (st.risk || 0) + opt.risk);
+        const stars = round.starsFn ? round.starsFn(opt) : opt.stars;
+        st.starsTotal += stars;
+        if(!st.choices) st.choices = [];
+        st.choices.push({ round: st.round, pick: st.picked });
+        if(st.round >= sc.rounds.length){
+          st.phase = 'done';
+          if(st.bestStars === null || st.starsTotal > st.bestStars) st.bestStars = st.starsTotal;
+        } else {
+          st.round++;
+          st.phase = 'play';
+        }
+      }
+      st.picked = null;
+      saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-ch2-replay]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      // 重玩：金币回滚至场景开始时的数额，风险、回合与选择记录重置
+      state.ch2.coins = st.startCoins;
+      st.round = 1; st.risk = 0; st.starsTotal = 0; st.phase = 'play'; st.picked = null; st.choices = [];
+      st.report = null; st.evChecked = [];
+      saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-ch2-enter]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      showConfirm({
+        titleEn: 'Enter the Next Scene?', titleZh: '进入下一个场景？',
+        msgEn: 'Once you enter the next scene, your results in this scene will be locked, and they will be used as the baseline for later scenes. You can only restart after completing the whole Chapter 2. Are you sure you want to enter the next scene?',
+        msgZh: '一旦进入下一个场景，你在这个场景的成绩将会被锁定，只有在完成整个第二章后才能选择重新开始。确定进入下一个场景吗？',
+        okText: 'Enter · 进入', noText: 'Stay · 留在本页',
+        onOk: () => {
+          const target = "#/ch2/scene/" + (sc.id + 1);
+          if(location.hash === target){ render(); }
+          else { location.hash = target; }
+        }
+      });
+    });
+  });
+  v.querySelectorAll("[data-ch2]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch2"; });
+  });
+}
+
+/* —— 第二章场景：回合选择 —— */
+function renderCh2Round(sc, st){
+  const round = sc.rounds[st.round - 1];
+  const isEv = !!(round.evidenceItems && round.evidenceItems.length);
+  const enabled = isEv ? (st.evChecked || []).length >= 2 : true;
+  let opts;
+  if(isEv){
+    // 证据回合：品牌卡只显示品牌名，查验线索后逐维度揭示信息
+    if(!st.evChecked) st.evChecked = [];
+    opts = round.options.map((o,i) => {
+      const evRows = round.evidenceItems.map(ev => {
+        if(st.evChecked.indexOf(ev.key) < 0) return '';
+        const info = o.evidence && o.evidence[ev.key];
+        return '<div class="brand-ev">' +
+          '<span class="ev-dim">' + esc(ev.en) + ' · ' + esc(ev.zh) + '</span>' +
+          '<span class="en">' + esc(info.en) + '</span><span class="zh">' + esc(info.zh) + '</span>' +
+        '</div>';
+      }).join("");
+      return (
+        '<button class="opt brand-card' + (enabled ? '' : ' disabled') + '" data-ch2-opt="' + i + '"' + (enabled ? '' : ' disabled') + '>' +
+          '<span class="brand-head"><span class="letter">' + String.fromCharCode(65+i) + '</span>' +
+            '<span class="brand-name">' + esc(o.en) + '<span class="zh">' + esc(o.zh) + '</span></span></span>' +
+          (evRows
+            ? '<span class="brand-evrows">' + evRows + '</span>'
+            : '<span class="brand-empty">Tap the clues above to reveal this brand · 点击上方线索查看该品牌详情</span>') +
+        '</button>'
+      );
+    }).join("");
+  } else {
+    opts = round.options.map((o,i) => {
+      let en = o.en, zh = o.zh;
+      if(sc.id === 4 && st.crisis && o.crisisTexts && o.crisisTexts[st.crisis.type]){
+        en = o.crisisTexts[st.crisis.type].en; zh = o.crisisTexts[st.crisis.type].zh;
+      }
+      return (
+      '<button class="opt' + (enabled ? '' : ' disabled') + '" data-ch2-opt="' + i + '"' + (enabled ? '' : ' disabled') + '>' +
+        '<span class="letter">' + String.fromCharCode(65+i) + '</span>' +
+        '<span class="opt-txt">' + esc(en) + '<span class="zh">' + esc(zh) + '</span></span>' +
+      '</button>'
+      );
+    }).join("");
+  }
+  // 场景四：情境描述随本次运营危机类型变化
+  let introEn = round.introEn, introZh = round.introZh;
+  if(sc.id === 4 && st.crisis){
+    const sitMap = CH4_SITUATIONS[st.crisis.type] || {};
+    const sit = sitMap[st.round] || (CH4_SITUATIONS.base[st.round] || null);
+    if(sit){ introEn = sit.en; introZh = sit.zh; }
+  }
+  let infoNote;
+  if(round.budget){
+    infoNote = '<div class="info-note">' + ICON.coin + ' Your <b>personal</b> shopping budget: <b>' + round.budget + '</b> coins (separate from factory cash) · 你的<b>个人</b>购物预算：<b>' + round.budget + '</b> 金币（独立于工厂现金）</div>';
+  } else if(round.cost2y){
+    infoNote = '<div class="info-note">' + ICON.book + ' Compare the <b>cost over two years</b>, not just today\'s price · 比较<b>两年的总成本</b>，而不只是今天的标价</div>';
+  } else {
+    infoNote = '<div class="info-note">' + ICON.coin + ' Your factory has <b>' + state.ch2.coins + '</b> coins · 你的工厂现有 <b>' + state.ch2.coins + '</b> 金币</div>';
+  }
+  let evidenceBlock = '';
+  if(isEv){
+    if(!st.evChecked) st.evChecked = [];
+    const evBtns = round.evidenceItems.map(ev => {
+      const checked = st.evChecked.indexOf(ev.key) >= 0;
+      return '<button class="ev-clue' + (checked ? ' checked' : '') + '" data-ch3-ev="' + ev.key + '">' +
+        (checked ? ICON.check : '') + esc(ev.en) + ' · ' + esc(ev.zh) +
+      '</button>';
+    }).join("");
+    evidenceBlock =
+      '<div class="section-head" style="margin-bottom:10px"><h3>Inspect the evidence · 查验线索</h3><span class="hint">' + st.evChecked.length + '/4 revealed · 已查验 ' + st.evChecked.length + '/4 条</span></div>' +
+      '<div class="ev-clue-list">' + evBtns + '</div>' +
+      '<div class="ev-hint ' + (enabled ? 'ok' : '') + '">' +
+        (enabled
+          ? ICON.check + ' Clues revealed: ' + st.evChecked.length + ' — you may now choose · 已查验 ' + st.evChecked.length + ' 条线索 — 现在可以选择了'
+          : ICON.risk + ' Inspect at least 2 clues to make your choice · 至少查验 2 条线索后才能做出选择（已查验 ' + (st.evChecked || []).length + ' 条）') +
+      '</div>';
+  }
+  let compareBlock = '';
+  if(round.showComparison){
+    const mine = ch3ProductProfile();
+    compareBlock =
+      '<div class="compare-wrap">' +
+        '<div class="compare-card mine">' +
+          '<div class="cmp-head">My Factory\'s T-Shirt · 我工厂的T恤</div>' +
+          '<div class="cmp-row"><span>Price · 价格</span><b>' + mine.price + ' coins</b></div>' +
+          '<div class="cmp-row"><span>Quality · 质量</span><b>' + esc(mine.quality.en) + '<span class="zh">' + esc(mine.quality.zh) + '</span></b></div>' +
+          '<div class="cmp-row"><span>Production info · 生产信息</span><b>' + esc(mine.evidence.en) + '<span class="zh">' + esc(mine.evidence.zh) + '</span></b></div>' +
+        '</div>' +
+        '<div class="compare-card rival">' +
+          '<div class="cmp-head">Competitor\'s T-Shirt · 竞争对手的T恤</div>' +
+          '<div class="cmp-row"><span>Price · 价格</span><b>50 coins</b></div>' +
+          '<div class="cmp-row"><span>Quality · 质量</span><b>Standard · 标准</b></div>' +
+          '<div class="cmp-row"><span>Production info · 生产信息</span><b>Basic information available · 有基本信息</b></div>' +
+        '</div>' +
+      '</div>';
+  }
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.stall + '</span>' +
+      '<span><b>Round ' + st.round + ' of ' + sc.rounds.length + ' · 第 ' + st.round + ' 回合（共 ' + sc.rounds.length + ' 回合）</b>' +
+        '<span class="zh">' + esc(sc.missionEn) + '<br>' + esc(sc.missionZh) + '</span></span>' +
+    '</div>' +
+    '<div class="story-row">' +
+      '<div class="story-avatar"><img src="' + IMG.factory + '" alt="Clothing factory / 服装工厂"></div>' +
+      '<div class="story-copy">' +
+        '<span class="round-label">' + esc(round.en) + '<span class="zh">' + esc(round.zh) + '</span></span>' +
+        '<p>' + esc(introEn) + '<span class="zh">' + esc(introZh) + '</span></p>' +
+      '</div>' +
+    '</div>' +
+    infoNote +
+    compareBlock +
+    evidenceBlock +
+    (round.warnEn
+      ? '<div class="warn-bar">' + ICON.risk + '<div><span class="en">' + esc(round.warnEn) + '</span><span class="zh">' + esc(round.warnZh) + '</span></div></div>'
+      : '') +
+    '<div class="section-head" style="margin-bottom:14px"><h3>What do you choose? · 你选择什么？</h3><span class="hint">Tap an option · 点击一个选项</span></div>' +
+    '<div class="opt-list">' + opts + '</div>' +
+    (round.linkEn
+      ? '<div class="link-note">' + ICON.risk + '<div><strong>Scene 1 connection · 场景一关联</strong><span class="en">' + esc(round.linkEn) + '</span><span class="zh">' + esc(round.linkZh) + '</span></div></div>'
+      : '')
+  );
+}
+
+/* —— 第二章场景：回合结算 —— */
+function renderCh2Result(sc, st){
+  const round = sc.rounds[st.round - 1];
+  const opt = round.options[st.picked];
+  const stars = round.starsFn ? round.starsFn(opt) : opt.stars;
+  const result = round.dynamicResult ? round.dynamicResult(opt, stars) : opt.result;
+  let verdict;
+  if(stars >= 3) verdict = { en:"Perfect! · 完美！", zh:"Perfect choice · 完美的选择", cls:"perfect" };
+  else if(stars >= 1) verdict = { en:"Not bad · 还行", zh:"A fair choice · 中规中矩", cls:"ok" };
+  else verdict = { en:"Not this time · 这次不行", zh:"The goal was not met · 没有达成目标", cls:"no" };
+
+  const isLast = st.round >= sc.rounds.length;
+  // 金币明细：独立预算 / 长期成本分析 / 支出收入
+  let coinRows = '';
+  if(round.budget){
+    coinRows += '<div class="settle-row spend"><span>Budget spent · 预算支出</span><span>' + ICON.coin + ' −' + opt.price + '</span></div>';
+    coinRows += '<div class="settle-row"><span>Personal budget left · 个人预算剩余</span><span>' + ICON.coin + ' ' + (round.budget - opt.price) + '</span></div>';
+    coinRows += '<div class="settle-row net"><span>Factory cash · 工厂现金</span><span>Unchanged · 不变</span></div>';
+  } else if(round.cost2y){
+    coinRows += '<div class="settle-row"><span>Cost over 2 years · 两年总成本</span><span>' + ICON.coin + ' ' + opt.price2y + '</span></div>';
+    coinRows += '<div class="settle-row net"><span>Factory cash · 工厂现金</span><span>Unchanged · 不变</span></div>';
+  } else {
+    const net = (opt.revenue || 0) - (opt.cost || 0);
+    if(opt.cost > 0){
+      const costLabel = sc.earn ? 'Cost · 支出' : (sc.id === 4 ? 'Response cost · 应对支出' : 'Investment spent · 投入消耗');
+      coinRows += '<div class="settle-row spend"><span>' + costLabel + '</span><span>' + ICON.coin + ' −' + opt.cost + '</span></div>';
+    }
+    if(opt.revenue > 0){
+      coinRows += '<div class="settle-row"><span>Sales revenue · 销售收入</span><span>' + ICON.coin + ' +' + opt.revenue + '</span></div>';
+    }
+    if(opt.promised > 0){
+      coinRows += '<div class="settle-row promised"><span>Promised revenue (unpaid) · 承诺收入（未到账）</span><span>' + ICON.coin + ' +' + opt.promised + '</span></div>';
+    }
+    if(coinRows){
+      coinRows += '<div class="settle-row net"><span>Net cash change · 实际金币变化</span><span>' + ICON.coin + ' ' + (net >= 0 ? '+' : '−') + Math.abs(net) + '</span></div>';
+    }
+  }
+  // 商业风险 = 当前选项运营风险 + 场景一对应数据的风险基数
+  let riskRows;
+  if(round.baseFrom){
+    const base = ch2RiskBase(round);
+    riskRows =
+      '<div class="settle-row risk"><span>Operational risk · 运营风险</span><span>' + ICON.risk + ' +' + opt.risk + '</span></div>' +
+      '<div class="settle-row risk base"><span>Scene 1 baseline · 场景一风险基数</span><span>' + ICON.risk + ' +' + base + '</span></div>' +
+      '<div class="settle-row risk total"><span>Total risk this round · 本回合总风险</span><span>' + ICON.risk + ' ' + (opt.risk + base) + '</span></div>';
+  } else {
+    riskRows = '<div class="settle-row risk"><span>Business risk added · 新增商业风险</span><span>' + ICON.risk + ' ' + (opt.risk >= 0 ? '+' : '−') + Math.abs(opt.risk) + '</span></div>';
+  }
+  return (
+    '<div class="result-panel">' +
+      '<div class="result-verdict ' + verdict.cls + '">' +
+        '<span class="v-icon">' + (verdict.cls === 'perfect' ? ICON.check : (verdict.cls === 'ok' ? ICON.coin : ICON.lock)) + '</span>' +
+        '<div><h4>' + verdict.en + '</h4><span class="zh">' + verdict.zh + '</span></div>' +
+      '</div>' +
+      '<div class="ch2-settle">' +
+        coinRows +
+        '<div class="settle-row"><span>Trade stars earned · 获得贸易之星</span><span>' + ICON.star + ' +' + stars + '</span></div>' +
+        riskRows +
+      '</div>' +
+      '<p class="result-text">' + esc(result.en) + '<span class="zh">' + esc(result.zh) + '</span></p>' +
+      (round.focusEn
+        ? '<div class="focus-note"><strong>Learning focus · 学习重点</strong><span class="en">' + esc(round.focusEn) + '</span><span class="zh">' + esc(round.focusZh) + '</span></div>'
+        : '') +
+      '<div class="btn-row">' +
+        '<button class="btn primary" data-ch2-continue>' + (isLast ? 'Finish · 完成' : 'Next Round · 下一回合') + '</button>' +
+        '<button class="btn ghost" data-ch2>Exit · 退出</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+/* 场景二每回合的风险基数：该回合调用的场景一各回合所选选项的风险值之和
+   核心思路：现在做低风险决策并不会降低过去高风险决策留下的隐患 */
+function ch2RiskBase(round){
+  if(!state.ch2 || !state.ch2.sceneStates) return 0;
+  const s1 = state.ch2.sceneStates['1'];
+  const bases = (round && round.baseFrom) ? round.baseFrom : [];
+  if(!s1 || !s1.choices || !bases.length) return 0;
+  let sum = 0;
+  bases.forEach(r1 => {
+    const c = s1.choices.find(x => x.round === r1);
+    if(c){
+      const r1Data = CH2_SCENES[0].rounds[r1 - 1];
+      if(r1Data && r1Data.options[c.pick]) sum += r1Data.options[c.pick].risk;
+    }
+  });
+  return sum;
+}
+
+/* 读取某场景某回合的选择（未选择默认 A），用于跨场景联动 */
+function ch2Pick(sceneId, round){
+  const s = state.ch2 && state.ch2.sceneStates[String(sceneId)];
+  if(!s || !s.choices) return 0;
+  const c = s.choices.find(x => x.round === round);
+  return (c && typeof c.pick === 'number') ? c.pick : 0;
+}
+
+/* ================= 场景三：动态逻辑 ================= */
+/* R4 顾客匹配：三个群体的匹配分由场景一/二决策生成，最高分群体 = 3 星 */
+function ch3StarsR4(opt){
+  const s2r5 = ch2Pick(2,5);                 // 场景二价格：A 低
+  const s1r5 = ch2Pick(1,5);                 // 场景一运输
+  const s1r2 = ch2Pick(1,2);                 // 场景一工人
+  const s1r3 = ch2Pick(1,3);                 // 场景一材料
+  const s1r6 = ch2Pick(1,6);                 // 场景一污染处理
+  const s1r7 = ch2Pick(1,7);                 // 场景一废弃物
+  const budgetFit = s2r5 === 0 ? 2 : (s2r5 === 1 ? 1 : 0);
+  const organizerFit = (s1r5 === 0 ? 2 : (s1r5 === 1 ? 1 : 0)) + (s1r2 === 0 ? 1 : 0);
+  const ecoFit = (s1r3 === 0 ? 2 : (s1r3 === 1 ? 1 : 0)) + (s1r6 === 0 ? 1 : 0) + (s1r7 === 0 ? 1 : 0);
+  const scores = [budgetFit, organizerFit, ecoFit];
+  const max = Math.max.apply(null, scores), min = Math.min.apply(null, scores);
+  if(max === min) return 0; // 工厂目前没有特别匹配的顾客群：任何选择都不是最优
+  return scores[opt.i] === max ? 3 : (scores[opt.i] === min ? 0 : 1);
+}
+/* R4 动态结果文案 */
+function ch3ResultR4(opt, stars){
+  return stars === 3 ? opt.best : (stars === 1 ? opt.mid : opt.low);
+}
+/* R5 自我评估：自己产品评分（质量 + 证据），评分低时选择对手 = 批判性思维 = 3 星 */
+function ch3StarsR5(opt){
+  if(opt.i === 2) return 0;
+  const quality = ch2Pick(1,3) === 0 ? 1 : 0;
+  const evidence = ch2Pick(2,1) === 0 ? 1 : 0;
+  const selfScore = quality + evidence;
+  if(opt.i === 0) return selfScore === 2 ? 3 : (selfScore === 1 ? 1 : 0);
+  return selfScore === 2 ? 1 : 3;
+}
+/* R5 动态结果文案 */
+function ch3ResultR5(opt, stars){
+  if(opt.i === 2){
+    return { en: "Waiting for more information is a responsible choice too.", zh: "等待更多信息也是负责任的选择。" };
+  }
+  if(opt.i === 0){
+    if(stars === 3) return { en: "You would buy your own shirt — you know exactly what's inside it.", zh: "你会买自己的T-shirt——你清楚地知道里面有什么。" };
+    if(stars === 1) return { en: "Loyalty is nice — but you noticed the missing evidence.", zh: "忠诚很好——但你也注意到了缺失的证据。" };
+    return { en: "Hmm — even you wouldn't trust that shirt.", zh: "嗯——连你都不相信那件T-shirt。" };
+  }
+  if(stars === 3) return { en: "Smart call. The competitor's standard shirt offers clearer value right now.", zh: "明智的选择。对手的标准T-shirt眼下提供了更清晰的价值。" };
+  return { en: "Reasonable — but your own shirt had the edge.", zh: "合理——但你自己那件更有优势。" };
+}
+/* 自己工厂的产品档案：价格来自场景二定价，质量来自场景一材料，证据来自场景二来源记录 */
+function ch3ProductProfile(){
+  const price = [8,10,14][ch2Pick(2,5)] || 10;
+  const q = ch2Pick(1,3);
+  const quality = q === 0 ? { en:"High — traceable premium materials", zh:"高——来源可溯的优质材料" }
+    : (q === 1 ? { en:"Medium — standard materials", zh:"中——标准材料" }
+    : { en:"Low — cheapest materials, unknown origin", zh:"低——最便宜的材料，来源不明" });
+  const evidence = ch2Pick(2,1) === 0
+    ? { en:"Full production records available", zh:"提供完整生产记录" }
+    : { en:"Limited production information", zh:"有限的生产信息" };
+  return { price: price, quality: quality, evidence: evidence };
+}
+/* R6 市场报告：基于场景一+二+三全部风险生成 100 位消费者的反馈 */
+function ch3Report(){
+  const r1 = (state.ch2.sceneStates['1'] || {}).risk || 0;
+  const r2 = (state.ch2.sceneStates['2'] || {}).risk || 0;
+  const r3 = (state.ch2.sceneStates['3'] || {}).risk || 0;
+  const total = r1 + r2 + r3;
+  let level, base;
+  if(total <= 6){ level = 'positive'; base = { pos:62, neg:10, ind:28 }; }
+  else if(total <= 14){ level = 'neutral'; base = { pos:35, neg:35, ind:30 }; }
+  else if(total <= 20){ level = 'negative'; base = { pos:12, neg:63, ind:25 }; }
+  else { level = 'critical'; base = { pos:5, neg:80, ind:15 }; }
+  let pos = base.pos, neg = base.neg;
+  // 证据与价格微调
+  if(ch2Pick(2,1) === 0){ pos += 6; neg -= 6; }
+  const p5 = ch2Pick(2,5);
+  if(p5 === 0){ pos += 4; neg -= 4; }
+  else if(p5 === 2){ pos -= 4; neg += 4; }
+  pos = Math.max(5, Math.min(85, pos));
+  neg = Math.max(5, Math.min(85, neg));
+  let ind = 100 - pos - neg;
+  if(ind < 5){ neg -= (5 - ind); ind = 5; }
+  if(neg < 5){ pos -= (5 - neg); neg = 5; }
+  ind = Math.max(5, 100 - pos - neg);
+  // 市场结果：100 件批次，积极比例即销量
+  const price = [8,10,14][p5] || 10;
+  const units = Math.round(pos);
+  const revenue = units * price;
+  const inventory = 100 - units;
+  const riskDelta = level === 'positive' ? -2 : (level === 'neutral' ? 0 : (level === 'negative' ? 2 : 3));
+  return { total: total, level: level, pos: pos, neg: neg, ind: ind, units: units, revenue: revenue, inventory: inventory, riskDelta: riskDelta, price: price };
+}
+/* 顾客评论池 */
+const CH3_COMMENTS = {
+  positive: [
+    { en:"The fabric feels great and I know where it came from.", zh:"布料手感很好，而且我知道它的来源。" },
+    { en:"Finally a T-shirt I can trust.", zh:"终于有一件可以信任的T-shirt了。" },
+    { en:"The shop showed me real certificates — impressive.", zh:"店家给我看了真实认证——印象深刻。" },
+    { en:"Fair price, honest info. I'll buy again.", zh:"价格公道、信息透明。我会再买。" },
+    { en:"My daughter loves it — and so does the planet.", zh:"我女儿很喜欢——地球也很喜欢。" },
+    { en:"Worth every coin. Quality you can see.", zh:"每一枚金币都花得值。看得见的品质。" },
+    { en:"They answered every question about the workers and materials.", zh:"关于工人和材料的每个问题，他们都如实回答。" },
+    { en:"This is what a responsible brand should look like.", zh:"这就是负责任的品牌该有的样子。" }
+  ],
+  neutral: [
+    { en:"It's fine, nothing special.", zh:"还行，没什么特别的。" },
+    { en:"Decent shirt, but I couldn't tell much about how it was made.", zh:"T-shirt不错，但我不太清楚它是怎么做出来的。" },
+    { en:"A bit pricey for what it is.", zh:"就这个品质来说有点贵。" },
+    { en:"I'd need more information before buying again.", zh:"再买之前我需要更多信息。" },
+    { en:"OK quality, unclear story.", zh:"质量还行，故事不清晰。" },
+    { en:"It fits, it lasts... for now.", zh:"合身、耐穿……目前是这样。" },
+    { en:"Middle of the road. Nothing made me want to come back.", zh:"平平无奇。没有什么让我想回购。" },
+    { en:"The label says a lot, but the details stay vague.", zh:"标签说了很多，但细节依然含糊。" }
+  ],
+  negative: [
+    { en:"I asked about the materials and got no real answer.", zh:"我问了材料来源，没有得到真正的答案。" },
+    { en:"The shirt fell apart after two washes.", zh:"洗了两次就散架了。" },
+    { en:"They promised 'sustainable' but showed no proof.", zh:"他们号称'可持续'，却拿不出证据。" },
+    { en:"Never again. I'll stick to brands I trust.", zh:"不会再有下次了。我会坚持买我信任的品牌。" },
+    { en:"I feel tricked by the marketing.", zh:"我觉得被营销骗了。" },
+    { en:"My order arrived late and nobody explained why.", zh:"我的订单迟到了，而且没人解释原因。" },
+    { en:"Cheap, but you can smell the shortcuts.", zh:"便宜，但你能闻到偷工减料的味道。" },
+    { en:"I won't risk my money on this factory again.", zh:"我不会再拿钱冒险支持这家工厂了。" }
+  ]
+};
+function ch3PickComments(level, n){
+  const pool = CH3_COMMENTS[level] || CH3_COMMENTS.neutral;
+  const arr = pool.slice();
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr.slice(0, n);
+}
+/* R6 报告页渲染 */
+function renderCh3Report(sc, st){
+  const rep = ch3Report();
+  const levelTxt = {
+    positive: { en:"Positive · 积极", zh:"Customers trust your transparency and quality.", cls:"ok" },
+    neutral: { en:"Neutral · 中性", zh:"A mixed response — some satisfied, some uncertain.", cls:"warn" },
+    negative: { en:"Negative · 消极", zh:"High-risk decisions caught up with you.", cls:"bad" },
+    critical: { en:"Critical · 严重负面", zh:"Your reputation is seriously damaged.", cls:"bad" }
+  }[rep.level];
+  const summaryTxt = {
+    positive: "Low risk profile — customers trust your transparency and quality. Keep it up!",
+    neutral: "A mixed response — some customers are satisfied, others remain uncertain about your production.",
+    negative: "High-risk decisions have caught up with you — customers noticed the gaps in your production.",
+    critical: "Critical risk — your reputation is seriously damaged. Rethink your factory decisions before continuing."
+  }[rep.level];
+  const summaryZh = {
+    positive: "低风险档案——顾客信任你的透明度和质量。继续保持！",
+    neutral: "褒贬不一——一些顾客满意，另一些对你的生产仍持观望。",
+    negative: "高风险决策的隐患终于找上门——顾客注意到了你生产中的缺口。",
+    critical: "严重风险——你的声誉受到严重损害。在继续之前，请重新思考工厂决策。"
+  }[rep.level];
+  const comments = ch3PickComments(rep.level, 5).map(c =>
+    '<div class="comment"><span class="q">“</span>' + esc(c.en) + '<span class="zh">' + esc(c.zh) + '</span></div>'
+  ).join("");
+  const pieStyle = '--p:' + rep.pos + '%;--n:' + rep.neg + '%;';
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.book + '</span>' +
+      '<span><b>Round 6 of 6 · 第 6 回合（共 6 回合）</b>' +
+        '<span class="zh">' + esc(sc.missionEn) + '<br>' + esc(sc.missionZh) + '</span></span>' +
+    '</div>' +
+    '<div class="report-card">' +
+      '<div class="report-head">' +
+        '<h3>' + esc(sc.rounds[5].en) + ' · ' + esc(sc.rounds[5].zh) + '</h3>' +
+        '<span class="r-sub">Consumer Response Report · 消费者反馈报告 — 100 shoppers · 100位消费者</span>' +
+      '</div>' +
+      '<div class="report-body">' +
+        '<div class="pie-wrap">' +
+          '<div class="pie" style="' + pieStyle + '"><div class="pie-center"><b>100</b><span>shoppers<br>消费者</span></div></div>' +
+          '<div class="pie-legend">' +
+            '<span class="lg ok">Positive · 积极 ' + rep.pos + '%</span>' +
+            '<span class="lg bad">Negative · 消极 ' + rep.neg + '%</span>' +
+            '<span class="lg mut">Indifferent · 冷漠 ' + rep.ind + '%</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="report-summary">' +
+          '<span class="lvl ' + levelTxt.cls + '">' + levelTxt.en + '</span>' +
+          '<p>' + summaryTxt + '<span class="zh">' + summaryZh + '</span></p>' +
+          '<p class="risk-note">' + ICON.risk + ' Total business risk across all scenes: <b>' + rep.total + '</b> · 全场景商业风险总计：<b>' + rep.total + '</b></p>' +
+        '</div>' +
+        '<div class="comments-box">' +
+          '<div class="c-title">Customer comments · 顾客评论（5 of 100）</div>' +
+          comments +
+        '</div>' +
+        '<div class="market-outcome">' +
+          '<h4>Market Outcome · 市场结果</h4>' +
+          '<div class="mo-grid">' +
+            '<div class="mo"><span>T-shirts sold · 销量</span><b>' + rep.units + ' / 100</b></div>' +
+            '<div class="mo"><span>Sales revenue · 销售收入</span><b class="ok">+' + rep.revenue + ' coins</b></div>' +
+            '<div class="mo"><span>Inventory left · 剩余库存</span><b>' + rep.inventory + '</b></div>' +
+            '<div class="mo"><span>Risk adjustment · 风险调整</span><b class="' + (rep.riskDelta >= 0 ? 'bad' : 'ok') + '">' + (rep.riskDelta >= 0 ? '+' : '') + rep.riskDelta + '</b></div>' +
+          '</div>' +
+          '<p class="mo-note">Price per T-shirt: <b>' + rep.price + '</b> coins (from your Scene 2 pricing decision) · 每件售价 <b>' + rep.price + '</b> 金币（来自你场景二的定价决策）</p>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-ch2-continue>Finish · 完成</button>' +
+      '<button class="btn ghost" data-ch2>Exit · 退出</button>' +
+    '</div>'
+  );
+}
+
+/* —— 商业风险分级：低-中-高-危 —— */
+function getRiskLevel(risk){
+  if(risk <= 6) return {
+    key:'low', en:'Low Risk', zh:'低风险', cls:'low',
+    descEn:'Your factory has relatively few identified vulnerabilities.',
+    descZh:'你的工厂识别出的风险点相对较少。'
+  };
+  if(risk <= 14) return {
+    key:'mod', en:'Moderate Risk', zh:'中等风险', cls:'mod',
+    descEn:'Your factory has some vulnerabilities that may need attention.',
+    descZh:'你的工厂存在一些可能需要关注的隐患。'
+  };
+  if(risk <= 20) return {
+    key:'high', en:'High Risk', zh:'高风险', cls:'high',
+    descEn:'Several factory decisions may create significant problems during operation.',
+    descZh:'若干工厂决策可能在运营中造成重大问题。'
+  };
+  return {
+    key:'crit', en:'Critical Risk', zh:'严重风险', cls:'crit',
+    descEn:'Your factory has serious vulnerabilities that require careful consideration.',
+    descZh:'你的工厂存在需要审慎对待的严重隐患。'
+  };
+}
+
+/* —— 第二章场景：工厂档案结算画面 —— */
+function renderCh2Done(sc, st){
+  const newRecord = (st.bestStars !== null && st.starsTotal >= st.bestStars);
+  const bestTxt = (st.bestStars !== null)
+    ? ('Best ' + ICON.star + ' ' + st.bestStars + ' · 历史最佳 ' + st.bestStars + ' 星')
+    : '';
+  const rl = getRiskLevel(st.risk);
+  const risky = (rl.key === 'high' || rl.key === 'crit');
+  const replayTxt = risky
+    ? "I don't think the factory is ready yet — play again. · 我觉得工厂还不能开工，重玩一次"
+    : 'Play Again · 再玩一次';
+  const enterTxt = risky
+    ? "Whatever, let's start anyway! · 无所谓，就这么开工吧！"
+    : 'Looks like the factory is ready — let\'s enter global trade! · 看起来工厂已经可以运转了，准备进入全球贸易吧！';
+  const choices = st.choices || [];
+  const hasNext = CH2_SCENES.some(x => x.id === sc.id + 1);
+  const rows = choices.map(c => {
+    const r = sc.rounds[c.round - 1];
+    const o = r.options[c.pick];
+    const oStars = r.starsFn ? r.starsFn(o) : o.stars;
+    const net = (o.revenue || 0) - (o.cost || 0);
+    let coinStat = '';
+    if(net > 0){ coinStat += '<span class="p-stat earn">' + ICON.coin + ' +' + net + '</span>'; }
+    else if(net < 0){ coinStat += '<span class="p-stat spend">' + ICON.coin + ' −' + Math.abs(net) + '</span>'; }
+    else if(!o.promised){ coinStat += '<span class="p-stat">' + ICON.coin + ' 0</span>'; }
+    if(o.promised > 0){ coinStat += '<span class="p-stat promised">' + ICON.coin + ' +' + o.promised + ' pending · 待收</span>'; }
+    return (
+      '<tr>' +
+        '<td class="prof-left">' +
+          '<span class="p-round">Round ' + c.round + ' · 第 ' + c.round + ' 回合</span>' +
+          '<span class="p-item">' + esc(r.en) + ' · ' + esc(r.zh) + '</span>' +
+          '<span class="p-pick">' + esc(o.en) + '<span class="zh">' + esc(o.zh) + '</span></span>' +
+        '</td>' +
+        '<td class="prof-right">' +
+          '<span class="p-stat">' + ICON.star + ' ' + oStars + '</span>' +
+          coinStat +
+          '<span class="p-stat risk">' + ICON.risk + ' +' + o.risk + '</span>' +
+        '</td>' +
+      '</tr>'
+    );
+  }).join("");
+  // 场景三 R6 市场报告摘要
+  let reportBlock = '';
+  if(st.report){
+    const rep = st.report;
+    const rl2 = rep.level;
+    reportBlock =
+      '<div class="report-mini">' +
+        '<div class="rm-head"><b>Round 6 · Consumer Response Report · 消费者反馈报告</b>' +
+          '<span class="lvl ' + (rl2 === 'positive' ? 'ok' : (rl2 === 'neutral' ? 'warn' : 'bad')) + '">' +
+          (rl2 === 'positive' ? 'Positive · 积极' : (rl2 === 'neutral' ? 'Neutral · 中性' : (rl2 === 'negative' ? 'Negative · 消极' : 'Critical · 严重负面'))) + '</span></div>' +
+        '<div class="rm-grid">' +
+          '<div class="rm"><span>Sold · 销量</span><b>' + rep.units + ' / 100</b></div>' +
+          '<div class="rm"><span>Revenue · 收入</span><b class="ok">+' + rep.revenue + '</b></div>' +
+          '<div class="rm"><span>Inventory · 库存</span><b>' + rep.inventory + '</b></div>' +
+          '<div class="rm"><span>Risk adj. · 风险调整</span><b class="' + (rep.riskDelta >= 0 ? 'bad' : 'ok') + '">' + (rep.riskDelta >= 0 ? '+' : '') + rep.riskDelta + '</b></div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  return (
+    '<div class="profile-page">' +
+      '<div class="complete-hero">' +
+        '<div class="seal">' + ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"') + '</div>' +
+        '<h2>My Factory Profile · 我的工厂档案</h2>' +
+        '<div class="zh">Scene ' + sc.id + ' Complete · 场景 ' + sc.id + ' 完成 — ' + esc(sc.en) + ' · ' + esc(sc.zh) + '</div>' +
+      '</div>' +
+      '<div class="profile-board">' +
+        '<div class="board-clip"></div>' +
+        '<div class="board-paper">' +
+          '<div class="profile-head">' +
+            '<h3>My Factory · 我的工厂</h3>' +
+            '<div class="zh">Factory Registration Form · 工厂档案登记表</div>' +
+          '</div>' +
+          '<div class="profile-stats">' +
+            '<div class="pstat-card">' +
+              '<span class="pstat-icon">' + ICON.coin + '</span>' +
+              '<span class="pstat-label">Coins remaining · 剩余金币</span>' +
+              '<span class="pstat-value">' + state.ch2.coins + '</span>' +
+            '</div>' +
+            '<div class="pstat-card">' +
+              '<span class="pstat-icon">' + ICON.star + '</span>' +
+              '<span class="pstat-label">Trade stars · 贸易之星</span>' +
+              '<span class="pstat-value">' + st.starsTotal + (newRecord ? '<em class="newbest">New best! · 新纪录！</em>' : '') + '</span>' +
+            '</div>' +
+            '<div class="pstat-card">' +
+              '<span class="pstat-icon risk">' + ICON.risk + '</span>' +
+              '<span class="pstat-label">Business risk · 商业风险</span>' +
+              '<span class="pstat-value">' + st.risk + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="risk-report">' +
+            '<div class="risk-head"><span class="risk-check">Business Risk Check · 商业风险检查</span>' +
+              '<span class="risk-badge ' + rl.cls + '">' + rl.en + ' · ' + rl.zh + '</span></div>' +
+            '<p class="risk-desc">' + rl.descEn + '<span class="zh">' + rl.descZh + '</span></p>' +
+          '</div>' +
+          '<div class="risk-footnote">你的部分决策可能会影响后续场景中的生产与经营。' +
+            '<span class="zh">Some of your decisions may affect production and operations in later scenes.</span></div>' +
+          '<table class="profile-table">' +
+            '<thead><tr>' +
+              '<th>Round &amp; Choice · 回合与选择</th>' +
+              '<th class="right">Stars · Coins · Risk 贸易之星 · 金币 · 风险</th>' +
+            '</tr></thead>' +
+            '<tbody>' + rows + '</tbody>' +
+          '</table>' +
+          reportBlock +
+          '<div class="profile-best">' + bestTxt + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="btn-row">' +
+        '<button class="btn gold" data-ch2-replay>' + replayTxt + '</button>' +
+        (hasNext
+          ? '<button class="btn primary" data-ch2-enter>' + enterTxt + '</button>'
+          : '<div class="ch2-complete-note">' + ICON.check + ' Chapter 2 Complete! Reset the chapter from the Chapter 2 home to try different choices. · 第二章完成！可从第二章主页重置本章，尝试其他选择。</div>') +
+        '<button class="btn ghost" data-ch2>Back to Chapter 2 · 返回第二章</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+/* —— 第二章结算画面（场景四完成后） —— */
+function renderCh2Finale(sc, st){
+  const scs = [1, 2, 3, 4].map(id => {
+    const s = state.ch2 && state.ch2.sceneStates[id];
+    return { id: id, risk: s ? (s.risk || 0) : 0, stars: s ? (s.starsTotal || 0) : 0, done: !!(s && s.phase === 'done') };
+  });
+  const totalRisk = scs.reduce((a, b) => a + b.risk, 0);
+  const totalStars = scs.reduce((a, b) => a + b.stars, 0);
+  const maxStars = 21 + 21 + 18 + 12; // 场景一至四满分星
+  const starRatio = maxStars > 0 ? totalStars / maxStars : 0;
+  let grade;
+  if(totalRisk <= 12 && starRatio >= 0.75){
+    grade = { en: 'Excellent', zh: '优秀', cls: 'excellent',
+      descEn: "Your factory runs smoothly — responsible choices built a stable, trusted business.",
+      descZh: "你的工厂运转良好——负责任的选择造就了稳定而受信任的经营。" };
+  } else if(totalRisk <= 24 && starRatio >= 0.4){
+    grade = { en: 'Good', zh: '良好', cls: 'good',
+      descEn: "Your factory coped well, but a few weak spots could still cause problems.",
+      descZh: "你的工厂应对得不错，但仍有几处薄弱点可能引发问题。" };
+  } else {
+    grade = { en: 'Needs Improvement', zh: '不理想', cls: 'poor',
+      descEn: "Your factory faces serious difficulties. Reflect on the risky choices that led here.",
+      descZh: "你的工厂面临严重困难。请反思那些高风险的选择是如何走到这一步的。" };
+  }
+  const theme = { 1: 'Early investments · 前期投入', 2: 'Global operations · 全球运营', 3: 'Consumers & evidence · 消费者与证据', 4: 'Crisis response · 危机应对' };
+  const maxRisk = Math.max.apply(null, scs.map(x => x.risk));
+  const top = scs.filter(x => x.risk === maxRisk && x.risk > 0);
+  let sourceHtml;
+  if(maxRisk === 0){
+    sourceHtml = '<div class="finale-source none">' + ICON.check + ' Your factory kept risk very low throughout — no major risk source. · 你的工厂全程风险很低——没有重大风险来源。</div>';
+  } else {
+    sourceHtml = '<div class="finale-source">' + ICON.risk + ' Main risk source · 主要风险来源：' +
+      top.map(x => 'Scene ' + x.id + ' · 场景 ' + x.id + ' — ' + theme[x.id]).join(' / ') + '</div>';
+  }
+  const bars = scs.map(x => {
+    const pct = maxRisk > 0 ? Math.round(x.risk / maxRisk * 100) : 0;
+    return (
+      '<div class="finale-bar' + (x.risk === maxRisk && maxRisk > 0 ? ' top' : '') + '">' +
+        '<span class="fb-label">Scene ' + x.id + ' · 场景 ' + x.id + ' — ' + theme[x.id] + '</span>' +
+        '<span class="fb-track"><span class="fb-fill" style="width:' + pct + '%"></span></span>' +
+        '<span class="fb-val">' + ICON.risk + ' ' + x.risk + '</span>' +
+      '</div>'
+    );
+  }).join("");
+  return (
+    '<div class="finale-page">' +
+      '<div class="complete-hero">' +
+        '<div class="seal">' + ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"') + '</div>' +
+        '<h2>Chapter 2 Complete · 第二章完成</h2>' +
+        '<div class="zh">' + esc(sc.en) + ' · ' + esc(sc.zh) + ' — your global trade journey ends here · 你的全球贸易之旅到此结束</div>' +
+      '</div>' +
+      '<div class="finale-stats">' +
+        '<div class="pstat-card">' +
+          '<span class="pstat-icon">' + ICON.coin + '</span>' +
+          '<span class="pstat-label">Final coins · 最终金币</span>' +
+          '<span class="pstat-value">' + state.ch2.coins + '</span>' +
+        '</div>' +
+        '<div class="pstat-card">' +
+          '<span class="pstat-icon">' + ICON.star + '</span>' +
+          '<span class="pstat-label">Trade stars total · 贸易之星总计</span>' +
+          '<span class="pstat-value">' + totalStars + ' <em class="pstat-sub">/ ' + maxStars + '</em></span>' +
+        '</div>' +
+        '<div class="pstat-card">' +
+          '<span class="pstat-icon risk">' + ICON.risk + '</span>' +
+          '<span class="pstat-label">Final business risk · 最终商业风险</span>' +
+          '<span class="pstat-value">' + totalRisk + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="finale-grade ' + grade.cls + '">' +
+        '<div class="fg-badge">' + grade.en + ' · ' + grade.zh + '</div>' +
+        '<p class="en">' + grade.descEn + '<span class="zh">' + grade.descZh + '</span></p>' +
+      '</div>' +
+      '<div class="finale-risk">' +
+        '<div class="risk-head"><span class="risk-check">Risk Breakdown · 风险构成</span></div>' +
+        '<div class="finale-bars">' + bars + '</div>' +
+        sourceHtml +
+      '</div>' +
+      '<div class="btn-row">' +
+        '<button class="btn gold" data-ch2-replay>Play Again · 再玩一次</button>' +
+        '<button class="btn primary" data-ch2>Back to Chapter 2 · 返回第二章</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+/* —— 主界面 —— */
+function renderMenu(){
+  const ch1LockedFlag = !!state.ch1Locked;
+  const cards = SCENES.map(s => {
+    const locked = !isSceneUnlocked(s.id) || ch1LockedFlag;
+    const done = isSceneDone(s.id);
+    const started = isRoleDone(s.id,'consumer') || isRoleDone(s.id,'supplier');
+    let chip;
+    if(ch1LockedFlag) chip = '<span class="state-chip locked">' + ICON.lock + ' Locked · 已锁定</span>';
+    else if(done) chip = '<span class="state-chip done">' + ICON.check + ' Done · 已完成</span>';
+    else if(locked) chip = '<span class="state-chip locked">' + ICON.lock + ' Locked · 未解锁</span>';
+    else if(started) chip = '<span class="state-chip ready">In progress · 进行中</span>';
+    else chip = '<span class="state-chip ready">Ready · 可开始</span>';
+    const playBtn = locked
+      ? '<span class="play-btn" style="background:var(--wood-300)">' + (ch1LockedFlag ? 'Locked · 已锁定' : 'Locked · 未解锁') + '</span>'
+      : '<button class="play-btn" data-go="' + s.id + '">Play · 开始</button>';
+    return (
+      '<article class="scene-card' + (locked ? ' locked' : '') + '">' +
+        '<div class="awning"></div>' +
+        '<div class="card-body">' +
+          '<div class="scene-no">SCENE ' + String(s.id).padStart(2,"0") + ' · 场景 ' + s.id + '</div>' +
+          '<div class="scene-title"><h4>' + esc(s.en) + '</h4><div class="zh">' + esc(s.zh) + '</div></div>' +
+          '<div class="missions">' +
+            '<div class="mission-line consumer"><span class="role">' + ICON.cart + '</span><span class="txt">' + esc(s.consumer.mission.en) + '<span class="zh">' + esc(s.consumer.mission.zh) + '</span></span></div>' +
+            '<div class="mission-line supplier"><span class="role">' + ICON.stall + '</span><span class="txt">' + esc(s.supplier.mission.en) + '<span class="zh">' + esc(s.supplier.mission.zh) + '</span></span></div>' +
+          '</div>' +
+          '<div class="scene-foot">' + chip + playBtn + '</div>' +
+        '</div>' +
+      '</article>'
+    );
+  }).join("");
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb"><span>Market Quest · 市场大冒险</span></div>' +
+    '<section class="hero">' +
+      '<img src="' + IMG.market + '" alt="A lively marketplace / 热闹的集市">' +
+      '<div class="hero-copy">' +
+        '<span class="hero-kicker">' + CHAPTER.kicker + '</span>' +
+        '<h2>' + esc(CHAPTER.en) + '</h2>' +
+        '<div class="zh-title">' + esc(CHAPTER.zh) + '</div>' +
+        '<p>' + esc(CHAPTER.subEn) + '<br>' + esc(CHAPTER.subZh) + '</p>' +
+      '</div>' +
+    '</section>' +
+    '<div class="section-head"><h3>Choose a Scene · 选择场景</h3><span class="hint">Complete both roles to unlock the next scene · 完成两个角色即可解锁下一场景</span></div>' +
+    '<div class="scene-grid">' + cards + '</div>';
+
+  $("#view").querySelectorAll("[data-go]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = parseInt(btn.getAttribute("data-go"),10);
+      state.currentScene = id; state.phase = "role"; state.role = null; state.picked = null;
+      saveState();
+      location.hash = "#/scene/" + id;
+    });
+  });
+}
+
+/* —— 场景界面 —— */
+function renderScene(id){
+  const s = SCENES.find(x => x.id === id);
+  if(!s){ renderMenu(); return; }
+  // 全局规则：第一章已锁定则不可进入
+  if(state.ch1Locked){ location.hash = "#/"; return; }
+  state.currentScene = id;
+
+  const cDone = isRoleDone(id,'consumer');
+  const sDoneRole = isRoleDone(id,'supplier');
+  const sceneComplete = cDone && sDoneRole;
+
+  let body;
+  if(sceneComplete){
+    body = renderSceneComplete(s);
+  } else if(state.phase === "result" && state.role){
+    body = renderResult(s, state.role, state.picked);
+  } else if(state.phase === "play" && state.role){
+    body = renderPlay(s, state.role);
+  } else {
+    body = renderRolePick(s);
+  }
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-home>Market · 市场</button><span class="sep">/</span>' +
+      '<span>Chapter 1 · 第一章</span><span class="sep">/</span>' +
+      '<span>Scene ' + s.id + ' · 场景 ' + s.id + '</span>' +
+    '</div>' +
+    '<section class="game-panel">' +
+      '<div class="game-head">' +
+        '<div class="crumb">Chapter 1 · Into The Market Place · 第一章 进入市场</div>' +
+        '<h2>Scene ' + s.id + ': ' + esc(s.en) + '</h2>' +
+        '<div class="zh">场景 ' + s.id + '：' + esc(s.zh) + '</div>' +
+      '</div>' +
+      '<div class="game-body">' + body + '</div>' +
+    '</section>';
+
+  $("#view").querySelector("[data-home]").addEventListener("click", () => { location.hash = "#/"; });
+  bindSceneEvents(id);
+}
+
+function bindSceneEvents(id){
+  const v = $("#view");
+  v.querySelectorAll("[data-pick-role]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.role = btn.getAttribute("data-pick-role");
+      state.phase = "play"; state.picked = null; saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-opt]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.picked = parseInt(btn.getAttribute("data-opt"),10);
+      state.phase = "result";
+      saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-continue]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const role = state.role;
+      const sceneId = state.currentScene;
+      const s = SCENES.find(x => x.id === sceneId);
+      const cfg = role === 'consumer' ? s.consumer : s.supplier;
+      const opt = (state.picked !== null && state.picked !== undefined) ? cfg.options[state.picked] : null;
+      if(opt){
+        const prev = (state.best[sceneId] || {})[role];
+        if(!prev){
+          state.best[sceneId] = state.best[sceneId] || {};
+          state.best[sceneId][role] = { stars: opt.stars, coins: opt.coins };
+        } else {
+          if(opt.stars > prev.stars) prev.stars = opt.stars;
+          if(opt.coins > prev.coins) prev.coins = opt.coins;
+        }
+      }
+      if(!isRoleDone(sceneId, role)){
+        state.roleDone[sceneId] = state.roleDone[sceneId] || [];
+        state.roleDone[sceneId].push(role);
+      }
+      if(isRoleDone(sceneId,'consumer') && isRoleDone(sceneId,'supplier')){
+        if(state.sceneDone.indexOf(sceneId) === -1) state.sceneDone.push(sceneId);
+      }
+      state.phase = "role"; state.role = null; state.picked = null;
+      saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-replay]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.roleDone[state.currentScene] = [];
+      state.phase = "role"; state.role = null; state.picked = null;
+      saveState(); render();
+    });
+  });
+  v.querySelectorAll("[data-home]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/"; });
+  });
+  v.querySelectorAll("[data-next]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const next = state.currentScene + 1;
+      if(next <= SCENES.length){ location.hash = "#/scene/" + next; }
+      else { location.hash = "#/"; }
+    });
+  });
+}
+
+/* —— 角色选择 —— */
+function renderRolePick(s){
+  const mk = (role, done) => {
+    const cfg = role === 'consumer' ? s.consumer : s.supplier;
+    const img = role === 'consumer' ? IMG.consumer : IMG.supplier;
+    const name = role === 'consumer' ? 'Shopper · 消费者' : 'Seller · 商家';
+    const goal = role === 'consumer' ? 'You spend coins to get what you need.' : 'You set prices to earn a profit.';
+    const goalZh = role === 'consumer' ? '你花金币换取所需之物。' : '你通过定价赚取利润。';
+    const doneTag = done ? '<span class="done-tag">' + ICON.check + ' Done · 已完成</span>' : '';
+    return (
+      '<button class="role-card' + (done ? ' done' : '') + '" data-pick-role="' + role + '" ' + (done ? 'disabled' : '') + '>' +
+        '<div class="role-img"><img src="' + img + '" alt="' + name + '"></div>' +
+        '<div class="role-meta">' +
+          '<h4>' + name + ' ' + doneTag + '</h4>' +
+          '<div class="role-goal">' + goal + '<span class="zh">' + goalZh + '</span>' +
+            '<div class="mission-banner" style="margin:12px 0 0;padding:12px 14px"><span class="flag">' + (role==='consumer'?ICON.cart:ICON.stall) + '</span><span><b>Mission · 任务</b><span class="zh">' + esc(cfg.mission.en) + '<br>' + esc(cfg.mission.zh) + '</span></span></div>' +
+          '</div>' +
+        '</div>' +
+      '</button>'
+    );
+  };
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.book + '</span>' +
+      '<span><b>Mission · 本场景任务</b><span class="zh">' +
+        'Consumer · 消费者：' + esc(s.consumer.mission.en) + ' / ' + esc(s.consumer.mission.zh) + '<br>' +
+        'Supplier · 商家：' + esc(s.supplier.mission.en) + ' / ' + esc(s.supplier.mission.zh) +
+      '</span></span>' +
+    '</div>' +
+    '<div class="section-head" style="margin-bottom:16px"><h3>Choose your role · 选择你的角色</h3><span class="hint">Play both sides · 两个角色都要玩</span></div>' +
+    '<div class="role-pick">' + mk('consumer', isRoleDone(s.id,'consumer')) + mk('supplier', isRoleDone(s.id,'supplier')) + '</div>'
+  );
+}
+
+/* —— 剧情与选项 —— */
+function renderPlay(s, role){
+  const cfg = role === 'consumer' ? s.consumer : s.supplier;
+  const img = role === 'consumer' ? IMG.consumer : IMG.supplier;
+  const label = role === 'consumer' ? 'Shopper · 消费者' : 'Seller · 商家';
+  let customerNote = "";
+  if(cfg.customers){
+    customerNote = '<div class="info-note">' +
+      cfg.customers.map(c => '• ' + esc(c.en) + '<span class="zh">' + esc(c.zh) + '</span>').join('<br>') +
+      '</div>';
+  }
+  const opts = cfg.options.map((o,i) => (
+    '<button class="opt" data-opt="' + i + '">' +
+      '<span class="letter">' + String.fromCharCode(65+i) + '</span>' +
+      '<span class="opt-txt">' + esc(o.en) + '<span class="zh">' + esc(o.zh) + '</span></span>' +
+    '</button>'
+  )).join("");
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + (role==='consumer'?ICON.cart:ICON.stall) + '</span>' +
+      '<span><b>Your mission · 你的任务</b><span class="zh">' + esc(cfg.mission.en) + '<br>' + esc(cfg.mission.zh) + '</span></span>' +
+    '</div>' +
+    '<div class="story-row">' +
+      '<div class="story-avatar"><img src="' + img + '" alt="' + label + '"></div>' +
+      '<div class="story-copy">' +
+        '<span class="story-label ' + role + '">' + label + '</span>' +
+        '<p>' + esc(cfg.intro.en) + '<span class="zh">' + esc(cfg.intro.zh) + '</span></p>' +
+      '</div>' +
+    '</div>' +
+    customerNote +
+    '<div class="section-head" style="margin-bottom:14px"><h3>What do you do? · 你如何选择？</h3><span class="hint">Tap an option · 点击一个选项</span></div>' +
+    '<div class="opt-list">' + opts + '</div>'
+  );
+}
+
+/* —— 结果 —— */
+function renderResult(s, role, idx){
+  const cfg = role === 'consumer' ? s.consumer : s.supplier;
+  const opt = cfg.options[idx];
+  // 判定基于贸易质量（贸易之星）：最优解=完美，普通解=还行，应避免=未达成目标
+  let verdict;
+  if(opt.stars >= 3){ verdict = { en:"Perfect! · 完美！", zh:"Perfect choice · 完美的选择", cls:"perfect" }; }
+  else if(opt.stars >= 1){ verdict = { en:"Not bad · 还行", zh:"A fair choice · 中规中矩", cls:"ok" }; }
+  else { verdict = { en:"Not this time · 这次不行", zh:"The goal was not met · 没有达成目标", cls:"no" }; }
+
+  // 结算显示：首次完成显示全额；重玩时只有超过对应纪录才更新
+  const alreadyDone = isRoleDone(s.id, role);
+  const prev = (state.best[s.id] || {})[role];
+  let gainStars, gainCoins, gainNote;
+  if(!alreadyDone){
+    gainStars = opt.stars;
+    gainCoins = opt.coins;
+    gainNote = "";
+  } else if(prev){
+    const sUp = opt.stars > prev.stars;
+    const cUp = opt.coins > prev.coins;
+    gainStars = sUp ? opt.stars - prev.stars : 0;
+    gainCoins = cUp ? opt.coins - prev.coins : 0;
+    if(sUp || cUp){
+      gainNote = '<span class="new-best-tag">' + ICON.check + ' New best! · 新纪录！</span>';
+    } else {
+      gainNote = '<span class="new-best-tag">Your best: ' + ICON.star + prev.stars + ' · ' + prev.coins + ' coins · 历史纪录：' + prev.stars + ' 星 / ' + prev.coins + ' 金币</span>';
+    }
+  } else {
+    gainStars = opt.stars;
+    gainCoins = opt.coins;
+    gainNote = "";
+  }
+
+  return (
+    '<div class="result-panel">' +
+      '<div class="result-verdict ' + verdict.cls + '">' +
+        '<span class="v-icon">' + (verdict.cls === 'perfect' ? ICON.check : (verdict.cls === 'ok' ? ICON.coin : ICON.lock)) + '</span>' +
+        '<div><h4>' + verdict.en + '</h4><span class="zh">' + verdict.zh + '</span></div>' +
+        '<div style="margin-left:auto;display:flex;align-items:center;gap:12px;font-weight:700">' +
+          '<span style="display:inline-flex;align-items:center;gap:5px">' + ICON.star + '+' + gainStars + '</span>' +
+          '<span style="display:inline-flex;align-items:center;gap:5px">' + ICON.coin + '+' + gainCoins + '</span>' +
+        '</div>' +
+      '</div>' +
+      (gainNote ? '<div style="margin-top:12px;display:flex;justify-content:flex-end">' + gainNote + '</div>' : '') +
+      '<p class="result-text">' + esc(opt.result.en) + '<span class="zh">' + esc(opt.result.zh) + '</span></p>' +
+      '<div class="concept-card">' +
+        '<div class="c-head">' + ICON.book + ' Concept · 知识卡：' + esc(s.concept.en) + ' / ' + esc(s.concept.zh) + '</div>' +
+        '<p>' + esc(s.conceptText.en) + '<span class="zh">' + esc(s.conceptText.zh) + '</span></p>' +
+      '</div>' +
+      '<div class="btn-row">' +
+        '<button class="btn primary" data-continue>Continue · 继续</button>' +
+        '<button class="btn ghost" data-home>Exit · 返回市场</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+/* —— 场景完成 —— */
+function renderSceneComplete(s){
+  const roleCfg = [
+    { r:'consumer', labelEn:'Shopper · 消费者', labelZh:'消费者视角' },
+    { r:'supplier', labelEn:'Seller · 商家', labelZh:'商家视角' }
+  ];
+  return (
+    '<div class="result-panel">' +
+      '<div class="complete-hero">' +
+        '<div class="seal">' + ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"') + '</div>' +
+        '<h2>Scene ' + s.id + ' Complete! · 场景 ' + s.id + ' 完成！</h2>' +
+        '<div class="zh">' + esc(s.en) + ' · ' + esc(s.zh) + '</div>' +
+      '</div>' +
+      '<div class="review-list">' +
+        roleCfg.map(x => {
+          const cfg = x.r === 'consumer' ? s.consumer : s.supplier;
+          const best = (state.best[s.id] || {})[x.r];
+          const bestTxt = best !== undefined
+            ? ('Best: ' + ICON.star + ' ' + best.stars + ' · ' + best.coins + ' coins · 最佳纪录：' + best.stars + ' 星 / ' + best.coins + ' 金币')
+            : 'Not played yet · 尚未游玩';
+          return '<div class="review-item"><span class="r-num">' + (x.r==='consumer'?ICON.cart:ICON.stall) + '</span>' +
+            '<p><b>' + x.labelEn + ' · ' + x.labelZh + '</b><br>' + esc(cfg.mission.en) + '<span class="zh">' + esc(cfg.mission.zh) + '</span>' +
+            '<br><b style="color:var(--gold-deep)">' + bestTxt + '</b></p></div>';
+        }).join("") +
+        '<div class="concept-card" style="margin-bottom:0">' +
+          '<div class="c-head">' + ICON.book + ' Concept · 知识卡：' + esc(s.concept.en) + ' / ' + esc(s.concept.zh) + '</div>' +
+          '<p>' + esc(s.conceptText.en) + '<span class="zh">' + esc(s.conceptText.zh) + '</span></p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="btn-row">' +
+        (state.ch1Locked ? '' : '<button class="btn gold" data-replay>Play Again · 再玩一次</button>') +
+        (s.id < SCENES.length
+          ? '<button class="btn gold" data-next>Next Scene · 下一场景</button>'
+          : '<button class="btn gold" data-next>Back to Market · 返回市场</button>') +
+        '<button class="btn ghost" data-home>Menu · 主界面</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+/* ================= 路由与启动 ================= */
+/* 章节卡：点击快速进入对应章节 */
+$("#ch1Plank").addEventListener("click", () => { location.hash = "#/"; });
+$("#ch2Plank").addEventListener("click", () => {
+  if(isChapter1Complete()){ enterChapter2(); }
+});
+[["#ch1Plank","#/"],["#ch2Plank",null]].forEach(pair => {
+  const el = document.querySelector(pair[0]);
+  el.addEventListener("keydown", e => {
+    if(e.key === "Enter" || e.key === " "){
+      e.preventDefault();
+      if(pair[1]){ location.hash = pair[1]; }
+      else if(isChapter1Complete()){ enterChapter2(); }
+    }
+  });
+});
+
+window.addEventListener("hashchange", () => {
+  // 重置场景内状态后渲染
+  if(location.hash.indexOf("#/scene/") === 0){
+    const id = parseInt(location.hash.split("/")[2], 10);
+    if(state.currentScene !== id){ state.phase = "role"; state.role = null; state.picked = null; saveState(); }
+  }
+  render();
+});
+render();
+</script>
+</body>
+</html>
