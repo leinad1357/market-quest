@@ -830,11 +830,11 @@ const SCENES = [
         zh: "你带着 10 枚金币来到市场。任务：买一篮苹果，并且不超出预算。"
       },
       options: [
-        { en: "Stall A: apples for 5 coins", zh: "摊位 A：苹果 5 金币", stars: 3, coins: 5,
+        { en: "Stall A: apples for 5 coins", zh: "摊位 A：一篮苹果 5 金币", stars: 3, coins: 5,
           result: { en: "Perfect! You bought the apples and still have 5 coins left. Budget kept, mission done!", zh: "完美！你买到苹果，还剩 5 枚金币。守住预算，任务完成！" } },
-        { en: "Stall B: apples for 8 coins", zh: "摊位 B：苹果 8 金币", stars: 1, coins: 2,
+        { en: "Stall B: apples for 8 coins", zh: "摊位 B：一篮苹果 8 金币", stars: 1, coins: 2,
           result: { en: "You bought them and kept 2 coins — but a careful shopper could have saved 3 more.", zh: "你买到了，还剩 2 枚金币——但精明的买家本可以再省下 3 枚。" } },
-        { en: "Stall C: apples for 11 coins", zh: "摊位 C：苹果 11 金币", stars: 0, coins: 0,
+        { en: "Stall C: apples for 11 coins", zh: "摊位 C：一篮苹果 11 金币", stars: 0, coins: 0,
           result: { en: "Purchase failed! 11 coins is over your 10-coin budget. You simply can't afford them.", zh: "购买失败！11 枚金币超出了你 10 枚的预算，你根本买不起。" } }
       ]
     },
@@ -842,15 +842,15 @@ const SCENES = [
       mission: { en: "Sell an item above cost", zh: "以高于成本的价格卖出商品" },
       intro: {
         en: "You are the apple seller. Each basket costs you 3 coins. Your first customer of the day walks up — what price do you set?",
-        zh: "你是苹果摊主，每篮苹果的成本是 3 枚金币。今天第一位顾客走来——你定价多少？"
+        zh: "你是苹果摊主，一篮苹果的成本是 3 枚金币。今天第一位顾客走来——你定价多少？"
       },
       options: [
-        { en: "Price a basket at 5 coins", zh: "定价 5 金币", stars: 3, coins: 2,
+        { en: "Price a basket at 5 coins", zh: "一篮定价 5 金币", stars: 3, coins: 2,
           result: { en: "Excellent! You sold above cost and earned 2 coins of profit on one basket.", zh: "太棒了！你高于成本卖出，一篮就赚了 2 枚金币利润。" } },
-        { en: "Price a basket at 3 coins", zh: "定价 3 金币", stars: 1, coins: 0,
+        { en: "Price a basket at 3 coins", zh: "一篮定价 3 金币", stars: 1, coins: 0,
           result: { en: "You broke even — no profit, no loss. The shop didn't grow today, and you earned nothing.", zh: "你刚好保本——不赚不亏。店铺今天没有增长，你也没有赚到金币。" } },
-        { en: "Price a basket at 2 coins", zh: "定价 2 金币", stars: 0, coins: 0,
-          result: { en: "Below cost! Every basket you sell at this price loses you 1 coin.", zh: "低于成本！按这个价每卖一篮你就亏 1 枚金币。" } }
+        { en: "Price a basket at 2 coins", zh: "一篮定价 2 金币", stars: 0, coins: 0,
+          result: { en: "Below cost! Every basket you sell at this price loses you 1 coin.", zh: "低于成本！按这个价卖一篮你就亏 1 枚金币。" } }
       ]
     }
   },
@@ -868,11 +868,11 @@ const SCENES = [
         zh: "你的预算是 15 枚金币。你需要一顶遮阳帽。三家店卖一模一样的帽子——但价格各不相同。"
       },
       options: [
-        { en: "Discount shop: 9 coins", zh: "折扣店：9 金币", stars: 3, coins: 6,
+        { en: "Discount shop: 9 coins", zh: "折扣店：一顶 9 金币", stars: 3, coins: 6,
           result: { en: "Same hat, best price! You bought it and kept 6 coins compared with the fancy shop.", zh: "同一顶帽子，最优价格！你买到了它，相比精品店省下了 6 枚金币。" } },
-        { en: "Regular shop: 12 coins", zh: "普通店：12 金币", stars: 1, coins: 3,
+        { en: "Regular shop: 12 coins", zh: "普通店：一顶 12 金币", stars: 1, coins: 3,
           result: { en: "You bought it and kept 3 coins — but a careful shopper could have saved 6 more.", zh: "你买到了，还剩 3 枚金币——但精明的买家本可以再省 6 枚。" } },
-        { en: "Fancy shop: 15 coins", zh: "精品店：15 金币", stars: 0, coins: 0,
+        { en: "Fancy shop: 15 coins", zh: "精品店：一顶 15 金币", stars: 0, coins: 0,
           result: { en: "Same hat, highest price! You spent your whole budget on nothing extra.", zh: "同一顶帽子，最贵的价格！你花光了全部预算，却没有多得到任何东西。" } }
       ]
     },
@@ -880,15 +880,15 @@ const SCENES = [
       mission: { en: "Set prices against competitors", zh: "针对竞争对手制定价格" },
       intro: {
         en: "The market sells about 10 jars of honey a day. Your honey costs 6 coins per jar. The shop next door sells the same honey for 10 coins. What price do you set today?",
-        zh: "市场每天能卖出约 10 罐蜂蜜。你的蜂蜜每罐成本 6 枚金币。隔壁店同样的蜂蜜卖 10 金币。今天你定什么价？"
+        zh: "市场每天能卖出约 10 罐蜂蜜。你的蜂蜜一罐成本 6 枚金币。隔壁店同样的蜂蜜一罐卖 10 金币。今天你定什么价？"
       },
       options: [
-        { en: "9 coins — cheaper than your rival", zh: "9 金币——比对手便宜", stars: 3, coins: 24,
-          result: { en: "Your lower price brought higher sales — you sold 8 jars, earning 3 coins of profit on each!", zh: "比对手更低的定价带来了更高的销量，你卖出了 8 罐蜂蜜，每罐还能赚到 3 金币！" } },
-        { en: "10 coins — same as your rival", zh: "10 金币——和对手同价", stars: 1, coins: 20,
-          result: { en: "Same price means you split the customers — 5 jars sold, 4 coins of profit each.", zh: "同价意味着与对手平分顾客——卖出 5 罐，每罐赚 4 枚金币。" } },
-        { en: "12 coins — more than your rival", zh: "12 金币——比对手贵", stars: 0, coins: 12,
-          result: { en: "Your higher price only attracted customers who don't care about price — you sold 2 jars, earning 6 coins each.", zh: "比对手的定价更高让你只吸引到了一些不在乎价格的顾客，每罐赚到了 6 金币，但是只卖出了 2 罐。" } }
+        { en: "9 coins — cheaper than your rival", zh: "一罐 9 金币——比对手便宜", stars: 3, coins: 24,
+          result: { en: "Your lower price brought higher sales — you sold 8 jars, earning 3 coins of profit on each!", zh: "比对手更低的定价带来了更高的销量，你卖出了 8 罐蜂蜜，一罐还能赚到 3 金币！" } },
+        { en: "10 coins — same as your rival", zh: "一罐 10 金币——和对手同价", stars: 1, coins: 20,
+          result: { en: "Same price means you split the customers — 5 jars sold, 4 coins of profit each.", zh: "同价意味着与对手平分顾客——卖出 5 罐，一罐赚 4 枚金币。" } },
+        { en: "12 coins — more than your rival", zh: "一罐 12 金币——比对手贵", stars: 0, coins: 12,
+          result: { en: "Your higher price only attracted customers who don't care about price — you sold 2 jars, earning 6 coins each.", zh: "比对手的定价更高让你只吸引到了一些不在乎价格的顾客，一罐赚到了 6 金币，但是只卖出了 2 罐。" } }
       ]
     }
   },
@@ -903,28 +903,28 @@ const SCENES = [
       mission: { en: "Negotiate a better deal", zh: "谈出一个更优惠的价格" },
       intro: {
         en: "The seller asks 20 coins for a vase, but you don't think it's worth that much. Time to negotiate!",
-        zh: "店主开价 20 金币卖一只花瓶，但你觉得不太值得。该谈判了！"
+        zh: "店主开价：一只花瓶 20 金币，但你觉得不太值得。该谈判了！"
       },
       options: [
         { en: "Say honestly: \"I love it, but I only have 16 coins. Could you lower the price?\"", zh: "真诚地说：“我很喜欢它，但我只有 16 枚金币，能便宜些吗？”", stars: 3, coins: 5,
-          result: { en: "Your honest offer worked — the seller agreed to 15 coins. You saved 5 coins!", zh: "你的真诚奏效了——店主同意 15 金币成交。你省下了 5 枚金币！" } },
-        { en: "Offer 10 coins right away", zh: "直接还价 10 金币", stars: 0, coins: 0,
+          result: { en: "Your honest offer worked — the seller agreed to 15 coins. You saved 5 coins!", zh: "你的真诚奏效了——店主同意一只花瓶 15 金币成交。你省下了 5 枚金币！" } },
+        { en: "Offer 10 coins right away", zh: "直接对一只花瓶还价 10 金币", stars: 0, coins: 0,
           result: { en: "Too low! The seller felt insulted and refused. You lost the deal.", zh: "太低了！店主觉得没诚意而拒绝，你错过了这笔交易。" } },
         { en: "Pretend to walk away and see what happens", zh: "假装离开，看看会发生什么", stars: 1, coins: 2,
-          result: { en: "The seller called you back — but only lowered the price to 18 coins. You saved just 2.", zh: "店主叫住了你——但只降到 18 金币。你只省了 2 枚金币。" } }
+          result: { en: "The seller called you back — but only lowered the price to 18 coins. You saved just 2.", zh: "店主叫住了你——但一只花瓶只降到 18 金币。你只省了 2 枚金币。" } }
       ]
     },
     supplier: {
       mission: { en: "Decide whether to accept an offer", zh: "决定是否接受还价" },
       intro: {
         en: "Your vase is priced at 20 coins in your shop. A customer offers 12 coins for it — and your cost is 10 coins. What do you do?",
-        zh: "店铺里的花瓶标价 20 金币。顾客还价 12 金币买它——而你的成本是 10 金币。你会怎么做？"
+        zh: "店铺里的一只花瓶标价 20 金币。顾客还价 12 金币买它——而你的成本是 10 金币。你会怎么做？"
       },
       options: [
-        { en: "Say no politely, then counter-offer 17 coins", zh: "礼貌拒绝，然后还价 17 金币", stars: 3, coins: 7,
+        { en: "Say no politely, then counter-offer 17 coins", zh: "礼貌拒绝，然后还价一只花瓶 17 金币", stars: 3, coins: 7,
           result: { en: "You kept the deal alive and protected your profit. A master negotiator!", zh: "你保住了交易，也守住了利润。谈判大师！" } },
-        { en: "Accept 12 coins", zh: "接受 12 金币", stars: 1, coins: 2,
-          result: { en: "Sold — but now every customer wants the 12-coin price, and nobody will ever pay 20 coins again.", zh: "成交了——但其他的顾客也都要求用 12 金币购买花瓶，再也没人愿意出 20 金币了。" } },
+        { en: "Accept 12 coins", zh: "接受一只花瓶 12 金币", stars: 1, coins: 2,
+          result: { en: "Sold — but now every customer wants the 12-coin price, and nobody will ever pay 20 coins again.", zh: "成交了——但其他的顾客也都要求用 12 金币买一只花瓶，再也没人愿意出 20 金币了。" } },
         { en: "Refuse flatly and send the customer away", zh: "一口回绝，把顾客赶走", stars: 0, coins: 0,
           result: { en: "You kept your profit margin, but you never actually sold the vase — and you lost a customer who might have returned.", zh: "你守住了利润空间，但是并没有真的卖掉商品，还失去了一位可能回头的顾客。" } }
       ]
@@ -941,13 +941,13 @@ const SCENES = [
       mission: { en: "Evaluate a promotional offer", zh: "评估一个促销优惠" },
       intro: {
         en: "You are buying bread with two friends. Each loaf costs 5 coins, three loaves cost 12 coins, and buy four loaves get one free. What will you three choose?",
-        zh: "你和两个朋友一起买面包，每个面包 5 金币，三个面包 12 金币，买四个面包送一个。你们会怎么选？"
+        zh: "你和两个朋友一起买面包，一个面包 5 金币，三个面包 12 金币，买四个面包送一个。你们会怎么选？"
       },
       options: [
         { en: "Pay 12 coins for 3 loaves", zh: "花 12 金币买 3 个面包", stars: 3, coins: 3,
           result: { en: "Each of you pays 4 coins, gets a loaf, and enjoys the discount!", zh: "每人花 4 金币，获得了面包，享受了优惠！" } },
-        { en: "Each buy 1 loaf at the full price of 5 coins", zh: "花 5 金币原价各自购买面包", stars: 1, coins: 0,
-          result: { en: "You each pay the full 5 coins — no waste, but you missed the 3-for-12 deal.", zh: "每人按原价花 5 金币——不浪费，但错过了 3 个 12 金币的优惠。" } },
+        { en: "Each buy 1 loaf at the full price of 5 coins", zh: "按一个面包 5 金币的原价各自购买", stars: 1, coins: 0,
+          result: { en: "You each pay the full 5 coins — no waste, but you missed the 3-for-12 deal.", zh: "每人按一个面包 5 金币的原价付钱——不浪费，但错过了 3 个面包 12 金币的优惠。" } },
         { en: "Buy 4, Get 1 Free: pay 17 coins, get 5 loaves", zh: "买四送一：花 17 金币获得 5 个面包", stars: 0, coins: 0,
           result: { en: "Five loaves for three people is more than you need — the extra ones may go stale. Wasted money!", zh: "三个人的面包买五个太多了——多出的会放坏。白花钱！" } }
       ]
@@ -956,13 +956,13 @@ const SCENES = [
       mission: { en: "Create a discount without losing money", zh: "设计一个不亏本的折扣" },
       intro: {
         en: "Your toys cost 8 coins each and sell for 12. You want a promotion that attracts customers — but never loses money.",
-        zh: "你的玩具每个成本 8 金币，卖 12 金币。你想搞一个吸引顾客、但绝不亏本的促销。"
+        zh: "你的玩具一个成本 8 金币，一个卖 12 金币。你想搞一个吸引顾客、但绝不亏本的促销。"
       },
       options: [
         { en: "\"Spend 20, save 3\": two toys for 21 coins", zh: "“满 20 减 3”：买两个 21 金币", stars: 3, coins: 5,
-          result: { en: "Customers save 3 coins, and you still earn 2.5 coins per toy. Win-win!", zh: "顾客省了 3 金币，你每个仍赚 2.5 金币。双赢！" } },
-        { en: "50% off: every toy for 6 coins", zh: "打五折：每个玩具 6 金币", stars: 0, coins: 0,
-          result: { en: "Below your 8-coin cost! Every single sale loses you 2 coins.", zh: "低于 8 金币的成本！每一单都让你亏 2 金币。" } },
+          result: { en: "Customers save 3 coins, and you still earn 2.5 coins per toy. Win-win!", zh: "顾客省了 3 金币，你一个仍赚 2.5 金币。双赢！" } },
+        { en: "50% off: every toy for 6 coins", zh: "打五折：一个玩具 6 金币", stars: 0, coins: 0,
+          result: { en: "Below your 8-coin cost! Every single sale loses you 2 coins.", zh: "低于 8 金币的成本！卖一个就让你亏 2 金币。" } },
         { en: "\"Buy 2, Get 1 Free\": 24 coins for 3 toys", zh: "“买二送一”：花 24 金币得 3 个玩具", stars: 1, coins: 0,
           result: { en: "The free toy wipes out all your profit — you only break even.", zh: "送出的玩具吃掉了全部利润——你只是保本。" } }
       ]
@@ -982,11 +982,11 @@ const SCENES = [
         zh: "大挑战！用 20 枚金币买齐：1 篮苹果、1 个面包、1 瓶果汁。选择你要逛的市场吧。"
       },
       options: [
-        { en: "Fair Market: 4 + 3 + 6 = 13 coins", zh: "实惠市场：4 + 3 + 6 = 13 金币", stars: 3, coins: 7,
+        { en: "Fair Market: 4 + 3 + 6 = 13 coins", zh: "实惠市场：一篮苹果 4 + 一个面包 3 + 一瓶果汁 6 = 13 金币", stars: 3, coins: 7,
           result: { en: "Everything on your list, and 7 coins left over. Superb budgeting!", zh: "清单全部买齐，还剩 7 枚金币。预算大师！" } },
-        { en: "Style Market: 5 + 5 + 8 = 18 coins", zh: "精品市场：5 + 5 + 8 = 18 金币", stars: 1, coins: 2,
+        { en: "Style Market: 5 + 5 + 8 = 18 coins", zh: "精品市场：一篮苹果 5 + 一个面包 5 + 一瓶果汁 8 = 18 金币", stars: 1, coins: 2,
           result: { en: "All bought — but only 2 coins left. It works, just barely.", zh: "都买齐了——但只剩 2 枚金币。勉强过关。" } },
-        { en: "Luxury Bazaar: 6 + 8 + 10 = 24 coins", zh: "豪华集市：6 + 8 + 10 = 24 金币", stars: 0, coins: 0,
+        { en: "Luxury Bazaar: 6 + 8 + 10 = 24 coins", zh: "豪华集市：一篮苹果 6 + 一个面包 8 + 一瓶果汁 10 = 24 金币", stars: 0, coins: 0,
           result: { en: "Over budget by 4 coins! You can't buy everything on your list.", zh: "超出预算 4 枚金币！清单上的东西买不齐。" } }
       ]
     },
@@ -994,7 +994,7 @@ const SCENES = [
       mission: { en: "Manage multiple customer requests", zh: "应对多位顾客的需求" },
       intro: {
         en: "Market day! Apples cost you 4 coins a basket; bread costs 2 coins. Your stock: 3 baskets of apples + 2 loaves of bread.",
-        zh: "赶集日！苹果每篮成本 4 金币，面包每个成本 2 金币。你的库存：3 篮苹果 + 2 个面包。"
+        zh: "赶集日！苹果一篮成本 4 金币，面包一个成本 2 金币。你的库存：3 篮苹果 + 2 个面包。"
       },
       customers: [
         { en: "Customer A: 2 baskets of apples, offers 10 coins", zh: "顾客 A：要 2 篮苹果，出价 10 金币" },
@@ -1188,11 +1188,11 @@ const CH2_SCENES = [
         focusEn: "Factories sell to other businesses, not only individual consumers. Larger orders can bring more revenue but may involve greater uncertainty.",
         focusZh: "工厂的客户不只是个人消费者，还有别的企业。更大的订单可能带来更多收入，但也伴随更大的不确定性。",
         options: [
-          { en: "Sell 10 T-shirts to a verified local clothing shop at 9 coins each", zh: "卖给一家经过核实的本地服装店10件，每件9金币", stars: 3, risk: 0, revenue: 90,
+          { en: "Sell 10 T-shirts to a verified local clothing shop at 9 coins each", zh: "卖给一家经过核实的本地服装店10件，一件9金币", stars: 3, risk: 0, revenue: 90,
             result: { en: "A trustworthy shop, cash in hand — steady and real.", zh: "可信的店铺、到手的现金——又稳又实。" } },
-          { en: "Sell 15 T-shirts to a new online retailer at 7 coins each", zh: "卖给一家新的线上零售商15件，每件7金币", stars: 1, risk: 2, revenue: 105,
+          { en: "Sell 15 T-shirts to a new online retailer at 7 coins each", zh: "卖给一家新的线上零售商15件，一件7金币", stars: 1, risk: 2, revenue: 105,
             result: { en: "More coins on paper — but a brand-new partner brings brand-new risk.", zh: "纸面上赚得更多——但全新伙伴带来全新风险。" } },
-          { en: "Sell 25 T-shirts to an unverified distributor at 6 coins each, with payment promised later", zh: "卖给一家未经验证的经销商25件，每件6金币，货款以后再付", stars: 0, risk: 5, promised: 150,
+          { en: "Sell 25 T-shirts to an unverified distributor at 6 coins each, with payment promised later", zh: "卖给一家未经验证的经销商25件，一件6金币，货款以后再付", stars: 0, risk: 5, promised: 150,
             result: { en: "+150 promised, 0 in hand. A huge order means nothing until the coins actually arrive.", zh: "承诺150，到手0。在金币真正到账之前，大订单一文不值。" } }
         ]
       },
@@ -1206,11 +1206,11 @@ const CH2_SCENES = [
         focusEn: "Higher prices can reduce demand, and selling more products does not necessarily mean earning more profit. The stars evaluate how well the price matches the market information — not whether the price is low.",
         focusZh: "更高的价格会降低需求，而卖得更多不一定赚得更多。星级评价的是价格与市场信息的匹配度——而不是价格够不够低。",
         options: [
-          { en: "Price at 8 coins each — about 18 buyers expected", zh: "每件定价8金币——预计约18位买家", stars: 3, risk: 1, revenue: 144,
+          { en: "Price at 8 coins each — about 18 buyers expected", zh: "一件定价8金币——预计约18位买家", stars: 3, risk: 1, revenue: 144,
             result: { en: "The price matches the market — shelves nearly empty, profits solid.", zh: "价格与市场匹配——货架几乎清空，利润扎实。" } },
-          { en: "Price at 10 coins each — about 12 buyers expected", zh: "每件定价10金币——预计约12位买家", stars: 1, risk: 0, revenue: 120,
+          { en: "Price at 10 coins each — about 12 buyers expected", zh: "一件定价10金币——预计约12位买家", stars: 1, risk: 0, revenue: 120,
             result: { en: "Safe and steady, but the survey said the market wanted a better deal.", zh: "稳妥，但调查显示市场想要更实惠的价格。" } },
-          { en: "Price at 14 coins each — about 5 buyers expected", zh: "每件定价14金币——预计约5位买家", stars: 0, risk: 2, revenue: 70,
+          { en: "Price at 14 coins each — about 5 buyers expected", zh: "一件定价14金币——预计约5位买家", stars: 0, risk: 2, revenue: 70,
             result: { en: "High price, lonely shelf. A few sales can't hide the empty demand.", zh: "高价、冷清货架。零星几单掩盖不了需求不足。" } }
         ]
       },
@@ -1224,11 +1224,11 @@ const CH2_SCENES = [
         focusEn: "Consumer expectations influence what producers make, how they communicate, and which products buyers choose.",
         focusZh: "消费者期待影响生产者做什么、如何宣传，以及买家最终选择什么产品。",
         options: [
-          { en: "Provide durability checks and verified material information; sell 20 at 11 coins each", zh: "提供耐用性检测和经过核实的材料信息；以每件11金币卖出20件", stars: 3, risk: 0, cost: 20, revenue: 220,
+          { en: "Provide durability checks and verified material information; sell 20 at 11 coins each", zh: "提供耐用性检测和经过核实的材料信息；以一件11金币卖出20件", stars: 3, risk: 0, cost: 20, revenue: 220,
             result: { en: "Verified and durable — the school trusts you, and the coins are real.", zh: "经核实又耐用——学校信任你，金币也是真的。" } },
-          { en: "Provide basic quality checks only; sell 20 at 9 coins each", zh: "只提供基础质检；以每件9金币卖出20件", stars: 1, risk: 1, cost: 8, revenue: 180,
+          { en: "Provide basic quality checks only; sell 20 at 9 coins each", zh: "只提供基础质检；以一件9金币卖出20件", stars: 1, risk: 1, cost: 8, revenue: 180,
             result: { en: "Cheaper to make, but the school notices what you left out.", zh: "做得便宜些，但学校注意到了你省略的部分。" } },
-          { en: "Advertise the T-shirts as fully sustainable without checking the claim; sell 20 at 11 coins each", zh: "不核实就宣称T-shirt完全可持续；以每件11金币卖出20件", stars: 0, risk: 5, promised: 220,
+          { en: "Advertise the T-shirts as fully sustainable without checking the claim; sell 20 at 11 coins each", zh: "不核实就宣称T-shirt完全可持续；以一件11金币卖出20件", stars: 0, risk: 5, promised: 220,
             result: { en: "A claim with no evidence — the sale only happens if the school still accepts it.", zh: "没有证据的宣称——只有学校仍然接受，这笔交易才会发生。" } }
         ]
       },
@@ -1242,11 +1242,11 @@ const CH2_SCENES = [
         focusEn: "Global trade creates opportunities, but producers must consider capacity, transportation, reliability, and the expectations of international buyers.",
         focusZh: "全球贸易带来机会，但生产者必须考虑产能、运输、可靠性以及国际买家的期待。",
         options: [
-          { en: "Sell 25 T-shirts to a verified regional retailer for 12 coins each, with 30-coin delivery cost", zh: "卖给一家经核实的区域零售商25件，每件12金币，运费30金币", stars: 3, risk: 1, cost: 30, revenue: 300,
+          { en: "Sell 25 T-shirts to a verified regional retailer for 12 coins each, with 30-coin delivery cost", zh: "卖给一家经核实的区域零售商25件，一件12金币，运费30金币", stars: 3, risk: 1, cost: 30, revenue: 300,
             result: { en: "Within capacity, delivered on time — your global reputation grows.", zh: "在产能之内、准时交付——你的全球口碑不断增长。" } },
-          { en: "Sell 35 T-shirts to a new overseas distributor for 10 coins each, with 45-coin delivery cost", zh: "卖给一家新的海外分销商35件，每件10金币，运费45金币", stars: 1, risk: 3, cost: 45, revenue: 350,
+          { en: "Sell 35 T-shirts to a new overseas distributor for 10 coins each, with 45-coin delivery cost", zh: "卖给一家新的海外分销商35件，一件10金币，运费45金币", stars: 1, risk: 3, cost: 45, revenue: 350,
             result: { en: "A big contract on paper — but the new partner and tight capacity add strain.", zh: "纸面上的大合同——但新伙伴和紧张的产能都增加了压力。" } },
-          { en: "Accept an urgent order for 50 T-shirts at 11 coins each, despite having capacity for only 40", zh: "接受一个50件的加急订单，每件11金币——尽管你的产能只有40件", stars: 0, risk: 6, cost: 60, promised: 550,
+          { en: "Accept an urgent order for 50 T-shirts at 11 coins each, despite having capacity for only 40", zh: "接受一个50件的加急订单，一件11金币——尽管你的产能只有40件", stars: 0, risk: 6, cost: 60, promised: 550,
             result: { en: "You promised 50 shirts you cannot make. The 550 coins never arrive; the complaints do.", zh: "你承诺了做不出来的50件T-shirt。550金币不会到账，投诉倒会来。" } }
         ]
       }
@@ -1266,25 +1266,25 @@ const CH2_SCENES = [
         introZh: "你的个人购物预算是100金币。你需要买一个在工厂工作时使用的水杯。选择之前，先想想你的需求和预算。",
         budget: 100,
         options: [
-          { en: "Single-use plastic bottle — 8 coins", zh: "一次性塑料瓶——8金币", price: 8, stars: 0, risk: 3,
+          { en: "Single-use plastic bottle — 8 coins", zh: "一次性塑料瓶——一个 8 金币", price: 8, stars: 0, risk: 3,
             result: { en: "Cheap now — but a single-use bottle becomes waste by lunchtime.", zh: "现在便宜——但一次性水瓶午饭前就变成了垃圾。" } },
-          { en: "Reusable bottle, expected to last about one year — 45 coins", zh: "可重复使用水瓶，预计能用约一年——45金币", price: 45, stars: 3, risk: 1,
+          { en: "Reusable bottle, expected to last about one year — 45 coins", zh: "可重复使用水瓶，预计能用约一年——一个 45 金币", price: 45, stars: 3, risk: 1,
             result: { en: "Fits your need and your budget — a smart, responsible buy.", zh: "既满足需求又符合预算——聪明又负责任的购买。" } },
-          { en: "Premium reusable bottle, expected to last three years — 90 coins", zh: "高端可重复使用水瓶，预计能用三年——90金币", price: 90, stars: 1, risk: 2,
+          { en: "Premium reusable bottle, expected to last three years — 90 coins", zh: "高端可重复使用水瓶，预计能用三年——一个 90 金币", price: 90, stars: 1, risk: 2,
             result: { en: "Durable, yes — but 90 coins leaves little room for your other needs.", zh: "确实耐用——但90金币挤占了其他需求的空间。" } }
         ]
       },
       {
         en: "Look Beyond the Price", zh: "不要只看价格",
         introEn: "You need a T-shirt for use while working at the factory over the next two years. Compare the real long-term cost — not just the sticker price. Assume each shirt is used until it wears out.",
-        introZh: "你需要一件接下来两年在工厂工作时穿的T-shirt。比较真实的长期成本——而不只是标价。假设每件T-shirt都穿到坏为止。",
+        introZh: "你需要一件接下来两年在工厂工作时穿的T-shirt。比较真实的长期成本——而不只是标价。假设一件T-shirt穿到坏为止。",
         cost2y: true,
         options: [
-          { en: "Cheap shirt — 25 coins, lasts about 6 months", zh: "便宜T恤——25金币，寿命约6个月", price2y: 100, stars: 0, risk: 3,
+          { en: "Cheap shirt — 25 coins, lasts about 6 months", zh: "便宜T恤——一件25金币，寿命约6个月", price2y: 100, stars: 0, risk: 3,
             result: { en: "The cheapest tag hides the biggest bill: 100 coins over two years.", zh: "最便宜的标签背后是最高的账单：两年100金币。" } },
-          { en: "Mid-price shirt — 45 coins, lasts about 12 months", zh: "中等价位T恤——45金币，寿命约12个月", price2y: 90, stars: 1, risk: 2,
+          { en: "Mid-price shirt — 45 coins, lasts about 12 months", zh: "中等价位T恤——一件45金币，寿命约12个月", price2y: 90, stars: 1, risk: 2,
             result: { en: "90 coins over two years — better, but still not the best deal.", zh: "两年90金币——好些了，但还不是最划算的。" } },
-          { en: "Quality shirt — 75 coins, lasts about 24 months", zh: "优质T恤——75金币，寿命约24个月", price2y: 75, stars: 3, risk: 1,
+          { en: "Quality shirt — 75 coins, lasts about 24 months", zh: "优质T恤——一件75金币，寿命约24个月", price2y: 75, stars: 3, risk: 1,
             result: { en: "75 coins over two years — quality pays for itself.", zh: "两年75金币——质量自己就把钱赚回来了。" } }
         ]
       },
@@ -1351,13 +1351,13 @@ const CH2_SCENES = [
       {
         en: "Would You Buy Your Own T-Shirt?", zh: "你会买自己的T恤吗？",
         introEn: "Two T-shirts, side by side. Yours — built from your own earlier decisions. The competitor's — a fixed product at 50 coins. If you were a consumer, which would you choose? Be honest — critical thinking is a skill.",
-        introZh: "两件T-shirt并排摆放。你的——由你此前的决策造就。对手的——定价50金币的标准产品。如果你是消费者，你会选哪一件？请诚实作答——批判性思维也是一种能力。",
+        introZh: "两件T-shirt并排摆放。你的——由你此前的决策造就。对手的——一件定价50金币的标准产品。如果你是消费者，你会选哪一件？请诚实作答——批判性思维也是一种能力。",
         showComparison: true,
         starsFn: ch3StarsR5,
         dynamicResult: ch3ResultR5,
         options: [
           { en: "My factory's T-shirt", zh: "我自己工厂的T-shirt", i: 0, risk: 1, stars: 1, result: { en: "", zh: "" } },
-          { en: "The competitor's T-shirt — 50 coins, standard quality, basic info", zh: "竞争对手的T-shirt——50金币，标准质量，有基本信息", i: 1, risk: 1, stars: 1, result: { en: "", zh: "" } },
+          { en: "The competitor's T-shirt — 50 coins, standard quality, basic info", zh: "竞争对手的T-shirt——一件50金币，标准质量，有基本信息", i: 1, risk: 1, stars: 1, result: { en: "", zh: "" } },
           { en: "I need more information before deciding", zh: "在做决定之前我还需要更多信息", i: 2, risk: 0, stars: 0,
             result: { en: "Waiting for more information is a responsible choice too.", zh: "等待更多信息也是负责任的选择。" } }
         ]
@@ -2502,7 +2502,7 @@ function renderCh3Report(sc, st){
             '<div class="mo"><span>Inventory left · 剩余库存</span><b>' + rep.inventory + '</b></div>' +
             '<div class="mo"><span>Risk adjustment · 风险调整</span><b class="' + (rep.riskDelta >= 0 ? 'bad' : 'ok') + '">' + (rep.riskDelta >= 0 ? '+' : '') + rep.riskDelta + '</b></div>' +
           '</div>' +
-          '<p class="mo-note">Price per T-shirt: <b>' + rep.price + '</b> coins (from your Scene 2 pricing decision) · 每件售价 <b>' + rep.price + '</b> 金币（来自你场景二的定价决策）</p>' +
+          '<p class="mo-note">Price per T-shirt: <b>' + rep.price + '</b> coins (from your Scene 2 pricing decision) · 一件售价 <b>' + rep.price + '</b> 金币（来自你场景二的定价决策）</p>' +
         '</div>' +
       '</div>' +
     '</div>' +
