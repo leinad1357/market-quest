@@ -993,8 +993,8 @@ const SCENES = [
     supplier: {
       mission: { en: "Manage multiple customer requests", zh: "应对多位顾客的需求" },
       intro: {
-        en: "Market day! Apples cost you 4 coins a basket; bread costs 2 coins. Your stock: 3 baskets of apples + 2 loaves of bread.",
-        zh: "赶集日！苹果一篮成本 4 金币，面包一个成本 2 金币。你的库存：3 篮苹果 + 2 个面包。"
+        en: "Market day! Apples cost you 4 coins a basket; bread costs 2 coins. Your stock: 5 baskets of apples + 5 loaves of bread.",
+        zh: "赶集日！苹果一篮成本 4 金币，面包一个成本 2 金币。你的库存：5 篮苹果 + 5 个面包。"
       },
       customers: [
         { en: "Customer A: 2 baskets of apples, offers 10 coins", zh: "顾客 A：要 2 篮苹果，出价 10 金币" },
@@ -1003,11 +1003,11 @@ const SCENES = [
       ],
       options: [
         { en: "Serve everyone: 10 + 7 + 8 = 25 coins", zh: "全部接待：10 + 7 + 8 = 25 金币", stars: 3, coins: 7,
-          result: { en: "You served everyone! Revenue 25, cost 18, profit 7 coins. The till is full!", zh: "你接待了所有顾客！收入 25，成本 18，利润 7 金币。钱箱满满！" } },
+          result: { en: "You served everyone! Revenue 25, cost 18, profit 7 coins. The till is full! You still have 1 basket of apples and 4 loaves left — stock that can wait for a better price.", zh: "你接待了所有顾客！收入 25，成本 18，利润 7 金币。钱箱满满！你还剩下 1 篮苹果和 4 个面包——留下的库存，改天或许能卖出更好的价格。" } },
         { en: "Turn away haggler B; serve A and C: 18 coins", zh: "拒绝砍价的 B；只接待 A 和 C：18 金币", stars: 1, coins: 6,
-          result: { en: "Fine — but you turned away a paying customer. The till could be fuller.", zh: "还行——但你赶走了一位付钱的顾客。钱箱本可以更满。" } },
+          result: { en: "Fine — but you turned away a paying customer. The till could be fuller. You keep 2 baskets of apples and 5 loaves in stock, waiting for a better price.", zh: "还行——但你赶走了一位付钱的顾客。钱箱本可以更满。你留下了 2 篮苹果和 5 个面包的库存，等将来卖出更好的价格。" } },
         { en: "Only serve big customer A: 10 coins", zh: "只接待大客户 A：10 金币", stars: 0, coins: 2,
-          result: { en: "Safe, but you missed most of the morning's money.", zh: "保守，但你错过了上午的大部分收入。" } }
+          result: { en: "Safe, but you missed most of the morning's money. On the bright side, 3 baskets of apples and 5 loaves stay in stock, ready for a better price later.", zh: "保守，但你错过了上午的大部分收入。好在还有 3 篮苹果和 5 个面包留在库存里，等一个更好的价格。" } }
       ]
     }
   }
