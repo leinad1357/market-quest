@@ -28,6 +28,9 @@
   --ok:#3f8f5f;
   --warn:#d9a13b;
   --bad:#c4503f;
+  --gold-soft:#f9e9c8;
+  --cream-soft:#fbf3e0;
+  --ink-mute:#a3917c;
   --radius:16px;
   --shadow:0 6px 18px rgba(58,41,24,.14);
 }
@@ -388,6 +391,212 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
   padding:18px;color:var(--gold-deep);font-weight:700;font-size:14px;margin-bottom:22px;
 }
 .ch2-best{font-size:12px;color:var(--ink-soft);margin-top:2px}
+/* 第三章起始页：核心问题卡 */
+.core-question{
+  background:linear-gradient(150deg,var(--teal-deep),var(--teal));
+  color:#fff;border-radius:18px;padding:26px 30px;margin:18px 0 24px;
+  box-shadow:var(--shadow);
+}
+.core-question .q-label{
+  font-size:12px;font-weight:700;letter-spacing:.16em;color:#b8e8df;text-transform:uppercase;
+}
+.core-question .q-en{
+  font-family:"Noto Serif SC","Georgia","Times New Roman",serif;
+  font-size:24px;line-height:1.5;margin-top:12px;
+}
+.core-question .q-zh{
+  font-size:16px;color:#d9f4ee;line-height:1.7;margin-top:8px;
+}
+.ch3-story{background:var(--paper);border:1px solid rgba(58,41,24,.14);border-radius:16px;box-shadow:var(--shadow);padding:24px 26px;margin-bottom:6px}
+.ch3-story p{font-size:17px;line-height:1.8;margin:0}
+.ch3-story p + p{margin-top:14px}
+.ch3-story p .zh{display:block;font-size:15px;color:var(--ink-soft);line-height:1.8;margin-top:6px}
+.ch3-story .turn{font-family:"Noto Serif SC","Georgia",serif;font-weight:700;font-size:30px;line-height:1.4;color:var(--teal-deep)}
+.ch3-story .turn .zh{font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:20px;color:var(--teal-deep);margin-top:4px}
+.ch3-start-row{margin-top:4px}
+/* 第三章场景一：价格控价器 */
+.price-board{
+  background:var(--paper);border:1px solid rgba(58,41,24,.14);border-radius:18px;
+  box-shadow:var(--shadow);padding:22px 24px 18px;margin-bottom:16px;
+}
+.pb-product{
+  text-align:center;font-family:"Noto Serif SC","Georgia",serif;
+  font-size:26px;font-weight:700;color:var(--ink);margin-bottom:4px;
+}
+.pb-product .zh{display:block;font-family:"Noto Sans SC",sans-serif;font-size:14px;font-weight:500;color:var(--ink-soft);margin-top:2px}
+.pb-readout{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.pb-cell{background:var(--cream);border-radius:12px;padding:12px 8px;text-align:center}
+.pb-cell .lb{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase}
+.pb-cell .vl{font-size:26px;font-weight:700;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:6px}
+.pb-cell.mid{background:#eef7f4}
+.pb-cell.mid .vl{color:var(--teal-deep);font-size:30px}
+.pb-cell.right .vl{color:var(--gold-deep)}
+.pb-cell.left .vl{color:var(--wood-700)}
+.pb-unit{font-size:12px;color:var(--ink-soft);margin-top:2px}
+.pb-range{margin:20px 2px 4px}
+.pb-range input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer;
+}
+.pb-range input[type=range]::-webkit-slider-runnable-track{
+  height:12px;border-radius:99px;
+  background:linear-gradient(90deg,var(--gold) 0%,#f2c06a 50%,var(--wood-300) 100%);
+  box-shadow:inset 0 1px 3px rgba(58,41,24,.22);
+}
+.pb-range input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:30px;height:30px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ffd98a,var(--gold) 60%,var(--gold-deep));
+  border:2px solid #fff;margin-top:-9px;box-shadow:0 2px 8px rgba(58,41,24,.35);
+}
+.pb-range input[type=range]::-moz-range-track{height:12px;border-radius:99px;background:linear-gradient(90deg,var(--gold),#f2c06a,var(--wood-300))}
+.pb-range input[type=range]::-moz-range-thumb{
+  width:26px;height:26px;border-radius:50%;border:2px solid #fff;
+  background:radial-gradient(circle at 35% 30%,#ffd98a,var(--gold) 60%,var(--gold-deep));
+  box-shadow:0 2px 8px rgba(58,41,24,.35);
+}
+.pb-ends{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:var(--ink-soft);margin-top:-2px;padding:0 2px}
+.pb-note{
+  background:var(--teal-soft);border-radius:12px;padding:12px 16px;font-size:13px;
+  line-height:1.65;color:var(--teal-deep);margin-top:14px;
+}
+.pb-note .zh{display:block;color:var(--ink-soft);margin-top:2px}
+.pb-extra{
+  margin-top:12px;font-size:13px;color:var(--ink-soft);line-height:1.6;
+  border-top:1px dashed rgba(58,41,24,.2);padding-top:12px;
+}
+.pb-extra .zh{display:block;color:var(--ink-soft);margin-top:2px}
+.pb-stock-warn{
+  margin-top:12px;background:var(--ember-soft);border-radius:10px;padding:10px 14px;
+  font-size:13px;color:var(--ember-deep);line-height:1.6;
+}
+.pb-stock-warn .zh{display:block;color:#8d3c22;margin-top:2px}
+/* —— 第三章主页：场景卡 —— */
+.ch3-scenes-wrap{margin-top:8px;margin-bottom:20px}
+.wrap-label{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:10px}
+.ch3-scenes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.ch3-scene-card{
+  text-align:left;cursor:pointer;border:1px solid rgba(58,41,24,.14);border-radius:16px;
+  background:var(--paper);box-shadow:var(--shadow);padding:18px 18px 14px;
+  transition:transform .15s ease, box-shadow .15s ease;font-family:inherit;
+}
+.ch3-scene-card:hover:not(.locked){transform:translateY(-2px);box-shadow:0 8px 20px rgba(58,41,24,.14)}
+.ch3-scene-card.locked{opacity:.6;cursor:not-allowed;background:var(--cream)}
+.ch3-sc-num{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:6px}
+.ch3-sc-name{font-size:18px;font-weight:800;color:var(--ink);line-height:1.3}
+.ch3-sc-name .zh{display:block;font-size:15px;font-weight:700;color:var(--ink-soft);margin-top:2px}
+.ch3-sc-concept{font-size:12.5px;color:var(--teal-deep);margin-top:8px;font-weight:700}
+.ch3-sc-status{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12px;font-weight:700;padding-top:10px;border-top:1px dashed rgba(58,41,24,.18)}
+.ch3-sc-status.locked{color:var(--ink-mute)}
+.ch3-sc-status.done{color:var(--ok)}
+.ch3-sc-status.ready{color:var(--gold-deep)}
+/* —— 第三章·场景二：贸易面板 —— */
+.trade-tutorial{
+  display:flex;align-items:flex-start;gap:9px;margin-top:14px;padding:13px 15px;
+  background:var(--teal-soft);border-radius:12px;font-size:13.5px;color:var(--teal-deep);line-height:1.65;
+}
+.trade-tutorial .zh{display:block;color:var(--ink-soft);margin-top:2px}
+.crisis-banner{
+  display:flex;align-items:flex-start;gap:9px;margin-top:14px;padding:13px 15px;
+  background:var(--ember-soft);border:1px solid rgba(196,80,63,.35);border-radius:12px;
+  font-size:14px;font-weight:700;color:var(--ember-deep);line-height:1.65;
+}
+.crisis-banner .zh{display:block;color:#8d3c22;font-weight:400;margin-top:2px}
+.crisis-tag{
+  display:flex;align-items:center;gap:5px;margin-top:6px;padding:4px 8px;border-radius:8px;
+  background:var(--ember-soft);color:var(--ember-deep);font-size:11.5px;font-weight:700;
+}
+.trade-board{
+  margin-top:16px;display:flex;flex-direction:column;gap:16px;
+}
+.tb-label{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tb-hint{font-size:11px;color:var(--ink-mute);text-transform:none;letter-spacing:0;font-weight:600}
+.tb-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.nation-card{
+  background:var(--paper);border:1px solid rgba(58,41,24,.14);border-radius:14px;
+  box-shadow:var(--shadow);padding:12px 14px;
+}
+.n-head{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.nflag{width:34px;height:23px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.25);flex:none}
+.n-name{font-size:15px;font-weight:800;color:var(--ink)}
+.n-name .zh{display:block;font-size:12.5px;font-weight:700;color:var(--ink-soft)}
+.n-body{display:flex;flex-direction:column;gap:8px}
+.res-chip{
+  border:1.5px dashed rgba(58,41,24,.3);border-radius:10px;padding:9px 11px;cursor:grab;
+  background:var(--cream-soft);transition:border-color .12s ease, background .12s ease;
+}
+.res-chip:hover{border-color:var(--gold)}
+.res-chip.selected{border-color:var(--gold);border-style:solid;background:#fdf3dd}
+.res-chip.dragging{opacity:.55}
+.res-chip.used{opacity:.55;cursor:not-allowed;background:var(--cream)}
+.rc-name{display:block;font-size:13.5px;font-weight:700;color:var(--ink)}
+.rc-qty{display:block;font-size:12px;color:var(--ink-soft);margin-top:2px;font-weight:600}
+.need-chip{
+  border:1.5px dashed rgba(58,41,24,.3);border-radius:10px;padding:9px 11px;cursor:pointer;
+  background:#fff;transition:border-color .12s ease, background .12s ease;
+}
+.need-chip.drop-hover{border-color:var(--teal);border-style:solid;background:var(--teal-soft)}
+.nc-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.nc-name{font-size:13.5px;font-weight:700;color:var(--ink)}
+.nc-pct{font-size:12.5px;font-weight:800;color:var(--teal-deep)}
+.bar{height:8px;border-radius:99px;background:rgba(58,41,24,.12);overflow:hidden;margin-top:6px}
+.bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--teal-soft));background-color:var(--teal)}
+.nc-nums{font-size:11.5px;color:var(--ink-soft);margin-top:5px;font-weight:600;line-height:1.5}
+.nc-nums .zh{display:block;color:var(--ink-mute)}
+.tb-links{display:flex;flex-direction:column;gap:8px}
+.link-empty{
+  border:1.5px dashed rgba(58,41,24,.25);border-radius:12px;padding:14px 16px;
+  font-size:13px;color:var(--ink-mute);text-align:center;
+}
+.link-empty .zh{display:block;margin-top:3px}
+.link-row{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  background:var(--cream);border:1px solid rgba(58,41,24,.14);border-radius:12px;padding:9px 12px;
+  font-size:13.5px;
+}
+.link-row.affected{border-color:rgba(196,80,63,.5);background:var(--ember-soft)}
+.link-row .nflag{width:22px;height:15px}
+.link-affected{display:inline-flex}
+.lr-name{color:var(--ink);margin-right:2px}
+.lr-res{font-weight:800;color:var(--gold-deep);margin-left:2px}
+.link-del{
+  margin-left:auto;border:none;background:transparent;color:var(--ink-mute);cursor:pointer;
+  display:inline-flex;padding:4px;border-radius:8px;
+}
+.link-del:hover{color:var(--ember-deep);background:rgba(196,80,63,.12)}
+.trade-toast{
+  position:fixed;left:50%;bottom:34px;transform:translateX(-50%);z-index:60;
+  background:#5b3626;color:#fff;padding:11px 18px;border-radius:99px;font-size:13.5px;
+  box-shadow:0 6px 18px rgba(0,0,0,.3);display:none;max-width:86vw;
+}
+.trade-quote{
+  margin-top:14px;padding:13px 15px;background:var(--gold-soft);border-radius:12px;
+  font-size:13.5px;color:#6d4c12;line-height:1.7;display:flex;align-items:flex-start;gap:9px;
+}
+.trade-quote .zh{display:block;color:var(--ink-soft);margin-top:2px}
+.quiz-card{
+  margin-top:16px;background:var(--paper);border:1px solid rgba(58,41,24,.14);border-radius:14px;
+  box-shadow:var(--shadow);padding:16px 18px;
+}
+.quiz-q{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:10px}
+.quiz-q .zh{display:block;font-size:13px;color:var(--ink-soft);font-weight:600;margin-top:2px}
+.quiz-opt{
+  display:flex;align-items:flex-start;gap:9px;padding:9px 11px;border-radius:10px;cursor:pointer;
+  border:1px solid transparent;font-size:13.5px;line-height:1.55;
+}
+.quiz-opt:hover{background:var(--cream)}
+.quiz-opt.picked{background:var(--teal-soft);border-color:rgba(0,123,119,.4)}
+.quiz-opt input{margin-top:3px;accent-color:var(--teal)}
+.quiz-opt .zh{display:block;color:var(--ink-soft);font-size:12.5px}
+.quiz-warn{display:none;margin-top:10px;padding:9px 12px;background:var(--ember-soft);color:var(--ember-deep);border-radius:10px;font-size:13px;font-weight:700}
+.quiz-warn .zh{display:block;color:#8d3c22;font-weight:400;margin-top:2px}
+.qty-modal{padding:6px 2px 2px}
+.qty-read{text-align:center;font-size:17px;color:var(--ink);margin-top:8px}
+.qty-read b{font-size:22px;color:var(--teal-deep)}
+.risk-reasons{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.risk-reasons li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--ember-deep);line-height:1.5}
+.risk-reasons li .zh{display:block;color:var(--ink-soft)}
+.settle-row.stars span:last-child{display:inline-flex;gap:2px;color:var(--gold-deep)}
+.settle-bar{margin-top:-2px}
+.no-star{color:var(--ink-mute);font-weight:700}
 /* 场景起始页：主要任务卡 */
 .mission-card{
   background:var(--paper);border:1px solid rgba(58,41,24,.14);border-radius:16px;
@@ -406,6 +615,12 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
   background:var(--cream);border:1px solid rgba(58,41,24,.12);border-radius:14px;
   padding:16px 18px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px;
 }
+.ch2-settle h3{font-size:17px;color:var(--ink);margin-bottom:2px}
+.settle-verdict{
+  margin-top:6px;padding-top:12px;border-top:1px dashed rgba(58,41,24,.22);
+  font-size:14px;line-height:1.7;color:var(--teal-deep);
+}
+.settle-verdict .zh{display:block;color:var(--ink-soft);margin-top:4px}
 .settle-row,.sum-row{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
   font-size:15px;
@@ -705,6 +920,66 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
   .game-head{padding:20px 18px}
   .game-head h2{font-size:23px}
 }
+/* —— 场景三：文化市场预测 —— */
+.fc-step-tag{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--gold-deep);margin:14px 0 4px;font-size:15px;}
+.fc-step-note{font-weight:600;color:var(--ink-soft);font-size:12.5px;}
+.fc-cultural{background:var(--teal-soft);border:1px solid #c4ddd6;border-radius:12px;padding:10px 14px;color:var(--teal-deep);font-size:14px;margin:10px 0;}
+.fc-news{display:flex;flex-direction:column;gap:8px;margin:12px 0;}
+.fc-news-item{display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--cream);border-radius:12px;padding:10px 14px;font-weight:700;color:var(--ink);font-size:14px;}
+.fc-news-item svg{flex:0 0 auto;margin-top:2px;}
+.fc-markets{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0;}
+.fc-market-card{flex:1 1 240px;background:var(--paper);border:1px solid var(--cream);border-radius:12px;padding:12px 14px;}
+.fc-market-head{font-weight:800;color:var(--teal-deep);font-size:14.5px;margin-bottom:6px;}
+.fc-market-card p{margin:0 0 8px;font-size:13px;color:var(--ink);font-weight:600;line-height:1.5;}
+.fc-product-tag{display:inline-block;background:var(--gold-soft);border-radius:8px;padding:4px 10px;font-size:12.5px;font-weight:800;color:var(--gold-deep);}
+.fc-reports{display:flex;flex-direction:column;gap:8px;margin:12px 0;}
+.fc-report-card{background:var(--paper);border:1px solid var(--cream);border-radius:12px;padding:10px 14px;}
+.fc-report-tag{font-weight:800;color:var(--ember-deep);font-size:13px;margin-bottom:4px;}
+.fc-report-card p{margin:0;font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.5;}
+.fc-timeline{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;background:var(--cream-soft);border:1px solid var(--cream);border-radius:14px;padding:14px 12px;margin:12px 0;}
+.tl-step{display:flex;flex-direction:column;align-items:center;gap:3px;background:#fff;border:1px solid var(--cream);border-radius:10px;padding:8px 12px;min-width:96px;}
+.tl-step b{font-size:13px;color:var(--teal-deep);}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.tl-arrow{color:var(--gold-deep);display:flex;}
+.fc-preview{background:var(--paper);border:1px solid var(--cream);border-radius:14px;padding:12px 14px;margin:12px 0;}
+.fc-sub{font-weight:800;color:var(--ink-soft);font-size:13px;margin-bottom:8px;}
+.fc-note{font-weight:600;color:var(--ink-mute);font-size:11.5px;}
+.fc-level{display:inline-flex;align-items:center;gap:8px;background:var(--gold-soft);border:1px solid #eccf9f;border-radius:12px;padding:9px 14px;font-weight:700;color:var(--ink);font-size:13.5px;margin:10px 0;}
+.fc-level b{color:var(--ember-deep);font-size:15px;}
+.fc-task{display:flex;gap:10px;align-items:center;background:var(--teal-soft);border-left:5px solid var(--teal);border-radius:0 12px 12px 0;padding:10px 14px;font-weight:800;color:var(--teal-deep);font-size:14px;margin:12px 0 4px;}
+.imp-budget{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0;}
+.ib-cell{flex:1 1 150px;background:var(--paper);border:1px solid var(--cream);border-radius:12px;padding:10px 14px;text-align:center;}
+.ib-cell span{display:block;font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:4px;}
+.ib-cell b{font-size:18px;color:var(--teal-deep);}
+.ib-cell.over b{color:var(--bad);}
+.imp-cards{display:flex;flex-direction:column;gap:12px;margin:12px 0;}
+.imp-card{background:var(--paper);border:1px solid var(--cream);border-radius:14px;padding:12px 14px;}
+.imp-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+.imp-name{font-weight:800;color:var(--ink);font-size:15px;}
+.imp-price{font-size:12.5px;font-weight:700;color:var(--ink-soft);}
+.imp-stock{font-size:12.5px;font-weight:700;color:var(--teal-deep);background:var(--teal-soft);display:inline-block;border-radius:8px;padding:3px 10px;margin-bottom:6px;}
+.imp-slider{width:100%;height:34px;accent-color:var(--teal);margin:2px 0;}
+.imp-read{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700;color:var(--ink);}
+.imp-read b{color:var(--teal-deep);font-size:14px;}
+.line-chart{background:var(--paper);border:1px solid var(--cream);border-radius:14px;padding:12px 12px 8px;margin:12px 0;}
+.line-chart svg{width:100%;height:auto;display:block;}
+.line-chart svg text{font-family:inherit;}
+.chart-legend{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:4px;}
+.chart-legend .lg{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--ink-soft);}
+.chart-legend .lg i{width:14px;height:4px;border-radius:2px;display:inline-block;}
+.risk-reasons{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;}
+.risk-reasons li{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700;color:var(--ember-deep);background:var(--ember-soft);border-radius:8px;padding:6px 10px;}
+.risk-reasons svg{flex:0 0 auto;}
+.no-star{font-weight:800;color:var(--ink-mute);font-size:13px;}
+.reflect-card{background:var(--paper);border:1px solid var(--cream);border-radius:14px;padding:14px;margin:12px 0;}
+.quiz-q{font-weight:800;color:var(--ink);font-size:14.5px;margin-bottom:10px;line-height:1.5;}
+.reflect-opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--cream);border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer;font-size:13px;font-weight:700;color:var(--ink);line-height:1.5;}
+.reflect-opt:hover{border-color:var(--gold);}
+.reflect-opt.picked{border-color:var(--teal);background:var(--teal-soft);}
+.reflect-fb{margin-top:10px;border-radius:10px;padding:10px 12px;font-size:13px;font-weight:700;line-height:1.6;}
+.reflect-fb.good{background:#e7f2e9;border:1px solid #bcd8c4;color:var(--ok);}
+.reflect-fb.bad{background:var(--ember-soft);border:1px solid #ecc4b0;color:var(--ember-deep);}
+.link-empty{font-size:13px;font-weight:700;color:var(--ink-mute);padding:6px 0;}
 </style>
 </head>
 <body>
@@ -737,6 +1012,16 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
       <div class="ch-title">Beyond the Price Tag</div>
       <div class="ch-title-zh">价格标签的背后</div>
       <div class="ch-sub">Your clothing factory · 你的服装工厂</div>
+    </div>
+
+    <div class="plank chapter-plank locked" id="ch3Plank" role="button" tabindex="0" aria-label="Chapter 3">
+      <div class="ch-head">
+        <span class="ch-kicker">Chapter 3 · 第三章</span>
+        <span class="ch-status locked" id="ch3Status">Locked · 未解锁</span>
+      </div>
+      <div class="ch-title">The Changing Market</div>
+      <div class="ch-title-zh">变化中的市场</div>
+      <div class="ch-sub">A trading town of many cultures · 多元文化的贸易城镇</div>
     </div>
 
     <div class="plank">
@@ -792,6 +1077,7 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
 const IMG = {
   market: "https://aka.doubaocdn.com/s/KnMeWvMBz8",
   factory: "https://aka.doubaocdn.com/s/E3KBPp5MBR",
+  town: "https://aka.doubaocdn.com/s/hScgcU23Hr",
   consumer: "https://aka.doubaocdn.com/s/5rOSR5OJb5",
   supplier: "https://aka.doubaocdn.com/s/4ZrXYU285V"
 };
@@ -806,6 +1092,307 @@ const CHAPTER2 = {
   welcomeEn: "Now you are ready to become part of the trading system. You will run a clothing factory of your own — take a look at your starting funds!",
   welcomeZh: "现在你已经准备好成为贸易系统的一员了。你将会自己运行一间生产服装的工厂，先来看看你的初始资金吧！"
 };
+
+const CHAPTER3 = {
+  en: "The Changing Market",
+  zh: "变化中的市场",
+  kicker: "Chapter 3",
+  subEn: "A trading town of many cultures",
+  subZh: "多元文化的贸易城镇",
+  storyEn: "Your factory has survived its first major challenges. Now you are expanding into a trading town with different customers, resources, and cultural preferences.",
+  storyZh: "你的工厂已经度过了最初的重大挑战。现在，你正把生意扩展到一个贸易城镇——那里有不同的顾客、不同的资源，也有不同的文化偏好。",
+  turnEn: "But the market never stays the same. Can you adapt?",
+  turnZh: "但市场从不会一成不变。你能适应吗？",
+  questionEn: "Why does trade change, even when businesses are trying to sell the same products?",
+  questionZh: "为什么贸易会变化，即使商家卖的始终是同样的产品？"
+};
+
+/* ===== 第三章场景数据 ===== */
+const CH3_PRODUCT = { en: "T-shirt", zh: "T恤" };
+
+const CH3_SCENES = [
+  {
+    id: 1,
+    en: "The Busy Marketplace",
+    zh: "繁忙的集市",
+    concept: { en: "Demand & Supply", zh: "需求与供给" },
+    missionEn: "Run your T-shirt stall through six market rounds — set prices and decide how much to restock.",
+    missionZh: "经营你的 T 恤摊位，走过六个市场回合——自己定价，也决定补多少货。",
+    priceMin: 4,
+    priceMax: 14,
+    startStock: 30,
+    rounds: [
+      {
+        type: "sell",
+        en: "Opening Day — No Competitors", zh: "开市日——没有竞争者",
+        introEn: "The market opens and your stall is the only one selling T-shirts today. Move the slider to explore how price changes demand — there is no single right answer.",
+        introZh: "集市开张，今天只有你一家在卖 T 恤。拖动滑块，观察价格如何改变需求——这里没有唯一的正确答案。",
+        baseD: 40, baseP: 4, dStep: -3, mul: 1, comp: null,
+        noteEn: "Low prices sell more shirts, but selling more does not always mean earning more.",
+        noteZh: "低价能卖出更多 T 恤，但卖得多并不一定赚得更多。"
+      },
+      {
+        type: "buy",
+        en: "A Supplier's Offer — Possible Increase in Demand", zh: "供应商的报价——需求可能上升",
+        introEn: "A supplier offers T-shirts at 5 coins each and hints that demand may rise soon. Move the slider to choose how many units to restock.",
+        introZh: "一位供应商开价每件 5 金币，并暗示需求很快可能上升。拖动滑块，选择你要补多少件货。",
+        unitPrice: 5, maxQty: 60, step: 5,
+        noteEn: "Buying costs coins now, but empty shelves lose sales later.",
+        noteZh: "现在进货要花金币，但货架空着会丢掉后面的生意。"
+      },
+      {
+        type: "sell",
+        en: "A New Competitor — Same Quality, Lower Price", zh: "新对手——同等质量，更低价格",
+        introEn: "A competitor opens across the street, selling the same quality T-shirt for 8 coins. Customers now compare your price with theirs before buying.",
+        introZh: "街对面开了一家新摊，卖同等质量的 T 恤，只要 8 金币。顾客现在会先比较你和对手的价格再买。",
+        baseD: 44, baseP: 4, dStep: -3, mul: 1, comp: { price: 8, penalty: 6 },
+        noteEn: "Price above the competitor and customers walk away; price far below and every sale earns very little.",
+        noteZh: "定得比对手贵，顾客就走开；定得比对手便宜太多，每一件都赚得很少。"
+      },
+      {
+        type: "buy",
+        en: "A Market Rumour — A Festival May Attract More Customers", zh: "市场传闻——节庆可能带来更多顾客",
+        introEn: "Word spreads that a festival will fill the town next week. The supplier is back to 4 coins each — decide how much stock to buy before the crowds arrive.",
+        introZh: "有消息说下周的节庆会让城镇挤满人。供应商恢复每件 4 金币——决定在人群到来前买多少库存。",
+        unitPrice: 4, maxQty: 100, step: 5,
+        noteEn: "A rumour is not a promise: over-buying ties up coins, under-buying leaves customers empty-handed.",
+        noteZh: "传闻不等于承诺：买太多会压住金币，买太少会让顾客空手离开。"
+      },
+      {
+        type: "sell",
+        en: "The Busy Market — Demand Increases, Competition Remains", zh: "繁忙的集市——需求上升，竞争仍在",
+        introEn: "Festival crowds arrive and demand jumps, but the competitor across the street still sells at 8 coins. Watch your stock as well as your price.",
+        introZh: "节庆的人潮到了，需求大涨，但街对面的对手仍以 8 金币出售。既要盯住价格，也要盯住库存。",
+        baseD: 44, baseP: 4, dStep: -3, mul: 1.5, comp: { price: 8, penalty: 6 },
+        noteEn: "Demand can be higher than your stock — the shirts you do not have cannot be sold.",
+        noteZh: "需求可能高于你的库存——没有的货，卖不出去。"
+      },
+      {
+        type: "sell",
+        en: "The Market Changes Again — Demand Falls, More Competitors", zh: "市场又变了——需求下降，对手更多",
+        introEn: "The festival ends, spending slows, and two more stalls now sell the same T-shirt at 7 coins. Make your final pricing decision of the day.",
+        introZh: "节庆结束，消费放缓，又有两家摊位以 7 金币卖同样的 T 恤。做出今天最后的定价决定。",
+        baseD: 44, baseP: 4, dStep: -3, mul: 0.7, comp: { price: 7, penalty: 6 },
+        noteEn: "When demand falls and competitors multiply, the market pushes prices down.",
+        noteZh: "当需求下降、对手变多，市场会把价格往下压。"
+      }
+    ]
+  },
+  {
+    id: 2,
+    en: "Global Resource Trade Network",
+    zh: "全球资源贸易网络",
+    concept: { en: "Natural Resources", zh: "自然资源" },
+    missionEn: "Drag & connect trade links between countries, then allocate limited resources to satisfy import demands.",
+    missionZh: "在国家之间拖拽连线，再分配有限的资源，满足各国的进口需求。",
+    completionBonus: 120,
+    rounds: [
+      {
+        type: "trade",
+        en: "Find the Resource", zh: "寻找资源",
+        introEn: "China needs iron ore for its factories. Look at each country's exports and connect the right supplier. This round is a tutorial — follow the hints!",
+        introZh: "中国需要铁矿石来供给它的工厂。看看每个国家的出口，把正确的供应国连起来。这一回合是教程——跟着提示走！",
+        tutorial: {
+          en: "Drag an export (e.g. Iron Ore) from the exporter's card onto the matching import need. Only links with the same resource are valid. Each export has a limited supply, and each import has a limited demand.",
+          zh: "把出口国卡片上的资源（如铁矿石）拖到对应的进口需求上。只有资源类型一致的连接才有效。每个出口的供应量有限，每个进口的需求量也有限。"
+        },
+        exporters: [
+          { id: "brazil", en: "Brazil", zh: "巴西", flag: "brazil", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 35 } ] },
+          { id: "australia", en: "Australia", zh: "澳大利亚", flag: "australia", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 60 } ] },
+          { id: "saudi", en: "Saudi Arabia", zh: "沙特阿拉伯", flag: "saudi", res: [ { t: "oil", en: "Crude Oil", zh: "原油", qty: 80 } ] }
+        ],
+        importers: [
+          { id: "china", en: "China", zh: "中国", flag: "china", need: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 40 } ] }
+        ],
+        quote: null, quiz: null, crisis: null,
+        grading: { star3: 1, star1: 0.5 }
+      },
+      {
+        type: "trade",
+        en: "Multiple Suppliers", zh: "多来源采购",
+        introEn: "China needs 100 units of iron ore. No single country can supply it all — search for several exporters and divide the amount among them.",
+        introZh: "中国需要进口 100 单位铁矿石。没有任何一个国家能独自满足——去找多个出口国，把数量分配给它们。",
+        tutorial: null,
+        exporters: [
+          { id: "brazil", en: "Brazil", zh: "巴西", flag: "brazil", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 35 } ] },
+          { id: "australia", en: "Australia", zh: "澳大利亚", flag: "australia", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 60 } ] },
+          { id: "canada", en: "Canada", zh: "加拿大", flag: "canada", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 25 } ] },
+          { id: "saudi", en: "Saudi Arabia", zh: "沙特阿拉伯", flag: "saudi", res: [ { t: "oil", en: "Crude Oil", zh: "原油", qty: 80 } ] }
+        ],
+        importers: [
+          { id: "china", en: "China", zh: "中国", flag: "china", need: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 100 } ] }
+        ],
+        quote: {
+          en: "One country cannot always supply everything another country needs. International trade connects multiple suppliers.",
+          zh: "一个国家不一定能满足另一个国家的全部资源需求，国际贸易使多个供应国相互连接。"
+        },
+        quiz: null, crisis: null,
+        grading: { star3: 1, star1: 0.5 }
+      },
+      {
+        type: "trade",
+        en: "Competing Importers", zh: "竞争有限资源",
+        introEn: "Both China and Japan need iron ore, but the total export supply is not enough for everyone. Decide how to split the limited supply — then explain your choice.",
+        introZh: "中国和日本都需要铁矿石，但出口总供应量不够所有人分。决定如何分配这份有限的供应——然后解释你的选择。",
+        tutorial: null,
+        exporters: [
+          { id: "brazil", en: "Brazil", zh: "巴西", flag: "brazil", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 35 } ] },
+          { id: "australia", en: "Australia", zh: "澳大利亚", flag: "australia", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 55 } ] }
+        ],
+        importers: [
+          { id: "china", en: "China", zh: "中国", flag: "china", need: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 60 } ] },
+          { id: "japan", en: "Japan", zh: "日本", flag: "japan", need: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 50 } ] }
+        ],
+        quote: {
+          en: "When supply is limited, some demand may go unmet. There is no single right answer — the important thing is a fair, explainable decision.",
+          zh: "当供应有限时，部分需求可能无法被满足。这里没有唯一正确答案——重要的是做出公平、可以说得通的决定。"
+        },
+        quiz: {
+          en: "Why did you choose this allocation?",
+          zh: "你为什么这样分配？",
+          options: [
+            { en: "I prioritised the importer with the greater need.", zh: "我把资源优先给了需求更大的进口国。", good: true },
+            { en: "I split the supply fairly so both importers got as much as possible.", zh: "我尽量公平分配，让两个进口国都尽可能多拿到。", good: true },
+            { en: "I gave everything to the country I know better.", zh: "我把资源全给了我更熟悉的国家。", good: false },
+            { en: "I don't think the shortage matters much.", zh: "我不觉得资源短缺有多大影响。", good: false }
+          ]
+        },
+        crisis: null,
+        grading: { star3: 1, star1: 0.7 }
+      },
+      {
+        type: "trade",
+        en: "Resource Shortage", zh: "资源供应危机",
+        introEn: "Your trade network is already running. Suddenly a mining disruption hits Brazil — its iron ore export capacity drops from 50 to 20 units. Check which imports are affected and re-allocate the supply.",
+        introZh: "你的贸易网络已经建立起来了。突然，巴西的矿山生产受到影响——铁矿石出口能力从 50 单位降到 20 单位。检查哪些进口受到影响，重新分配供应。",
+        tutorial: null,
+        preset: [ { from: "brazil", qty: 50 }, { from: "australia", qty: 35 }, { from: "canada", qty: 15 } ],
+        crisis: {
+          country: "brazil", res: "iron", from: 50, to: 20,
+          en: "A mining disruption has reduced Brazil's iron ore export capacity from 50 to 20 units.",
+          zh: "巴西一处矿山生产中断，铁矿石出口能力从 50 单位下降到 20 单位。"
+        },
+        exporters: [
+          { id: "brazil", en: "Brazil", zh: "巴西", flag: "brazil", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 50 } ] },
+          { id: "australia", en: "Australia", zh: "澳大利亚", flag: "australia", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 35 } ] },
+          { id: "canada", en: "Canada", zh: "加拿大", flag: "canada", res: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 15 } ] }
+        ],
+        importers: [
+          { id: "china", en: "China", zh: "中国", flag: "china", need: [ { t: "iron", en: "Iron Ore", zh: "铁矿石", qty: 100 } ] }
+        ],
+        quote: {
+          en: "When one country's supply changes, the whole network feels it. Some demand may stay unmet — the goal is to recover as much as possible.",
+          zh: "当一个国家的供应发生变化，整个网络都会感受到。部分需求可能仍然无法满足——目标是尽可能多地恢复。"
+        },
+        quiz: null,
+        grading: { possible: 70 }
+      }
+    ]
+  },
+  {
+    id: 3,
+    en: "Cultural Market Forecast",
+    zh: "文化市场预测",
+    concept: { en: "Cultural Preferences", zh: "文化偏好" },
+    missionEn: "Read market news, plan imports within a budget, then reveal actual demand and sales.",
+    missionZh: "阅读市场信息，在预算内制定进口计划，然后揭晓实际需求与销售结果。",
+    completionBonus: 150,
+    // 注意：本场景不设独立经营预算——每回合采购预算使用玩家当前剩余金币（state.ch3.coins）
+    rounds: [
+      {
+        type: "forecast",
+        en: "The Festival Rush", zh: "节日采购热潮",
+        cultural: { en: "Festivals & Celebrations", zh: "节日与庆祝活动" },
+        forecastNews: [
+          { en: "Spring Festival is coming soon.", zh: "春节即将到来。" },
+          { en: "Local shops expect more customers to buy festival decorations.", zh: "当地商店预计更多消费者会购买节日装饰品。" },
+          { en: "After the festival, decoration demand may drop.", zh: "节日结束后，装饰品需求可能下降。" }
+        ],
+        timeline: [ { en: "Before Festival", zh: "节日前" }, { en: "During Festival", zh: "节日期间" }, { en: "After Festival", zh: "节日后" } ],
+        forecastLevel: { en: "High · during the festival", zh: "高 · 节日期间" },
+        taskEn: "Import Red Lanterns for the festival rush.", taskZh: "为节日热潮进口红灯笼。",
+        products: [ { id: "lanterns", en: "Red Lanterns", zh: "红灯笼", unitCost: 3, sellPrice: 6, maxQty: 120, demand: 100, curve: [70, 100, 15] } ],
+        uncertain: false,
+        feedback: { en: "Festival celebrations can increase demand for certain products, but demand may fall after the celebration.", zh: "节日庆祝活动可能提高某些商品的需求，但节日结束后需求可能下降。" },
+        stars3: 55, stars1: 20
+      },
+      {
+        type: "forecast",
+        en: "Everyday Tastes", zh: "不同市场的日常偏好",
+        cultural: { en: "Food & Daily Habits", zh: "饮食与日常习惯" },
+        markets: [
+          { id: "A", en: "Market A", zh: "市场 A", info: { en: "Many surveyed consumers drink tea regularly.", zh: "许多受访消费者有定期饮茶的习惯。" }, pid: "tea" },
+          { id: "B", en: "Market B", zh: "市场 B", info: { en: "More families enjoy cooking with specialty ingredients from other cultures.", zh: "越来越多家庭喜欢使用其他文化的特色食材烹饪。" }, pid: "ingredients" },
+          { id: "C", en: "Market C", zh: "市场 C", info: { en: "Many surveyed consumers prefer quick, ready-to-eat food.", zh: "许多受访消费者偏好方便快捷的食品。" }, pid: "readyfood" }
+        ],
+        forecastLevel: { en: "Medium–High · one shared budget", zh: "中–高 · 共享一份预算" },
+        taskEn: "Share one limited budget among three markets.", taskZh: "把一份有限的预算分配给三个市场。",
+        products: [
+          { id: "tea", en: "Tea", zh: "茶叶", unitCost: 4, sellPrice: 8, maxQty: 60, demand: 20, curve: [18, 20, 22] },
+          { id: "ingredients", en: "Specialty Cooking Ingredients", zh: "特色烹饪食材", unitCost: 5, sellPrice: 9, maxQty: 40, demand: 15, curve: [13, 15, 17] },
+          { id: "readyfood", en: "Ready-to-eat Food", zh: "即食食品", unitCost: 3, sellPrice: 7, maxQty: 60, demand: 25, curve: [23, 25, 27] }
+        ],
+        uncertain: false,
+        feedback: { en: "Daily habits can create regular demand for certain products. Different markets may have different preferences.", zh: "日常习惯可能形成持续的商品需求，不同市场的消费者偏好也可能不同。" },
+        stars3: 0.85, stars1: 0.5
+      },
+      {
+        type: "forecast",
+        en: "Trending Now", zh: "流行趋势来袭",
+        cultural: { en: "Entertainment & Trends", zh: "娱乐与流行趋势" },
+        forecastNews: [
+          { en: "A new animated film is trending.", zh: "一部新的动画作品正在走红。" },
+          { en: "Shops report more questions about related merchandise.", zh: "商店发现相关商品的询问量增加。" },
+          { en: "No one knows how long the trend will last.", zh: "目前还不确定流行趋势会持续多久。" }
+        ],
+        trendPreview: [40, 70, 110],
+        forecastLevel: { en: "High, but uncertain", zh: "高，但不确定" },
+        taskEn: "Import Anime Collectible Figures — balance opportunity and risk.", taskZh: "进口动漫收藏手办——平衡机会与风险。",
+        products: [ { id: "figures", en: "Anime Collectible Figures", zh: "动漫收藏手办", unitCost: 4, sellPrice: 9, maxQty: 120 } ],
+        uncertain: true,
+        trendScenarios: [
+          { en: "Trend Continues", zh: "热度继续上升", curve: [60, 90, 120] },
+          { en: "Trend Stabilizes", zh: "热度趋于稳定", curve: [60, 75, 70] },
+          { en: "Trend Declines", zh: "热度开始下降", curve: [60, 40, 20] }
+        ],
+        feedback: { en: "Entertainment trends can change consumer demand quickly. Importers must consider both opportunities and uncertainty.", zh: "娱乐流行趋势可能使消费者需求快速变化，进口商需要同时考虑机会与不确定性。" },
+        stars3min: 30, stars3max: 60, stars1min: 10, stars1max: 90
+      },
+      {
+        type: "forecast",
+        en: "Cultural Market Challenge", zh: "文化市场综合挑战",
+        cultural: { en: "All Three Factors Combined", zh: "三个因素综合应用" },
+        reports: [
+          { tag: { en: "Festival Report", zh: "节日报告" }, en: "A festival is coming; decoration demand is expected to rise.", zh: "节日即将到来，装饰品需求预计上升。" },
+          { tag: { en: "Daily Habits Report", zh: "日常习惯报告" }, en: "Tea has steady, regular demand.", zh: "茶叶有稳定、日常的需求。" },
+          { tag: { en: "Entertainment Report", zh: "娱乐报告" }, en: "Collectible figures are trending up, but the future is uncertain.", zh: "收藏手办的流行度正在上升，但未来走势不确定。" }
+        ],
+        forecastLevel: { en: "Mixed · read the reports", zh: "混合 · 阅读报告" },
+        taskEn: "Plan one limited budget across all three products.", taskZh: "用一份有限的预算规划三种商品。",
+        products: [
+          { id: "deco", en: "Festival Decorations", zh: "节日装饰品", unitCost: 3, sellPrice: 6, maxQty: 120, demand: 80, curve: [30, 80, 20] },
+          { id: "tea", en: "Tea", zh: "茶叶", unitCost: 4, sellPrice: 8, maxQty: 60, demand: 50, curve: [45, 50, 45] },
+          { id: "figures", en: "Collectible Figures", zh: "收藏手办", unitCost: 4, sellPrice: 9, maxQty: 100, demand: 70, curve: [40, 70, 100] }
+        ],
+        uncertain: false,
+        feedback: { en: "Different cultural influences create different patterns of demand. Successful import planning requires understanding consumers, timing, and market uncertainty.", zh: "不同文化因素会形成不同的需求变化模式。合理的进口计划需要考虑消费者、时间和市场不确定性。" },
+        stars3: 0.8, stars1: 0.5
+      }
+    ],
+    reflect: {
+      questionEn: "How do cultural preferences influence what countries import?",
+      questionZh: "文化偏好如何影响一个国家进口什么商品？",
+      options: [
+        { en: "Cultural preferences shape consumer demand, and importers adjust what, how much, and when they import.", zh: "文化偏好塑造消费者需求，进口商据此调整进口什么、多少、何时进口。", good: true },
+        { en: "Trade is the same everywhere; culture has little effect.", zh: "贸易在各地都一样，文化影响很小。", good: false },
+        { en: "Only festivals matter; daily habits and trends do not affect trade.", zh: "只有节日重要，日常习惯和流行趋势不影响贸易。", good: false },
+        { en: "Importers should ignore market news and guess randomly.", zh: "进口商应该忽略市场信息、随机猜测。", good: false }
+      ],
+      feedbackEn: "Cultural preferences affect what consumers want to buy. Importers who read market signals can plan what to import, how much, and when — so culture shapes the pattern of international trade.",
+      feedbackZh: "文化偏好影响消费者想买什么。会读市场信号的进口商可以规划进口什么、多少、何时进口——因此文化塑造了国际贸易的形态。"
+    }
+  }
+];
 
 const CHAPTER = {
   en: "Into The Market Place",
@@ -1552,9 +2139,9 @@ let state = loadState();
 function loadState(){
   try{
     const raw = localStorage.getItem(STORE_KEY);
-    if(raw) return Object.assign({ best:{}, roleDone:{}, sceneDone:[], ch2:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null }, JSON.parse(raw));
+    if(raw) return Object.assign({ best:{}, roleDone:{}, sceneDone:[], ch2:null, ch3:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null }, JSON.parse(raw));
   }catch(e){}
-  return { best:{}, roleDone:{}, sceneDone:[], ch2:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null };
+  return { best:{}, roleDone:{}, sceneDone:[], ch2:null, ch3:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null };
 }
 function saveState(){
   try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
@@ -1616,6 +2203,8 @@ function resetChapter2(){
   state.ch2.coins = base;
   state.ch2.sceneStates = {};
   state.ch1Locked = false;
+  // 第三章建立在第二章的结果之上：重置第二章时一并清空第三章进度
+  state.ch3 = null;
   saveState();
 }
 
@@ -1665,6 +2254,28 @@ const ICON = {
   risk:'<svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2.3l10.6 18.3a1.15 1.15 0 0 1-1 1.72H2.4a1.15 1.15 0 0 1-1-1.72z" fill="#c4503f"/><path d="M12 7.4v6.3" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="17.5" r="1.5" fill="#fff"/></svg>'
 };
 
+/* 国旗（简化 SVG，禁止 emoji） */
+function starP(cx, cy, r, points){
+  points = points || 5;
+  let d = '';
+  for(let i = 0; i < points * 2; i++){
+    const rad = (i % 2 === 0) ? r : r * 0.45;
+    const a = -Math.PI / 2 + i * Math.PI / points;
+    const x = cx + rad * Math.cos(a), y = cy + rad * Math.sin(a);
+    d += (i === 0 ? 'M' : 'L') + x.toFixed(2) + ' ' + y.toFixed(2);
+  }
+  return d + 'Z';
+}
+const FLAGS = {
+  china: '<svg class="nflag" viewBox="0 0 30 20" role="img" aria-label="China · 中国"><rect width="30" height="20" fill="#de2910"/><path d="' + starP(6.5, 6.2, 3.7) + '" fill="#ffde00"/></svg>',
+  saudi: '<svg class="nflag" viewBox="0 0 30 20" role="img" aria-label="Saudi Arabia · 沙特阿拉伯"><rect width="30" height="20" fill="#165d31"/><rect x="4" y="8.6" width="22" height="2.8" fill="#fff"/><path d="M20.5 8.2a4.4 4.4 0 0 0 0 3.6 5 5 0 0 1-3 1.7V8.2z" fill="#fff"/></svg>',
+  brazil: '<svg class="nflag" viewBox="0 0 30 20" role="img" aria-label="Brazil · 巴西"><rect width="30" height="20" fill="#009739"/><polygon points="15,2.2 28.2,10 15,17.8 1.8,10" fill="#ffdf00"/><circle cx="15" cy="10" r="5.2" fill="#012169"/><path d="M10.8 9.2h8.4v1.6h-8.4z" fill="#fff"/></svg>',
+  australia: '<svg class="nflag" viewBox="0 0 30 20" role="img" aria-label="Australia · 澳大利亚"><rect width="30" height="20" fill="#012169"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="3.4"/><path d="M15 0v20M0 10h30" stroke="#e4002b" stroke-width="1.6"/><path d="M0 0l15 10M30 0L15 10M0 20l15-10M30 20L15 10" stroke="#fff" stroke-width="3.4"/><path d="M0 0l15 10M30 0L15 10M0 20l15-10M30 20L15 10" stroke="#e4002b" stroke-width="1.6"/><path d="' + starP(25.5, 15.5, 2.6) + '" fill="#fff"/></svg>',
+  canada: '<svg class="nflag" viewBox="0 0 30 20" role="img" aria-label="Canada · 加拿大"><rect width="30" height="20" fill="#d52b1e"/><rect x="6" width="18" height="20" fill="#fff"/><path d="M15 3.6l1.9 2.9 2.3-.8-1.3 2.6 2.6 1-2.5 1.6 1.2 2.6-2.5-1.4-.4 3.3-1.3-2.5-1.3 2.5-.4-3.3-2.5 1.4 1.2-2.6-2.5-1.6 2.6-1-1.3-2.6 2.3.8z" fill="#d52b1e"/></svg>',
+  japan: '<svg class="nflag" viewBox="0 0 30 20" role="img" aria-label="Japan · 日本"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg>'
+};
+function flagSvg(id){ return FLAGS[id] || FLAGS.china; }
+
 /* ================= 渲染：左侧栏 ================= */
 function renderBoard(){
   const total = SCENES.length;
@@ -1677,14 +2288,18 @@ function renderBoard(){
   const t = totals();
   const view = location.hash || "#/";
 
-  // 金币计数器：第二章视图显示第二章当前总额，第一章视图显示第一章历史最佳累计
-  if(view.indexOf("#/ch2") === 0 && state.ch2){
+  // 金币计数器：第二/第三章视图显示工厂当前总额，第一章视图显示第一章历史最佳累计
+  const inCh3 = view.indexOf("#/ch3") === 0;
+  const inCh2 = view.indexOf("#/ch2") === 0;
+  if(inCh3 && state.ch3 && typeof state.ch3.coins === "number"){
+    $("#coinTotal").textContent = state.ch3.coins;
+  } else if((inCh2 || inCh3) && state.ch2){
     $("#coinTotal").textContent = state.ch2.coins;
   } else {
     $("#coinTotal").textContent = t.coins;
   }
 
-  // 贸易之星：第一章历史最佳 + 第二章各场景历史最佳
+  // 贸易之星：第一章历史最佳 + 第二章各场景历史最佳 + 第三章各场景累计
   let ch2Stars = 0;
   if(state.ch2 && state.ch2.sceneStates){
     Object.keys(state.ch2.sceneStates).forEach(sid => {
@@ -1692,9 +2307,10 @@ function renderBoard(){
       if(typeof s.bestStars === 'number') ch2Stars += s.bestStars;
     });
   }
-  $("#starTotal").textContent = t.stars + ch2Stars;
+  const ch3Stars = (state.ch3 && typeof state.ch3.starsTotal === 'number') ? state.ch3.starsTotal : 0;
+  $("#starTotal").textContent = t.stars + ch2Stars + ch3Stars;
 
-  // 商业风险：第二章全部场景风险累计（全局；重玩当前场景时随该场景清零而回滚）
+  // 商业风险：第二章全部场景风险累计 + 第三章累计（全局；重玩当前场景时随该场景清零而回滚）
   let risk = 0;
   if(state.ch2 && state.ch2.sceneStates){
     Object.keys(state.ch2.sceneStates).forEach(sid => {
@@ -1702,8 +2318,9 @@ function renderBoard(){
       if(s && typeof s.risk === 'number') risk += s.risk;
     });
   }
+  const ch3Risk = (state.ch3 && typeof state.ch3.risk === 'number') ? state.ch3.risk : 0;
   const riskEl = $("#riskTotal");
-  riskEl.textContent = risk;
+  riskEl.textContent = risk + ch3Risk;
   riskEl.style.color = risk >= 20 ? "#ff9d8a" : (risk >= 10 ? "#ffc3a3" : "");
 
   // 第一章章节卡：进度 + 状态
@@ -1740,6 +2357,19 @@ function renderBoard(){
     ch2Status.className = "ch-status locked";
   }
 
+  // 第三章章节卡：完成整个第二章后解锁
+  const ch3El = $("#ch3Plank");
+  const ch3Status = $("#ch3Status");
+  if(ch2AllDone()){
+    ch3El.classList.remove("locked");
+    ch3Status.textContent = state.ch3 ? "Started · 已开始" : "Ready · 可开始";
+    ch3Status.className = "ch-status ready";
+  } else {
+    ch3El.classList.add("locked");
+    ch3Status.textContent = "Locked · 未解锁";
+    ch3Status.className = "ch-status locked";
+  }
+
   $("#consumerDone").textContent = consumerCount + "/" + total;
   $("#supplierDone").textContent = supplierCount + "/" + total;
 }
@@ -1754,6 +2384,13 @@ function render(){
   } else if(hash.indexOf("#/ch2/scene/") === 0){
     const id = parseInt(hash.split("/")[3], 10);
     renderCh2Scene(id);
+  } else if(hash.indexOf("#/ch3/report") === 0){
+    renderCh3ChapterReport();
+  } else if(hash.indexOf("#/ch3/scene/") === 0){
+    const id = parseInt(hash.split("/")[3], 10);
+    renderCh3Scene(id);
+  } else if(hash.indexOf("#/ch3") === 0){
+    renderChapter3();
   } else if(hash.indexOf("#/ch2") === 0){
     renderChapter2();
   } else {
@@ -1776,6 +2413,20 @@ function enterChapter2(){
   }
   saveState();
   location.hash = "#/ch2";
+}
+/* 进入第三章：完成整个第二章后解锁 */
+function enterChapter3(){
+  if(!ch2AllDone()) return;
+  if(!state.ch3){
+    state.ch3 = { started: false, coins: (state.ch2 ? state.ch2.coins : 0), starsTotal: 0, risk: 0, sceneStates: {} };
+  }
+  if(typeof state.ch3.coins !== "number"){
+    state.ch3.coins = state.ch2 ? state.ch2.coins : 0;
+  }
+  if(typeof state.ch3.starsTotal !== "number") state.ch3.starsTotal = 0;
+  if(typeof state.ch3.risk !== "number") state.ch3.risk = 0;
+  saveState();
+  location.hash = "#/ch3";
 }
 /* 彻底重置全部游戏进度（全局可用，不受任何章节锁定影响） */
 function hardReset(){
@@ -1893,6 +2544,547 @@ function renderChapter2(){
     });
   });
 }
+
+/* —— 第三章主页（起始页 + 场景列表） —— */
+function renderChapter3(){
+  if(!ch2AllDone()){ location.hash = "#/"; return; }
+  if(!state.ch3){ state.ch3 = { started: false, coins: (state.ch2 ? state.ch2.coins : 0), starsTotal: 0, risk: 0, sceneStates: {} }; saveState(); }
+  const s1 = state.ch3.sceneStates && state.ch3.sceneStates[1];
+  const sc1Done = !!(s1 && s1.phase === 'done');
+  const startLabel = sc1Done ? 'Review Chapter 3 · 查看第三章总结' : 'Start Chapter 3 · 开始本章';
+  const cards = CH3_SCENES.map(sc => {
+    const st = state.ch3.sceneStates[sc.id];
+    const isDone = !!(st && st.phase === 'done');
+    const prev = CH3_SCENES.find(x => x.id === sc.id - 1);
+    const prevDone = !prev || !!(state.ch3.sceneStates[prev.id] && state.ch3.sceneStates[prev.id].phase === 'done');
+    const locked = !prevDone;
+    const inProgress = !!(st && st.started && !isDone);
+    let statusEn, cls;
+    if(isDone){ statusEn = 'Completed · 已完成'; cls = 'done'; }
+    else if(locked){ statusEn = 'Locked · 已锁定'; cls = 'locked'; }
+    else if(inProgress){ statusEn = 'In progress · 进行中'; cls = 'ready'; }
+    else { statusEn = 'Not started · 未开始'; cls = ''; }
+    return '<button class="ch3-scene-card' + (locked ? ' locked' : '') + '" data-ch3-scene="' + sc.id + '"' + (locked ? ' disabled' : '') + '>' +
+      '<div class="ch3-sc-num">Scene ' + sc.id + ' · 场景 ' + sc.id + '</div>' +
+      '<div class="ch3-sc-name">' + esc(sc.en) + '<span class="zh">' + esc(sc.zh) + '</span></div>' +
+      '<div class="ch3-sc-concept">' + (sc.concept ? esc(sc.concept.en) + ' · ' + esc(sc.concept.zh) : '') + '</div>' +
+      '<div class="ch3-sc-status ' + cls + '">' + (locked ? ICON.lock : '') + statusEn + '</div>' +
+    '</button>';
+  }).join('');
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-home>Market · 市场</button><span class="sep">/</span>' +
+      '<span>Chapter 3 · 第三章</span>' +
+    '</div>' +
+    '<section class="hero">' +
+      '<img src="' + IMG.town + '" alt="A trading town of many cultures / 多元文化的贸易城镇">' +
+      '<div class="hero-copy">' +
+        '<span class="hero-kicker">Chapter 3 · 第三章</span>' +
+        '<h2>' + esc(CHAPTER3.en) + '</h2>' +
+        '<div class="zh-title">' + esc(CHAPTER3.zh) + '</div>' +
+        '<p>' + esc(CHAPTER3.subEn) + ' · ' + esc(CHAPTER3.subZh) + '</p>' +
+      '</div>' +
+    '</section>' +
+    '<div class="ch3-story">' +
+      '<p class="en">' + esc(CHAPTER3.storyEn) + '<span class="zh">' + esc(CHAPTER3.storyZh) + '</span></p>' +
+      '<p class="turn">' + esc(CHAPTER3.turnEn) + '<span class="zh">' + esc(CHAPTER3.turnZh) + '</span></p>' +
+    '</div>' +
+    '<div class="core-question">' +
+      '<div class="q-label">Core Question of This Chapter · 本章核心问题</div>' +
+      '<div class="q-en">' + esc(CHAPTER3.questionEn) + '</div>' +
+      '<div class="q-zh">' + esc(CHAPTER3.questionZh) + '</div>' +
+    '</div>' +
+    '<div class="ch3-scenes-wrap">' +
+      '<div class="wrap-label">Scenes · 场景</div>' +
+      '<div class="ch3-scenes-grid">' + cards + '</div>' +
+    '</div>' +
+    '<div class="btn-row ch3-start-row">' +
+      '<button class="btn primary" data-ch3-start>' + startLabel + '</button>' +
+    '</div>';
+
+  $("#view").querySelectorAll("[data-home]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/"; });
+  });
+  $("#view").querySelectorAll("[data-ch3-start]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.ch3.started = true;
+      saveState();
+      location.hash = sc1Done ? "#/ch3/report" : "#/ch3/scene/1";
+    });
+  });
+  $("#view").querySelectorAll("[data-ch3-scene]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = parseInt(btn.getAttribute("data-ch3-scene"), 10);
+      if(!id) return;
+      state.ch3.started = true;
+      saveState();
+      location.hash = "#/ch3/scene/" + id;
+    });
+  });
+}
+
+/* —— 第三章总结页（Review Chapter 3） —— */
+function renderCh3ChapterReport(){
+  if(!ch2AllDone()){ location.hash = "#/"; return; }
+  if(!state.ch3){ state.ch3 = { started:false, coins:(state.ch2?state.ch2.coins:0), starsTotal:0, risk:0, sceneStates:{} }; saveState(); }
+  const sum = arr => (arr || []).reduce((a, b) => a + b, 0);
+  const rows = CH3_SCENES.map(sc => {
+    const st = state.ch3.sceneStates[sc.id];
+    const isDone = !!(st && st.phase === 'done');
+    const stars = sum(st && st.stars);
+    const risk = sum(st && st.riskD);
+    const bonus = (st && st.coinBonus) || 0;
+    return '<div class="settle-row' + (isDone ? '' : ' pending') + '">' +
+      '<span>Scene ' + sc.id + ' · ' + esc(sc.en) + ' <span class="zh">' + esc(sc.zh) + '</span></span>' +
+      '<span>' + (isDone
+        ? ICON.star + ' ' + stars + '  ' + ICON.risk + ' +' + risk + (bonus ? '  ' + ICON.coin + ' +' + bonus : '')
+        : '<span class="no-star">Not completed · 未完成</span>') + '</span></div>';
+  }).join('');
+  const doneCount = CH3_SCENES.filter(sc => {
+    const st = state.ch3.sceneStates[sc.id];
+    return st && st.phase === 'done';
+  }).length;
+  const allDone = doneCount === CH3_SCENES.length;
+  const totalStars = state.ch3.starsTotal || 0;
+  const totalRisk = state.ch3.risk || 0;
+  const coins = state.ch3.coins || 0;
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-home>Market · 市场</button><span class="sep">/</span>' +
+      '<button data-ch3>Chapter 3 · 第三章</button><span class="sep">/</span>' +
+      '<span>Chapter Report · 章节总结</span>' +
+    '</div>' +
+    '<section class="game-panel">' +
+      '<div class="game-head">' +
+        '<div class="crumb">Chapter 3 · The Changing Market · 第三章 变化中的市场</div>' +
+        '<h2>Chapter 3 Report · 第三章总结</h2>' +
+        '<div class="zh">' + esc(CHAPTER3.en) + ' · ' + esc(CHAPTER3.zh) + '</div>' +
+      '</div>' +
+      '<div class="game-body">' +
+        '<div class="complete-hero">' +
+          '<div class="seal">' + (allDone
+            ? ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"')
+            : ICON.lock.replace('width="16"','width="40"').replace('height="16"','height="40"')) + '</div>' +
+          '<h2>' + (allDone ? 'Chapter 3 Complete! · 第三章完成！' : 'Chapter 3 in Progress · 第三章进行中') + '</h2>' +
+          '<div class="zh">' + doneCount + ' of ' + CH3_SCENES.length + ' scenes completed · ' + doneCount + ' / ' + CH3_SCENES.length + ' 个场景已完成</div>' +
+        '</div>' +
+        '<div class="ch2-settle">' +
+          '<h3>Scenes · 场景</h3>' + rows +
+          '<div class="settle-row stars"><span>Total Trade Stars · 贸易之星总计</span><span>' + ICON.star + ' ' + totalStars + '</span></div>' +
+          '<div class="settle-row risk"><span>Total Commercial Risk · 商业风险总计</span><span>' + ICON.risk + ' +' + totalRisk + '</span></div>' +
+          '<div class="settle-row net"><span>Coins now · 当前金币</span><span>' + ICON.coin + ' ' + coins + '</span></div>' +
+        '</div>' +
+        '<div class="trade-quote">' + ICON.book + ' ' + esc(CHAPTER3.questionEn) + '<span class="zh">' + esc(CHAPTER3.questionZh) + '</span></div>' +
+        '<div class="btn-row">' +
+          '<button class="btn primary" data-ch3>Back to Chapter 3 · 返回第三章</button>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+
+  $("#view").querySelectorAll("[data-home]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/"; });
+  });
+  $("#view").querySelectorAll("[data-ch3]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch3"; });
+  });
+}
+
+/* —— 第三章场景：状态与需求模型 —— */
+function getCh3SceneState(sceneId){
+  if(!state.ch3) state.ch3 = { started:false, coins:(state.ch2?state.ch2.coins:0), starsTotal:0, risk:0, sceneStates:{} };
+  if(typeof state.ch3.coins !== "number") state.ch3.coins = state.ch2 ? state.ch2.coins : 0;
+  if(typeof state.ch3.starsTotal !== "number") state.ch3.starsTotal = 0;
+  if(typeof state.ch3.risk !== "number") state.ch3.risk = 0;
+  if(!state.ch3.sceneStates) state.ch3.sceneStates = {};
+  const sc = CH3_SCENES.find(x => x.id === sceneId);
+  if(!state.ch3.sceneStates[sceneId]){
+    const isTrade = !!(sc && sc.rounds && sc.rounds[0] && sc.rounds[0].type === 'trade');
+    const isForecast = !!(sc && sc.rounds && sc.rounds[0] && sc.rounds[0].type === 'forecast');
+    if(isForecast){
+      state.ch3.sceneStates[sceneId] = {
+        started: false,
+        startCoins: state.ch3.coins, startStars: state.ch3.starsTotal, startRisk: state.ch3.risk,
+        round: 1, phase: 'forecast',
+        budget: 0, // 预算统一使用当前剩余金币 state.ch3.coins（不再设独立经营预算）
+        inventory: {}, decisions: {},
+        confirmed: false, reveal: null,
+        reflectPick: null,
+        stars: [], riskD: [], log: [], coinBonus: 0
+      };
+    } else if(isTrade){
+      state.ch3.sceneStates[sceneId] = {
+        started: false,
+        startCoins: state.ch3.coins, startStars: state.ch3.starsTotal, startRisk: state.ch3.risk,
+        round: 1, phase: 'play',
+        links: [], assigned: {}, filled: {},
+        selected: null, quizPick: null,
+        crisisApplied: false, presetDone: false,
+        result: null, stars: [], riskD: [], log: [], coinBonus: 0
+      };
+    } else {
+      const mid = sc ? Math.round((sc.priceMin + sc.priceMax) / 2) : 9;
+      state.ch3.sceneStates[sceneId] = {
+        started: false, startCoins: state.ch3.coins,
+        round: 1, phase: 'play',
+        price: mid, qty: 0,
+        stock: sc ? sc.startStock : 30,
+        sales: 0, spend: 0, unitsSold: 0, last: null, log: []
+      };
+    }
+  }
+  return state.ch3.sceneStates[sceneId];
+}
+/* 需求模型：价格越高需求越低；高于对手价时额外流失顾客；市场情境用 mul 放大/收缩 */
+function ch3Demand(round, price){
+  let base = round.baseD + round.dStep * (price - round.baseP);
+  if(round.comp && price > round.comp.price){
+    base -= (price - round.comp.price) * round.comp.penalty;
+  }
+  const d = Math.round(base * (round.mul || 1));
+  return Math.max(0, d);
+}
+function ch3BuyMax(round){
+  const affordable = Math.floor((state.ch3.coins || 0) / round.unitPrice);
+  const cap = Math.min(round.maxQty, affordable);
+  return Math.floor(cap / round.step) * round.step;
+}
+
+/* —— 第三章场景：主入口 —— */
+function renderCh3Scene(sceneId){
+  if(!ch2AllDone()){ location.hash = "#/"; return; }
+  const sc = CH3_SCENES.find(x => x.id === sceneId);
+  if(!sc){ renderChapter3(); return; }
+  // 场景解锁：需前一场景完成后才能进入
+  if(sceneId > 1){
+    const prev = CH3_SCENES.find(x => x.id === sceneId - 1);
+    const prevDone = !!(prev && state.ch3.sceneStates[prev.id] && state.ch3.sceneStates[prev.id].phase === 'done');
+    if(!prevDone){ renderChapter3(); return; }
+  }
+  const st = getCh3SceneState(sceneId);
+  if(!st.started){
+    st.started = true;
+    st.startCoins = state.ch3.coins;
+    if(typeof st.startStars !== 'number') st.startStars = state.ch3.starsTotal;
+    if(typeof st.startRisk !== 'number') st.startRisk = state.ch3.risk;
+    saveState();
+  }
+  const isTrade = !!(sc.rounds && sc.rounds[0] && sc.rounds[0].type === 'trade');
+  const isForecast = !!(sc.rounds && sc.rounds[0] && sc.rounds[0].type === 'forecast');
+  if(isTrade) ch3EnsureRound(sc, st);
+  let body;
+  if(st.phase === 'done') body = isTrade ? renderCh3TradeDone(sc, st) : (isForecast ? renderCh3ForecastReport(sc, st) : renderCh3Done(sc, st));
+  else if(isForecast) body = renderCh3Forecast(sc, st);
+  else if(st.phase === 'result') body = isTrade ? renderCh3TradeResult(sc, st) : renderCh3Result(sc, st);
+  else body = isTrade ? renderCh3TradeRound(sc, st) : renderCh3Round(sc, st);
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-ch3>Chapter 3 · 第三章</button><span class="sep">/</span>' +
+      '<span>Scene ' + sc.id + ' · 场景 ' + sc.id + '</span>' +
+    '</div>' +
+    '<section class="game-panel">' +
+      '<div class="game-head">' +
+        '<div class="crumb">Chapter 3 · The Changing Market · 第三章 变化中的市场</div>' +
+        '<h2>Scene ' + sc.id + ': ' + esc(sc.en) + '</h2>' +
+        '<div class="zh">场景 ' + sc.id + '：' + esc(sc.zh) + '</div>' +
+      '</div>' +
+      '<div class="game-body">' + body + '</div>' +
+    '</section>';
+
+  $("#view").querySelectorAll("[data-ch3]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch3"; });
+  });
+  if(isTrade) bindCh3TradeEvents(sc, st);
+  else if(isForecast) bindCh3ForecastEvents(sc, st);
+  else bindCh3SceneEvents(sc, st);
+}
+
+/* —— 第三章场景一：回合操作页（滑动条控价） —— */
+function renderCh3Round(sc, st){
+  const round = sc.rounds[st.round - 1];
+  const isSell = round.type === 'sell';
+  const product = CH3_PRODUCT;
+
+  let midVal, rightVal, rightLabel, sliderMin, sliderMax, sliderStep, sliderVal;
+  if(isSell){
+    const demand = ch3Demand(round, st.price);
+    const sellable = Math.min(demand, st.stock);
+    midVal = st.price + ' <span class="pb-unit">coins · 金币</span>';
+    rightVal = demand + ' <span class="pb-unit">units · 件</span>';
+    rightLabel = 'Demand at this price · 此价格下的需求';
+    sliderMin = sc.priceMin; sliderMax = sc.priceMax; sliderStep = 1; sliderVal = st.price;
+    var sellableNote = sellable;
+    var demandNow = demand;
+  } else {
+    const qtyMax = ch3BuyMax(round);
+    if(st.qty > qtyMax) st.qty = qtyMax;
+    const cost = st.qty * round.unitPrice;
+    midVal = st.qty + ' <span class="pb-unit">units · 件</span>';
+    rightVal = cost + ' <span class="pb-unit">coins · 金币</span>';
+    rightLabel = 'Total cost · 预计花费';
+    sliderMin = 0; sliderMax = qtyMax; sliderStep = round.step; sliderVal = st.qty;
+    var buyCost = cost;
+  }
+
+  const compLine = round.comp
+    ? '<div class="pb-extra">A competitor sells the same T-shirt at <b>' + round.comp.price + ' coins</b>. Every coin you price above that loses extra customers.' +
+      '<span class="zh">有对手以 <b>' + round.comp.price + ' 金币</b>卖同样的 T 恤。你每高 1 金币，会额外流失一批顾客。</span></div>'
+    : '';
+  const stockWarn = isSell && demandNow > st.stock
+    ? '<div class="pb-stock-warn" id="pbWarn">' + ICON.risk + ' Demand is ' + demandNow + ' shirts but you only have ' + st.stock + ' in stock — you can sell at most ' + st.stock + '.' +
+      '<span class="zh">需求是 ' + demandNow + ' 件，但库存只有 ' + st.stock + ' 件——最多只能卖出 ' + st.stock + ' 件。</span></div>'
+    : '<div class="pb-stock-warn" id="pbWarn" style="display:none"></div>';
+
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.stall + '</span>' +
+      '<span><b>Round ' + st.round + ' of ' + sc.rounds.length + ' · 第 ' + st.round + ' 回合（共 ' + sc.rounds.length + ' 回合）</b>' +
+        '<span class="zh">' + (isSell ? 'Selling round · 销售回合' : 'Purchasing round · 采购回合') +
+        ' · ' + esc(sc.missionEn) + '<br>' + esc(sc.missionZh) + '</span></span>' +
+    '</div>' +
+    '<div class="story-row">' +
+      '<div class="story-avatar"><img src="' + IMG.town + '" alt="The marketplace / 集市"></div>' +
+      '<div class="story-copy">' +
+        '<span class="round-label">' + esc(round.en) + '<span class="zh">' + esc(round.zh) + '</span></span>' +
+        '<p>' + esc(round.introEn) + '<span class="zh">' + esc(round.introZh) + '</span></p>' +
+      '</div>' +
+    '</div>' +
+    '<div class="price-board">' +
+      '<div class="pb-product">' + esc(product.en) + '<span class="zh">' + esc(product.zh) + '</span></div>' +
+      '<div class="pb-readout">' +
+        '<div class="pb-cell left"><div class="lb">In stock · 库存</div><div class="vl" id="pbStock">' + st.stock + ' <span class="pb-unit">units · 件</span></div></div>' +
+        '<div class="pb-cell mid"><div class="lb">' + (isSell ? 'Price · 单价' : 'Buying · 采购数量') + '</div><div class="vl" id="pbMid">' + midVal + '</div></div>' +
+        '<div class="pb-cell right"><div class="lb">' + rightLabel + '</div><div class="vl" id="pbRight">' + rightVal + '</div></div>' +
+      '</div>' +
+      '<div class="pb-range">' +
+        '<input type="range" id="pbSlider" ' +
+          'min="' + sliderMin + '" max="' + Math.max(sliderMax, sliderMin) + '" step="' + sliderStep + '" value="' + sliderVal + '" ' +
+          'aria-label="' + (isSell ? 'Set selling price · 设定售价' : 'Choose restock quantity · 选择补货数量') + '">' +
+        '<div class="pb-ends"><span>' + (isSell ? 'Min ' + sc.priceMin + ' coins · 最低 ' + sc.priceMin + ' 金币' : '0 units · 不进货') + '</span>' +
+          '<span>' + (isSell ? 'Max ' + sc.priceMax + ' coins · 最高 ' + sc.priceMax + ' 金币' : 'Max ' + Math.max(sliderMax, 0) + ' units · 最多') + '</span></div>' +
+      '</div>' +
+      '<div class="pb-note">' + esc(round.noteEn) + '<span class="zh">' + esc(round.noteZh) + '</span></div>' +
+      compLine +
+      stockWarn +
+      '<div class="pb-extra" id="pbSellableLine">' +
+        (isSell
+          ? 'At this price, customers want <b>' + demandNow + '</b> shirts and you can actually sell <b id="pbSellable">' + sellableNote + '</b>.' +
+            '<span class="zh">在这个价格下，顾客想要 <b>' + demandNow + '</b> 件，而你能实际卖出 <b id="pbSellableZh">' + sellableNote + '</b> 件。</span>'
+          : 'Buying <b id="pbQtyLine">' + st.qty + '</b> shirts costs <b id="pbCostLine">' + buyCost + '</b> coins.' +
+            '<span class="zh">买 <b id="pbQtyLineZh">' + st.qty + '</b> 件需要花 <b id="pbCostLineZh">' + buyCost + '</b> 金币。</span>') +
+      '</div>' +
+    '</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-ch3-confirm>' + (isSell ? 'Sell at this price · 按此价格出售' : 'Confirm purchase · 确认采购') + '</button>' +
+    '</div>'
+  );
+}
+
+/* —— 第三章场景一：回合结算页（只在结算显示本回合销售/开销） —— */
+function renderCh3Result(sc, st){
+  const round = sc.rounds[st.round - 1];
+  const isSell = round.type === 'sell';
+  const last = st.last || {};
+  const isLast = st.round >= sc.rounds.length;
+
+  let rows, verdictEn, verdictZh;
+  if(isSell){
+    rows =
+      '<div class="settle-row"><span>Price per shirt · 每件售价</span><span>' + ICON.coin + ' ' + last.price + ' coins · 金币</span></div>' +
+      '<div class="settle-row"><span>Demand · 需求</span><span>' + last.demand + ' shirts · 件</span></div>' +
+      '<div class="settle-row"><span>Sold · 售出</span><span>' + last.sold + ' shirts · 件</span></div>' +
+      '<div class="settle-row net"><span>Sales revenue this round · 本回合销售收入</span><span>' + ICON.coin + ' +' + last.revenue + '</span></div>' +
+      '<div class="settle-row"><span>Stock left · 剩余库存</span><span>' + st.stock + ' shirts · 件</span></div>' +
+      '<div class="settle-row"><span>Coins now · 当前金币</span><span>' + ICON.coin + ' ' + state.ch3.coins + '</span></div>';
+    if(last.demand > last.stockAtStart){
+      verdictEn = "Demand was " + last.demand + " but you only had " + last.stockAtStart + " shirts — you sold out and left " + (last.demand - last.stockAtStart) + " customers empty-handed.";
+      verdictZh = "需求是 " + last.demand + " 件，但你只有 " + last.stockAtStart + " 件——卖光了，还有 " + (last.demand - last.stockAtStart) + " 位顾客空手离开。";
+    } else if(last.sold === 0){
+      verdictEn = "At " + last.price + " coins nobody bought — your price was far above what this market would pay today.";
+      verdictZh = "卖 " + last.price + " 金币时没有人买——这个价格远高于今天市场愿意付的水平。";
+    } else if(round.comp && last.price > round.comp.price){
+      verdictEn = "You priced above the competitor at " + round.comp.price + " coins, so part of the crowd went to them.";
+      verdictZh = "你定得比 " + round.comp.price + " 金币的对手贵，一部分顾客去了他们那边。";
+    } else {
+      verdictEn = "You sold " + last.sold + " shirts at " + last.price + " coins each — price and demand found a balance.";
+      verdictZh = "你以每件 " + last.price + " 金币卖出 " + last.sold + " 件——价格与需求找到了平衡。";
+    }
+  } else {
+    rows =
+      '<div class="settle-row"><span>Units bought · 采购数量</span><span>' + last.qty + ' shirts · 件</span></div>' +
+      '<div class="settle-row"><span>Supplier price · 进货单价</span><span>' + ICON.coin + ' ' + last.unitPrice + ' coins · 金币</span></div>' +
+      '<div class="settle-row spend"><span>Total spent this round · 本回合总开销</span><span>' + ICON.coin + ' −' + last.cost + '</span></div>' +
+      '<div class="settle-row"><span>Stock now · 当前库存</span><span>' + st.stock + ' shirts · 件</span></div>' +
+      '<div class="settle-row"><span>Coins now · 当前金币</span><span>' + ICON.coin + ' ' + state.ch3.coins + '</span></div>';
+    verdictEn = last.qty > 0
+      ? "You restocked " + last.qty + " shirts for " + last.cost + " coins. The shelves are fuller — now the question is what customers will pay."
+      : "You bought nothing this round. You kept your coins, but a thin stock may limit the next selling round.";
+    verdictZh = last.qty > 0
+      ? "你花 " + last.cost + " 金币补了 " + last.qty + " 件货。货架更满了——接下来要看顾客愿意付多少。"
+      : "这一回合你没有进货。金币留住了，但库存偏少可能限制下一轮能卖出的数量。";
+  }
+
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.coin + '</span>' +
+      '<span><b>Round ' + st.round + ' settled · 第 ' + st.round + ' 回合已结算</b>' +
+        '<span class="zh">' + esc(round.en) + ' · ' + esc(round.zh) + '</span></span>' +
+    '</div>' +
+    '<div class="ch2-settle">' +
+      '<h3>Round Result · 回合结算</h3>' +
+      rows +
+      '<p class="settle-verdict en">' + esc(verdictEn) + '<span class="zh">' + esc(verdictZh) + '</span></p>' +
+    '</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-ch3-continue>' + (isLast ? 'See the scene summary · 查看场景总结' : 'Next round · 下一回合') + '</button>' +
+    '</div>'
+  );
+}
+
+/* —— 第三章场景一：场景完成总结 —— */
+function renderCh3Done(sc, st){
+  const avg = st.unitsSold ? Math.round(st.sales / st.unitsSold * 10) / 10 : 0;
+  const net = st.sales - st.spend;
+  return (
+    '<div class="complete-hero">' +
+      '<div class="seal">' + ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"') + '</div>' +
+      '<h2>The Market Day Ends · 这一天的集市结束了</h2>' +
+      '<div class="zh">Scene 1 Complete · 场景一完成 — ' + esc(sc.en) + ' · ' + esc(sc.zh) + '</div>' +
+    '</div>' +
+    '<div class="ch2-settle">' +
+      '<h3>Six Rounds · 六个回合</h3>' +
+      '<div class="settle-row"><span>Total shirts sold · 总售出</span><span>' + st.unitsSold + ' shirts · 件</span></div>' +
+      '<div class="settle-row"><span>Average price · 平均售价</span><span>' + ICON.coin + ' ' + avg + ' coins · 金币</span></div>' +
+      '<div class="settle-row net"><span>Total sales revenue · 总销售收入</span><span>' + ICON.coin + ' +' + st.sales + '</span></div>' +
+      '<div class="settle-row spend"><span>Total purchasing cost · 总采购开销</span><span>' + ICON.coin + ' −' + st.spend + '</span></div>' +
+      '<div class="settle-row net"><span>Net change · 金币净变化</span><span>' + ICON.coin + ' ' + (net >= 0 ? '+' : '−') + Math.abs(net) + '</span></div>' +
+      '<div class="settle-row"><span>Stock left · 剩余库存</span><span>' + st.stock + ' shirts · 件</span></div>' +
+      '<div class="settle-row"><span>Coins at the end · 结束时金币</span><span>' + ICON.coin + ' ' + state.ch3.coins + '</span></div>' +
+      '<p class="settle-verdict en">Prices move with demand and competition: when customers want more, prices can rise; when competitors appear and demand falls, the market pushes them down.' +
+        '<span class="zh">价格随需求与竞争一起变动：顾客想要更多时价格可以上升；当对手出现、需求下降，市场就会把价格压低。</span></p>' +
+    '</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn gold" data-ch3-replay>Play Again · 再玩一次</button>' +
+      '<button class="btn primary" data-ch3>Back to Chapter 3 · 返回第三章</button>' +
+    '</div>'
+  );
+}
+
+/* —— 第三章场景一：事件绑定（滑块实时读数 + 确认 + 继续 + 重玩） —— */
+function bindCh3SceneEvents(sc, st){
+  const v = $("#view");
+  const round = sc.rounds[st.round - 1];
+  const isSell = round && round.type === 'sell';
+  const slider = v.querySelector("#pbSlider");
+  if(slider){
+    slider.addEventListener("input", () => {
+      const val = parseInt(slider.value, 10) || 0;
+      if(isSell){
+        st.price = val;
+        const demand = ch3Demand(round, val);
+        const sellable = Math.min(demand, st.stock);
+        const mid = v.querySelector("#pbMid");
+        if(mid) mid.innerHTML = val + ' <span class="pb-unit">coins · 金币</span>';
+        const right = v.querySelector("#pbRight");
+        if(right) right.innerHTML = demand + ' <span class="pb-unit">units · 件</span>';
+        const s1 = v.querySelector("#pbSellable"), s2 = v.querySelector("#pbSellableZh");
+        if(s1) s1.textContent = sellable;
+        if(s2) s2.textContent = sellable;
+        const line = v.querySelector("#pbSellableLine");
+        if(line){
+          line.innerHTML =
+            'At this price, customers want <b>' + demand + '</b> shirts and you can actually sell <b id="pbSellable">' + sellable + '</b>.' +
+            '<span class="zh">在这个价格下，顾客想要 <b>' + demand + '</b> 件，而你能实际卖出 <b id="pbSellableZh">' + sellable + '</b> 件。</span>';
+        }
+        const warn = v.querySelector("#pbWarn");
+        if(warn){
+          if(demand > st.stock){
+            warn.style.display = '';
+            warn.innerHTML = ICON.risk + ' Demand is ' + demand + ' shirts but you only have ' + st.stock + ' in stock — you can sell at most ' + st.stock + '.' +
+              '<span class="zh">需求是 ' + demand + ' 件，但库存只有 ' + st.stock + ' 件——最多只能卖出 ' + st.stock + ' 件。</span>';
+          } else {
+            warn.style.display = 'none';
+          }
+        }
+      } else {
+        st.qty = val;
+        const cost = val * round.unitPrice;
+        const mid = v.querySelector("#pbMid");
+        if(mid) mid.innerHTML = val + ' <span class="pb-unit">units · 件</span>';
+        const right = v.querySelector("#pbRight");
+        if(right) right.innerHTML = cost + ' <span class="pb-unit">coins · 金币</span>';
+        const line = v.querySelector("#pbSellableLine");
+        if(line){
+          line.innerHTML =
+            'Buying <b>' + val + '</b> shirts costs <b>' + cost + '</b> coins.' +
+            '<span class="zh">买 <b>' + val + '</b> 件需要花 <b>' + cost + '</b> 金币。</span>';
+        }
+      }
+    });
+  }
+
+  v.querySelectorAll("[data-ch3-confirm]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(isSell){
+        const price = st.price;
+        const demand = ch3Demand(round, price);
+        const stockAtStart = st.stock;
+        const sold = Math.min(demand, stockAtStart);
+        const revenue = sold * price;
+        state.ch3.coins += revenue;
+        st.stock -= sold;
+        st.sales += revenue;
+        st.unitsSold += sold;
+        st.last = { price: price, demand: demand, sold: sold, revenue: revenue, stockAtStart: stockAtStart };
+      } else {
+        let qty = st.qty;
+        const qtyMax = ch3BuyMax(round);
+        if(qty > qtyMax) qty = qtyMax;
+        const cost = qty * round.unitPrice;
+        state.ch3.coins -= cost;
+        st.stock += qty;
+        st.spend += cost;
+        st.last = { qty: qty, unitPrice: round.unitPrice, cost: cost };
+      }
+      if(!st.log) st.log = [];
+      st.log.push({ round: st.round, type: round.type, data: st.last });
+      st.phase = 'result';
+      saveState(); render();
+    });
+  });
+
+  v.querySelectorAll("[data-ch3-continue]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st.round >= sc.rounds.length){
+        st.phase = 'done';
+      } else {
+        st.round++;
+        st.phase = 'play';
+        const next = sc.rounds[st.round - 1];
+        if(next && next.type === 'buy'){
+          st.qty = 0;
+        } else {
+          st.price = Math.round((sc.priceMin + sc.priceMax) / 2);
+        }
+      }
+      st.last = null;
+      saveState(); render();
+    });
+  });
+
+  v.querySelectorAll("[data-ch3-replay]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      // 全局规则：重玩当前场景时，金币回滚到该场景开始时的数额
+      state.ch3.coins = st.startCoins;
+      st.round = 1; st.phase = 'play'; st.stock = sc.startStock;
+      st.sales = 0; st.spend = 0; st.unitsSold = 0; st.last = null; st.log = [];
+      st.price = Math.round((sc.priceMin + sc.priceMax) / 2); st.qty = 0;
+      saveState(); render();
+    });
+  });
+}
+
 
 /* —— 第二章场景：起始页（任务介绍 + 开始按钮） —— */
 function renderCh2Intro(sc, st){
@@ -2096,6 +3288,9 @@ function bindCh2SceneEvents(sc, st){
         }
       });
     });
+  });
+  v.querySelectorAll("[data-ch3-enter]").forEach(btn => {
+    btn.addEventListener("click", () => { enterChapter3(); });
   });
   v.querySelectorAll("[data-ch2]").forEach(btn => {
     btn.addEventListener("click", () => { location.hash = "#/ch2"; });
@@ -2736,7 +3931,8 @@ function renderCh2Finale(sc, st){
       '</div>' +
       '<div class="btn-row">' +
         '<button class="btn gold" data-ch2-replay>Play Again · 再玩一次</button>' +
-        '<button class="btn primary" data-ch2>Back to Chapter 2 · 返回第二章</button>' +
+        '<button class="btn primary" data-ch3-enter>Enter Chapter 3 · 进入第三章</button>' +
+        '<button class="btn ghost" data-ch2>Back to Chapter 2 · 返回第二章</button>' +
       '</div>' +
     '</div>'
   );
@@ -3083,6 +4279,16 @@ $("#ch2Plank").addEventListener("click", () => {
     onOk: () => { enterChapter2(); }
   });
 });
+$("#ch3Plank").addEventListener("click", () => {
+  if(!ch2AllDone()) return;
+  enterChapter3();
+});
+$("#ch3Plank").addEventListener("keydown", e => {
+  if(e.key === "Enter" || e.key === " "){
+    e.preventDefault();
+    if(ch2AllDone()) enterChapter3();
+  }
+});
 [["#ch1Plank","#/"],["#ch2Plank",null]].forEach(pair => {
   const el = document.querySelector(pair[0]);
   el.addEventListener("keydown", e => {
@@ -3124,6 +4330,984 @@ window.addEventListener("hashchange", () => {
   }
   render();
 });
+/* ================= 第三章·场景二：全球资源贸易网络 ================= */
+function ch3SupplyOf(roundData, fromId, resT, st){
+  const ex = roundData.exporters.find(e => e.id === fromId);
+  if(!ex) return 0;
+  const r = ex.res.find(x => x.t === resT);
+  if(!r) return 0;
+  let q = r.qty;
+  if(roundData.crisis && st.crisisApplied && fromId === roundData.crisis.country && resT === roundData.crisis.res){
+    q = roundData.crisis.to;
+  }
+  return q;
+}
+function ch3DemandOf(roundData, toId, resT){
+  const imp = roundData.importers.find(i => i.id === toId);
+  if(!imp) return 0;
+  const nd = imp.need.find(n => n.t === resT);
+  return nd ? nd.qty : 0;
+}
+function ch3TradeRecalc(roundData, st){
+  const assigned = {}, filled = {};
+  (st.links || []).forEach(l => {
+    const ak = l.from + '|' + l.res, fk = l.to + '|' + l.res;
+    assigned[ak] = (assigned[ak] || 0) + l.qty;
+    filled[fk] = (filled[fk] || 0) + l.qty;
+  });
+  st.assigned = assigned;
+  st.filled = filled;
+}
+function ch3AddLink(st, roundData, from, to, res, qty){
+  const old = st.links.find(l => l.from === from && l.to === to && l.res === res);
+  if(old){
+    st.links = st.links.filter(l => !(l.from === from && l.to === to && l.res === res));
+    ch3TradeRecalc(roundData, st);
+  }
+  const maxQ = Math.min(
+    ch3SupplyOf(roundData, from, res, st) - (st.assigned[from + '|' + res] || 0),
+    ch3DemandOf(roundData, to, res) - (st.filled[to + '|' + res] || 0)
+  );
+  if(maxQ <= 0) return false;
+  qty = Math.max(1, Math.min(Math.floor(qty), maxQ));
+  st.links.push({ from: from, to: to, res: res, qty: qty });
+  ch3TradeRecalc(roundData, st);
+  return true;
+}
+function ch3TradeTotals(roundData, st){
+  const needTotal = {}, filledTotal = {};
+  roundData.importers.forEach(imp => {
+    imp.need.forEach(nd => {
+      const key = imp.id + '|' + nd.t;
+      needTotal[key] = nd.qty;
+      filledTotal[key] = Math.min(st.filled[key] || 0, nd.qty);
+    });
+  });
+  let sumNeed = 0, sumFilled = 0;
+  Object.keys(needTotal).forEach(k => { sumNeed += needTotal[k]; sumFilled += filledTotal[k]; });
+  return { needTotal: needTotal, filledTotal: filledTotal, fulfill: sumNeed ? sumFilled / sumNeed : 0 };
+}
+/* R4：回合开始时建立预设贸易网络并应用供应中断 */
+function ch3EnsureRound(sc, st){
+  if(st.round === 4 && !st.presetDone){
+    st.presetDone = true;
+    st.crisisApplied = true;
+    const roundData = sc.rounds[3];
+    (roundData.preset || []).forEach(p => {
+      const supplyAfter = ch3SupplyOf(roundData, p.from, p.res || 'iron', st);
+      const qty = Math.min(p.qty, supplyAfter);
+      if(qty > 0) st.links.push({ from: p.from, to: 'china', res: p.res || 'iron', qty: qty });
+    });
+    ch3TradeRecalc(roundData, st);
+  }
+}
+/* 数量选择弹窗（滑动条） */
+function showQtyModal(opts){
+  const root = ensureModalRoot();
+  const def = Math.max(1, Math.min(opts.def || opts.max, opts.max));
+  root.innerHTML =
+    '<div class="modal-overlay">' +
+      '<div class="modal-card">' +
+        '<h3>' + esc(opts.titleEn) + '<span class="zh">' + esc(opts.titleZh) + '</span></h3>' +
+        '<p>' + esc(opts.msgEn) + '<span class="zh">' + esc(opts.msgZh) + '</span></p>' +
+        '<div class="qty-modal">' +
+          '<input type="range" id="qtySlider" min="1" max="' + opts.max + '" step="' + (opts.max >= 5 ? 5 : 1) + '" value="' + def + '">' +
+          '<div class="qty-read"><b id="qtyVal">' + def + '</b> units · 单位</div>' +
+        '</div>' +
+        '<div class="btn-row">' +
+          '<button class="btn primary" data-qty-ok>Connect · 连接</button>' +
+          '<button class="btn ghost" data-modal-no>Cancel · 取消</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  const slider = root.querySelector('#qtySlider');
+  const valEl = root.querySelector('#qtyVal');
+  if(slider){
+    slider.addEventListener('input', () => { valEl.textContent = slider.value; });
+    root.querySelector('[data-qty-ok]').addEventListener('click', () => {
+      root.innerHTML = '';
+      if(opts.onOk) opts.onOk(parseInt(slider.value, 10) || 1);
+    });
+  } else {
+    root.querySelector('[data-qty-ok]').addEventListener('click', () => {
+      root.innerHTML = '';
+      if(opts.onOk) opts.onOk(def);
+    });
+  }
+  root.querySelector('[data-modal-no]').addEventListener('click', () => { root.innerHTML = ''; if(opts.onCancel) opts.onCancel(); });
+}
+let _tradeToastTimer = null;
+function showTradeToast(msg){
+  const host = $("#view").querySelector('.trade-board') || $("#view");
+  let toast = host.querySelector('.trade-toast');
+  if(!toast){
+    toast = document.createElement('div');
+    toast.className = 'trade-toast';
+    host.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.display = 'block';
+  if(_tradeToastTimer) clearTimeout(_tradeToastTimer);
+  _tradeToastTimer = setTimeout(() => { toast.style.display = 'none'; }, 2800);
+}
+
+/* —— 场景二·回合操作页 —— */
+function renderCh3TradeRound(sc, st){
+  const roundData = sc.rounds[st.round - 1];
+  const total = sc.rounds.length;
+
+  const tutorial = roundData.tutorial
+    ? '<div class="trade-tutorial">' + ICON.book + ' ' + esc(roundData.tutorial.en) + '<span class="zh">' + esc(roundData.tutorial.zh) + '</span></div>'
+    : '';
+  const crisisLine = (roundData.crisis && st.crisisApplied)
+    ? '<div class="crisis-banner">' + ICON.risk + ' ' + esc(roundData.crisis.en) + '<span class="zh">' + esc(roundData.crisis.zh) + '</span></div>'
+    : '';
+
+  const expCards = roundData.exporters.map(e => {
+    const chips = e.res.map(r => {
+      const supply = ch3SupplyOf(roundData, e.id, r.t, st);
+      const used = st.assigned[e.id + '|' + r.t] || 0;
+      const left = Math.max(0, supply - used);
+      const usedUp = left <= 0;
+      const crisisTag = (roundData.crisis && st.crisisApplied && e.id === roundData.crisis.country && r.t === roundData.crisis.res)
+        ? '<div class="crisis-tag">' + ICON.risk + ' Supply ' + roundData.crisis.from + ' → ' + roundData.crisis.to + ' · 供应 ' + roundData.crisis.from + ' → ' + roundData.crisis.to + '</div>' : '';
+      return '<div class="res-chip' + (usedUp ? ' used' : '') + '" data-from="' + e.id + '" data-res="' + r.t + '" draggable="true">' +
+        '<span class="rc-name">' + esc(r.en) + ' · ' + esc(r.zh) + '</span>' +
+        '<span class="rc-qty">' + (usedUp ? 'Used up · 已用完' : 'Supply ' + supply + ' · 剩余 ' + left) + '</span>' +
+        crisisTag +
+      '</div>';
+    }).join('');
+    return '<div class="nation-card exporter">' +
+      '<div class="n-head">' + flagSvg(e.flag) + '<div class="n-name">' + esc(e.en) + '<span class="zh">' + esc(e.zh) + '</span></div></div>' +
+      '<div class="n-body">' + chips + '</div>' +
+    '</div>';
+  }).join('');
+
+  const linkRows = (st.links && st.links.length)
+    ? st.links.map((l, i) => {
+        const ex = roundData.exporters.find(e => e.id === l.from);
+        const im = roundData.importers.find(x => x.id === l.to);
+        const resObj = ex && ex.res.find(r => r.t === l.res);
+        const affected = !!(roundData.crisis && st.crisisApplied && l.from === roundData.crisis.country);
+        return '<div class="link-row' + (affected ? ' affected' : '') + '">' +
+          (affected ? '<span class="link-affected">' + ICON.risk + '</span>' : '') +
+          flagSvg(ex.flag) + '<b class="lr-name">' + esc(ex.en) + '</b>' +
+          ICON.arrow +
+          flagSvg(im.flag) + '<b class="lr-name">' + esc(im.en) + '</b>' +
+          '<span class="lr-res">' + esc(resObj ? resObj.en : l.res) + ' × ' + l.qty + '</span>' +
+          '<button class="link-del" data-link-del="' + i + '" aria-label="Remove link · 删除连线"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+        '</div>';
+      }).join('')
+    : '<div class="link-empty">No trade links yet — drag an export onto an import need.<span class="zh">还没有贸易连线——把出口资源拖到进口需求上。</span></div>';
+
+  const impCards = roundData.importers.map(im => {
+    const chips = im.need.map(nd => {
+      const key = im.id + '|' + nd.t;
+      const need = nd.qty;
+      const got = Math.min(st.filled[key] || 0, need);
+      const pct = Math.round(got / need * 100);
+      return '<div class="need-chip" data-to="' + im.id + '" data-res="' + nd.t + '">' +
+        '<div class="nc-top"><span class="nc-name">' + esc(nd.en) + ' · ' + esc(nd.zh) + '</span><span class="nc-pct">' + pct + '%</span></div>' +
+        '<div class="bar"><div class="bar-fill" style="width:' + Math.min(100, pct) + '%"></div></div>' +
+        '<div class="nc-nums">Required ' + need + ' · Imported ' + got + ' · Remaining ' + (need - got) + '<span class="zh">需求 ' + need + ' · 已进口 ' + got + ' · 剩余 ' + (need - got) + '</span></div>' +
+      '</div>';
+    }).join('');
+    return '<div class="nation-card importer">' +
+      '<div class="n-head">' + flagSvg(im.flag) + '<div class="n-name">' + esc(im.en) + '<span class="zh">' + esc(im.zh) + '</span></div></div>' +
+      '<div class="n-body">' + chips + '</div>' +
+    '</div>';
+  }).join('');
+
+  const quiz = roundData.quiz
+    ? '<div class="quiz-card">' +
+        '<div class="quiz-q">' + esc(roundData.quiz.en) + '<span class="zh">' + esc(roundData.quiz.zh) + '</span></div>' +
+        roundData.quiz.options.map((o, i) =>
+          '<label class="quiz-opt' + (st.quizPick === i ? ' picked' : '') + '">' +
+            '<input type="radio" name="ch3quiz" value="' + i + '"' + (st.quizPick === i ? ' checked' : '') + '>' +
+            '<span>' + esc(o.en) + '<span class="zh">' + esc(o.zh) + '</span></span>' +
+          '</label>'
+        ).join('') +
+        '<div class="quiz-warn" style="display:none">Please choose a reason before submitting.<span class="zh">提交前请先选择你的理由。</span></div>' +
+      '</div>'
+    : '';
+
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.stall + '</span>' +
+      '<span><b>Round ' + st.round + ' of ' + total + ' · 第 ' + st.round + ' 回合（共 ' + total + ' 回合）</b>' +
+        '<span class="zh">' + esc(roundData.en) + ' · ' + esc(roundData.zh) + '</span></span>' +
+    '</div>' +
+    '<div class="story-row">' +
+      '<div class="story-avatar"><img src="' + IMG.town + '" alt="World trade / 世界贸易"></div>' +
+      '<div class="story-copy">' +
+        '<span class="round-label">' + esc(roundData.en) + '<span class="zh">' + esc(roundData.zh) + '</span></span>' +
+        '<p>' + esc(roundData.introEn) + '<span class="zh">' + esc(roundData.introZh) + '</span></p>' +
+      '</div>' +
+    '</div>' +
+    tutorial + crisisLine +
+    '<div class="trade-board">' +
+      '<div class="tb-sec"><div class="tb-label">Exports · 可出口资源</div><div class="tb-cards">' + expCards + '</div></div>' +
+      '<div class="tb-sec links"><div class="tb-label">Trade Links · 贸易连线 <span class="tb-hint">Exporter → Importer · 出口国 → 进口国</span></div><div class="tb-links">' + linkRows + '</div></div>' +
+      '<div class="tb-sec"><div class="tb-label">Imports · 进口需求</div><div class="tb-cards">' + impCards + '</div></div>' +
+    '</div>' +
+    quiz +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-ch3-submit>Submit Round · 提交本回合</button>' +
+    '</div>'
+  );
+}
+
+/* —— 场景二·回合结算页 —— */
+function renderCh3TradeResult(sc, st){
+  const roundData = sc.rounds[st.round - 1];
+  const res = st.result || {};
+  const totals = res.totals || ch3TradeTotals(roundData, st);
+  const f = typeof res.fulfill === 'number' ? res.fulfill : totals.fulfill;
+  const isLast = st.round >= sc.rounds.length;
+
+  const rows = roundData.importers.map(im => {
+    return im.need.map(nd => {
+      const key = im.id + '|' + nd.t;
+      const need = nd.qty;
+      const got = Math.min(totals.filledTotal[key] || 0, need);
+      const pct = Math.round(got / need * 100);
+      return '<div class="settle-row"><span>' + flagSvg(im.flag) + ' ' + esc(im.en) + ' — ' + esc(nd.en) + '</span><span>' + got + ' / ' + need + ' · ' + pct + '%</span></div>' +
+        '<div class="bar settle-bar"><div class="bar-fill" style="width:' + Math.min(100, pct) + '%"></div></div>';
+    }).join('');
+  }).join('');
+
+  const starHtml = res.stars === 3 ? (ICON.star + ICON.star + ICON.star).replace(/width="18"/g,'width="20"').replace(/height="18"/g,'height="20"')
+    : res.stars === 1 ? ICON.star.replace(/width="18"/g,'width="20"').replace(/height="18"/g,'height="20"')
+    : '<span class="no-star">No star · 没有星星</span>';
+  const riskSign = res.riskD >= 0 ? '+' + res.riskD : res.riskD;
+  const reasons = (res.reasons || []).map(r => '<li>' + ICON.risk + ' ' + esc(r.en) + '<span class="zh">' + esc(r.zh) + '</span></li>').join('');
+  const quote = roundData.quote
+    ? '<div class="trade-quote">' + ICON.book + ' ' + esc(roundData.quote.en) + '<span class="zh">' + esc(roundData.quote.zh) + '</span></div>' : '';
+
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.coin + '</span>' +
+      '<span><b>Round ' + st.round + ' settled · 第 ' + st.round + ' 回合已结算</b>' +
+        '<span class="zh">' + esc(roundData.en) + ' · ' + esc(roundData.zh) + '</span></span>' +
+    '</div>' +
+    '<div class="ch2-settle">' +
+      '<h3>Round Result · 回合结算</h3>' +
+      rows +
+      '<div class="settle-row stars"><span>Trade Stars · 贸易之星</span><span>' + starHtml + '</span></div>' +
+      '<div class="settle-row risk' + (res.riskD >= 0 ? '' : ' net') + '"><span>Commercial Risk · 商业风险</span><span>' + ICON.risk + ' ' + riskSign + '</span></div>' +
+      (reasons ? '<ul class="risk-reasons">' + reasons + '</ul>' : '') +
+      '<p class="settle-verdict en">' +
+        (res.stars === 3 ? 'Strong trade planning!' : res.stars === 1 ? 'A reasonable start — review the unmet demand.' : 'The allocation needs rethinking — check the limits of supply and demand.') +
+        '<span class="zh">' +
+        (res.stars === 3 ? '很强的贸易规划！' : res.stars === 1 ? '一个合理的开始——再看看未满足的需求。' : '这次分配需要重新考虑——检查一下供应与需求的限制。') + '</span></p>' +
+    '</div>' +
+    quote +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-ch3-continue>' + (isLast ? 'See the scene summary · 查看场景总结' : 'Next round · 下一回合') + '</button>' +
+    '</div>'
+  );
+}
+
+/* —— 场景二·场景完成页 —— */
+function renderCh3TradeDone(sc, st){
+  const sumStars = (st.stars || []).reduce((a, b) => a + b, 0);
+  const sumRisk = (st.riskD || []).reduce((a, b) => a + b, 0);
+  const rows = sc.rounds.map((r, i) => {
+    const s = (st.stars || [])[i], d = (st.riskD || [])[i];
+    const starHtml = s === 3 ? (ICON.star + ICON.star + ICON.star) : s === 1 ? ICON.star : '<span class="no-star">0</span>';
+    return '<div class="settle-row"><span>R' + (i + 1) + ' · ' + esc(r.en) + '</span><span>' + starHtml + ' ' + (typeof d === 'number' ? ICON.risk + ' ' + (d >= 0 ? '+' : '') + d : '') + '</span></div>';
+  }).join('');
+  return (
+    '<div class="complete-hero">' +
+      '<div class="seal">' + ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"') + '</div>' +
+      '<h2>The Trade Network Settles · 贸易网络达成</h2>' +
+      '<div class="zh">Scene 2 Complete · 场景二完成 — ' + esc(sc.en) + ' · ' + esc(sc.zh) + '</div>' +
+    '</div>' +
+    '<div class="ch2-settle">' +
+      '<h3>Four Rounds · 四个回合</h3>' +
+      rows +
+      '<div class="settle-row stars"><span>Trade Stars this scene · 本场景贸易之星</span><span>' + ICON.star + ' ' + sumStars + '</span></div>' +
+      '<div class="settle-row risk' + (sumRisk >= 0 ? '' : ' net') + '"><span>Risk change this scene · 本场景风险变化</span><span>' + ICON.risk + ' ' + (sumRisk >= 0 ? '+' : '') + sumRisk + '</span></div>' +
+      (st.coinBonus ? '<div class="settle-row net"><span>Trade coordination bonus · 贸易协调奖励</span><span>' + ICON.coin + ' +' + st.coinBonus + '</span></div>' : '') +
+      '<div class="settle-row"><span>Coins at the end · 结束时金币</span><span>' + ICON.coin + ' ' + state.ch3.coins + '</span></div>' +
+      '<p class="settle-verdict en">Countries rarely have everything they need at home. International trade lets them share limited resources — and when one link breaks, everyone feels it.' +
+        '<span class="zh">国家很少能自给自足。国际贸易让它们分享有限的资源——而当某一条连线断裂时，所有人都会感受到。</span></p>' +
+    '</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn gold" data-ch3-replay>Play Again · 再玩一次</button>' +
+      '<button class="btn primary" data-ch3>Back to Chapter 3 · 返回第三章</button>' +
+    '</div>'
+  );
+}
+
+/* —— 场景二·事件绑定（拖拽/点击连线 + 数量分配 + 提交/继续/重玩） —— */
+function bindCh3TradeEvents(sc, st){
+  const v = $("#view");
+  const roundData = sc.rounds[st.round - 1];
+
+  const tryConnect = (from, r, targetChip) => {
+    const chip = targetChip || v.querySelector('[data-to]');
+    if(!chip) return;
+    const to = chip.getAttribute('data-to'), res = chip.getAttribute('data-res');
+    if(r !== res){
+      showTradeToast('This country cannot supply the selected resource. 该国家无法提供所选资源。');
+      return;
+    }
+    const maxQ = Math.min(
+      ch3SupplyOf(roundData, from, r, st) - (st.assigned[from + '|' + r] || 0),
+      ch3DemandOf(roundData, to, r) - (st.filled[to + '|' + r] || 0)
+    );
+    if(maxQ <= 0){
+      showTradeToast('No supply or demand left for this link. 这条连线已经没有剩余供应或需求了。');
+      return;
+    }
+    const ex = roundData.exporters.find(e => e.id === from);
+    const im = roundData.importers.find(x => x.id === to);
+    const resObj = ex && ex.res.find(x => x.t === r);
+    showQtyModal({
+      titleEn: (ex ? ex.en : from) + ' → ' + (im ? im.en : to) + ' · ' + (resObj ? resObj.en : r),
+      titleZh: (ex ? ex.en : from) + ' → ' + (im ? im.en : to) + ' · ' + (resObj ? resObj.zh : r),
+      msgEn: 'Choose how many units to trade. Maximum ' + maxQ + '.',
+      msgZh: '选择贸易数量，最多 ' + maxQ + ' 单位。',
+      max: maxQ, def: maxQ,
+      onOk: qty => {
+        if(ch3AddLink(st, roundData, from, to, r, qty)){ saveState(); render(); }
+      }
+    });
+  };
+
+  /* 出口资源块：拖拽 + 点击选中 */
+  v.querySelectorAll('[data-from]').forEach(chip => {
+    const from = chip.getAttribute('data-from'), res = chip.getAttribute('data-res');
+    chip.setAttribute('draggable', 'true');
+    chip.addEventListener('dragstart', e => {
+      try{ e.dataTransfer.setData('text/plain', JSON.stringify({ from: from, res: res })); }catch(err){}
+      chip.classList.add('dragging');
+    });
+    chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
+    chip.addEventListener('click', () => {
+      if(st.selected && st.selected.from === from && st.selected.res === res){
+        st.selected = null;
+      } else {
+        st.selected = { from: from, res: res };
+      }
+      saveState();
+      v.querySelectorAll('[data-from]').forEach(c => {
+        c.classList.toggle('selected', !!(st.selected && st.selected.from === c.getAttribute('data-from') && st.selected.res === c.getAttribute('data-res')));
+      });
+    });
+  });
+  /* 进口需求块：drop 目标 + 点击（选中模式） */
+  v.querySelectorAll('[data-to]').forEach(chip => {
+    chip.addEventListener('dragover', e => { e.preventDefault(); chip.classList.add('drop-hover'); });
+    chip.addEventListener('dragleave', () => chip.classList.remove('drop-hover'));
+    chip.addEventListener('drop', e => {
+      e.preventDefault();
+      chip.classList.remove('drop-hover');
+      let data = null;
+      try{ data = JSON.parse(e.dataTransfer.getData('text/plain') || 'null'); }catch(err){}
+      if(!data) return;
+      st.selected = null;
+      saveState();
+      tryConnect(data.from, data.res, chip);
+    });
+    chip.addEventListener('click', () => {
+      if(st.selected){
+        const sel = st.selected;
+        st.selected = null;
+        saveState();
+        tryConnect(sel.from, sel.res, chip);
+      }
+    });
+  });
+  /* 删除连线 */
+  v.querySelectorAll('[data-link-del]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = parseInt(btn.getAttribute('data-link-del'), 10);
+      if(typeof i !== 'number' || i < 0 || i >= st.links.length) return;
+      st.links.splice(i, 1);
+      ch3TradeRecalc(roundData, st);
+      saveState(); render();
+    });
+  });
+  /* R3 解释选择题 */
+  v.querySelectorAll('input[name="ch3quiz"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      st.quizPick = parseInt(radio.value, 10);
+      saveState();
+      const warn = v.querySelector('.quiz-warn');
+      if(warn) warn.style.display = 'none';
+      render();
+    });
+  });
+  /* 提交回合 */
+  v.querySelectorAll('[data-ch3-submit]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(roundData.quiz && st.quizPick === null){
+        const warn = v.querySelector('.quiz-warn');
+        if(warn) warn.style.display = 'block';
+        return;
+      }
+      settleCh3Trade(sc, st);
+      render();
+    });
+  });
+  /* 下一回合 / 完成 */
+  v.querySelectorAll('[data-ch3-continue]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(st.round >= sc.rounds.length){
+        st.phase = 'done';
+        if(!st.bonusPaid){
+          st.bonusPaid = true;
+          state.ch3.coins += sc.completionBonus;
+          st.coinBonus = sc.completionBonus;
+        }
+      } else {
+        st.round++;
+        st.phase = 'play';
+        st.links = []; st.assigned = {}; st.filled = {};
+        st.selected = null; st.quizPick = null; st.result = null;
+        if(st.round === 4){ st.crisisApplied = true; }
+      }
+      saveState(); render();
+    });
+  });
+  /* 重玩：回滚金币/贸易之星/风险到场景开始 */
+  v.querySelectorAll('[data-ch3-replay]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.ch3.coins = st.startCoins;
+      state.ch3.starsTotal = st.startStars;
+      state.ch3.risk = st.startRisk;
+      st.round = 1; st.phase = 'play';
+      st.links = []; st.assigned = {}; st.filled = {};
+      st.selected = null; st.quizPick = null;
+      st.crisisApplied = false; st.presetDone = false;
+      st.result = null; st.stars = []; st.riskD = [];
+      st.log = []; st.coinBonus = 0; st.bonusPaid = false;
+      saveState(); render();
+    });
+  });
+}
+
+/* —— 场景二·回合结算 —— */
+function settleCh3Trade(sc, st){
+  const roundData = sc.rounds[st.round - 1];
+  const totals = ch3TradeTotals(roundData, st);
+  const f = totals.fulfill;
+  const idx = st.round - 1;
+  let stars = 0, riskD = 0, reasons = [];
+  if(idx === 0){
+    stars = f >= roundData.grading.star3 ? 3 : (f >= roundData.grading.star1 ? 1 : 0);
+    riskD = Math.ceil((1 - f) * 6);
+    reasons.push({ en: 'Unmet demand raises network risk.', zh: '未满足的需求推高了网络风险。' });
+  } else if(idx === 1){
+    const srcs = new Set(st.links.filter(l => l.to === 'china' && l.res === 'iron').map(l => l.from)).size;
+    const multi = srcs >= 2;
+    stars = (f >= roundData.grading.star3 && multi) ? 3 : (f >= roundData.grading.star1 ? 1 : 0);
+    riskD = (multi ? 0 : 3) + Math.ceil((1 - f) * 6);
+    if(!multi) reasons.push({ en: 'Reliance on a single supplier.', zh: '对单一供应商的依赖。' });
+    if(f < 1) reasons.push({ en: 'Unmet import demand.', zh: '未满足的进口需求。' });
+  } else if(idx === 2){
+    const q = st.quizPick;
+    const good = (typeof q === 'number') && roundData.quiz && roundData.quiz.options[q] && roundData.quiz.options[q].good;
+    const mild = (typeof q === 'number') && q === 2;
+    stars = good ? 3 : (mild ? 1 : 0);
+    riskD = 4 + Math.ceil((1 - f) * 8);
+    reasons.push({ en: 'Limited supply is shared by competing importers.', zh: '有限的供应要在竞争进口国之间分配。' });
+  } else {
+    const possible = (roundData.grading && roundData.grading.possible) || 70;
+    const filledC = Math.min(st.filled['china|iron'] || 0, 100);
+    const recover = filledC / possible;
+    stars = recover >= 0.9 ? 3 : (recover >= 0.5 ? 1 : 0);
+    riskD = 5 + Math.ceil((1 - f) * 5);
+    reasons.push({ en: 'A supply disruption hit the trade network.', zh: '一场供应中断冲击了贸易网络。' });
+    if(recover >= 0.9){ riskD -= 2; reasons.push({ en: 'You recovered most of the lost supply.', zh: '你恢复了大部分失去的供应。' }); }
+    else if(recover < 0.5){ riskD += 2; reasons.push({ en: 'The network was not re-organised well.', zh: '网络没有很好地重新组织。' }); }
+  }
+  st.result = { stars: stars, riskD: riskD, fulfill: f, reasons: reasons, totals: totals, idx: idx };
+  state.ch3.starsTotal += stars;
+  state.ch3.risk += riskD;
+  st.stars.push(stars);
+  st.riskD.push(riskD);
+  if(!st.log) st.log = [];
+  st.log.push({ round: st.round, type: 'trade', stars: stars, riskD: riskD });
+  st.phase = 'result';
+  saveState();
+}
+
+/* ================= 第三章·场景三：文化市场预测 ================= */
+/* R3 趋势情境：基于学生在 R2 对市场信息的把握（3 星→热度延续，1 星→稳定，0 星→下滑），完全确定可复现 */
+function forecastTrend(st){
+  const r2 = (st.stars && st.stars[1]) || 0;
+  return r2 === 3 ? 0 : (r2 === 1 ? 1 : 2);
+}
+function fcProductName(sc, pid){
+  for(let i = 0; i < sc.rounds.length; i++){
+    const p = (sc.rounds[i].products || []).find(x => x.id === pid);
+    if(p) return p;
+  }
+  return null;
+}
+/* 需求变化折线图（纯 SVG，双语标签，适合小学生阅读） */
+function lineChartSVG(curves, xLabels, opts){
+  opts = opts || {};
+  const W = 360, H = 170, padL = 40, padR = 14, padT = 18, padB = 30;
+  const all = [];
+  curves.forEach(c => (c.points || []).forEach(p => all.push(p)));
+  const maxV = Math.max.apply(null, all.concat([1]));
+  const minV = Math.min.apply(null, all.concat([0]));
+  const span = Math.max(maxV - minV, 1);
+  const n = Math.max(curves[0] ? curves[0].points.length : 3, 2);
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const X = i => padL + (i * innerW / (n - 1));
+  const Y = v => padT + (1 - (v - minV) / span) * innerH;
+  let grid = '';
+  [0, 0.5, 1].forEach(t => {
+    const gv = minV + t * span;
+    const gy = Y(gv);
+    grid += '<line x1="' + padL + '" y1="' + gy + '" x2="' + (W - padR) + '" y2="' + gy + '" stroke="rgba(58,41,24,.12)" stroke-width="1"/>' +
+      '<text x="' + (padL - 6) + '" y="' + (gy + 4) + '" text-anchor="end" font-size="10" fill="#a3917c">' + Math.round(gv) + '</text>';
+  });
+  let xlab = '';
+  (xLabels || []).forEach((l, i) => {
+    xlab += '<text x="' + X(i) + '" y="' + (H - 9) + '" text-anchor="middle" font-size="11" font-weight="600" fill="#7c6a56">' + esc(l) + '</text>';
+  });
+  let lines = '', dots = '';
+  curves.forEach(c => {
+    const pts = c.points.map((v, i) => X(i) + ',' + Y(v).toFixed(1)).join(' ');
+    lines += '<polyline points="' + pts + '" fill="none" stroke="' + c.color + '" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>';
+    c.points.forEach((v, i) => {
+      dots += '<circle cx="' + X(i).toFixed(1) + '" cy="' + Y(v).toFixed(1) + '" r="4" fill="#fff" stroke="' + c.color + '" stroke-width="2.4"/>' +
+        '<text x="' + X(i).toFixed(1) + '" y="' + (Y(v) - 7).toFixed(1) + '" text-anchor="middle" font-size="10.5" font-weight="700" fill="' + c.color + '">' + v + '</text>';
+    });
+  });
+  const legend = curves.length > 1
+    ? '<div class="chart-legend">' + curves.map(c => '<span class="lg"><i style="background:' + c.color + '"></i>' + esc(c.name) + '</span>').join('') + '</div>'
+    : '';
+  return '<div class="line-chart"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Demand chart · 需求变化图">' + grid + lines + dots + xlab + '</svg>' + legend + '</div>';
+}
+
+/* —— 场景三：三阶段主入口 —— */
+function renderCh3Forecast(sc, st){
+  if(st.phase === 'forecast') return renderCh3ForecastStep(sc, st);
+  if(st.phase === 'import') return renderCh3ImportStep(sc, st);
+  return renderCh3RevealStep(sc, st);
+}
+
+/* —— 场景三·Step 1 Forecast —— */
+function renderCh3ForecastStep(sc, st){
+  const rd = sc.rounds[st.round - 1];
+  let infoBlock = '';
+  if(rd.forecastNews){
+    infoBlock = '<div class="fc-news">' + rd.forecastNews.map(n =>
+      '<div class="fc-news-item">' + ICON.book + '<div>' + esc(n.en) + '<span class="zh">' + esc(n.zh) + '</span></div></div>'
+    ).join('') + '</div>';
+  }
+  if(rd.markets){
+    infoBlock = '<div class="fc-markets">' + rd.markets.map(m => {
+      const p = rd.products.find(x => x.id === m.pid);
+      return '<div class="fc-market-card">' +
+        '<div class="fc-market-head">' + esc(m.en) + '<span class="zh">' + esc(m.zh) + '</span></div>' +
+        '<p>' + esc(m.info.en) + '<span class="zh">' + esc(m.info.zh) + '</span></p>' +
+        '<div class="fc-product-tag">Import: ' + esc(p.en) + ' · ' + esc(p.zh) + '</div>' +
+      '</div>';
+    }).join('') + '</div>';
+  }
+  if(rd.reports){
+    infoBlock = '<div class="fc-reports">' + rd.reports.map(r =>
+      '<div class="fc-report-card"><div class="fc-report-tag">' + esc(r.tag.en) + ' · ' + esc(r.tag.zh) + '</div>' +
+      '<p>' + esc(r.en) + '<span class="zh">' + esc(r.zh) + '</span></p></div>'
+    ).join('') + '</div>';
+  }
+  let visual = '';
+  if(rd.timeline){
+    visual = '<div class="fc-timeline">' + rd.timeline.map((t, i) =>
+      '<div class="tl-step"><span class="tl-dot"></span><b>' + esc(t.en) + '</b><span class="zh">' + esc(t.zh) + '</span></div>'
+    ).join('<span class="tl-arrow">' + ICON.arrow + '</span>') + '</div>';
+  }
+  if(rd.trendPreview){
+    visual = '<div class="fc-preview"><div class="fc-sub">Initial heat trend · 初步热度趋势 <span class="fc-note">(not exact sales · 非精确销量)</span></div>' +
+      lineChartSVG([{ name: 'Trend preview', color: '#bd7d1e', points: rd.trendPreview }], ['Now 现在', 'Soon 即将', 'Later 之后']) + '</div>';
+  }
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.book + '</span>' +
+      '<span><b>Round ' + st.round + ' of ' + sc.rounds.length + ' · 第 ' + st.round + ' 回合（共 ' + sc.rounds.length + ' 回合）</b>' +
+        '<span class="zh">' + esc(rd.en) + ' · ' + esc(rd.zh) + '</span></span>' +
+    '</div>' +
+    '<div class="fc-step-tag">' + ICON.book + ' Forecast · 市场预测 <span class="fc-step-note">Read the market news, then plan your imports. · 阅读市场信息，然后规划进口。</span></div>' +
+    '<div class="fc-cultural">' + ICON.stall + ' <b>' + esc(rd.cultural.en) + '</b> · ' + esc(rd.cultural.zh) + '</div>' +
+    infoBlock + visual +
+    '<div class="fc-level">Demand forecast · 需求预测：<b>' + esc(rd.forecastLevel.en) + '</b><span class="zh">' + esc(rd.forecastLevel.zh) + '</span></div>' +
+    '<div class="fc-task">' + ICON.arrow + ' ' + esc(rd.taskEn) + '<span class="zh">' + esc(rd.taskZh) + '</span></div>' +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-fc-continue>Continue to Import · 前往进口计划</button>' +
+    '</div>'
+  );
+}
+
+/* —— 场景三·Step 2 Import（滑动条，确认前不扣预算/不改库存） —— */
+function renderCh3ImportStep(sc, st){
+  const rd = sc.rounds[st.round - 1];
+  const totalCost = rd.products.reduce((s, p) => s + ((st.decisions[p.id] || 0) * p.unitCost), 0);
+  const remain = state.ch3.coins - totalCost;
+  const over = totalCost > state.ch3.coins;
+  const prodCards = rd.products.map(p => {
+    const qty = st.decisions[p.id] || 0;
+    const startStock = st.inventory[p.id] || 0;
+    const step = p.maxQty > 60 ? 5 : 1;
+    return '<div class="imp-card">' +
+      '<div class="imp-head"><span class="imp-name">' + esc(p.en) + '<span class="zh">' + esc(p.zh) + '</span></span>' +
+      '<span class="imp-price">Cost ' + p.unitCost + ' · Sell ' + p.sellPrice + '<span class="zh">成本 ' + p.unitCost + ' · 售价 ' + p.sellPrice + '</span></span></div>' +
+      (startStock > 0 ? '<div class="imp-stock">Stock on hand · 现有库存：<b>' + startStock + '</b> <span class="zh">（会加上本回合的进口）</span></div>' : '') +
+      '<input type="range" class="imp-slider" data-imp-slider="' + p.id + '" min="0" max="' + p.maxQty + '" step="' + step + '" value="' + qty + '" aria-label="Import quantity · 进口数量">' +
+      '<div class="imp-read">' +
+        '<span>Import <b data-imp-qty="' + p.id + '">' + qty + '</b></span>' +
+        '<span>Stock <b data-imp-stock="' + p.id + '">' + (startStock + qty) + '</b></span>' +
+        '<span>Cost <b data-imp-cost="' + p.id + '">' + (qty * p.unitCost) + '</b></span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.cart + '</span>' +
+      '<span><b>Round ' + st.round + ' · Import · 进口计划</b>' +
+        '<span class="zh">' + esc(rd.en) + ' · ' + esc(rd.zh) + '</span></span>' +
+    '</div>' +
+    '<div class="fc-step-tag">' + ICON.cart + ' Import · 制定进口计划 <span class="fc-step-note">Adjust the sliders — nothing is spent until you confirm. · 调整滑动条——确认前不会花任何钱。</span></div>' +
+    '<div class="imp-budget">' +
+      '<div class="ib-cell"><span>Coins Available · 当前剩余金币</span><b>' + ICON.coin + ' ' + state.ch3.coins + '</b></div>' +
+      '<div class="ib-cell"><span>Total Import Cost · 总进口成本</span><b id="fcTotalCost">' + totalCost + '</b></div>' +
+      '<div class="ib-cell' + (over ? ' over' : '') + '"><span>Remaining Budget · 剩余预算</span><b id="fcRemain" style="color:' + (over ? '#c4503f' : '') + '">' + remain + '</b></div>' +
+    '</div>' +
+    '<div class="imp-cards">' + prodCards + '</div>' +
+    '<div class="quiz-warn" id="fcWarn" style="display:' + (over ? 'block' : 'none') + '">Total import cost exceeds your budget. Reduce a quantity or import 0 units.<span class="zh">总进口成本超出了你的预算。减少数量，或进口 0 单位。</span></div>' +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-fc-confirm>Confirm Import · 确认进口</button>' +
+    '</div>'
+  );
+}
+
+/* —— 场景三·Step 3 Reveal（实际需求揭晓 + 折线图 + 结算） —— */
+function renderCh3RevealStep(sc, st){
+  const rd = sc.rounds[st.round - 1];
+  const rev = st.reveal || { results: [], totals: { cost: 0, revenue: 0, sold: 0, missed: 0, remain: 0 }, stars: 1, riskD: 0, reasons: [] };
+  const isLast = st.round >= sc.rounds.length;
+
+  const rows = rev.results.map(r => {
+    const profit = r.revenue - r.cost;
+    return '<div class="settle-row"><span>' + esc(r.en) + ' · ' + esc(r.zh) + '</span><span>Sold ' + r.sold + ' / Demand ' + r.demand + '<span class="zh">售出 ' + r.sold + ' / 需求 ' + r.demand + '</span></span></div>' +
+      '<div class="settle-row"><span>Imported / Unsold / Missed · 进口 / 剩余 / 错失</span><span>' + r.qty + ' / ' + r.remaining + ' / ' + r.missed + '</span></div>' +
+      '<div class="settle-row"><span>Cost / Revenue · 成本 / 收入</span><span>' + ICON.coin + ' ' + r.cost + ' / ' + ICON.coin + ' +' + r.revenue + '</span></div>' +
+      '<div class="settle-row' + (profit >= 0 ? ' net' : ' spend') + '"><span>Profit · 盈亏</span><span>' + (profit >= 0 ? '+' : '−') + Math.abs(profit) + '</span></div>';
+  }).join('');
+
+  let chart = '';
+  if(st.round === 2){
+    chart = '<div class="fc-sub">Demand in three markets · 三个市场的需求</div>' +
+      lineChartSVG([{ name: 'Demand 需求', color: '#2f7e74', points: rd.products.map(p => p.demand) }], ['Market A 市场A', 'Market B 市场B', 'Market C 市场C']);
+  } else if(st.round === 3){
+    const ts = rd.trendScenarios[rev.trend || 0];
+    chart = '<div class="fc-sub">Trend scenario · 趋势情境：<b>' + esc(ts.en) + '</b> <span class="zh">' + esc(ts.zh) + '</span></div>' +
+      lineChartSVG([{ name: 'Demand 需求', color: '#bd7d1e', points: ts.curve }], ['Early 前期', 'Peak 高峰', 'Later 后期']);
+  } else if(st.round === 4){
+    chart = '<div class="fc-sub">Three demand patterns · 三种需求模式</div>' +
+      lineChartSVG([
+        { name: 'Festival 节日', color: '#d96c3f', points: rd.products[0].curve },
+        { name: 'Daily 日常', color: '#2f7e74', points: rd.products[1].curve },
+        { name: 'Trend 潮流', color: '#bd7d1e', points: rd.products[2].curve }
+      ], ['Early 前期', 'Peak 高峰', 'Later 后期']);
+  } else {
+    chart = lineChartSVG([{ name: 'Demand 需求', color: '#d96c3f', points: rd.products[0].curve }], ['Before 节前', 'During 节中', 'After 节后']);
+  }
+
+  const starHtml = rev.stars === 3 ? (ICON.star + ICON.star + ICON.star).replace(/width="18"/g,'width="20"').replace(/height="18"/g,'height="20"')
+    : rev.stars === 1 ? ICON.star.replace(/width="18"/g,'width="20"').replace(/height="18"/g,'height="20"')
+    : '<span class="no-star">No star · 没有星星</span>';
+  const reasons = (rev.reasons || []).map(r => '<li>' + ICON.risk + ' ' + esc(r.en) + '<span class="zh">' + esc(r.zh) + '</span></li>').join('');
+
+  return (
+    '<div class="mission-banner">' +
+      '<span class="flag">' + ICON.coin + '</span>' +
+      '<span><b>Round ' + st.round + ' · Reveal · 结果揭晓</b>' +
+        '<span class="zh">' + esc(rd.en) + ' · ' + esc(rd.zh) + '</span></span>' +
+    '</div>' +
+    '<div class="fc-step-tag">' + ICON.coin + ' Reveal · 市场结果揭晓 <span class="fc-step-note">Actual demand and your sales result. · 实际需求与你的销售结果。</span></div>' +
+    '<div class="ch2-settle">' +
+      '<h3>Sales Result · 销售结果</h3>' +
+      rows +
+      '<div class="settle-row spend"><span>Total import cost · 总进口成本</span><span>' + ICON.coin + ' −' + rev.totals.cost + '</span></div>' +
+      '<div class="settle-row net"><span>Sales revenue · 销售收入</span><span>' + ICON.coin + ' +' + rev.totals.revenue + '</span></div>' +
+      '<div class="settle-row' + ((rev.totals.revenue - rev.totals.cost) >= 0 ? ' net' : ' spend') + '"><span>Profit / Loss · 本轮盈亏</span><span>' + ((rev.totals.revenue - rev.totals.cost) >= 0 ? '+' : '−') + Math.abs(rev.totals.revenue - rev.totals.cost) + '</span></div>' +
+      '<div class="settle-row"><span>Coins now · 当前金币</span><span>' + ICON.coin + ' ' + state.ch3.coins + '</span></div>' +
+      '<div class="settle-row stars"><span>Trade Stars · 贸易之星</span><span>' + starHtml + '</span></div>' +
+      '<div class="settle-row risk"><span>Commercial Risk · 商业风险</span><span>' + ICON.risk + ' +' + rev.riskD + '</span></div>' +
+      (reasons ? '<ul class="risk-reasons">' + reasons + '</ul>' : '') +
+    '</div>' +
+    chart +
+    '<div class="trade-quote">' + ICON.book + ' ' + esc(rd.feedback.en) + '<span class="zh">' + esc(rd.feedback.zh) + '</span></div>' +
+    '<div class="btn-row">' +
+      '<button class="btn primary" data-fc-next>' + (isLast ? 'See the Cultural Market Report · 查看文化市场经营报告' : 'Next Round · 下一回合') + '</button>' +
+    '</div>'
+  );
+}
+
+/* —— 场景三·场景总结报告（含反思题） —— */
+function renderCh3ForecastReport(sc, st){
+  const sumStars = (st.stars || []).reduce((a, b) => a + b, 0);
+  const sumRisk = (st.riskD || []).reduce((a, b) => a + b, 0);
+  const spent = (st.log || []).filter(l => l.type === 'forecast').reduce((a, l) => a + l.cost, 0);
+  const revenue = (st.log || []).filter(l => l.type === 'forecast').reduce((a, l) => a + l.revenue, 0);
+  const missed = (st.log || []).filter(l => l.type === 'forecast').reduce((a, l) => a + l.missed, 0);
+  const netBudget = revenue - spent; // 经营结果 = 销售收入 − 进口支出
+  const invList = Object.keys(st.inventory || {}).filter(k => (st.inventory[k] || 0) > 0).map(k => {
+    const p = fcProductName(sc, k);
+    return '<div class="settle-row"><span>' + (p ? esc(p.en) + ' · ' + esc(p.zh) : k) + '</span><span>' + st.inventory[k] + '</span></div>';
+  }).join('') || '<div class="link-empty">No unsold inventory left. · 没有剩余库存。</div>';
+
+  const rows = sc.rounds.map((r, i) => {
+    const s = (st.stars || [])[i], d = (st.riskD || [])[i];
+    const starHtml = s === 3 ? (ICON.star + ICON.star + ICON.star) : s === 1 ? ICON.star : '<span class="no-star">0</span>';
+    return '<div class="settle-row"><span>R' + (i + 1) + ' · ' + esc(r.en) + '</span><span>' + starHtml + ' ' + (typeof d === 'number' ? ICON.risk + ' +' + d : '') + '</span></div>';
+  }).join('');
+
+  const chart = '<div class="fc-sub">How culture shapes demand · 文化如何塑造需求</div>' +
+    lineChartSVG([
+      { name: 'Festival 节日', color: '#d96c3f', points: [30, 80, 20] },
+      { name: 'Daily 日常', color: '#2f7e74', points: [45, 50, 45] },
+      { name: 'Trend 潮流', color: '#bd7d1e', points: [40, 70, 100] }
+    ], ['Early 前期', 'Peak 高峰', 'Later 后期']);
+
+  const reflect = sc.reflect;
+  const opts = reflect.options.map((o, i) =>
+    '<button class="reflect-opt' + (st.reflectPick === i ? ' picked' : '') + '" data-fc-reflect="' + i + '">' +
+      esc(o.en) + '<span class="zh">' + esc(o.zh) + '</span></button>'
+  ).join('');
+  const fb = (st.reflectPick !== null && st.reflectPick !== undefined)
+    ? '<div class="reflect-fb ' + (reflect.options[st.reflectPick].good ? 'good' : 'bad') + '">' +
+        ICON.check + ' ' + esc(reflect.feedbackEn) + '<span class="zh">' + esc(reflect.feedbackZh) + '</span></div>'
+    : '';
+
+  return (
+    '<div class="complete-hero">' +
+      '<div class="seal">' + ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"') + '</div>' +
+      '<h2>Cultural Market Report · 文化市场经营报告</h2>' +
+      '<div class="zh">Scene 3 Complete · 场景三完成 — ' + esc(sc.en) + ' · ' + esc(sc.zh) + '</div>' +
+    '</div>' +
+    '<div class="ch2-settle">' +
+      '<h3>Four Rounds · 四个回合</h3>' +
+      rows +
+      '<div class="settle-row stars"><span>Total Stars · 总星星</span><span>' + ICON.star + ' ' + sumStars + '</span></div>' +
+      '<div class="settle-row spend"><span>Total import spending · 总进口支出</span><span>' + ICON.coin + ' ' + spent + '</span></div>' +
+      '<div class="settle-row net"><span>Total sales revenue · 总销售收入</span><span>' + ICON.coin + ' ' + revenue + '</span></div>' +
+      '<div class="settle-row' + (netBudget >= 0 ? ' net' : ' spend') + '"><span>Operating result · 经营结果</span><span>' + (netBudget >= 0 ? '+' : '−') + Math.abs(netBudget) + '</span></div>' +
+      '<div class="settle-row"><span>Missed sales · 错失销售机会</span><span>' + missed + '</span></div>' +
+      '<div class="settle-row risk"><span>Market risk · 市场风险</span><span>' + ICON.risk + ' +' + sumRisk + '</span></div>' +
+      '<div class="settle-row"><span>Unsold inventory · 剩余库存</span><span></span></div>' +
+      invList +
+      (st.coinBonus ? '<div class="settle-row net"><span>Global reward coins · 全局奖励金币</span><span>' + ICON.coin + ' +' + st.coinBonus + '</span></div>' : '') +
+      '<div class="settle-row"><span>Global coins now · 当前全局金币</span><span>' + ICON.coin + ' ' + state.ch3.coins + '</span></div>' +
+    '</div>' +
+    chart +
+    '<div class="reflect-card">' +
+      '<div class="quiz-q">' + esc(reflect.questionEn) + '<span class="zh">' + esc(reflect.questionZh) + '</span></div>' +
+      opts + fb +
+    '</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn gold" data-fc-replay>Play Again · 再玩一次</button>' +
+      '<button class="btn primary" data-ch3>Back to Chapter 3 · 返回第三章</button>' +
+    '</div>'
+  );
+}
+
+/* —— 场景三·回合结算（确认进口时一次完成，防重复结算） —— */
+function settleForecastRound(sc, st){
+  if(st.reveal) return; // 防重复结算
+  const rd = sc.rounds[st.round - 1];
+  const results = [];
+  const tot = { cost: 0, revenue: 0, sold: 0, missed: 0, remain: 0, qty: 0 };
+  rd.products.forEach(p => {
+    const qty = st.decisions[p.id] || 0;
+    let demand = p.demand, curve = p.curve;
+    if(rd.uncertain && p.id === 'figures'){
+      const ts = rd.trendScenarios[forecastTrend(st)];
+      demand = ts.curve.reduce((a, b) => a + b, 0);
+      curve = ts.curve;
+    }
+    const cost = qty * p.unitCost;
+    const startStock = st.inventory[p.id] || 0;
+    const stock = startStock + qty;
+    const sold = Math.min(stock, demand);
+    const remaining = stock - sold;
+    const missed = Math.max(0, demand - sold);
+    const revenue = sold * p.sellPrice;
+    st.inventory[p.id] = remaining;
+    results.push({ pid: p.id, en: p.en, zh: p.zh, unitCost: p.unitCost, sellPrice: p.sellPrice, demand: demand, curve: curve, qty: qty, startStock: startStock, stock: stock, sold: sold, remaining: remaining, missed: missed, cost: cost, revenue: revenue });
+    tot.cost += cost; tot.revenue += revenue; tot.sold += sold; tot.missed += missed; tot.remain += remaining; tot.qty += qty;
+  });
+  state.ch3.coins += tot.revenue; // 进口成本已在确认时从金币扣除，Reveal 加入销售收入
+  if(st.round === 3) st.trend = forecastTrend(st);
+  const g = gradeForecastRound(sc, st, rd, results, tot);
+  st.reveal = { results: results, totals: tot, stars: g.stars, riskD: g.riskD, reasons: g.reasons, trend: st.trend };
+  state.ch3.starsTotal += g.stars;
+  state.ch3.risk += g.riskD;
+  st.stars.push(g.stars);
+  st.riskD.push(g.riskD);
+  if(!st.log) st.log = [];
+  st.log.push({ round: st.round, type: 'forecast', cost: tot.cost, revenue: tot.revenue, sold: tot.sold, missed: tot.missed, stars: g.stars, riskD: g.riskD });
+  st.phase = 'reveal';
+}
+
+/* —— 场景三·评分与风险（基于决策时可见的市场信息，透明可测试） —— */
+function gradeForecastRound(sc, st, rd, results, rev){
+  const idx = st.round - 1;
+  let stars = 1, riskD = 0, reasons = [];
+  /* 决策时可用的金币 = 当前金币 − 本轮回款 + 本回成本（即玩家调整滑动条时看到的剩余金币） */
+  const decisionCoins = state.ch3.coins - rev.revenue + rev.cost;
+  if(idx === 0){
+    const qty = st.decisions['lanterns'] || 0;
+    const res = results[0];
+    const aff = Math.floor(decisionCoins / (rd.products[0].unitCost || 1));
+    const s3 = Math.min(rd.stars3, aff);
+    const s1 = Math.min(rd.stars1, Math.floor(aff * 0.5));
+    stars = qty >= s3 ? 3 : (qty >= s1 ? 1 : 0);
+    if(res.remaining > 0 && res.remaining > qty * 0.3){ riskD += 2; reasons.push({ en: 'Large leftover stock after the festival.', zh: '节日过后留下大量库存。' }); }
+    if(qty < Math.floor(aff * 0.75)){ riskD += 1; reasons.push({ en: 'Under-supply while demand is clearly rising.', zh: '需求明显上升时进货不足。' }); }
+  } else if(idx === 1){
+    const demandSum = rd.products.reduce((s, p) => s + p.demand, 0);
+    const fulfill = demandSum ? rev.sold / demandSum : 0;
+    const overbuy = rev.remain > rev.qty * 0.4;
+    stars = (fulfill >= rd.stars3 && !overbuy) ? 3 : (fulfill >= rd.stars1 ? 1 : 0);
+    if(overbuy){ riskD += 2; reasons.push({ en: 'Too much stock was imported across the markets.', zh: '各市场进口库存过多。' }); }
+    if(fulfill < 0.5){ riskD += 2; reasons.push({ en: 'Most demand was left unmet.', zh: '大部分需求未被满足。' }); }
+    const totalCost = rev.cost;
+    results.forEach(r => {
+      if(totalCost > 0 && r.cost / totalCost > 0.6){ riskD += 1; reasons.push({ en: 'Too much budget on one product.', zh: '把过多预算投在单一商品上。' }); }
+    });
+  } else if(idx === 2){
+    const qty = st.decisions['figures'] || 0;
+    const res = results[0];
+    const aff = Math.floor(decisionCoins / (rd.products[0].unitCost || 1));
+    const s3min = Math.min(rd.stars3min, Math.floor(aff * 0.4));
+    const s3max = Math.min(rd.stars3max, aff);
+    const s1min = Math.min(rd.stars1min, Math.floor(aff * 0.2));
+    const s1max = Math.min(rd.stars1max, aff);
+    stars = (qty >= s3min && qty <= s3max) ? 3 : ((qty >= s1min && qty <= s1max) ? 1 : 0);
+    if(qty > s1max){ riskD += 4; reasons.push({ en: 'Too much invested in an uncertain trend.', zh: '对不确定的流行趋势投入过多资金。' }); }
+    if(res.remaining > 0 && res.remaining > qty * 0.4){ riskD += 2; reasons.push({ en: 'Large leftover stock.', zh: '大量库存积压。' }); }
+  } else {
+    const demandSum = rd.products.reduce((s, p) => s + p.demand, 0);
+    const fulfill = demandSum ? rev.sold / demandSum : 0;
+    const figuresQty = st.decisions['figures'] || 0;
+    stars = (fulfill >= rd.stars3 && figuresQty <= 60) ? 3 : (fulfill >= rd.stars1 ? 1 : 0);
+    const overbuy = rev.remain > rev.qty * 0.4;
+    if(overbuy){ riskD += 3; reasons.push({ en: 'Large total leftover stock.', zh: '总库存积压较多。' }); }
+    if(figuresQty > 60){ riskD += 2; reasons.push({ en: 'Heavy investment in an uncertain trend.', zh: '对不确定趋势投入过重。' }); }
+    if(fulfill < 0.5){ riskD += 2; reasons.push({ en: 'Most demand left unmet.', zh: '大部分需求未被满足。' }); }
+  }
+  return { stars: stars, riskD: riskD, reasons: reasons };
+}
+
+/* —— 场景三·事件绑定 —— */
+function bindCh3ForecastEvents(sc, st){
+  const v = $("#view");
+  const rd = sc.rounds[st.round - 1];
+
+  v.querySelectorAll("[data-fc-continue]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      st.phase = 'import';
+      saveState(); render();
+    });
+  });
+
+  /* 滑动条实时更新（局部 DOM，不重渲染以免打断拖拽） */
+  v.querySelectorAll("[data-imp-slider]").forEach(slider => {
+    slider.addEventListener("input", () => {
+      const pid = slider.getAttribute("data-imp-slider");
+      const p = rd.products.find(x => x.id === pid);
+      if(!p) return;
+      const qty = parseInt(slider.value, 10) || 0;
+      st.decisions[pid] = qty;
+      saveState();
+      const cost = qty * p.unitCost;
+      const startStock = st.inventory[pid] || 0;
+      const qEl = v.querySelector('[data-imp-qty="' + pid + '"]');
+      if(qEl) qEl.textContent = qty;
+      const sEl = v.querySelector('[data-imp-stock="' + pid + '"]');
+      if(sEl) sEl.textContent = startStock + qty;
+      const cEl = v.querySelector('[data-imp-cost="' + pid + '"]');
+      if(cEl) cEl.textContent = cost;
+      const totalCost = rd.products.reduce((s, x) => s + ((st.decisions[x.id] || 0) * x.unitCost), 0);
+      const tEl = v.querySelector('#fcTotalCost');
+      if(tEl) tEl.textContent = totalCost;
+      const rEl = v.querySelector('#fcRemain');
+      const over = totalCost > state.ch3.coins;
+      if(rEl){ rEl.textContent = state.ch3.coins - totalCost; rEl.style.color = over ? '#c4503f' : ''; }
+      const warn = v.querySelector('#fcWarn');
+      if(warn) warn.style.display = over ? 'block' : 'none';
+    });
+  });
+
+  /* 确认进口：校验预算 → 扣除成本 → 结算 → 揭晓 */
+  v.querySelectorAll("[data-fc-confirm]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const totalCost = rd.products.reduce((s, x) => s + ((st.decisions[x.id] || 0) * x.unitCost), 0);
+      if(totalCost > state.ch3.coins){
+        const warn = v.querySelector('#fcWarn');
+        if(warn) warn.style.display = 'block';
+        return;
+      }
+      state.ch3.coins -= totalCost;
+      st.confirmed = true;
+      settleForecastRound(sc, st);
+      saveState(); render();
+    });
+  });
+
+  /* 下一回合 / 完成（发放全局奖励） */
+  v.querySelectorAll("[data-fc-next]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st.round >= sc.rounds.length){
+        st.phase = 'done';
+        if(!st.bonusPaid){
+          st.bonusPaid = true;
+          state.ch3.coins += sc.completionBonus;
+          st.coinBonus = sc.completionBonus;
+        }
+      } else {
+        st.round++;
+        st.phase = 'forecast';
+        st.decisions = {}; st.confirmed = false; st.reveal = null;
+      }
+      saveState(); render();
+    });
+  });
+
+  /* 重玩：经营预算/库存/全局三项全部回滚 */
+  v.querySelectorAll("[data-fc-replay]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.ch3.coins = st.startCoins;
+      state.ch3.starsTotal = st.startStars;
+      state.ch3.risk = st.startRisk;
+      st.round = 1; st.phase = 'forecast';
+      st.budget = 0; // 预算即全局金币，金币已在上面回滚
+      st.inventory = {}; st.decisions = {};
+      st.confirmed = false; st.reveal = null; st.reflectPick = null;
+      st.stars = []; st.riskD = []; st.log = [];
+      st.coinBonus = 0; st.bonusPaid = false;
+      saveState(); render();
+    });
+  });
+
+  /* 反思题 */
+  v.querySelectorAll("[data-fc-reflect]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      st.reflectPick = parseInt(btn.getAttribute("data-fc-reflect"), 10);
+      saveState(); render();
+    });
+  });
+}
+
 render();
 </script>
 </body>
