@@ -980,6 +980,142 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
 .reflect-fb.good{background:#e7f2e9;border:1px solid #bcd8c4;color:var(--ok);}
 .reflect-fb.bad{background:var(--ember-soft);border:1px solid #ecc4b0;color:var(--ember-deep);}
 .link-empty{font-size:13px;font-weight:700;color:var(--ink-mute);padding:6px 0;}
+
+/* ===== Chapter 4 · Responsible Sourcing ===== */
+.c4-placeholder{
+  display:flex;gap:8px;align-items:flex-start;padding:9px 12px;margin:0 0 12px;
+  border-radius:10px;background:#fff6e6;border:1.5px dashed #e0a33d;color:#8a5a13;
+  font-size:12.5px;font-weight:800;line-height:1.55;
+}
+.c4-placeholder .tag{flex:0 0 auto;background:#e0a33d;color:#fff;border-radius:6px;padding:2px 7px;font-size:11px;letter-spacing:.4px;}
+.c4-missing{font-size:12px;font-weight:700;color:#9a6a1c;margin-top:6px;}
+.c4-ad{
+  background:linear-gradient(180deg,#fffdf8,#fbf3e3);
+  border:2px solid #e8d5ae;border-radius:16px;padding:16px 18px 18px;
+  box-shadow:0 8px 20px rgba(120,88,40,.12);position:relative;overflow:hidden;margin-bottom:16px;
+}
+.c4-ad:before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--gold);}
+.c4-ad-top{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.c4-ad-img{
+  flex:0 0 132px;height:104px;border-radius:12px;border:1.5px dashed #cdb98e;
+  background:repeating-linear-gradient(45deg,#fdf7ea,#fdf7ea 8px,#f6ecd6 8px,#f6ecd6 16px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  font-size:11.5px;font-weight:800;color:#9a8256;text-align:center;padding:6px;
+}
+.c4-ad-img img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block;}
+.c4-slogan{flex:1 1 220px;min-width:180px;}
+.c4-slogan .brand{font-size:12px;font-weight:800;letter-spacing:.6px;color:#8a6a2c;text-transform:uppercase;}
+.c4-slogan h3{font-family:Georgia,"Times New Roman",serif;font-size:23px;line-height:1.2;margin:4px 0 2px;color:#3a2a12;}
+.c4-slogan .zh{font-size:13px;font-weight:700;color:#7a5f33;line-height:1.5;}
+.c4-slogan .slogan{font-size:14.5px;font-weight:800;color:#b3511f;margin-top:6px;line-height:1.45;}
+.c4-claims{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:5px;}
+.c4-claims li{display:flex;gap:6px;align-items:flex-start;font-size:12.5px;font-weight:700;color:#4a3a20;line-height:1.5;}
+.c4-claims li .dot{color:var(--ok);font-weight:900;}
+.c4-price-box{
+  margin-top:14px;background:#fff;border:1.5px solid #e6d2a8;border-radius:12px;padding:10px 12px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;
+}
+.c4-price-box .cell{text-align:center;}
+.c4-price-box .k{font-size:11px;font-weight:800;letter-spacing:.3px;color:#8a7350;text-transform:uppercase;}
+.c4-price-box .v{font-size:19px;font-weight:900;color:#3a2a12;line-height:1.25;}
+.c4-price-box .v small{font-size:11px;font-weight:800;color:#8a7350;}
+.c4-price-box .cell.total .v{color:#b3511f;}
+.c4-sec-label{margin:18px 0 8px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}
+.c4-sec-label h4{font-size:14px;font-weight:900;color:var(--ink);margin:0;letter-spacing:.2px;}
+.c4-counter{font-size:12.5px;font-weight:900;color:#8a5a13;background:#fff3dc;border:1.5px solid #e8c98c;border-radius:8px;padding:4px 10px;}
+.c4-counter.full{color:#fff;background:var(--ember);border-color:var(--ember-deep);}
+.c4-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;}
+.c4-opt{
+  text-align:left;background:#fff;border:2px solid #e6dcc6;border-radius:12px;padding:11px 13px;cursor:pointer;
+  display:flex;gap:9px;align-items:flex-start;transition:border-color .15s,background .15s,transform .1s;
+}
+.c4-opt:hover{border-color:var(--gold);transform:translateY(-1px);}
+.c4-opt.on{border-color:var(--teal);background:var(--teal-soft);box-shadow:0 0 0 2px rgba(47,128,120,.12) inset;}
+.c4-opt.dim{opacity:.55;}
+.c4-opt .box{
+  flex:0 0 20px;width:20px;height:20px;border-radius:6px;border:2px solid #b9ab8c;background:#fff;
+  display:flex;align-items:center;justify-content:center;color:var(--teal);margin-top:1px;
+}
+.c4-opt.on .box{border-color:var(--teal);background:var(--teal);color:#fff;}
+.c4-opt .body{flex:1;min-width:0;}
+.c4-opt .area{font-size:13px;font-weight:900;color:var(--ink);line-height:1.35;}
+.c4-opt .area .zh{display:block;font-size:12px;font-weight:700;color:var(--ink-mute);}
+.c4-opt .q{font-size:12px;font-weight:700;color:#6d6353;line-height:1.5;margin-top:5px;font-style:italic;}
+.c4-resp{
+  background:#fff;border:1.5px solid #e6dcc6;border-radius:14px;padding:13px 15px;margin-bottom:12px;
+  box-shadow:0 3px 10px rgba(120,88,40,.06);
+}
+.c4-resp-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap;}
+.c4-resp .area{font-size:13.5px;font-weight:900;color:var(--ink);line-height:1.35;}
+.c4-resp .area .zh{display:block;font-size:12px;font-weight:700;color:var(--ink-mute);}
+.c4-badge{flex:0 0 auto;font-size:11px;font-weight:900;border-radius:7px;padding:4px 9px;letter-spacing:.2px;border:1.5px solid transparent;white-space:nowrap;}
+.c4-badge.ok{background:#e7f2e9;border-color:#bcd8c4;color:var(--ok);}
+.c4-badge.warn{background:#fff3dc;border-color:#e8c98c;color:#8a5a13;}
+.c4-badge.muted{background:#eeeae2;border-color:#d2cabb;color:#6d6353;}
+.c4-badge.bad{background:var(--ember-soft);border-color:#ecc4b0;color:var(--ember-deep);}
+.c4-resp .asked{font-size:12px;font-weight:700;color:#7a6f5c;font-style:italic;margin:6px 0 8px;line-height:1.5;}
+.c4-resp .answer{font-size:12.5px;font-weight:700;color:#3a3a35;line-height:1.62;}
+.c4-resp .answer .zh{display:block;font-size:12px;font-weight:600;color:#6d6353;margin-top:3px;}
+.c4-evidence{
+  margin-top:10px;border-left:3px solid var(--gold);background:#fdf8ec;border-radius:0 8px 8px 0;padding:8px 11px;
+  font-size:11.5px;font-weight:700;color:#6b5636;line-height:1.55;
+}
+.c4-evidence .ev-title{font-size:12px;font-weight:900;color:#4a3a20;}
+.c4-evidence .ev-meta{font-size:11px;font-weight:700;color:#8a7350;margin-top:2px;}
+.c4-decide{
+  background:linear-gradient(180deg,#fdfbf5,#f7f0e2);border:2px solid #e6d2a8;border-radius:14px;padding:14px 15px;margin-top:6px;
+}
+.c4-decide h4{margin:0 0 4px;font-size:14px;font-weight:900;color:var(--ink);}
+.c4-decide .hint{font-size:12px;font-weight:700;color:#7a6f5c;margin-bottom:10px;line-height:1.55;}
+.c4-decide-btns{display:flex;gap:9px;flex-wrap:wrap;}
+.c4-decide-btns .btn{flex:1 1 200px;}
+.c4-verify{
+  margin-top:10px;border:1.5px dashed #c9b07a;background:#fffdf6;border-radius:10px;padding:10px 12px;
+  font-size:12px;font-weight:700;color:#6b5636;line-height:1.6;
+}
+.c4-verify .vtag{display:inline-block;background:#8a6a2c;color:#fff;border-radius:5px;font-size:10.5px;font-weight:900;padding:2px 6px;margin-right:6px;letter-spacing:.3px;}
+.c4-fin{background:#fff;border:1.5px solid #e6dcc6;border-radius:14px;padding:12px 14px;margin-bottom:12px;}
+.c4-statbar{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 14px;padding:9px 14px;border-radius:12px;background:#fdf7ea;border:1.5px solid #e6dcc6;font-size:12.5px;font-weight:800;color:#5a4a33;}
+.c4-statbar span{display:inline-flex;align-items:center;gap:6px;}
+.c4-statbar .v{font-size:15px;font-weight:900;color:var(--ink);}
+.c4-brief-grid{display:grid;gap:14px;margin:0 0 18px;}
+.c4-brief-card{background:var(--paper);border:1px solid rgba(58,41,24,.14);border-radius:16px;box-shadow:var(--shadow);padding:20px 24px;}
+.c4-brief-card h4{font-size:17px;font-weight:900;margin:0 0 10px;color:var(--ink);}
+.c4-brief-card h4 .n{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;border-radius:50%;background:var(--teal-deep);color:#fff;font-size:13px;font-weight:800;margin-right:10px;vertical-align:2px;}
+.c4-brief-card p{font-size:15.5px;line-height:1.75;margin:0;color:#4a3c2e;}
+.c4-brief-card p .zh{display:block;color:var(--ink-soft);font-size:14.5px;margin-top:5px;}
+.c4-budget-bar{display:flex;flex-wrap:nowrap;align-items:center;gap:10px;margin:14px 0 6px;padding:14px 18px;border-radius:14px;background:#fff;border:1.5px solid #e6dcc6;}
+.c4-budget-bar .cell{flex:1 1 0;min-width:0;}
+.c4-budget-bar .k{display:block;font-size:10px;font-weight:800;letter-spacing:.05em;color:var(--ink-soft);text-transform:uppercase;line-height:1.45;}
+.c4-budget-bar .v{font-family:"Noto Serif SC","Georgia",serif;font-size:21px;font-weight:900;color:var(--ink);line-height:1.3;}
+.c4-budget-bar .op{flex:0 0 auto;font-size:18px;font-weight:700;color:var(--ink-300);}
+.c4-budget-bar .sum{border-left:2px dashed #e2d4b8;padding-left:14px;}
+.c4-budget-bar .sum .v{color:var(--teal-deep);}
+@media (max-width:720px){
+  .c4-budget-bar{flex-wrap:wrap;}
+  .c4-budget-bar .cell{flex:1 1 120px;}
+}
+.c4-brief-note{margin:0 0 18px;padding:12px 16px;border-radius:12px;background:var(--teal-soft);border-left:4px solid var(--teal);font-size:14px;line-height:1.7;color:#22584f;}
+.c4-fin h4{font-size:14px;font-weight:900;margin:0 0 8px;color:var(--ink);}
+.c4-fin .line{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:12.5px;font-weight:700;color:#4a4a44;border-bottom:1px dashed #ece3cf;}
+.c4-fin .line:last-child{border-bottom:0;}
+.c4-fin .line.neg{color:var(--ember-deep);}
+.c4-fin .line.total{font-size:14px;font-weight:900;color:#3a2a12;padding-top:8px;border-top:2px solid #e6dcc6;border-bottom:0;}
+.c4-stake{width:100%;border-collapse:collapse;font-size:12px;}
+.c4-stake th{background:#f2ead8;color:#5a4520;font-weight:900;font-size:11.5px;text-align:left;padding:7px 9px;border:1px solid #e6dcc6;}
+.c4-stake td{padding:7px 9px;border:1px solid #eee5d2;font-weight:700;color:#403a30;vertical-align:top;line-height:1.5;}
+.c4-stake .pos{color:var(--ok);font-weight:900;}
+.c4-stake .neg{color:var(--ember-deep);font-weight:900;}
+.c4-outcome-hero{text-align:center;padding:6px 0 12px;}
+.c4-outcome-hero .verdict{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.8px;padding:5px 12px;border-radius:8px;text-transform:uppercase;}
+.c4-outcome-hero .verdict.purchase{background:var(--teal-soft);color:var(--teal);border:1.5px solid var(--teal);}
+.c4-outcome-hero .verdict.reject{background:#eeeae2;color:#6d6353;border:1.5px solid #c9c0ad;}
+.c4-outcome-hero h3{font-family:Georgia,serif;font-size:22px;margin:8px 0 2px;color:#3a2a12;line-height:1.25;}
+.c4-outcome-hero .zh{font-size:13px;font-weight:700;color:#7a6f5c;}
+.c4-feedback{background:#f6f2e8;border:1.5px solid #e2d8c2;border-radius:12px;padding:11px 13px;font-size:12.5px;font-weight:700;color:#4a4234;line-height:1.65;}
+.c4-feedback .zh{display:block;font-size:12px;font-weight:600;color:#6d6353;margin-top:4px;}
+.c4-demo-note{font-size:11.5px;font-weight:800;color:#8a5a13;background:#fff6e6;border:1.5px dashed #e0a33d;border-radius:8px;padding:7px 10px;margin-bottom:12px;line-height:1.55;}
+.tbc{font-size:12px;font-weight:800;color:#9a6a1c;background:#fff3dc;border:1px dashed #e0b467;border-radius:6px;padding:1px 6px;}
 </style>
 </head>
 <body>
@@ -1022,6 +1158,16 @@ main#view{padding:34px 40px 60px;max-width:1180px;width:100%;margin:0 auto}
       <div class="ch-title">The Changing Market</div>
       <div class="ch-title-zh">变化中的市场</div>
       <div class="ch-sub">A trading town of many cultures · 多元文化的贸易城镇</div>
+    </div>
+
+    <div class="plank chapter-plank locked" id="ch4Plank" role="button" tabindex="0" aria-label="Chapter 4">
+      <div class="ch-head">
+        <span class="ch-kicker">Chapter 4 · 第四章</span>
+        <span class="ch-status locked" id="ch4Status">Locked · 未解锁</span>
+      </div>
+      <div class="ch-title">The Responsible Sourcing Challenge</div>
+      <div class="ch-title-zh">负责任的采购挑战</div>
+      <div class="ch-sub">School purchasing representative · 学校采购代表</div>
     </div>
 
     <div class="plank">
@@ -2139,9 +2285,9 @@ let state = loadState();
 function loadState(){
   try{
     const raw = localStorage.getItem(STORE_KEY);
-    if(raw) return Object.assign({ best:{}, roleDone:{}, sceneDone:[], ch2:null, ch3:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null }, JSON.parse(raw));
+    if(raw) return Object.assign({ best:{}, roleDone:{}, sceneDone:[], ch2:null, ch3:null, ch4:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null }, JSON.parse(raw));
   }catch(e){}
-  return { best:{}, roleDone:{}, sceneDone:[], ch2:null, ch3:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null };
+  return { best:{}, roleDone:{}, sceneDone:[], ch2:null, ch3:null, ch4:null, ch1Locked:false, currentScene:null, phase:'role', role:null, picked:null };
 }
 function saveState(){
   try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
@@ -2291,7 +2437,10 @@ function renderBoard(){
   // 金币计数器：第二/第三章视图显示工厂当前总额，第一章视图显示第一章历史最佳累计
   const inCh3 = view.indexOf("#/ch3") === 0;
   const inCh2 = view.indexOf("#/ch2") === 0;
-  if(inCh3 && state.ch3 && typeof state.ch3.coins === "number"){
+  const inCh4 = view.indexOf("#/ch4") === 0 && view.indexOf("#/ch4/demo") === -1;
+  if(inCh4 && state.ch4 && typeof state.ch4.coins === "number"){
+    $("#coinTotal").textContent = state.ch4.coins;
+  } else if(inCh3 && state.ch3 && typeof state.ch3.coins === "number"){
     $("#coinTotal").textContent = state.ch3.coins;
   } else if((inCh2 || inCh3) && state.ch2){
     $("#coinTotal").textContent = state.ch2.coins;
@@ -2308,7 +2457,9 @@ function renderBoard(){
     });
   }
   const ch3Stars = (state.ch3 && typeof state.ch3.starsTotal === 'number') ? state.ch3.starsTotal : 0;
-  $("#starTotal").textContent = t.stars + ch2Stars + ch3Stars;
+  $("#starTotal").textContent = inCh4 && state.ch4
+    ? (state.ch4.starsTotal || 0)
+    : (t.stars + ch2Stars + ch3Stars);
 
   // 商业风险：第二章全部场景风险累计 + 第三章累计（全局；重玩当前场景时随该场景清零而回滚）
   let risk = 0;
@@ -2320,8 +2471,9 @@ function renderBoard(){
   }
   const ch3Risk = (state.ch3 && typeof state.ch3.risk === 'number') ? state.ch3.risk : 0;
   const riskEl = $("#riskTotal");
-  riskEl.textContent = risk + ch3Risk;
-  riskEl.style.color = risk >= 20 ? "#ff9d8a" : (risk >= 10 ? "#ffc3a3" : "");
+  const shownRisk = inCh4 && state.ch4 ? (state.ch4.risk || 0) : (risk + ch3Risk);
+  riskEl.textContent = shownRisk;
+  riskEl.style.color = shownRisk >= 20 ? "#ff9d8a" : (shownRisk >= 10 ? "#ffc3a3" : "");
 
   // 第一章章节卡：进度 + 状态
   const ch1Complete = doneCount === total;
@@ -2370,6 +2522,19 @@ function renderBoard(){
     ch3Status.className = "ch-status locked";
   }
 
+  // 第四章章节卡：完成整个第三章后解锁
+  const ch4El = $("#ch4Plank");
+  const ch4Status = $("#ch4Status");
+  if(ch3AllDone()){
+    ch4El.classList.remove("locked");
+    ch4Status.textContent = (state.ch4 && state.ch4.started) ? "Started · 已开始" : "Ready · 可开始";
+    ch4Status.className = "ch-status ready";
+  } else {
+    ch4El.classList.add("locked");
+    ch4Status.textContent = "Locked · 未解锁";
+    ch4Status.className = "ch-status locked";
+  }
+
   $("#consumerDone").textContent = consumerCount + "/" + total;
   $("#supplierDone").textContent = supplierCount + "/" + total;
 }
@@ -2384,6 +2549,17 @@ function render(){
   } else if(hash.indexOf("#/ch2/scene/") === 0){
     const id = parseInt(hash.split("/")[3], 10);
     renderCh2Scene(id);
+  } else if(hash.indexOf("#/ch4/report") === 0){
+    renderCh4Report();
+  } else if(hash.indexOf("#/ch4/demo") === 0){
+    renderC4Demo();
+  } else if(hash.indexOf("#/ch4/intro") === 0){
+    renderC4Brief();
+  } else if(hash.indexOf("#/ch4/scene/") === 0){
+    const id = parseInt(hash.split("/")[3], 10);
+    renderCh4Scene(id);
+  } else if(hash.indexOf("#/ch4") === 0){
+    renderChapter4();
   } else if(hash.indexOf("#/ch3/report") === 0){
     renderCh3ChapterReport();
   } else if(hash.indexOf("#/ch3/scene/") === 0){
@@ -4289,6 +4465,16 @@ $("#ch3Plank").addEventListener("keydown", e => {
     if(ch2AllDone()) enterChapter3();
   }
 });
+$("#ch4Plank").addEventListener("click", () => {
+  if(!ch3AllDone()) return;
+  enterChapter4();
+});
+$("#ch4Plank").addEventListener("keydown", e => {
+  if(e.key === "Enter" || e.key === " "){
+    e.preventDefault();
+    if(ch3AllDone()) enterChapter4();
+  }
+});
 [["#ch1Plank","#/"],["#ch2Plank",null]].forEach(pair => {
   const el = document.querySelector(pair[0]);
   el.addEventListener("keydown", e => {
@@ -5306,6 +5492,2433 @@ function bindCh3ForecastEvents(sc, st){
       saveState(); render();
     });
   });
+}
+/* ================= 第四章：负责任的采购挑战 ================= */
+const CHAPTER4 = {
+  en: "The Responsible Sourcing Challenge",
+  zh: "负责任的采购挑战",
+  subEn: "You are the School Purchasing Representative — investigate before you buy",
+  subZh: "你是学校采购代表——买之前先调查",
+  storyEn: "Your school needs new supplies. Five suppliers send their advertisements and quotations. Bright slogans and low prices are easy to believe — but a responsible purchase starts with evidence.",
+  storyZh: "学校需要采购新用品。五家供应商寄来了广告和报价。漂亮的宣传语和低价很容易让人相信——但负责任的采购要从证据开始。",
+  turnEn: "This time you are not the seller. You decide where the school's money goes.",
+  turnZh: "这一次你不是卖家。你是决定学校的钱花到哪里的人。",
+  questionEn: "What should a responsible consumer do before making a purchase?",
+  questionZh: "负责任的消费者在采购前应该做什么？"
+};
+
+/* 第四章额外采购预算：直接累加到第三章结余，全章只发放一次 */
+const C4_BUDGET = 8000;
+
+/* 八大消费者责任领域（案例配置从中选用 5 个） */
+const C4_AREAS = {
+  env:       { en:"Environmental Sustainability", zh:"环境可持续性", icon:"leaf",
+               questionEn:"Does this supplier reduce environmental damage in materials, production and transport?",
+               questionZh:"这家供应商在材料、生产和运输中是否减少了对环境的伤害？" },
+  fair:      { en:"Fair Trade & Ethical Sourcing", zh:"公平贸易与道德采购", icon:"fair",
+               questionEn:"Are materials bought and paid for fairly along the supply chain?",
+               questionZh:"供应链上的材料是否以公平的方式采购与支付？" },
+  worker:    { en:"Workers' Rights & Safe Conditions", zh:"劳工权益与工作安全", icon:"helmet",
+               questionEn:"Do the people who make this product work safely and receive fair treatment?",
+               questionZh:"制作这件产品的工人是否在安全、公平的条件下工作？" },
+  waste:     { en:"Waste Reduction & Circular Consumption", zh:"减少浪费与循环消费", icon:"recycle",
+               questionEn:"Can this product be repaired, reused or recycled, and what waste does it create?",
+               questionZh:"这件产品可以维修、重复使用或回收吗？会产生多少废弃物？" },
+  honest:    { en:"Honest Advertising & Informed Choices", zh:"真实广告与知情消费", icon:"mega",
+               questionEn:"Can the claims in the advertisement be checked against real evidence?",
+               questionZh:"广告中的说法能否用真实证据来核对？" },
+  needs:     { en:"Needs, Wants & Responsible Spending", zh:"需求、欲望与理性消费", icon:"cart",
+               questionEn:"Does the school really need this, and is the total cost reasonable?",
+               questionZh:"学校真的需要它吗？总费用合理吗？" },
+  community: { en:"Supporting Communities & Local Economies", zh:"支持社区与本地经济", icon:"shop",
+               questionEn:"Does buying from this supplier support the local community and its economy?",
+               questionZh:"向这家供应商采购是否支持了本地社区与经济？" },
+  safety:    { en:"Product Safety & Quality", zh:"产品安全与质量", icon:"shield",
+               questionEn:"Has this product passed the required safety tests and quality checks?",
+               questionZh:"这件产品是否通过了必要的安全检测与质量检查？" }
+};
+
+/* 供应商回复的六种信息状态（不代表供应商是否安全） */
+const C4_STATES = {
+  verified:    { en:"Verified Evidence",          zh:"已核实证据",  cls:"ok" },
+  statement:   { en:"Supplier Statement",         zh:"供应商声明",  cls:"warn" },
+  incomplete:  { en:"Incomplete Information",     zh:"信息不完整",  cls:"warn" },
+  unavailable: { en:"Information Unavailable",    zh:"无法提供信息", cls:"muted" },
+  refused:     { en:"Refused to Disclose",        zh:"拒绝披露",    cls:"muted" },
+  warning:     { en:"Warning Evidence",           zh:"风险证据",    cls:"bad" }
+};
+
+const C4_PENDING = "PLACEHOLDER — CASE CONTENT PENDING";
+const C4_PENDING_ZH = "占位内容——案例待完善";
+
+/* 占位调查选项 */
+function c4PendingOption(areaId, state){
+  const a = C4_AREAS[areaId];
+  return {
+    area: areaId,
+    questionEn: a.questionEn,
+    questionZh: a.questionZh,
+    response: {
+      state: state || "statement",
+      answerEn: C4_PENDING,
+      answerZh: C4_PENDING_ZH,
+      evidence: { titleEn:"PLACEHOLDER — document pending", titleZh:"占位——文件待录入", source:"", date:"" }
+    }
+  };
+}
+/* 占位结果 */
+function c4PendingOutcome(){
+  return {
+    purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+    eventEn: C4_PENDING, eventZh: C4_PENDING_ZH,
+    stakeholders: []
+  };
+}
+
+/* —— 五个正式场景的案例配置（案例内容待录入） —— */
+const C4_CASES = [
+  {
+    id: "ecobottle",
+    sceneNumber: 1,
+    status: "complete",
+    product: {
+      nameEn: "EcoBottle",
+      nameZh: "环保水瓶",
+      image: "https://images.openai.com/static-rsc-4/yULdS3HqdrxxYsfKq4-0cqlEZAw1kdwfu5ilyz9Mnw1vX7IDcLBLiYv0TVecngRE1ftQB_7rqLTHMedVulTnJOPScKXPDdduUkzeMeDJFLrEmPlo-0Vt3avawMiqhHfUV52KjmuaSCXldqZTokBwdTo8nFNtVsIW_CrLyLs9Xww?purpose=inline",
+      descriptionEn: "500 ml reusable plastic water bottle",
+      descriptionZh: "500 毫升可重复使用塑料水瓶"
+    },
+    supplier: {
+      name: "EcoBottle Global Supplies",
+      advertisement: {
+        sloganEn: "GO GREEN. SAVE MORE!",
+        sloganZh: "环保生活，省钱更多！",
+        claims: [
+          "Eco-Friendly! Help reduce single-use plastic waste. · 环保！帮助减少一次性塑料瓶的浪费。",
+          "Reusable! Designed for everyday use. · 可重复使用！为日常使用而设计。",
+          "Lightweight! Easy to carry to school. · 轻便！方便带到学校。",
+          "Affordable! Just 6 Coins per bottle. · 价格实惠！每个水瓶仅 6 金币。",
+          "School Special! Order 100 bottles for only 600 Coins. · 学校特惠！订购 100 个只需 600 金币。",
+          "Choose EcoBottle. Save money. Help the planet! · 选择 EcoBottle，省钱又环保！"
+        ]
+      },
+      unitPrice: 6,
+      minimumOrder: 100,
+      quotation: 600
+    },
+    investigation: {
+      maxRequests: 3,
+      options: [
+        {
+          area: "env",
+          response: {
+            state: "statement",
+            answerEn: "EcoBottle can be used many times. Reusable bottles help reduce the need for single-use plastic bottles. We believe EcoBottle is a greener choice for schools.",
+            answerZh: "EcoBottle 可以重复使用。可重复使用的水瓶有助于减少一次性塑料瓶的使用。我们认为 EcoBottle 是学校更环保的选择。",
+            evidence: {
+              titleEn: "Supplier Environmental Statement",
+              titleZh: "供应商环保声明 · 文件 EB-ENV-01",
+              source: "EcoBottle Global Supplies",
+              gapEn: "No independent environmental testing, no verified material information, no factory waste-management report.",
+              gapZh: "没有提供独立环境检测、可核验的材料信息，也没有工厂废弃物管理报告。"
+            }
+          }
+        },
+        {
+          area: "safety",
+          response: {
+            state: "incomplete",
+            answerEn: "Our bottles have passed our factory quality inspection. We checked their appearance and tested them for leaks. The results were satisfactory.",
+            answerZh: "我们的水瓶已通过工厂内部质量检查，包括外观检查和漏水测试，结果符合要求。",
+            evidence: {
+              titleEn: "Internal Quality Inspection",
+              titleZh: "内部质量检测表 · 文件 EB-QC-02",
+              source: "EcoBottle factory quality team",
+              rows: [
+                { en: "Appearance / 外观", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Leak Test / 漏水测试", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Food-contact Material Test / 食品接触材料检测", valueEn: "NOT PROVIDED", valueZh: "未提供", state: "bad" },
+                { en: "Independent Safety Certification / 独立安全认证", valueEn: "NOT PROVIDED", valueZh: "未提供", state: "bad" }
+              ],
+              gapEn: "A bottle can pass a leak test without being safe for drinking water.",
+              gapZh: "通过漏水测试，并不代表这个水瓶可以安全接触饮用水。"
+            }
+          }
+        },
+        {
+          area: "needs",
+          response: {
+            state: "verified",
+            answerEn: "Our school price is 6 Coins per bottle, with a minimum order of 100. We offer replacements for visible manufacturing defects reported within 30 days.",
+            answerZh: "学校采购价格为每个 6 金币，最低订购 100 个。对于 30 天内报告的明显制造缺陷，我们提供更换服务。",
+            evidence: {
+              titleEn: "Official School Quotation",
+              titleZh: "学校采购报价单 · 文件 EB-QT-03",
+              source: "EcoBottle Global Supplies",
+              rows: [
+                { en: "Unit price / 单价", valueEn: "6 Coins", valueZh: "6 金币" },
+                { en: "Minimum order / 最低订购量", valueEn: "100 bottles", valueZh: "100 个" },
+                { en: "Total quotation / 总报价", valueEn: "600 Coins", valueZh: "600 金币" },
+                { en: "Replacement policy / 更换政策", valueEn: "Visible defects within 30 days", valueZh: "30 天内明显缺陷" },
+                { en: "Independent safety guarantee / 独立安全保证", valueEn: "Not included", valueZh: "不包含", state: "bad" }
+              ],
+              gapEn: "A genuine price quotation does not establish product safety or long-term value.",
+              gapZh: "真实的报价只能证明价格，不能证明产品安全或长期价值。"
+            }
+          }
+        },
+        {
+          area: "worker",
+          response: {
+            state: "refused",
+            answerEn: "Our manufacturing arrangements are confidential. We cannot share factory inspection reports, working-hour records, or employee wage information.",
+            answerZh: "我们的生产安排属于商业机密，因此无法提供工厂检查报告、工时记录或员工工资资料。",
+            evidence: {
+              titleEn: "Factory Working Conditions",
+              titleZh: "工厂劳动条件 · 回复 EB-HR-04",
+              gapEn: "Working hours, wages, safety procedures and factory inspection results remain unknown.",
+              gapZh: "工时、工资、安全流程和工厂检查结果都无从得知。"
+            }
+          }
+        },
+        {
+          area: "fair",
+          response: {
+            state: "unavailable",
+            answerEn: "We work with several manufacturing partners to keep our prices low. We do not currently have an independent ethical sourcing audit available.",
+            answerZh: "我们与多家生产合作伙伴合作，以维持低价。目前我们无法提供独立的道德采购审计报告。",
+            evidence: {
+              titleEn: "Ethical Sourcing Verification",
+              titleZh: "道德采购验证 · 回复 EB-SRC-05",
+              gapEn: "Whether suppliers and factory workers receive fair treatment and reasonable payment remains unknown.",
+              gapZh: "无法判断供应商与工厂工人是否得到公平对待和合理报酬。"
+            }
+          }
+        }
+      ]
+    },
+    verification: {
+      available: true, maxAttempts: 1, cost: 0,
+      responseEn: "We asked EcoBottle Global Supplies for independent proof that the bottles are safe for drinking water. The supplier cannot provide a valid food-contact safety report for this product.",
+      responseZh: "我们已要求 EcoBottle Global Supplies 提供水瓶符合饮用水接触安全要求的独立证明。供应商无法提供该产品有效的食品接触安全检测报告。"
+    },
+    hiddenProfile: {
+      supplierType: "dangerous",
+      internalNotes: "Bottles use cheap plastic without food-contact safety validation; factory has serious labour problems. ENV/SAF/VAL respond with limited evidence; WRK refuses and ETH has no audit."
+    },
+    outcomes: {
+      purchase: {
+        purchaseCost: 600, additionalLoss: 1100, refund: 0, riskD: 25,
+        breakdown: [
+          { en: "Independent testing", zh: "独立检测", amount: 100 },
+          { en: "Collection and disposal", zh: "回收与处理", amount: 100 },
+          { en: "Replacement bottles", zh: "重新采购水瓶", amount: 900 }
+        ],
+        eventEn: "EcoBottle Product Recall! Two weeks after delivery, several bottles develop unusual odors after repeated use. The school sends samples to an independent laboratory, which finds that the plastic does not meet the applicable food-contact safety requirements. The school immediately stops using the bottles and begins a recall. A later investigation also uncovers excessive working hours, inadequate worker protection and improper disposal of plastic waste at the manufacturing factory. EcoBottle refuses to provide a full refund, citing its limited replacement policy.",
+        eventZh: "EcoBottle 产品召回事件。交货两周后，部分水瓶在反复使用后出现异味。学校委托独立实验室检测，发现塑料材料不符合适用的食品接触安全要求。学校立即停止使用并召回全部水瓶。后续调查还发现工厂存在超时劳动、防护措施不足和塑料废弃物处理不当等问题。供应商以有限的更换政策为由，拒绝全额退款。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "neg",
+            explainEn: "Unsafe bottles cannot be used for drinking water.", explainZh: "不安全的水瓶不能用来装饮用水。" },
+          { en: "School", zh: "学校", area: "needs", dir: "neg",
+            explainEn: "Testing, recall and replacement create additional expenses.", explainZh: "检测、召回和重新采购带来了额外支出。" },
+          { en: "Factory workers", zh: "工厂工人", area: "worker", dir: "neg",
+            explainEn: "Excessive working hours and inadequate protection expose workers to harm.", explainZh: "超时劳动与防护不足使工人受到伤害。" },
+          { en: "Environment", zh: "环境", area: "env", dir: "neg",
+            explainEn: "Improper plastic waste disposal contributes to pollution.", explainZh: "塑料废弃物处理不当造成污染。" },
+          { en: "Responsible suppliers", zh: "负责任的供应商", area: "fair", dir: "neg",
+            explainEn: "Misleading claims and artificially low costs create unfair competitive pressure.", explainZh: "误导性宣传与人为压低的成本制造了不公平的竞争压力。" }
+        ]
+      },
+      reject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "A Risky Purchase Avoided! You decided not to purchase EcoBottle. Your school avoids ordering products without verified food-contact safety information. Two weeks later, news emerges that EcoBottle products have failed independent safety testing. Your school avoided the recall and replacement costs. However, the school still needs to find a suitable supplier for its water bottles.",
+        eventZh: "避免了有风险的采购！你决定拒绝采购 EcoBottle。学校避免购买缺乏有效食品接触安全证明的水瓶。两周后，EcoBottle 被发现产品未通过独立安全检测。学校成功避免了召回及更换损失，但仍需为水瓶寻找合适的供应商。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "No unsafe bottle reaches the students.", explainZh: "没有不安全的水瓶进入学生手中。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "No 1,700 Coins were spent on a product that failed safety testing.", explainZh: "没有把 1,700 金币花在未通过安全检测的产品上。" },
+          { en: "Purchasing task", zh: "采购任务", area: "needs", dir: "neg",
+            explainEn: "The school still needs 100 water bottles and must look for another supplier. Rejecting is not free.", explainZh: "学校仍然需要 100 个水瓶，必须另找供应商。拒绝并不是没有成本的。" }
+        ]
+      },
+      verifiedPurchase: {
+        purchaseCost: 600, additionalLoss: 1100, refund: 0, riskD: 25,
+        breakdown: [
+          { en: "Independent testing", zh: "独立检测", amount: 100 },
+          { en: "Collection and disposal", zh: "回收与处理", amount: 100 },
+          { en: "Replacement bottles", zh: "重新采购水瓶", amount: 900 }
+        ],
+        eventEn: "EcoBottle Product Recall! You requested independent safety evidence, learned that the supplier could not provide a valid food-contact report, and still placed the order. Two weeks after delivery, several bottles develop unusual odors and fail independent laboratory testing. The school recalls the bottles and pays for testing, disposal and replacements. Requesting evidence did not make the product safer — the warning was already on the table.",
+        eventZh: "EcoBottle 产品召回事件。你要求提供独立安全证明，也得知供应商无法提供有效的食品接触报告，但仍然下了订单。交货两周后，部分水瓶出现异味，未通过独立实验室检测。学校召回水瓶，并支付检测、处理与重新采购费用。要求证据并不会让产品变安全——警示当时已经摆在眼前。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "neg",
+            explainEn: "Unsafe bottles were used despite a clear warning from the verification step.", explainZh: "在核实环节已明确警示的情况下，学生仍使用了不安全的水瓶。" },
+          { en: "School", zh: "学校", area: "needs", dir: "neg",
+            explainEn: "Testing, recall and replacement create additional expenses.", explainZh: "检测、召回和重新采购带来了额外支出。" },
+          { en: "Factory workers", zh: "工厂工人", area: "worker", dir: "neg",
+            explainEn: "Excessive working hours and inadequate protection expose workers to harm.", explainZh: "超时劳动与防护不足使工人受到伤害。" },
+          { en: "Environment", zh: "环境", area: "env", dir: "neg",
+            explainEn: "Improper plastic waste disposal contributes to pollution.", explainZh: "塑料废弃物处理不当造成污染。" }
+        ]
+      },
+      verifiedReject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "Evidence-Based Decision! You requested independent safety evidence before purchasing. EcoBottle could not provide a valid food-contact safety report. You decided to reject the offer until the supplier could demonstrate that the bottles were safe. The later product recall confirms that requesting verification was a sensible precaution.",
+        eventZh: "基于证据的决定！你在采购前要求供应商提供独立安全证明。由于 EcoBottle 无法提供有效检测报告，你决定拒绝采购。后续召回事件说明，你的核实要求是合理的预防措施。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "No unsafe bottle reaches the students.", explainZh: "没有不安全的水瓶进入学生手中。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "No purchase cost and no 1,100 Coins extra loss.", explainZh: "没有采购支出，也没有 1,100 金币的额外损失。" },
+          { en: "Purchasing task", zh: "采购任务", area: "needs", dir: "neg",
+            explainEn: "The school still needs 100 water bottles and must look for another supplier.", explainZh: "学校仍然需要 100 个水瓶，必须另找供应商。" }
+        ]
+      }
+    },
+    feedback: {
+      areas: ["safety", "env", "worker", "fair", "honest", "needs"],
+      purchase: {
+        en: "You bought from a supplier whose evidence had gaps or warnings. A responsible buyer compares the advertisement with checkable documents before paying. The cost of this decision is shown above.",
+        zh: "你向一个证据有缺口或警示的供应商下了订单。负责任的采购者会在付款前把广告和可核验的文件对照。这项决定的代价已列在上方。"
+      },
+      verifiedPurchase: {
+        en: "Requesting evidence only helps if the evidence changes your decision. Here the supplier could not prove food-contact safety, and the order was placed anyway — so the warning was ignored rather than used.",
+        zh: "要求证据只有在你据此改变决定时才有用。这里供应商无法证明食品接触安全，订单却仍然下了——警示被忽略，而不是被使用。"
+      },
+      reject: {
+        en: "You rejected a quotation whose evidence could not support its claims. That protected the school, but the school still needs the product and must find another supplier — rejecting everything is not free.",
+        zh: "你拒绝了证据无法支撑宣传的报价。这保护了学校，但学校仍然需要这件产品，必须另找供应商——全部拒绝并不是没有成本的。"
+      },
+      verifiedReject: {
+        en: "You asked for independent proof first, found that it could not be provided, and then rejected. That is the order a responsible buyer works in: evidence, then decision.",
+        zh: "你先要求独立证明，确认供应商无法提供后再拒绝。这正是负责任的采购顺序：先看证据，再做决定。"
+      },
+      finalEn: "Low prices and attractive advertisements do not guarantee responsible products. Before purchasing, check whether a supplier can provide reliable evidence of product safety, responsible production, and fair treatment of workers.",
+      finalZh: "低价和吸引人的广告不代表产品一定安全、可靠或符合道德标准。采购前应检查供应商能否提供可信的产品安全、生产过程及劳工权益证明。"
+    },
+    scoring: {
+      keyAreas: ["safety", "env", "worker"],
+      starsOverride: { purchase: null, reject: null }
+    }
+  },
+  {
+    id: "everpack",
+    sceneNumber: 2,
+    status: "complete",
+    product: {
+      nameEn: "EverPack",
+      nameZh: "耐用书包",
+      image: "https://images.openai.com/static-rsc-4/POapMM9bSpOLB5cjVYZoFZ4DYjqHWdw2CnMKkGxYuDhBDaG7ep3ERYmtTS5E76xx_NWd1Qn20E1KeG1Sk8W-iFheMvfoet92SiPQtCvfG0B31WcIVQTHzJL5hpvZ9OpHfOSPg_ocEqXX0huASacv6AqWKisSYf8fJyTMeyRkSOs?purpose=inline",
+      descriptionEn: "Durable school backpack for the student support programme",
+      descriptionZh: "面向学生支持计划的耐用校园书包"
+    },
+    supplier: {
+      name: "EverPack Responsible Goods",
+      advertisement: {
+        sloganEn: "BUILT TO LAST. MADE TO MATTER.",
+        sloganZh: "经久耐用，每一次选择都有意义！",
+        claims: [
+          "Strong & Durable! Reinforced stitching and sturdy zippers. · 坚固耐用！加固缝线与结实拉链。",
+          "Safe Materials! Carefully selected materials for school use. · 安全材料！为校园使用精心挑选的材料。",
+          "Repair, Don't Replace! Free repairs for manufacturing defects during the three-year warranty. · 能修就不换！三年保修期内制造缺陷免费维修。",
+          "Responsible Production! We care about the people who make our bags. · 负责任的生产！我们关心制作书包的人。",
+          "Long-Term Value! A reliable backpack that lasts. · 长期价值！一个用得久、靠得住的书包。",
+          "Special School Price: 24 Coins per backpack! · 学校特价：每个书包 24 金币！",
+          "Order 50 backpacks for only 1,200 Coins. · 订购 50 个只需 1,200 金币。",
+          "Buy better. Use longer. Waste less! · 买得更好，用得更久，浪费更少！"
+        ]
+      },
+      unitPrice: 24,
+      minimumOrder: 50,
+      quotation: 1200
+    },
+    investigation: {
+      maxRequests: 3,
+      options: [
+        {
+          area: "safety",
+          questionEn: "Have the backpacks passed safety and durability tests?",
+          questionZh: "书包是否通过安全与耐用性检测？",
+          response: {
+            state: "verified",
+            answerEn: "Our backpacks have been tested by an independent laboratory. The materials passed the applicable safety tests, and the zippers, straps and stitching passed durability tests.",
+            answerZh: "我们的书包已经通过独立实验室检测。材料符合适用的安全要求，拉链、背带和缝线也通过了耐用性测试。",
+            evidence: {
+              titleEn: "Independent Product Testing Report",
+              titleZh: "独立产品检测报告 · 文件 EP-SAF-01",
+              source: "Independent Laboratory Report EP-2026-041",
+              rows: [
+                { en: "Material safety / 材料安全", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Strap strength / 背带强度", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Zipper durability / 拉链耐用性", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Stitching strength / 缝线强度", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Water resistance / 防泼水性能", valueEn: "PASS", valueZh: "通过", state: "ok" }
+              ],
+              gapEn: "The report identifies the tested model, date and laboratory, so it applies to this exact product. It describes the tested samples; it does not guarantee that every unit will stay defect-free forever.",
+              gapZh: "报告写明了受检型号、日期与实验室，因此针对的正是这款产品。它描述的是受检样品，并不保证每一件产品永远不出现缺陷。"
+            }
+          }
+        },
+        {
+          area: "worker",
+          questionEn: "Are the factory workers treated fairly and safely?",
+          questionZh: "工厂工人是否得到公平、安全的对待？",
+          response: {
+            state: "verified",
+            answerEn: "We work with a factory that follows documented labour standards. An independent audit found that workers receive agreed wages, have reasonable working hours, and receive safety training.",
+            answerZh: "我们与遵守明确劳工标准的工厂合作。独立审计显示，工人获得约定工资、合理工时及必要的安全培训。",
+            evidence: {
+              titleEn: "Factory Labour Audit",
+              titleZh: "工厂劳工审计报告 · 文件 EP-WRK-02",
+              source: "Independent Factory Audit Summary",
+              rows: [
+                { en: "Wage records / 工资记录", valueEn: "Verified", valueZh: "已核实", state: "ok" },
+                { en: "Working hours / 工作时间", valueEn: "Within applicable limits", valueZh: "在适用上限内", state: "ok" },
+                { en: "Safety equipment / 安全设备", valueEn: "Provided", valueZh: "已提供", state: "ok" },
+                { en: "Emergency exits / 紧急出口", valueEn: "Inspected", valueZh: "已检查", state: "ok" },
+                { en: "Worker complaints / 员工申诉", valueEn: "Reporting system available", valueZh: "已有申诉渠道", state: "ok" }
+              ],
+              gapEn: "The report names the facility, audit date and inspection scope. It found no major violations in the simulated audit.",
+              gapZh: "报告写明了受检工厂、审计日期与检查范围。在模拟审计中未发现重大问题。"
+            }
+          }
+        },
+        {
+          area: "env",
+          questionEn: "How does EverPack reduce environmental impact?",
+          questionZh: "EverPack 如何减少环境影响？",
+          response: {
+            state: "verified",
+            answerEn: "EverPack uses recycled polyester for part of its backpack fabric. We also use reduced packaging and monitor waste from our production process.",
+            answerZh: "EverPack 的部分书包面料使用再生聚酯纤维。我们也减少包装，并监测生产过程中产生的废弃物。",
+            evidence: {
+              titleEn: "Environmental Performance Report",
+              titleZh: "环境表现报告 · 文件 EP-ENV-03",
+              source: "Environmental Materials and Waste Report",
+              rows: [
+                { en: "Recycled materials / 再生材料", valueEn: "60% of main fabric by weight", valueZh: "主面料重量的 60%" },
+                { en: "Packaging / 包装", valueEn: "One recyclable cardboard sleeve", valueZh: "一个可回收纸套" },
+                { en: "Production waste / 生产废料", valueEn: "Recorded and sorted for recovery", valueZh: "记录并分类回收" },
+                { en: "Environmental claims / 环保宣传", valueEn: "Limited to documented measures", valueZh: "仅限有记录的措施" }
+              ],
+              gapEn: "EverPack does not claim zero environmental impact. Making and transporting backpacks still uses resources and energy.",
+              gapZh: "EverPack 并未宣称零环境影响。制造和运输书包仍然要消耗资源与能源。"
+            }
+          }
+        },
+        {
+          area: "waste",
+          questionEn: "Can the backpacks be repaired instead of replaced?",
+          questionZh: "书包损坏后能否维修而不是直接丢弃？",
+          response: {
+            state: "verified",
+            answerEn: "We want students to use their backpacks for longer. Our three-year warranty includes free repairs for manufacturing defects. We also offer affordable repairs for damage caused by everyday use.",
+            answerZh: "我们希望学生能够长期使用书包。三年保修期内，制造缺陷可免费维修。日常使用造成的损坏也可以通过付费维修服务处理。",
+            evidence: {
+              titleEn: "Repair & Warranty Programme",
+              titleZh: "维修与保修服务 · 文件 EP-CIR-04",
+              source: "Warranty Terms and Repair Service Records",
+              rows: [
+                { en: "Warranty / 保修期", valueEn: "3 years", valueZh: "3 年" },
+                { en: "Manufacturing defects / 制造缺陷", valueEn: "Free repair", valueZh: "免费维修" },
+                { en: "Normal wear and tear / 日常磨损", valueEn: "Paid repair", valueZh: "付费维修" },
+                { en: "Replacement parts / 替换零件", valueEn: "Zippers, buckles and straps available", valueZh: "拉链、扣件、背带可更换" },
+                { en: "Repair records / 维修记录", valueEn: "Service history available", valueZh: "可查询维修历史" }
+              ],
+              gapEn: "A repairable product can create less waste than one that must be replaced whenever a small part breaks — but repairs still take time and money.",
+              gapZh: "可维修的产品比“小零件坏了就整件更换”的产品产生更少废弃物——但维修仍然需要时间和费用。"
+            }
+          }
+        },
+        {
+          area: "needs",
+          questionEn: "Is a 24-Coin backpack worth the higher price?",
+          questionZh: "24 金币的书包是否物有所值？",
+          response: {
+            state: "verified",
+            answerEn: "EverPack costs more than some basic school backpacks, but it is designed to last longer. The three-year warranty and repair service can help schools reduce replacement costs.",
+            answerZh: "EverPack 的价格高于部分普通书包，但设计使用寿命更长。三年保修和维修服务有助于学校减少更换书包的费用。",
+            evidence: {
+              titleEn: "Quotation & Long-Term Value Comparison",
+              titleZh: "采购报价与长期价值分析 · 文件 EP-VAL-05",
+              source: "Official School Quotation and Warranty Terms",
+              rows: [
+                { en: "Unit price / 单价", valueEn: "24 Coins", valueZh: "24 金币" },
+                { en: "Order quantity / 订购数量", valueEn: "50 backpacks", valueZh: "50 个" },
+                { en: "Total quotation / 总报价", valueEn: "1,200 Coins", valueZh: "1,200 金币" },
+                { en: "Warranty / 保修", valueEn: "3 years, free repair for defects", valueZh: "3 年，缺陷免费维修" },
+                { en: "Basic backpack (comparison model) / 普通书包（对比模型）", valueEn: "12 Coins · 1 year · 12/year", valueZh: "12 金币 · 用 1 年 · 每年 12" },
+                { en: "EverPack / 耐用书包", valueEn: "24 Coins · 3 years · 8/year", valueZh: "24 金币 · 用 3 年 · 每年 8" }
+              ],
+              gapEn: "The basic backpack is a fictional comparison model, not a second supplier. Expected lifespan is an assumption, not a guarantee.",
+              gapZh: "普通书包是虚构的对比模型，不是可购买的第二家供应商。预计使用寿命是假设，不是保证。"
+            }
+          }
+        }
+      ]
+    },
+    verification: {
+      available: true, maxAttempts: 1, cost: 0,
+      responseEn: "An independent purchasing adviser has reviewed the available documents. The product testing report, factory audit and warranty terms are consistent with the advertised claims. No significant concerns were identified within the scope of this review.",
+      responseZh: "独立采购顾问检查了现有文件。产品检测报告、工厂审计和保修条款与广告宣传一致。在本次核实范围内，未发现重大问题。"
+    },
+    hiddenProfile: {
+      supplierType: "responsible",
+      internalNotes: "All five areas are backed by checkable evidence; higher unit price is offset by durability, warranty and repair service. Do not reveal classification before Summary."
+    },
+    outcomes: {
+      purchase: {
+        purchaseCost: 1200, additionalLoss: 0, refund: 0, riskD: -10, breakdown: [],
+        eventEn: "EverPack — A Smart Long-Term Purchase! One school year later, the 50 backpacks have been used regularly by students. Most remain in good condition. Three develop minor zipper problems, and EverPack repairs them free of charge under the warranty. The school does not need to replace any backpack during the first year. A follow-up supplier review also confirms that the factory continues to follow its documented labour and safety procedures. The school is pleased with the purchase and plans to continue using the backpacks.",
+        eventZh: "EverPack——明智的长期采购！一个学年后，学生们持续使用采购的 50 个书包。大部分书包保持良好状态。其中三个出现轻微拉链问题，EverPack 根据保修条款免费完成维修。学校在第一年无需更换任何书包。后续供应商检查也确认，工厂继续遵守已公布的劳工与安全规范。学校对这次采购表示满意，并计划继续使用这些书包。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "Receive reliable backpacks suitable for everyday school use.", explainZh: "获得适合日常校园使用的可靠书包。" },
+          { en: "School", zh: "学校", area: "needs", dir: "pos",
+            explainEn: "Warranty repairs and durable construction help control long-term costs.", explainZh: "保修维修与耐用结构有助于控制长期成本。" },
+          { en: "Factory workers", zh: "工厂工人", area: "worker", dir: "pos",
+            explainEn: "Purchasing supports a supplier with documented fair labour and safety practices.", explainZh: "采购支持了一家有文件证明其公平劳动与安全做法的供应商。" },
+          { en: "Environment", zh: "环境", area: "waste", dir: "pos",
+            explainEn: "Repairable, longer-lasting products can reduce replacement waste.", explainZh: "可维修、更耐用的产品可以减少更换带来的废弃物。" },
+          { en: "Responsible supplier", zh: "负责任的供应商", area: "fair", dir: "pos",
+            explainEn: "Receives business that supports continued responsible production.", explainZh: "获得订单，支持其继续负责任地生产。" }
+        ]
+      },
+      reject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "A Good Opportunity Missed! You decided not to purchase EverPack. The school avoids spending 1,200 Coins, but the students still need backpacks. One year later, a follow-up report shows that EverPack products performed well and its repair programme helped customers avoid unnecessary replacements. The school realizes that the higher initial price might have been worthwhile.",
+        eventZh: "错失了好的机会！你决定不采购 EverPack。学校没有支出 1,200 金币，但学生仍然需要书包。一年后，后续报告显示 EverPack 的产品表现良好，其维修服务帮助客户减少了不必要的更换。学校意识到，较高的初始价格也可能带来更好的长期价值。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "needs", dir: "neg",
+            explainEn: "Still without the backpacks the support programme needed.", explainZh: "学生支持计划仍然没有买到书包。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "1,200 Coins were not spent.", explainZh: "没有支出 1,200 金币。" },
+          { en: "Responsible supplier", zh: "负责任的供应商", area: "fair", dir: "neg",
+            explainEn: "A well-documented supplier lost an order that its evidence supported.", explainZh: "一家证据充分的供应商失去了本可支持的订单。" }
+        ]
+      },
+      verifiedPurchase: {
+        purchaseCost: 1200, additionalLoss: 0, refund: 0, riskD: -10, breakdown: [],
+        eventEn: "A Well-Verified Purchase! You requested further verification before purchasing. The additional review supports EverPack's safety, labour and warranty claims, and you proceed with the order. One school year later, the backpacks remain reliable, and minor defects are repaired under warranty.",
+        eventZh: "经过充分核实的采购！你在采购前进行了进一步核实。补充检查支持了 EverPack 在安全、劳工和保修方面的声明，你决定采购书包。一个学年后，书包表现可靠，轻微缺陷也获得免费维修。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "Receive reliable backpacks suitable for everyday school use.", explainZh: "获得适合日常校园使用的可靠书包。" },
+          { en: "School", zh: "学校", area: "needs", dir: "pos",
+            explainEn: "Warranty repairs and durable construction help control long-term costs.", explainZh: "保修维修与耐用结构有助于控制长期成本。" },
+          { en: "Factory workers", zh: "工厂工人", area: "worker", dir: "pos",
+            explainEn: "Purchasing supports a supplier with documented fair labour and safety practices.", explainZh: "采购支持了一家有文件证明其公平劳动与安全做法的供应商。" },
+          { en: "Environment", zh: "环境", area: "waste", dir: "pos",
+            explainEn: "Repairable, longer-lasting products can reduce replacement waste.", explainZh: "可维修、更耐用的产品可以减少更换带来的废弃物。" }
+        ]
+      },
+      verifiedReject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "A Missed Opportunity — but a Careful Process. You requested further verification, and the review supported EverPack's safety, labour and warranty claims. You still chose not to purchase. The school spends nothing, but students still need backpacks, and one year later the supplier's products perform well. Investigating carefully and then rejecting a supported supplier is a missed opportunity, not a safety incident.",
+        eventZh: "错失机会，但过程谨慎。你进行了进一步核实，核查结果支持 EverPack 的安全、劳工与保修声明，但你仍然选择不采购。学校没有花钱，但学生仍然需要书包；一年后，该供应商的产品表现良好。认真调查之后拒绝一家证据充分的供应商，是错失机会，而不是安全事故。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "needs", dir: "neg",
+            explainEn: "Still without the backpacks the support programme needed.", explainZh: "学生支持计划仍然没有买到书包。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "1,200 Coins were not spent.", explainZh: "没有支出 1,200 金币。" },
+          { en: "Responsible supplier", zh: "负责任的供应商", area: "fair", dir: "neg",
+            explainEn: "A supplier with verified evidence lost an order it could have fulfilled well.", explainZh: "一家证据已核实的供应商失去了本可很好完成的订单。" }
+        ]
+      }
+    },
+    feedback: {
+      areas: ["safety", "worker", "env", "waste", "needs", "fair"],
+      purchase: {
+        en: "You compared the higher price with evidence on safety, labour, materials and repair. The price was higher, but the documented durability and warranty made it defensible long-term value.",
+        zh: "你把较高的价格与安全、劳工、材料和维修方面的证据放在一起比较。价格确实更高，但有文件支撑的耐用性与保修使它在长期价值上站得住脚。"
+      },
+      verifiedPurchase: {
+        en: "You asked for an extra check before buying, and the review supported the supplier's claims. Verification is optional here — the point is that the decision followed the evidence.",
+        zh: "你在采购前要求了额外核查，核查结果支持供应商的声明。核实是可选的——关键在于决定是跟着证据走的。"
+      },
+      reject: {
+        en: "You rejected a supplier whose claims were supported by checkable documents. That is a missed opportunity rather than a safety incident: the school saved money but still needs backpacks.",
+        zh: "你拒绝了一家声明有可核验文件支撑的供应商。这是错失机会，而不是安全事故：学校省下了钱，但仍然需要书包。"
+      },
+      verifiedReject: {
+        en: "You investigated carefully, the evidence supported purchasing, and you rejected anyway. The process was thorough; the decision missed a supported opportunity.",
+        zh: "你认真调查过，证据支持采购，但你仍然拒绝了。过程是充分的，只是决定错失了一个有证据支撑的机会。"
+      },
+      finalEn: "Responsible purchasing is not always about choosing the lowest price. A product with reliable safety evidence, fair working conditions, strong durability and repair services may offer better long-term value.",
+      finalZh: "负责任的采购不一定是选择最低价格。具有可靠安全证明、公平劳动条件、良好耐用性及维修服务的产品，可能具有更高的长期价值。"
+    },
+    scoring: {
+      keyAreas: ["safety", "needs", "worker", "env", "waste"],
+      starsOverride: { purchase: null, reject: null }
+    }
+  },
+  {
+    id: "brightbox",
+    sceneNumber: 3,
+    status: "complete",
+    product: {
+      nameEn: "BrightBox",
+      nameZh: "缤纷文具盒",
+      image: "https://images.openai.com/static-rsc-4/_sQNFS5N6Vk4VnSzdGzAt3J16nihb5c9qWvL_VOHeNomug4eIZJmmB4ozMAajcEfP9I-0102vqxKzBCkhOyBp1j09w1W_w8TwI4idX_AbtMhcAldR0nYpibJBCq-gAiOxCCyVrlZvrNMz7_CfI8rMbSCCXb6KNDmVnTMyjFRMWU?purpose=inline",
+      descriptionEn: "12-piece school stationery kit (model BB-300)",
+      descriptionZh: "12 件校园文具套装（BB-300 型号）"
+    },
+    supplier: {
+      name: "BrightBox Creative Supplies",
+      advertisement: {
+        sloganEn: "BIG COLORS. SMALL PRICES!",
+        sloganZh: "缤纷色彩，超值价格！",
+        claims: [
+          "Make every school day brighter with BrightBox! · 用 BrightBox 让每个上学日更缤纷！",
+          "Our colorful stationery kits are perfect for young artists and creative classrooms. · 我们的缤纷文具套装非常适合小艺术家和创意课堂。",
+          "Safe for Students! Carefully selected school materials. · 学生安全！精心挑选的校园材料。",
+          "Super Durable! Strong pencils, markers and accessories designed to last. · 超级耐用！结实的铅笔、马克笔和配件。",
+          "Everything in One Box! 12 useful stationery items. · 一盒齐全！12 件实用文具。",
+          "Fun & Colorful! Bright designs students will love. · 有趣又缤纷！学生喜欢的设计。",
+          "Amazing Value! Only 9 Coins per kit! · 超值！每套仅 9 金币！",
+          "Special School Offer: 100 kits for just 900 Coins! · 学校特惠：100 套仅 900 金币！",
+          "More creativity. More fun. Less money! · 更多创意，更多乐趣，更少花费！"
+        ]
+      },
+      unitPrice: 9,
+      minimumOrder: 100,
+      quotation: 900
+    },
+    investigation: {
+      maxRequests: 3,
+      options: [
+        {
+          area: "safety",
+          questionEn: "Have all the stationery items passed safety tests?",
+          questionZh: "所有文具是否都通过安全检测？",
+          response: {
+            state: "warning",
+            answerEn: "Our stationery products have passed safety testing. Please see the attached laboratory certificate.",
+            answerZh: "我们的文具产品已通过安全检测。请查看附件中的实验室检测证书。",
+            evidence: {
+              titleEn: "Product Safety Certificate — Wrong Product Model",
+              titleZh: "产品安全检测证书 · 文件 BB-SAF-01（型号不符）",
+              source: "Laboratory Safety Certificate BB-2026-018",
+              rows: [
+                { en: "Product tested / 受检产品", valueEn: "BrightBox Basic Pencil Set", valueZh: "BrightBox 基础铅笔套装" },
+                { en: "Model tested / 受检型号", valueEn: "BB-100", valueZh: "BB-100" },
+                { en: "Test result / 检测结果", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Product being purchased / 本次采购产品", valueEn: "BrightBox Creative Kit", valueZh: "BrightBox 创意文具盒" },
+                { en: "Model being purchased / 本次采购型号", valueEn: "BB-300", valueZh: "BB-300" },
+                { en: "Safety test for BB-300 / BB-300 安全检测", valueEn: "NOT PROVIDED", valueZh: "未提供", state: "bad" }
+              ],
+              gapEn: "The certificate is genuine, but it covers BB-100, not the BB-300 kit being purchased. A certificate for one product does not prove that a different product is safe.",
+              gapZh: "证书本身是真的，但它对应的是 BB-100，而不是本次采购的 BB-300。一个产品的证书，不能证明另一个产品安全。"
+            }
+          }
+        },
+        {
+          area: "honest",
+          questionEn: "Can you prove your claims about safety and durability?",
+          questionZh: "能否证明产品安全和耐用性的宣传？",
+          response: {
+            state: "statement",
+            answerEn: "BrightBox products are made for active students. Our materials are strong and designed for everyday classroom use.",
+            answerZh: "BrightBox 专为活跃的学生设计。我们的材料坚固耐用，适合日常课堂使用。",
+            evidence: {
+              titleEn: "Product Durability Statement",
+              titleZh: "产品耐用性声明 · 文件 BB-ADV-02",
+              source: "Supplier Product Description and internal feedback summary",
+              rows: [
+                { en: "Advertised claim / 宣传说法", valueEn: "Super Durable!", valueZh: "超级耐用！" },
+                { en: "Independent durability report / 独立耐用性报告", valueEn: "NOT PROVIDED", valueZh: "未提供", state: "bad" },
+                { en: "Positive feedback / 正面反馈", valueEn: "35 reports", valueZh: "35 条" },
+                { en: "Broken markers / 马克笔损坏", valueEn: "12 reports", valueZh: "12 条", state: "bad" },
+                { en: "Cracked plastic cases / 塑料盒开裂", valueEn: "8 reports", valueZh: "8 条", state: "bad" },
+                { en: "Damaged sharpeners / 削笔器损坏", valueEn: "5 reports", valueZh: "5 条", state: "bad" }
+              ],
+              gapEn: "These are supplier-reported counts, not defect rates — the total number of customers surveyed is unknown. The advertisement does not mention the durability complaints.",
+              gapZh: "这些是供应商自报的数量，不是缺陷率——接受调查的顾客总数不明。广告里也没有提到这些耐用性投诉。"
+            }
+          }
+        },
+        {
+          area: "waste",
+          questionEn: "Can the stationery and packaging be reused or recycled?",
+          questionZh: "文具及包装能否重复使用或回收？",
+          response: {
+            state: "incomplete",
+            answerEn: "Each BrightBox kit comes in an attractive plastic case with individual packaging to keep the stationery clean and organized.",
+            answerZh: "每套 BrightBox 文具均采用精美塑料盒及独立包装，方便保持文具整洁。",
+            evidence: {
+              titleEn: "Packaging & Disposal Information",
+              titleZh: "包装与废弃物说明 · 文件 BB-CIR-03",
+              source: "Packaging Specifications",
+              rows: [
+                { en: "Outer case / 外盒", valueEn: "Mixed plastic", valueZh: "混合塑料", state: "bad" },
+                { en: "Individual sleeves / 独立包装", valueEn: "Thin plastic film", valueZh: "薄塑料膜", state: "bad" },
+                { en: "Product labels / 产品标签", valueEn: "Laminated paper", valueZh: "覆膜纸" },
+                { en: "Replacement parts / 替换零件", valueEn: "Not available", valueZh: "不提供", state: "bad" },
+                { en: "Recycling instructions / 回收说明", valueEn: "Not provided", valueZh: "未提供", state: "bad" }
+              ],
+              gapEn: "Several packaging materials are difficult to separate, and there are no clear recycling instructions. Damaged components cannot be bought individually, so a broken part means replacing the whole kit.",
+              gapZh: "多种包装材料难以分离，也没有明确的回收说明。损坏的零件无法单独购买，一个小零件坏了就要换掉整套。"
+            }
+          }
+        },
+        {
+          area: "needs",
+          questionEn: "Is BrightBox good value for our school?",
+          questionZh: "BrightBox 是否物有所值？",
+          response: {
+            state: "verified",
+            answerEn: "BrightBox offers a complete stationery kit for only 9 Coins. This is an excellent price for schools purchasing in large quantities.",
+            answerZh: "BrightBox 每套文具仅需 9 金币，非常适合学校批量采购。",
+            evidence: {
+              titleEn: "Official School Quotation",
+              titleZh: "学校采购报价单 · 文件 BB-VAL-04",
+              source: "Official School Quotation",
+              rows: [
+                { en: "Unit price / 单价", valueEn: "9 Coins", valueZh: "9 金币" },
+                { en: "Order quantity / 订购数量", valueEn: "100 kits", valueZh: "100 套" },
+                { en: "Total quotation / 总报价", valueEn: "900 Coins", valueZh: "900 金币" },
+                { en: "Warranty / 保修", valueEn: "14 days", valueZh: "14 天" },
+                { en: "Replacement policy / 更换政策", valueEn: "Defects within 14 days", valueZh: "14 天内缺陷" },
+                { en: "Individual parts / 单独零件", valueEn: "Not available", valueZh: "不提供", state: "bad" }
+              ],
+              gapEn: "The low price is genuine, but the short warranty and the lack of individual replacement parts can raise long-term costs.",
+              gapZh: "低价是真的，但保修期短、且不提供单独替换零件，可能推高长期成本。"
+            }
+          }
+        },
+        {
+          area: "env",
+          questionEn: "How does BrightBox reduce pollution and material waste?",
+          questionZh: "BrightBox 如何减少污染与材料浪费？",
+          response: {
+            state: "unavailable",
+            answerEn: "Our packaging is designed to protect the stationery during transportation. We do not currently have an environmental impact report for this product.",
+            answerZh: "我们的包装主要用于运输保护。目前我们没有针对该产品的环境影响报告。",
+            evidence: {
+              titleEn: "Environmental Information Request",
+              titleZh: "环境资料请求 · 文件 BB-ENV-05",
+              gapEn: "No documents provided. Missing: plastic waste from manufacturing, packaging recovery or recycling arrangements, material sourcing records, environmental impact assessment.",
+              gapZh: "未提供任何文件。缺少：生产过程的塑料废弃物、包装回收或处理安排、材料采购记录、环境影响评估。"
+            }
+          }
+        }
+      ]
+    },
+    verification: {
+      available: true, maxAttempts: 1, cost: 0,
+      responseEn: "The school requested an independent safety report for the exact BrightBox Creative Kit (model BB-300). BrightBox cannot provide a valid safety report for model BB-300, and the supplier confirms that the certificate previously supplied belongs to the BB-100 pencil set.",
+      responseZh: "学校要求供应商提供本次采购的 BrightBox Creative Kit（BB-300 型号）的独立安全检测报告。BrightBox 无法提供 BB-300 型号的有效报告，并确认之前提供的证书属于 BB-100 铅笔套装。"
+    },
+    hiddenProfile: {
+      supplierType: "dangerous",
+      internalNotes: "A genuine BB-100 certificate is presented for the different BB-300 kit; low-cost pigments and plastic components lack product-specific safety checks; packaging is hard to recycle and parts cannot be replaced individually."
+    },
+    outcomes: {
+      purchase: {
+        purchaseCost: 900, additionalLoss: 1500, refund: 0, riskD: 30,
+        breakdown: [
+          { en: "Independent safety testing", zh: "独立安全检测", amount: 150 },
+          { en: "Product recall and disposal", zh: "产品召回与处理", amount: 150 },
+          { en: "Replacement stationery", zh: "重新采购文具", amount: 1200 }
+        ],
+        eventEn: "BrightBox Safety Alert! Three weeks after delivery, teachers notice that several marker caps and plastic cases are breaking during normal classroom use. The school sends samples for independent safety testing. The laboratory discovers that some marker components contain substances exceeding the applicable safety limits for children's stationery. The school immediately stops using the affected kits and recalls all 100 sets as a precaution. Further investigation reveals that the safety certificate originally provided by BrightBox was issued for a different product model. The school also discovers that broken stationery cannot be repaired and that the excessive packaging has created unnecessary plastic waste. BrightBox refuses a full refund, arguing that the reported problems fall outside its 14-day replacement period.",
+        eventZh: "BrightBox 文具安全警报！交货三周后，教师发现部分马克笔笔盖及塑料盒在正常课堂使用中出现破损。学校将文具送往独立实验室检测，发现部分马克笔组件中的物质含量超过适用于儿童文具的安全限值。学校立即停止使用相关产品，并出于预防目的召回全部 100 套。后续调查发现，BrightBox 原先提供的安全证书实际上属于另一款产品。同时，损坏的文具无法维修，大量塑料包装也造成了不必要的浪费。供应商以超过 14 天更换期限为由，拒绝全额退款。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "neg",
+            explainEn: "Unsafe stationery must be withdrawn from classroom use.", explainZh: "不安全的文具必须从课堂中收回。" },
+          { en: "Teachers", zh: "教师", area: "needs", dir: "neg",
+            explainEn: "Lessons are disrupted and materials must be replaced.", explainZh: "课程被打乱，材料必须重新准备。" },
+          { en: "School", zh: "学校", area: "needs", dir: "neg",
+            explainEn: "Testing, recall and replacement create additional costs.", explainZh: "检测、召回与重新采购带来额外支出。" },
+          { en: "Environment", zh: "环境", area: "env", dir: "neg",
+            explainEn: "Excessive packaging and discarded stationery create avoidable waste.", explainZh: "过度包装与被丢弃的文具造成本可避免的废弃物。" },
+          { en: "Responsible suppliers", zh: "负责任的供应商", area: "honest", dir: "neg",
+            explainEn: "Misleading safety claims create unfair competition.", explainZh: "误导性的安全宣传制造了不公平竞争。" }
+        ]
+      },
+      reject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "An Unsafe Purchase Avoided! You decided not to purchase BrightBox. The school avoids buying stationery kits without product-specific safety verification. Three weeks later, a safety investigation reveals problems with the BB-300 kit. Your school avoids the recall and replacement costs, although it still needs to find another stationery supplier.",
+        eventZh: "避免了不安全采购！你决定不采购 BrightBox。学校避免购买缺乏对应型号安全检测证明的文具套装。三周后，安全调查发现 BB-300 型号存在问题。学校成功避免了召回和更换费用，但仍需要寻找其他文具供应商。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "No unverified stationery reaches the classroom.", explainZh: "没有未经核实的文具进入课堂。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "No 2,400 Coins were spent on a product that failed safety testing.", explainZh: "没有把 2,400 金币花在未通过安全检测的产品上。" },
+          { en: "Art programme", zh: "美术课程", area: "needs", dir: "neg",
+            explainEn: "The programme still needs 100 kits and must look for another supplier.", explainZh: "美术课程仍然需要 100 套文具，必须另找供应商。" }
+        ]
+      },
+      verifiedPurchase: {
+        purchaseCost: 900, additionalLoss: 1500, refund: 0, riskD: 30,
+        breakdown: [
+          { en: "Independent safety testing", zh: "独立安全检测", amount: 150 },
+          { en: "Product recall and disposal", zh: "产品召回与处理", amount: 150 },
+          { en: "Replacement stationery", zh: "重新采购文具", amount: 1200 }
+        ],
+        eventEn: "BrightBox Safety Alert! You requested a safety report for the exact BB-300 model and were told the certificate belonged to a different product — yet the order was placed. Three weeks later, marker caps and plastic cases break, laboratory testing finds substances above the applicable limits for children's stationery, and the school recalls all 100 kits. Asking for evidence is not enough: what the evidence actually proves has to change the decision.",
+        eventZh: "BrightBox 文具安全警报！你要求提供 BB-300 型号本身的安全报告，并被告知证书属于另一款产品——但订单还是下了。三周后，马克笔笔盖与塑料盒破损，实验室检测发现物质含量超过儿童文具的适用限值，学校召回全部 100 套。要求证据还不够：证据究竟证明了什么，必须真正影响决定。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "neg",
+            explainEn: "Unsafe stationery entered the classroom despite a clear warning.", explainZh: "在已有明确警示的情况下，不安全文具仍进入了课堂。" },
+          { en: "Teachers", zh: "教师", area: "needs", dir: "neg",
+            explainEn: "Lessons are disrupted and materials must be replaced.", explainZh: "课程被打乱，材料必须重新准备。" },
+          { en: "School", zh: "学校", area: "needs", dir: "neg",
+            explainEn: "Testing, recall and replacement create additional costs.", explainZh: "检测、召回与重新采购带来额外支出。" },
+          { en: "Environment", zh: "环境", area: "env", dir: "neg",
+            explainEn: "Excessive packaging and discarded stationery create avoidable waste.", explainZh: "过度包装与被丢弃的文具造成本可避免的废弃物。" }
+        ]
+      },
+      verifiedReject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "You Checked the Evidence! You requested a safety report for the exact product model. BrightBox could not provide one. You rejected the order because the supplier's certificate did not establish that the BB-300 kit was safe. The later investigation confirms that your precaution was justified.",
+        eventZh: "你核查了证据！你要求供应商提供对应产品型号的安全报告。BrightBox 无法提供。由于现有证书无法证明 BB-300 的安全性，你决定拒绝采购。后续调查证明，这项预防措施十分重要。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "No unverified stationery reaches the classroom.", explainZh: "没有未经核实的文具进入课堂。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "No purchase cost and no 1,500 Coins extra loss.", explainZh: "没有采购支出，也没有 1,500 金币额外损失。" },
+          { en: "Art programme", zh: "美术课程", area: "needs", dir: "neg",
+            explainEn: "The programme still needs 100 kits and must look for another supplier.", explainZh: "美术课程仍然需要 100 套文具，必须另找供应商。" }
+        ]
+      }
+    },
+    feedback: {
+      areas: ["safety", "honest", "waste", "needs", "env"],
+      purchase: {
+        en: "You bought a kit whose safety certificate covered a different model. The certificate was real, but real evidence for another product is not evidence for this one — and the cost of that gap is shown above.",
+        zh: "你买了一套文具，而它的安全证书对应的是另一个型号。证书是真的，但另一个产品的真实证据，并不能当作这个产品的证据——这个缺口的代价列在上方。"
+      },
+      verifiedPurchase: {
+        en: "You asked for the BB-300 safety report, learned that the certificate belonged to BB-100, and still purchased. Asking for evidence is useful only when what the evidence proves changes the decision.",
+        zh: "你要求了 BB-300 的安全报告，得知证书属于 BB-100，却仍然采购。要求证据只有在其证明的内容真正改变决定时才有用。"
+      },
+      reject: {
+        en: "You rejected a supplier whose certificate did not cover the product being bought. The school avoided the recall, but still needs stationery — rejecting everything is not free.",
+        zh: "你拒绝了一家证书并不覆盖本次采购产品的供应商。学校避免了召回，但仍然需要文具——全部拒绝并不是没有成本的。"
+      },
+      verifiedReject: {
+        en: "You asked for the report that matched the exact model, found it could not be provided, and then rejected. That is evidence-first purchasing: check what the document covers before trusting it.",
+        zh: "你索要与型号完全对应的报告，确认无法提供后才拒绝。这就是证据优先的采购：先看文件覆盖了什么，再决定是否相信。"
+      },
+      finalEn: "A real certificate does not always prove that the product you are buying is safe. Check whether the evidence matches the exact product, and think about durability, packaging and replacement costs before deciding.",
+      finalZh: "真实的检测证书不一定能证明你购买的产品安全。消费者应检查证据是否对应正确的产品，并考虑耐用性、包装浪费和更换成本后再做决定。"
+    },
+    scoring: {
+      keyAreas: ["safety", "honest", "waste", "needs", "env"],
+      starsOverride: { purchase: null, reject: null }
+    }
+  },
+  {
+    id: "renew",
+    sceneNumber: 4,
+    status: "complete",
+    product: {
+      nameEn: "ReNew Furniture",
+      nameZh: "焕新家具",
+      image: "https://images.openai.com/static-rsc-4/8qDRwN1kB524chdk7xv9QFyLw4lV83Vx5BUhgFVZXfiIhKtzcrozxc3WRspOPMYUCy8TAA90cOkwsTHbloYGexGDc9LC8dBkDIti78oTvMlxmQNwo8y7f0TzXm_WjrCUzQzyaq0jmvdZ-tTziwjD64xSc6fVxBscc6glJGnW5PA?purpose=inline",
+      descriptionEn: "Refurbished classroom desk-and-chair set",
+      descriptionZh: "翻新教室课桌椅套装"
+    },
+    supplier: {
+      name: "ReNew Community Furniture",
+      advertisement: {
+        sloganEn: "OLD FURNITURE. NEW POSSIBILITIES!",
+        sloganZh: "旧家具，新可能！",
+        claims: [
+          "Why throw away furniture that can be given a second life? · 为什么要丢掉还能获得第二次生命的家具？",
+          "At ReNew Furniture, we collect used classroom furniture, repair it, and make it ready for students again. · 我们把回收的旧课桌椅修复，让它们重新回到学生身边。",
+          "Refurbished & Reliable! Every desk and chair is inspected and repaired. · 翻新且可靠！每套课桌椅都经过检查和修复。",
+          "Less Waste! Give useful furniture a second life. · 更少浪费！让有用的家具获得第二次生命。",
+          "Safe for Schools! Every set goes through safety checks. · 学校安全！每套家具都通过安全检查。",
+          "Support Local Workers! Our community workshop creates local jobs. · 支持本地工人！我们的社区工作坊创造了本地就业。",
+          "Great Long-Term Value! Durable classroom furniture with repair support. · 长期价值！耐用的课桌椅，并提供维修支持。",
+          "Special School Price: 45 Coins per set! · 学校特惠价：每套 45 金币！",
+          "Order 20 desk-and-chair sets for only 900 Coins. · 订购 20 套课桌椅仅需 900 金币。",
+          "Reuse more. Waste less. Support your community! · 多重复使用，少制造浪费，支持本地社区！"
+        ]
+      },
+      unitPrice: 45,
+      minimumOrder: 20,
+      quotation: 900
+    },
+    investigation: {
+      maxRequests: 3,
+      options: [
+        {
+          area: "safety",
+          questionEn: "Are refurbished desks and chairs safe for students?",
+          questionZh: "翻新课桌椅对学生是否安全？",
+          response: {
+            state: "verified",
+            answerEn: "Every refurbished desk and chair is inspected before delivery. We check stability, strength, sharp edges, and damaged parts. Furniture that cannot be repaired safely is not sold.",
+            answerZh: "每套翻新课桌椅在交付前都会接受检查，包括稳定性、承重能力、尖锐边缘和损坏部件。无法安全修复的家具不会出售。",
+            evidence: {
+              titleEn: "Furniture Safety Inspection Report",
+              titleZh: "家具安全检查报告 · 文件 RN-SAF-01",
+              source: "Independent Furniture Inspection Report RN-2026-114",
+              rows: [
+                { en: "Desk stability / 课桌稳定性", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Chair strength / 椅子承重", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Sharp edges / 尖锐边缘", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Loose screws / 螺丝松动", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Surface finish safety / 表面涂层安全", valueEn: "PASS", valueZh: "通过", state: "ok" }
+              ],
+              gapEn: "The report identifies the refurbished batch, inspection date and testing organisation. Being secondhand does not automatically make a product unsafe — but it does make inspection essential.",
+              gapZh: "报告标明了翻新批次、检查日期与检测机构。二手本身不等于不安全——但正因为是二手，检查才必不可少。"
+            }
+          }
+        },
+        {
+          area: "waste",
+          questionEn: "How much furniture is reused instead of thrown away?",
+          questionZh: "有多少家具得到重复使用，而不是被丢弃？",
+          response: {
+            state: "verified",
+            answerEn: "We collect used school furniture and repair items that are still suitable for use. We replace damaged parts instead of throwing away the entire desk or chair.",
+            answerZh: "我们回收学校使用过的家具，并修复仍然适合继续使用的物品。对于损坏的部件，我们优先更换零件，而不是丢弃整套家具。",
+            evidence: {
+              titleEn: "Furniture Reuse & Repair Records",
+              titleZh: "家具再利用与维修记录 · 文件 RN-CIR-02",
+              source: "Furniture Collection and Refurbishment Records",
+              rows: [
+                { en: "Sets collected / 回收套数", valueEn: "100 sets", valueZh: "100 套", state: "ok" },
+                { en: "Successfully refurbished / 成功翻新", valueEn: "80 sets", valueZh: "80 套", state: "ok" },
+                { en: "Unsuitable for reuse / 无法再利用", valueEn: "20 sets", valueZh: "20 套" },
+                { en: "Sold to schools / 已售给学校", valueEn: "65 sets", valueZh: "65 套" },
+                { en: "Remaining in stock / 库存剩余", valueEn: "15 sets", valueZh: "15 套" }
+              ],
+              gapEn: "ReNew does not claim that every collected item can be reused: 20 of 100 sets were unsuitable. The records show real limits, not a perfect recycling story.",
+              gapZh: "ReNew 并没有宣称每件回收家具都能再利用：100 套里有 20 套无法使用。这些记录显示真实的上限，而不是完美的回收故事。"
+            }
+          }
+        },
+        {
+          area: "community",
+          questionEn: "How does ReNew support local workers and businesses?",
+          questionZh: "ReNew 如何支持本地工人和企业？",
+          response: {
+            state: "verified",
+            answerEn: "Our workshop employs local carpenters and repair workers. We also provide paid training opportunities for young people who want to learn furniture repair skills.",
+            answerZh: "我们的工作坊雇用本地木工和维修人员，同时为希望学习家具维修技能的年轻人提供带薪培训机会。",
+            evidence: {
+              titleEn: "Community Employment Report",
+              titleZh: "社区就业报告 · 文件 RN-LOC-03",
+              source: "Community Employment and Training Report",
+              rows: [
+                { en: "Local employees / 本地员工", valueEn: "12 people", valueZh: "12 人", state: "ok" },
+                { en: "Paid trainees / 带薪学徒", valueEn: "4 people", valueZh: "4 人", state: "ok" },
+                { en: "Local repair partners / 本地维修伙伴", valueEn: "3 partners", valueZh: "3 家", state: "ok" },
+                { en: "Workplace safety training / 安全培训", valueEn: "Provided", valueZh: "已提供", state: "ok" },
+                { en: "Employment records / 就业记录", valueEn: "Open for inspection", valueZh: "可查阅", state: "ok" }
+              ],
+              gapEn: "Buying from ReNew keeps repair work and skills training in the local community, rather than sending the order to a distant mass producer.",
+              gapZh: "向 ReNew 采购，等于把维修工作和技能培训留在本地社区，而不是把订单交给远方的批量生产厂。"
+            }
+          }
+        },
+        {
+          area: "env",
+          questionEn: "How does refurbishment reduce environmental impact?",
+          questionZh: "翻新家具如何减少环境影响？",
+          response: {
+            state: "verified",
+            answerEn: "Refurbishing furniture can reduce the need for new materials. We reuse existing wooden and metal parts whenever they are still safe and functional.",
+            answerZh: "翻新家具能够减少对新材料的需求。只要原有木质和金属部件仍然安全、可用，我们就会优先重复使用。",
+            evidence: {
+              titleEn: "Environmental Impact Comparison",
+              titleZh: "环境影响对比报告 · 文件 RN-ENV-04",
+              source: "Material Reuse Assessment",
+              rows: [
+                { en: "Existing frames reused / 沿用原框架", valueEn: "20 of 20 sets", valueZh: "20/20 套", state: "ok" },
+                { en: "New parts / 新替换零件", valueEn: "Only where necessary", valueZh: "仅在必要时" },
+                { en: "Packaging / 包装", valueEn: "Reusable transport covers", valueZh: "可重复使用运输套" },
+                { en: "Repair waste / 维修废料", valueEn: "Sorted for recycling", valueZh: "分类回收" },
+                { en: "Material sourcing / 材料来源", valueEn: "Recorded", valueZh: "已记录" }
+              ],
+              gapEn: "Refurbishment still uses electricity, transport, replacement parts and finishing materials. ReNew does not claim zero environmental impact.",
+              gapZh: "翻新仍然消耗电力、运输、替换零件和涂装材料。ReNew 没有声称零环境影响。"
+            }
+          }
+        },
+        {
+          area: "needs",
+          questionEn: "Are refurbished furniture sets good value for our school?",
+          questionZh: "翻新家具是否物有所值？",
+          response: {
+            state: "verified",
+            answerEn: "Our refurbished furniture costs less than comparable new furniture and includes a two-year repair warranty. The furniture has been inspected for continued classroom use.",
+            answerZh: "我们的翻新家具价格低于同类全新家具，并提供两年维修保修服务。所有家具均经过检查，适合继续在教室中使用。",
+            evidence: {
+              titleEn: "School Quotation & Value Comparison",
+              titleZh: "学校采购报价与价值分析 · 文件 RN-VAL-05",
+              source: "Official School Quotation and Warranty Terms",
+              rows: [
+                { en: "ReNew unit price / ReNew 单价", valueEn: "45 Coins", valueZh: "45 金币", state: "ok" },
+                { en: "Total for 20 sets / 20 套合计", valueEn: "900 Coins", valueZh: "900 金币", state: "ok" },
+                { en: "Comparable new furniture / 同类全新家具", valueEn: "70 Coins · 1,400 Coins", valueZh: "70 金币 · 1,400 金币" },
+                { en: "Initial savings / 初始节省", valueEn: "500 Coins", valueZh: "500 金币", state: "ok" },
+                { en: "Warranty / 保修", valueEn: "2 years", valueZh: "2 年", state: "ok" },
+                { en: "Repair service / 维修服务", valueEn: "Available", valueZh: "可提供", state: "ok" }
+              ],
+              gapEn: "The 70-Coin new-furniture price is an illustrative comparison, not another purchasable supplier. The 500-Coin difference is avoided expenditure, not cash income.",
+              gapZh: "70 金币的全新家具价格只是示意性对比，不是本场景中可采购的另一家供应商。500 金币差额是省下的支出，不是额外收入。"
+            }
+          }
+        }
+      ]
+    },
+    verification: {
+      available: true, maxAttempts: 1, cost: 0,
+      responseEn: "The school requested an independent review of the refurbished furniture batch and the workshop's operating records. The review confirms that the batch passed its safety inspection, and that the workshop's repair, employment and material-reuse records are consistent with the documents supplied.",
+      responseZh: "学校要求对翻新家具批次及工作坊运营记录进行独立复核。复核确认该批家具已通过安全检查，工作坊的维修、就业与材料再利用记录与提交的文件一致。"
+    },
+    hiddenProfile: {
+      supplierType: "responsible",
+      internalNotes: "Small local refurbisher; items are inspected, repaired and re-inspected; transparent about cosmetic differences and longer lead times; credible records for safety, employment and material reuse."
+    },
+    outcomes: {
+      purchase: {
+        purchaseCost: 900, additionalLoss: 0, refund: 0, riskD: -15, breakdown: [],
+        eventEn: "ReNew Furniture — A Second Life, A Better Choice! One school year later, the school has been using the 20 refurbished desk-and-chair sets in its new learning space. All sets remain safe and functional. Two chairs develop loose fittings during normal use, and ReNew repairs them under the warranty at no additional cost. The school has avoided purchasing 20 newly manufactured furniture sets and has supported a local workshop employing carpenters, repair workers and trainees. Students learn that repairing and reusing furniture can reduce waste while supporting the community.",
+        eventZh: "ReNew Furniture——让旧家具焕发新生！一个学年后，学校在新的学习空间中持续使用采购的 20 套翻新课桌椅。所有家具仍然安全、可用。其中两把椅子在正常使用中出现连接件松动，ReNew 根据保修条款免费完成维修。学校避免了购买 20 套全新制造的家具，同时支持了一家雇用本地木工、维修人员和学徒的社区工作坊。学生了解到，维修和重复使用家具不仅能够减少浪费，也能支持本地社区。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "Receive safe, functional classroom furniture.", explainZh: "获得安全、可用的教室家具。" },
+          { en: "School", zh: "学校", area: "needs", dir: "pos",
+            explainEn: "Reliable furniture at a lower initial cost than the comparison quotation.", explainZh: "以低于对比报价的价格，获得可靠的家具。" },
+          { en: "Local workers", zh: "本地工人", area: "community", dir: "pos",
+            explainEn: "Purchasing supports repair jobs and practical skills training.", explainZh: "采购支持了维修岗位与实践技能培训。" },
+          { en: "Local community", zh: "本地社区", area: "community", dir: "pos",
+            explainEn: "More spending supports a local workshop and its partners.", explainZh: "更多消费流向本地工作坊及其合作伙伴。" },
+          { en: "Environment", zh: "环境", area: "waste", dir: "pos",
+            explainEn: "Reusing furniture reduces demand for new materials and avoids landfill disposal.", explainZh: "重复使用家具减少了对新材质的需要，也避免了填埋处置。" },
+          { en: "ReNew Furniture", zh: "焕新家具", area: "waste", dir: "pos",
+            explainEn: "Receives business that supports continued refurbishment and repair services.", explainZh: "获得业务支持，使翻新与维修服务能够持续。" }
+        ]
+      },
+      reject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "A Responsible Opportunity Missed. You decided not to purchase ReNew Furniture. The school keeps its 900 Coins but still needs 20 desk-and-chair sets. One year later, ReNew's refurbished furniture continues to perform well at other schools. The school learns that the furniture was safe, affordable and supported local employment. The purchasing opportunity has been missed.",
+        eventZh: "错失了一次负责任的采购机会。你决定不采购 ReNew Furniture。学校保留了 900 金币，但仍需要采购 20 套课桌椅。一年后，ReNew 的翻新家具在其他学校表现良好。学校了解到，这些家具安全、价格合理，而且支持了本地就业。这次采购机会已经被错过。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "needs", dir: "neg",
+            explainEn: "The new learning space still has no furniture.", explainZh: "新的学习空间仍然没有家具。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "The 900 Coins were not spent before a suitable supplier was confirmed.", explainZh: "在确认合适供应商前，没有花掉 900 金币。" },
+          { en: "Local community", zh: "本地社区", area: "community", dir: "neg",
+            explainEn: "A local workshop lost an order that would have supported local repair work.", explainZh: "本地工作坊失去了一笔本可支持本地维修业务的订单。" }
+        ]
+      },
+      verifiedPurchase: {
+        purchaseCost: 900, additionalLoss: 0, refund: 0, riskD: -15, breakdown: [],
+        eventEn: "A Responsible Purchase, Carefully Verified! You requested additional evidence before purchasing. The independent review confirmed that ReNew's furniture is safe and its refurbishment records are reliable, and the order went ahead. One school year later, the furniture remains functional, minor repairs are completed under warranty, and the school benefits from a reliable, lower-cost solution.",
+        eventZh: "经过核实的一次负责任采购！你在采购前要求进一步核实。独立复核确认 ReNew 的家具安全，翻新记录可信，订单得以推进。一个学年后，家具仍然正常使用，轻微问题由保修覆盖，学校以较低成本得到了可靠的家具方案。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "Receive safe, functional classroom furniture.", explainZh: "获得安全、可用的教室家具。" },
+          { en: "School", zh: "学校", area: "needs", dir: "pos",
+            explainEn: "Lower initial cost with a verified warranty and repair service.", explainZh: "更低的前期支出，并有已核实的保修与维修服务。" },
+          { en: "Local workers", zh: "本地工人", area: "community", dir: "pos",
+            explainEn: "Purchasing supports repair jobs and practical skills training.", explainZh: "采购支持了维修岗位与实践技能培训。" },
+          { en: "Environment", zh: "环境", area: "waste", dir: "pos",
+            explainEn: "Reusing existing frames avoids both new material and discarded furniture.", explainZh: "沿用原有框架，既减少新材料，也减少被丢弃的家具。" }
+        ]
+      },
+      verifiedReject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "A Responsible Opportunity Missed. You requested additional verification, the independent review supported ReNew's safety, value and community claims — and the order was still not placed. The evidence pointed towards buying; the school keeps its 900 Coins but still needs the furniture.",
+        eventZh: "错失了一次负责任的采购机会。你要求了进一步核实，独立复核支持 ReNew 在安全、价值与社区方面的说法——但订单最终没有下。证据指向采购，学校保留了 900 金币，却仍然需要这些家具。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "needs", dir: "neg",
+            explainEn: "The new learning space still has no furniture.", explainZh: "新的学习空间仍然没有家具。" },
+          { en: "Local community", zh: "本地社区", area: "community", dir: "neg",
+            explainEn: "A local workshop lost an order that would have supported local repair work.", explainZh: "本地工作坊失去了一笔本可支持本地维修业务的订单。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "No money was spent before the decision was reviewed.", explainZh: "在决定被复核之前，没有支出。" }
+        ]
+      }
+    },
+    feedback: {
+      areas: ["waste", "community", "safety", "env", "needs", "worker"],
+      purchase: {
+        en: "You bought refurbished furniture backed by inspection, reuse records and local employment data. Second-hand-looking products can be the responsible choice — when the repair and safety evidence is real.",
+        zh: "你采购了有检查报告、再利用记录与本地就业数据支撑的翻新家具。看起来不像全新的产品，也可以是最负责任的选择——前提是维修与安全证据真实存在。"
+      },
+      verifiedPurchase: {
+        en: "You asked for an independent review before committing 900 Coins, and the review supported the batch and the workshop records. That is how a higher-trust purchase should be made.",
+        zh: "你在支出 900 金币前要求独立复核，复核支持了这批家具与工作坊记录。高信任度的采购就该这样做。"
+      },
+      reject: {
+        en: "You avoided spending on a supplier you had not checked — but the evidence available would have supported this purchase, and the school still needs furniture. Caution without investigation is not the same as responsibility.",
+        zh: "你避免在未核实的情况下支出——但现有证据其实支持这次采购，而学校仍然需要家具。未经调查的谨慎，并不等于负责任。"
+      },
+      verifiedReject: {
+        en: "You investigated properly, the independent review supported the supplier's safety, value and community claims, and the order was still not placed. The process was careful; the conclusion ignored what the evidence showed.",
+        zh: "你做了认真调查，独立复核支持供应商在安全、价值与社区方面的说法，订单却仍未下。过程是谨慎的，但结论忽略了证据本身。"
+      },
+      finalEn: "Responsible consumption can mean giving useful products a second life. Refurbished products can be safe, affordable and environmentally responsible when they are properly inspected and repaired — and supporting local repair businesses can benefit the community.",
+      finalZh: "负责任的消费也可以意味着让旧物获得第二次生命。经过适当检查和维修的翻新产品，可以安全、实惠并减少资源浪费。支持本地维修企业也能为社区带来积极影响。"
+    },
+    scoring: {
+      keyAreas: ["safety", "waste", "community", "env", "needs"],
+      starsOverride: { purchase: null, reject: null }
+    }
+  },
+  {
+    id: "soundmax",
+    sceneNumber: 5,
+    status: "complete",
+    product: {
+      nameEn: "SoundMax Pro Headphones",
+      nameZh: "SoundMax Pro 无线耳机",
+      image: "https://images.openai.com/static-rsc-4/bEaY5PwIq9e3qJgVdjxzseWceXLwWDco3Re0qZ3_9glg9JkvG45mS1jCe-gN7PhCXlhb17Ruj2KdJU1-4J5aU5VhjHfRiwpIR_z1sqm2300KkQJUymM0a1n4WUGehtRlfktv1-axnFWMK-hWUFeVYIN8W8kOjgcPsDff6IvKcsU?purpose=inline",
+      descriptionEn: "Wireless headphones, model SM-P500",
+      descriptionZh: "无线耳机（SM-P500 型号）"
+    },
+    supplier: {
+      name: "SoundMax Premium Audio",
+      advertisement: {
+        sloganEn: "PREMIUM SOUND. PREMIUM QUALITY.",
+        sloganZh: "高端音质，卓越品质！",
+        claims: [
+          "Bring professional-quality audio into your classroom! · 把专业级音质带进你的课堂！",
+          "Introducing SoundMax Pro, our premium wireless headphones designed for modern learning. · 隆重推出 SoundMax Pro，为现代学习设计的高端无线耳机。",
+          "Crystal-Clear Sound! Perfect for language learning and digital lessons. · 清澈音质！非常适合语言学习与数字课程。",
+          "Advanced Battery Protection! Designed for safe, reliable charging. · 先进电池保护！为安全可靠充电而设计。",
+          "Premium Quality! Strong materials and elegant design. · 卓越品质！坚固材料与优雅设计。",
+          "Long Battery Life! Up to 30 hours of listening. · 超长续航！最长 30 小时聆听。",
+          "Professional Support! Dedicated customer service for schools. · 专业支持！为学校提供专属客服。",
+          "Special Education Price: 80 Coins per pair! · 教育特惠价：每副 80 金币！",
+          "Order 30 pairs for only 2,400 Coins. · 订购 30 副仅需 2,400 金币。",
+          "SoundMax — Because Quality Matters! · SoundMax——因为品质至关重要！"
+        ]
+      },
+      unitPrice: 80,
+      minimumOrder: 30,
+      quotation: 2400
+    },
+    investigation: {
+      maxRequests: 3,
+      options: [
+        {
+          area: "safety",
+          questionEn: "Have the headphones and batteries passed independent safety tests?",
+          questionZh: "耳机及电池是否通过独立安全检测？",
+          response: {
+            state: "incomplete",
+            answerEn: "SoundMax Pro uses batteries supplied by an experienced electronics manufacturer. Our battery supplier has provided a safety test summary. We also inspect every headphone before shipping.",
+            answerZh: "SoundMax Pro 使用经验丰富的电子产品制造商提供的电池。电池供应商已提供安全检测摘要，我们也会在发货前检查每副耳机。",
+            evidence: {
+              titleEn: "Battery Safety Documentation",
+              titleZh: "电池安全文件 · 文件 SM-SAF-01",
+              source: "Battery Component Test Summary SM-BAT-2026",
+              rows: [
+                { en: "Battery component test / 电池组件检测", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Headphone appearance / 耳机外观", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Bluetooth connection / 蓝牙连接", valueEn: "PASS", valueZh: "通过", state: "ok" },
+                { en: "Finished-product charging safety / 整机充电安全", valueEn: "NOT PROVIDED", valueZh: "未提供", state: "bad" },
+                { en: "Independent SM-P500 report / SM-P500 独立整机报告", valueEn: "NOT PROVIDED", valueZh: "未提供", state: "bad" }
+              ],
+              gapEn: "A battery component test does not establish that the complete headphones are safe. The document does not show how the battery, charging circuit and temperature-control system perform together.",
+              gapZh: "电池组件检测不能证明整机安全。文件没有说明电池、充电电路与温控系统组合在一起后的表现。"
+            }
+          }
+        },
+        {
+          area: "honest",
+          questionEn: "Can you prove your claims about premium quality and battery protection?",
+          questionZh: "能否证明高端品质与电池保护方面的宣传？",
+          response: {
+            state: "statement",
+            answerEn: "Our headphones deliver excellent audio performance and advanced battery protection. They are designed to meet the needs of professional users.",
+            answerZh: "我们的耳机提供出色的音频表现和先进的电池保护功能，专为专业用户的需求设计。",
+            evidence: {
+              titleEn: "Premium Performance Report",
+              titleZh: "高端性能报告 · 文件 SM-ADV-02",
+              source: "SoundMax Internal Performance Report",
+              rows: [
+                { en: "Clear sound / 清澈音质", valueEn: "Internal audio test", valueZh: "内部音频测试", state: "ok" },
+                { en: "30-hour battery life / 30 小时续航", valueEn: "Internal test, specified conditions", valueZh: "内部测试，特定条件" },
+                { en: "Premium materials / 高端材料", valueEn: "Supplier product description", valueZh: "供应商自述" },
+                { en: "Advanced battery protection / 先进电池保护", valueEn: "No independent finished-product verification", valueZh: "无独立整机验证", state: "bad" },
+                { en: "Professional quality / 专业品质", valueEn: "Marketing statement, no defined standard", valueZh: "营销表述，无明确标准", state: "bad" }
+              ],
+              gapEn: "Some features have supporting information, but the most safety-relevant claim — advanced battery protection — has no independent verification. A professional-looking report does not make every claim true.",
+              gapZh: "部分功能有材料支撑，但与安全最相关的宣传——先进电池保护——没有任何独立验证。看起来很专业的报告，不能让每句宣传都变成事实。"
+            }
+          }
+        },
+        {
+          area: "waste",
+          questionEn: "Can broken headphones or batteries be repaired or replaced?",
+          questionZh: "耳机或电池损坏后能否维修或更换？",
+          response: {
+            state: "incomplete",
+            answerEn: "SoundMax Pro has a sealed design to maintain its premium appearance. We recommend contacting our service team if a product develops a problem.",
+            answerZh: "SoundMax Pro 采用封闭式设计，以保持高端外观。如果产品出现问题，我们建议联系售后服务团队。",
+            evidence: {
+              titleEn: "Repairability & Product Service Information",
+              titleZh: "产品维修与服务说明 · 文件 SM-CIR-03",
+              source: "Product Service Policy",
+              rows: [
+                { en: "Ear cushions / 耳罩", valueEn: "Replaceable", valueZh: "可更换", state: "ok" },
+                { en: "Headband / 头梁", valueEn: "Limited repair", valueZh: "有限维修" },
+                { en: "Battery / 电池", valueEn: "Not user-replaceable", valueZh: "用户不可更换", state: "bad" },
+                { en: "Battery replacement service / 电池更换服务", valueEn: "Not offered", valueZh: "不提供", state: "bad" },
+                { en: "Internal charging circuit / 内部充电电路", valueEn: "Not repaired separately", valueZh: "不单独维修", state: "bad" },
+                { en: "Recycling collection / 回收收集", valueEn: "Not provided", valueZh: "不提供", state: "bad" }
+              ],
+              gapEn: "A small battery or charging failure may mean replacing the whole headphone. That raises long-term cost and electronic waste.",
+              gapZh: "电池或充电环节的小故障，可能就要换掉整副耳机。这会同时推高长期成本与电子废弃物。"
+            }
+          }
+        },
+        {
+          area: "needs",
+          questionEn: "Is SoundMax worth 80 Coins per pair?",
+          questionZh: "每副 80 金币是否物有所值？",
+          response: {
+            state: "verified",
+            answerEn: "SoundMax Pro offers premium performance for 80 Coins per pair. Our education package includes a six-month limited warranty and access to customer support.",
+            answerZh: "SoundMax Pro 每副售价 80 金币，提供高端性能。教育采购方案包含六个月有限保修及客户服务。",
+            evidence: {
+              titleEn: "Official School Quotation & Warranty",
+              titleZh: "学校采购报价与保修条款 · 文件 SM-VAL-04",
+              source: "Official School Quotation and Warranty Terms",
+              rows: [
+                { en: "Unit price / 单价", valueEn: "80 Coins", valueZh: "80 金币" },
+                { en: "Order quantity / 订购数量", valueEn: "30 pairs", valueZh: "30 副" },
+                { en: "Total quotation / 总报价", valueEn: "2,400 Coins", valueZh: "2,400 金币" },
+                { en: "Warranty / 保修", valueEn: "6 months", valueZh: "6 个月", state: "bad" },
+                { en: "Battery deterioration / 电池衰减", valueEn: "Excluded", valueZh: "不在保修范围", state: "bad" },
+                { en: "Out-of-warranty battery service / 过保电池服务", valueEn: "Not available", valueZh: "不提供", state: "bad" },
+                { en: "Customer support / 客户支持", valueEn: "Email only, no response guarantee", valueZh: "仅邮件，无响应时限", state: "bad" }
+              ],
+              gapEn: "This is a genuine quotation, but a premium price does not buy a long warranty or reliable after-sales service. Failures after six months become the school's cost.",
+              gapZh: "这是一份真实报价，但高价并没有换来长保修或可靠的售后。六个月后一旦出故障，成本就落到学校身上。"
+            }
+          }
+        },
+        {
+          area: "fair",
+          questionEn: "Can you show where the batteries and electronic components come from?",
+          questionZh: "能否说明电池及电子元件的采购来源？",
+          response: {
+            state: "unavailable",
+            answerEn: "We purchase electronic components through several international suppliers. We cannot currently provide complete sourcing records for all batteries and electronic components.",
+            answerZh: "我们通过多家国际供应商采购电子元件。目前无法提供所有电池及电子元件的完整采购来源记录。",
+            evidence: {
+              titleEn: "Electronic Component Sourcing",
+              titleZh: "电子元件采购来源 · 文件 SM-ETH-05",
+              gapEn: "Only a general supplier list is provided, with no product-specific traceability. Missing: the exact battery manufacturer for the SM-P500 batch, full component traceability, independent supplier compliance audit, and records of corrective action. Without them, a defect investigation or recall is much harder — this is a warning sign, not proof of mistreatment.",
+              gapZh: "只提供了一份笼统的供应商名单，没有对应产品的可追溯信息。缺少：SM-P500 批次的电池制造商、完整的元件溯源、独立的供应商合规审计、质量问题的整改记录。缺这些会让缺陷调查与召回变得困难——这是警示信号，但不等于能证明工人受到不公对待。"
+            }
+          }
+        }
+      ]
+    },
+    verification: {
+      available: true, maxAttempts: 1, cost: 0,
+      responseEn: "The school requested independent evidence that the complete SM-P500 headphones are safe during normal charging and use. SoundMax cannot provide an independent safety report covering the complete product, and confirms that its existing documents only cover selected battery components and internal product inspections.",
+      responseZh: "学校要求提供独立证据，证明 SM-P500 整机在正常充电及使用过程中符合安全要求。SoundMax 无法提供涵盖整机的独立安全报告，并确认现有文件仅涉及部分电池组件及内部产品检查。"
+    },
+    hiddenProfile: {
+      supplierType: "dangerous",
+      internalNotes: "Battery supplier switched to a cheaper source without finished-product safety testing; charging-control weakness can cause overheating; sealed design and no battery service; premium price reflects branding rather than verified safety."
+    },
+    outcomes: {
+      purchase: {
+        purchaseCost: 2400, additionalLoss: 3300, refund: 0, riskD: 40,
+        breakdown: [
+          { en: "Independent battery safety testing", zh: "独立电池安全检测", amount: 300 },
+          { en: "Product recall and safe disposal", zh: "产品召回与安全处理", amount: 300 },
+          { en: "Replacement headphones", zh: "重新采购耳机", amount: 2700 }
+        ],
+        eventEn: "SoundMax Battery Safety Recall! Four months after delivery, several of the 30 headphones in the language-learning and media centre begin having charging problems. One becomes unusually hot while charging, and the school immediately stops charging and using the affected units. An independent investigation finds that some SM-P500 headphones have a defective charging-control system that can cause battery overheating. The school recalls all 30 as a precaution. Further investigation reveals that SoundMax had not completed appropriate independent safety testing of the finished product, and cannot provide a reliable battery-replacement service. SoundMax disputes the refund request and offers only limited assistance, so the school must buy replacements from another supplier.",
+        eventZh: "SoundMax 电池安全召回事件！交货四个月后，语言学习与媒体中心使用的 30 副耳机中，部分开始出现充电问题。其中一副在充电时异常发热，学校立即停止充电及使用相关设备。独立调查发现，部分 SM-P500 的充电控制系统存在缺陷，可能导致电池过热。学校出于预防目的召回全部 30 副。后续调查发现，SoundMax 并未完成适当的整机独立安全检测，也无法提供可靠的电池更换服务。供应商对退款要求提出异议，仅提供有限协助，学校只能向其他供应商重新采购。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "neg",
+            explainEn: "Headphones are withdrawn because of battery safety concerns.", explainZh: "因电池安全隐患，耳机被停止使用。" },
+          { en: "Teachers", zh: "教师", area: "needs", dir: "neg",
+            explainEn: "Language-learning and media activities are disrupted.", explainZh: "语言学习与媒体活动被迫中断。" },
+          { en: "School", zh: "学校", area: "needs", dir: "neg",
+            explainEn: "Testing, recall and replacement create major financial losses.", explainZh: "检测、召回与重新采购带来重大财务损失。" },
+          { en: "Environment", zh: "环境", area: "waste", dir: "neg",
+            explainEn: "Non-repairable headphones and discarded batteries add electronic waste.", explainZh: "不可维修的耳机与被丢弃的电池增加了电子废弃物。" },
+          { en: "Responsible electronics suppliers", zh: "负责任的电子产品供应商", area: "honest", dir: "neg",
+            explainEn: "Unsupported premium claims create unfair competition.", explainZh: "缺乏支撑的高端宣传制造不公平竞争。" },
+          { en: "SoundMax", zh: "SoundMax", area: "honest", dir: "neg",
+            explainEn: "The recall damages its reputation and customer trust.", explainZh: "召回损害了它的声誉与客户信任。" }
+        ]
+      },
+      reject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "A Costly Purchase Avoided! You decided not to purchase SoundMax. The school avoids ordering expensive headphones without verified finished-product battery safety information. Four months later, a safety investigation reveals problems with the SM-P500 charging system. Your school avoids the recall, testing and replacement costs — but the language-learning centre still needs suitable headphones.",
+        eventZh: "避免了一次代价高昂的采购！你决定不采购 SoundMax。学校避免购买缺乏整机电池安全证明的昂贵耳机。四个月后，安全调查发现 SM-P500 充电系统存在问题。学校成功避免了召回、检测和更换费用——但语言学习中心仍需要合适的耳机。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "No headphones with unverified battery safety enter the centre.", explainZh: "没有未经电池安全验证的耳机进入中心。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "No 5,700 Coins spent on a product that had to be recalled.", explainZh: "没有把 5,700 金币花在最终被召回的产品上。" },
+          { en: "Language centre", zh: "语言学习中心", area: "needs", dir: "neg",
+            explainEn: "Still needs 30 pairs and must find another supplier.", explainZh: "仍然需要 30 副耳机，必须另找供应商。" }
+        ]
+      },
+      verifiedPurchase: {
+        purchaseCost: 2400, additionalLoss: 3300, refund: 0, riskD: 40,
+        breakdown: [
+          { en: "Independent battery safety testing", zh: "独立电池安全检测", amount: 300 },
+          { en: "Product recall and safe disposal", zh: "产品召回与安全处理", amount: 300 },
+          { en: "Replacement headphones", zh: "重新采购耳机", amount: 2700 }
+        ],
+        eventEn: "SoundMax Battery Safety Recall! You asked for independent evidence on the complete SM-P500, were told the documents covered only selected battery components — and the order was placed anyway. Four months later charging faults appear, one unit overheats, and the school recalls all 30. A high price, premium branding and professional-looking documents cannot replace relevant safety evidence.",
+        eventZh: "SoundMax 电池安全召回事件！你要求了 SM-P500 整机的独立证据，被告知现有文件只覆盖部分电池组件——但订单还是下了。四个月后出现充电故障，其中一副异常发热，学校召回全部 30 副。高价、品牌与看起来很专业的文件，都不能替代相关的安全证据。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "neg",
+            explainEn: "Headphones are withdrawn because of battery safety concerns.", explainZh: "因电池安全隐患，耳机被停止使用。" },
+          { en: "Teachers", zh: "教师", area: "needs", dir: "neg",
+            explainEn: "Language-learning and media activities are disrupted.", explainZh: "语言学习与媒体活动被迫中断。" },
+          { en: "School", zh: "学校", area: "needs", dir: "neg",
+            explainEn: "Testing, recall and replacement create major financial losses.", explainZh: "检测、召回与重新采购带来重大财务损失。" },
+          { en: "Environment", zh: "环境", area: "waste", dir: "neg",
+            explainEn: "Non-repairable headphones and discarded batteries add electronic waste.", explainZh: "不可维修的耳机与被丢弃的电池增加了电子废弃物。" }
+        ]
+      },
+      verifiedReject: {
+        purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+        eventEn: "Premium Claims Need Real Evidence! You requested independent safety verification before purchasing. SoundMax could not provide a valid report for the complete SM-P500. You rejected the offer because the available evidence did not establish that the product was safe. The later recall confirms that the decision was a sensible precaution.",
+        eventZh: "高端宣传需要真实证据！你在采购前要求独立安全验证。SoundMax 无法提供 SM-P500 整机的有效报告。由于现有证据无法证明产品安全，你决定拒绝采购。后续召回事件说明，这个决定是合理的预防措施。",
+        stakeholders: [
+          { en: "Students", zh: "学生", area: "safety", dir: "pos",
+            explainEn: "No headphones with unverified battery safety enter the centre.", explainZh: "没有未经电池安全验证的耳机进入中心。" },
+          { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+            explainEn: "No purchase cost and no 3,300 Coins extra loss.", explainZh: "没有采购支出，也没有 3,300 金币额外损失。" },
+          { en: "Language centre", zh: "语言学习中心", area: "needs", dir: "neg",
+            explainEn: "Still needs 30 pairs and must find another supplier.", explainZh: "仍然需要 30 副耳机，必须另找供应商。" }
+        ]
+      }
+    },
+    feedback: {
+      areas: ["safety", "honest", "waste", "needs", "fair", "env"],
+      purchase: {
+        en: "You paid a premium for branding and a partial technical summary, not for verified battery safety. The most expensive item in the chapter also produced the largest loss.",
+        zh: "你为品牌和一份部分技术摘要付了高价，而不是为已验证的电池安全付费。本章最贵的采购，也带来了最大的损失。"
+      },
+      verifiedPurchase: {
+        en: "You asked whether the whole SM-P500 was tested, learned that only selected components were, and purchased anyway. A high price and professional documents cannot replace relevant safety evidence.",
+        zh: "你问了整机是否经过检测，得知只有部分组件被覆盖，却仍然采购。高价与专业文件，都不能替代相关的安全证据。"
+      },
+      reject: {
+        en: "You avoided an expensive product without finished-product safety evidence. The centre still needs headphones — rejecting is a safe choice, but it leaves the purchasing task open.",
+        zh: "你避开了一个没有整机安全证据的昂贵产品。中心仍然需要耳机——拒绝是安全的选择，但采购任务仍悬而未决。"
+      },
+      verifiedReject: {
+        en: "You demanded evidence for the complete product, found it could not be provided, and rejected. That is the correct response to premium claims without substance.",
+        zh: "你要求整机层面的证据，确认无法提供后拒绝。这是面对“没有实质的高端宣称”时应有的反应。"
+      },
+      finalEn: "A high price does not guarantee a safe or responsible product. Check whether safety claims are supported by relevant independent evidence, and consider repairability, warranty terms and long-term costs.",
+      finalZh: "高价格不代表产品一定安全或负责任。消费者应检查安全宣传是否有相关的独立证据支持，同时考虑维修可能性、保修条款及长期使用成本。"
+    },
+    scoring: {
+      keyAreas: ["safety", "honest", "waste", "needs", "fair"],
+      starsOverride: { purchase: null, reject: null }
+    }
+  }
+];
+
+/* —— 独立测试案例（DEMO ONLY，不写入正式五场景） —— */
+const C4_DEMO_CASE = {
+  id: "demo",
+  sceneNumber: 0,
+  status: "demo",
+  product: {
+    nameEn: "Demo Bottle — TEST DATA", nameZh: "测试水瓶——测试数据", image: null,
+    descriptionEn: "TEST DATA: a 500 ml reusable bottle used only to test the Chapter 4 mechanics. It is not a real case.",
+    descriptionZh: "测试数据：仅用于测试第四章机制的 500 毫升可重复使用水瓶，不是正式案例。"
+  },
+  supplier: {
+    name: "Demo Supplier Ltd. — TEST DATA · 测试供应商有限公司——测试数据",
+    advertisement: {
+      sloganEn: "\"100% GREEN. CHEAPEST PRICE GUARANTEED!\"",
+      sloganZh: "“100% 环保。保证最低价！”",
+      claims: [
+        "TEST DATA: Made from 100% recycled plastic · 测试数据：100% 回收塑料制造",
+        "TEST DATA: Approved by an international green award · 测试数据：获得国际绿色奖项认可",
+        "TEST DATA: The lowest price in the whole market · 测试数据：全市场最低价"
+      ]
+    },
+    unitPrice: 6, minimumOrder: 100, quotation: 600
+  },
+  investigation: {
+    maxRequests: 3,
+    options: [
+      { area: "env", questionEn: C4_AREAS.env.questionEn, questionZh: C4_AREAS.env.questionZh,
+        response: { state: "statement",
+          answerEn: "TEST DATA: The supplier says the bottle is made from recycled plastic and that production is clean, but sends no certificate, no factory name and no recycling percentage.",
+          answerZh: "测试数据：供应商称水瓶由回收塑料制成、生产过程清洁，但没有提供证书、工厂名称或回收比例。",
+          evidence: { titleEn: "Marketing one-pager (no certificate)", titleZh: "宣传单页（无证书）", source: "Supplier email · 供应商邮件", date: "TEST DATA — date pending" } } },
+      { area: "safety", questionEn: C4_AREAS.safety.questionEn, questionZh: C4_AREAS.safety.questionZh,
+        response: { state: "warning",
+          answerEn: "TEST DATA: The only test summary lists a limit for a chemical that does not match the school's drinking-water standard, and the laboratory name is missing.",
+          answerZh: "测试数据：唯一一份检测摘要所写的某项化学物质限值与学校饮用水标准不一致，且缺少实验室名称。",
+          evidence: { titleEn: "Test summary (lab name missing)", titleZh: "检测摘要（缺少实验室名称）", source: "Supplier attachment · 供应商附件", date: "TEST DATA — undated" } } },
+      { area: "needs", questionEn: C4_AREAS.needs.questionEn, questionZh: C4_AREAS.needs.questionZh,
+        response: { state: "statement",
+          answerEn: "TEST DATA: The supplier says 100 bottles is the smallest order and calls it \"a great deal\", but gives no information about how long the bottles last.",
+          answerZh: "测试数据：供应商称 100 个是最小订单，并称这是“很划算的交易”，但没有说明水瓶能使用多久。",
+          evidence: { titleEn: "Quotation sheet", titleZh: "报价单", source: "Supplier quotation · 供应商报价", date: "TEST DATA" } } },
+      { area: "worker", questionEn: C4_AREAS.worker.questionEn, questionZh: C4_AREAS.worker.questionZh,
+        response: { state: "unavailable",
+          answerEn: "TEST DATA: The supplier says worker records are kept by the factory and cannot be shared with buyers.",
+          answerZh: "测试数据：供应商称工人记录由工厂保管，无法与采购方分享。",
+          evidence: { titleEn: "No document provided", titleZh: "未提供文件", source: "", date: "" } } },
+      { area: "fair", questionEn: C4_AREAS.fair.questionEn, questionZh: C4_AREAS.fair.questionZh,
+        response: { state: "refused",
+          answerEn: "TEST DATA: The supplier refuses to say where the raw material comes from, calling it \"commercial secret\".",
+          answerZh: "测试数据：供应商拒绝说明原料来源，称这是“商业机密”。",
+          evidence: { titleEn: "Refusal note", titleZh: "拒绝说明", source: "Supplier reply · 供应商回复", date: "TEST DATA" } } }
+    ]
+  },
+  verification: {
+    available: true, maxAttempts: 1, cost: 50,
+    responseEn: "TEST DATA: After the request, the supplier sends a laboratory report dated 2 years ago. Its test method is for food containers, not drinking bottles, and the report cannot be checked online.",
+    responseZh: "测试数据：提出要求后，供应商发来一份两年前的实验室报告。其检测方法针对食品容器而非饮用水瓶，且报告无法在线核验。"
+  },
+  hiddenProfile: { supplierType: "dangerous", internalNotes: "TEST DATA — demo only. Not a formal case." },
+  outcomes: {
+    purchase: {
+      purchaseCost: 600, additionalLoss: 1100, refund: 0, riskD: 25,
+      breakdown: [
+        { en: "Independent Product Testing", zh: "独立产品检测", amount: 100 },
+        { en: "Collection and Disposal",     zh: "收集与处理",     amount: 100 },
+        { en: "Replacement Products",        zh: "替换产品",       amount: 900 }
+      ],
+      eventEn: "TEST DATA: The bottles fail an independent safety test. The school must stop using them, collect them back and buy replacements.",
+      eventZh: "测试数据：水瓶未通过独立安全检测。学校必须停用、回收并重新购买替代产品。",
+      stakeholders: [
+        { en: "Students", zh: "学生", area: "safety", dir: "neg",
+          explainEn: "Students used bottles that failed a safety test.", explainZh: "学生使用了未通过安全检测的水瓶。" },
+        { en: "School budget", zh: "学校预算", area: "needs", dir: "neg",
+          explainEn: "1,100 coins of extra cost were not in the plan.", explainZh: "计划外多出 1,100 金币的额外支出。" },
+        { en: "Factory workers", zh: "工厂工人", area: "worker", dir: "neg",
+          explainEn: "Workers' conditions could not be checked before the order.", explainZh: "下单前无法核实工人的工作条件。" }
+      ]
+    },
+    reject: {
+      purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+      eventEn: "TEST DATA: The school does not order. No money is spent and no unsafe bottle reaches students, but the school still needs bottles and must look for another supplier.",
+      eventZh: "测试数据：学校没有下单。没有花钱，也没有不安全的水瓶进入校园，但学校仍需要水瓶，必须另找供应商。",
+      stakeholders: [
+        { en: "Students", zh: "学生", area: "safety", dir: "pos",
+          explainEn: "Students were protected from an unverified product.", explainZh: "学生被保护，免于使用未核实的产品。" },
+        { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+          explainEn: "No purchase cost and no 1,100 coins extra loss.", explainZh: "没有采购支出，也没有 1,100 金币额外损失。" },
+        { en: "School timetable", zh: "学校进度", area: "needs", dir: "neg",
+          explainEn: "Time is lost while another supplier is found.", explainZh: "另找供应商会损失时间。" }
+      ]
+    },
+    verifiedPurchase: {
+      purchaseCost: 600, additionalLoss: 1100, refund: 0, riskD: 25,
+      breakdown: [
+        { en: "Independent Product Testing", zh: "独立产品检测", amount: 100 },
+        { en: "Collection and Disposal",     zh: "收集与处理",     amount: 100 },
+        { en: "Replacement Products",        zh: "替换产品",       amount: 900 }
+      ],
+      eventEn: "TEST DATA: The extra check already showed the report could not be verified, but the order was placed anyway. The bottles later fail an independent test.",
+      eventZh: "测试数据：额外核实已显示报告无法核验，但订单还是下了。水瓶后来未通过独立检测。",
+      stakeholders: [
+        { en: "Students", zh: "学生", area: "safety", dir: "neg",
+          explainEn: "Students used bottles that failed a safety test.", explainZh: "学生使用了未通过安全检测的水瓶。" },
+        { en: "School budget", zh: "学校预算", area: "needs", dir: "neg",
+          explainEn: "Purchase cost, verification cost and 1,100 coins extra loss.", explainZh: "采购费、核实费加上 1,100 金币额外损失。" }
+      ]
+    },
+    verifiedReject: {
+      purchaseCost: 0, additionalLoss: 0, refund: 0, riskD: 0, breakdown: [],
+      eventEn: "TEST DATA: The extra check confirmed the evidence was weak, so the school rejects the quotation and looks for a supplier with checkable documents.",
+      eventZh: "测试数据：额外核实确认证据薄弱，学校拒绝了报价，并寻找能提供可核验文件的供应商。",
+      stakeholders: [
+        { en: "Students", zh: "学生", area: "safety", dir: "pos",
+          explainEn: "Students were protected from an unverified product.", explainZh: "学生被保护，免于使用未核实的产品。" },
+        { en: "School budget", zh: "学校预算", area: "needs", dir: "pos",
+          explainEn: "Only the small verification cost was spent.", explainZh: "只花了少量核实费用。" }
+      ]
+    }
+  },
+  scoring: { keyAreas: ["safety", "env"], starsOverride: { purchase: null, reject: null } }
+};
+
+/* —— 第四章状态与进度 —— */
+/* 第三章是否全部完成（解锁第四章） */
+function ch3AllDone(){
+  if(!state.ch3 || !state.ch3.sceneStates) return false;
+  return CH3_SCENES.every(sc => {
+    const s = state.ch3.sceneStates[sc.id];
+    return !!(s && s.phase === 'done');
+  });
+}
+/* 第四章预算：与第三章余额累加，全章只发一次，重复进入/重玩都不会再发 */
+function c4GrantBudget(){
+  if(!state.ch4) return;
+  if(state.ch4.budgetGranted) return;
+  const carried = (typeof state.ch4.coins === "number") ? state.ch4.coins : (state.ch3 ? state.ch3.coins : 0);
+  state.ch4.carriedCoins = carried;
+  state.ch4.budget = C4_BUDGET;
+  state.ch4.coins = carried + C4_BUDGET;
+  state.ch4.budgetGranted = true;
+  saveState();
+}
+
+function enterChapter4(){
+  if(!ch3AllDone()) return;
+  if(!state.ch4){
+    state.ch4 = { started:false, coins:(state.ch3 ? state.ch3.coins : 0), starsTotal:0, risk:0, debt:0, sceneStates:{}, briefingSeen:false, budgetGranted:false };
+  }
+  if(typeof state.ch4.coins !== "number") state.ch4.coins = state.ch3 ? state.ch3.coins : 0;
+  if(typeof state.ch4.starsTotal !== "number") state.ch4.starsTotal = 0;
+  if(typeof state.ch4.risk !== "number") state.ch4.risk = 0;
+  if(typeof state.ch4.debt !== "number") state.ch4.debt = 0;
+  if(typeof state.ch4.briefingSeen !== "boolean") state.ch4.briefingSeen = false;
+  c4GrantBudget();
+  saveState();
+  location.hash = state.ch4.briefingSeen ? "#/ch4" : "#/ch4/intro";
+}
+
+/* 第四章开始页：角色说明 + 预算发放 + 结算规则 */
+function renderC4Brief(){
+  if(!ch3AllDone()){ location.hash = "#/"; return; }
+  if(!state.ch4){
+    state.ch4 = { started:false, coins:(state.ch3 ? state.ch3.coins : 0), starsTotal:0, risk:0, debt:0, sceneStates:{}, briefingSeen:false, budgetGranted:false };
+  }
+  c4GrantBudget();
+  const carried = (typeof state.ch4.carriedCoins === "number") ? state.ch4.carriedCoins : (state.ch3 ? state.ch3.coins : 0);
+  const budget = (typeof state.ch4.budget === "number") ? state.ch4.budget : C4_BUDGET;
+  const available = state.ch4.coins;
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-home>Market · 市场</button><span class="sep">/</span>' +
+      '<span>Chapter 4 · 第四章</span>' +
+    '</div>' +
+    '<section class="hero">' +
+      '<img src="' + IMG.supplier + '" alt="A school purchasing office / 学校采购办公室">' +
+      '<div class="hero-copy">' +
+        '<span class="hero-kicker">Chapter 4 · Briefing · 采购任务简报</span>' +
+        '<h2>' + esc(CHAPTER4.en) + '</h2>' +
+        '<div class="zh-title">' + esc(CHAPTER4.zh) + '</div>' +
+        '<p>' + esc(CHAPTER4.subEn) + ' · ' + esc(CHAPTER4.subZh) + '</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<div class="c4-brief-grid">' +
+      '<div class="c4-brief-card">' +
+        '<h4><span class="n">1</span>Your Role · 你的角色</h4>' +
+        '<p>You are the school\'s Purchasing Representative. Five suppliers want your order, and the school trusts you to spend its money carefully.' +
+          '<span class="zh">你是学校的采购代表。五家供应商都想拿到你的订单，学校把这笔钱交给你，期待你谨慎地把它花出去。</span></p>' +
+        '<p>You will read each advertisement, request evidence, then decide whether to buy or reject.' +
+          '<span class="zh">你需要阅读广告、申请调查证据，然后决定采购还是拒绝。</span></p>' +
+      '</div>' +
+
+      '<div class="c4-brief-card">' +
+        '<h4><span class="n">2</span>Your Budget · 你的采购预算</h4>' +
+        '<p>Chapter 4 grants an extra purchasing budget of <b>8,000 Coins</b>. It is added straight onto the balance you carried over from Chapter 3 — nothing is reset.' +
+          '<span class="zh">第四章额外提供 <b>8,000 金币</b>采购预算，直接累加到你在第三章留下的结余上，不会被清零。</span></p>' +
+        '<div class="c4-budget-bar">' +
+          '<div class="cell"><span class="k">From Chapter 3 · 第三章结余</span><span class="v">' + carried + '</span></div>' +
+          '<span class="op">+</span>' +
+          '<div class="cell"><span class="k">Chapter 4 Budget · 本章预算</span><span class="v">' + budget + '</span></div>' +
+          '<span class="op">=</span>' +
+          '<div class="cell sum"><span class="k">Available Now · 当前可用</span><span class="v">' + available + '</span></div>' +
+        '</div>' +
+        '<p>The budget is granted once per playthrough. Replaying a case never adds it again.' +
+          '<span class="zh">这笔预算每轮只发放一次，重玩某个案例不会再发。</span></p>' +
+      '</div>' +
+
+      '<div class="c4-brief-card">' +
+        '<h4><span class="n">3</span>How Money Works · 金币如何结算</h4>' +
+        '<p>Every order is deducted from the coin counter shown at the top and in the side panel. Extra costs — independent testing, recalls, replacement purchases — are charged the same way.' +
+          '<span class="zh">每一笔采购都直接从顶部与侧栏的金币计数器中扣除。独立检测、召回处理、重新采购等额外费用，也同样从计数器中扣除。</span></p>' +
+        '<p>A quotation is what you agree to pay. The final cost is what the decision actually costs the school.' +
+          '<span class="zh">报价是你要付的价格，但最终花费，是这个决定真正让学校付出的代价。</span></p>' +
+      '</div>' +
+    '</div>' +
+
+    '<div class="c4-brief-note">Five supplier cases, five purchase decisions. Investigate before you buy — the last page of this chapter will show what your choices cost, and what they avoided. · 五个供应商案例、五次采购决定。买之前先调查——本章最后一页会汇总你的选择花了多少、又避免了什么。</div>' +
+
+    '<div class="core-question">' +
+      '<div class="q-label">Core Question of This Chapter · 本章核心问题</div>' +
+      '<div class="q-en">' + esc(CHAPTER4.questionEn) + '</div>' +
+      '<div class="q-zh">' + esc(CHAPTER4.questionZh) + '</div>' +
+    '</div>' +
+
+    '<div class="btn-row ch3-start-row">' +
+      '<button class="btn primary" data-c4-brief-start>Start Chapter 4 · 开始第四章</button>' +
+      '<button class="btn ghost" data-home>Back to Market · 返回市场</button>' +
+    '</div>';
+
+  $("#view").querySelectorAll("[data-home]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/"; });
+  });
+  $("#view").querySelectorAll("[data-c4-brief-start]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.ch4.briefingSeen = true;
+      state.ch4.started = true;
+      saveState();
+      location.hash = "#/ch4";
+    });
+  });
+}
+function getC4SceneState(sceneId){
+  if(!state.ch4) state.ch4 = { started:true, coins:(state.ch3 ? state.ch3.coins : 0), starsTotal:0, risk:0, debt:0, sceneStates:{}, briefingSeen:true, budgetGranted:true };
+  if(!state.ch4.sceneStates) state.ch4.sceneStates = {};
+  if(!state.ch4.sceneStates[sceneId]){
+    state.ch4.sceneStates[sceneId] = {
+      started: false, locked: false,
+      startCoins: state.ch4.coins, startStars: state.ch4.starsTotal, startRisk: state.ch4.risk,
+      phase: 'ad',            // ad → check → summary → done
+      picked: [],             // 已选择/已提交的调查领域
+      submitted: false,
+      verifyUsed: 0,
+      verifyOpen: false,
+      decision: null,         // 'purchase' | 'reject'
+      usedVerification: false,
+      settlement: null,
+      stars: 0, riskD: 0
+    };
+  }
+  return state.ch4.sceneStates[sceneId];
+}
+function c4SceneUnlocked(sceneId){
+  if(sceneId === 1) return true;
+  const prev = state.ch4 && state.ch4.sceneStates && state.ch4.sceneStates[sceneId - 1];
+  return !!(prev && prev.phase === 'done');
+}
+function c4LockPrevious(enterSceneId){
+  if(!state.ch4 || !state.ch4.sceneStates) return;
+  let changed = false;
+  for(let i = 1; i < enterSceneId; i++){
+    const s = state.ch4.sceneStates[i];
+    if(s && !s.locked){ s.locked = true; changed = true; }
+  }
+  if(changed) saveState();
+}
+function c4AllDone(){
+  if(!state.ch4 || !state.ch4.sceneStates) return false;
+  return C4_CASES.every(sc => {
+    const s = state.ch4.sceneStates[sc.sceneNumber];
+    return !!(s && s.phase === 'done');
+  });
+}
+/* 重置当前场景：撤销该场景的金币/星星/风险结算 */
+function c4ReplayScene(sceneId){
+  const st = getC4SceneState(sceneId);
+  if(st.locked) return false;
+  state.ch4.coins = st.startCoins;
+  state.ch4.starsTotal = st.startStars;
+  state.ch4.risk = st.startRisk;
+  st.phase = 'ad'; st.picked = []; st.submitted = false;
+  st.verifyUsed = 0; st.verifyOpen = false;
+  st.decision = null; st.usedVerification = false;
+  st.settlement = null; st.stars = 0; st.riskD = 0;
+  saveState();
+  return true;
+}
+
+/* ================= 第四章：渲染与结算 ================= */
+const C4_ICON = {
+  leaf:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 4-16 12 0 2 .6 3.4 1.6 4.4C9 16 13 12 19 10"/><path d="M4 20c6-2 10-6 12-12"/></svg>',
+  fair:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4l2-4 3 8 2-4h5"/><path d="M6 6l2 2M18 6l-2 2"/></svg>',
+  helmet:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a8 8 0 0 1 16 0"/><path d="M3 15h18v3H3z"/><path d="M12 7v-3"/></svg>',
+  recycle:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l3-4 3 4"/><path d="M10 3v7"/><path d="M17 14l4 3-4 3"/><path d="M21 17h-7"/><path d="M7 17l-4-3 4-3"/><path d="M3 14h7"/></svg>',
+  mega:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4l4 1 9 5V4L7 9z"/><path d="M7 15v4"/></svg>',
+  shield:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M8.5 12.5l2.5 2.5 4.5-4.5"/></svg>',
+  shop:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16l-1.5-4h-13z"/><path d="M5 9v10h14V9"/><path d="M9 19v-5h6v5"/></svg>'
+};
+function c4Icon(icon){
+  if(icon === 'cart') return ICON.cart;
+  return C4_ICON[icon] || ICON.cart;
+}
+function c4Num(v){
+  return (v == null || v === '') ? '<span class="tbc">TBC · 待录入</span>' : String(v);
+}
+function c4AreaName(areaId){
+  const a = C4_AREAS[areaId];
+  return a ? (a.en + ' · ' + a.zh) : areaId;
+}
+
+/* 检查案例缺失字段（开发提示，不展示给学生的内部标签不会出现在这里） */
+function c4MissingFields(sc){
+  const miss = [];
+  if(!sc.product || String(sc.product.descriptionEn).indexOf('PLACEHOLDER') === 0){
+    miss.push('product.description · 产品介绍');
+  }
+  if(sc.supplier.unitPrice == null) miss.push('supplier.unitPrice · 单价');
+  if(sc.supplier.minimumOrder == null) miss.push('supplier.minimumOrder · 最小订购量');
+  if(sc.supplier.quotation == null) miss.push('supplier.quotation · 总报价');
+  if(!sc.supplier.advertisement || String(sc.supplier.advertisement.sloganEn).indexOf('PLACEHOLDER') === 0){
+    miss.push('supplier.advertisement.slogan · 广告标语');
+  }
+  (sc.investigation.options || []).forEach((o, i) => {
+    if(o.response && String(o.response.answerEn).indexOf('PLACEHOLDER') === 0){
+      miss.push('investigation.options[' + i + '].response.answer · 调查回复（' + (o.area || '') + '）');
+    }
+  });
+  if(sc.verification && sc.verification.available && String(sc.verification.responseEn).indexOf('PLACEHOLDER') === 0){
+    miss.push('verification.response · 核实内容');
+  }
+  if(!sc.outcomes || !sc.outcomes.purchase || String(sc.outcomes.purchase.eventEn).indexOf('PLACEHOLDER') === 0){
+    miss.push('outcomes.purchase.event · 采购结果事件');
+  }
+  if(!sc.outcomes || !sc.outcomes.purchase || !(sc.outcomes.purchase.stakeholders || []).length){
+    miss.push('outcomes.purchase.stakeholders · 利益相关者影响');
+  }
+  return miss;
+}
+
+/* 结算：采购/拒绝/核实后采购/核实后拒绝 */
+function c4OutcomeFor(sc, st, decision){
+  const verified = !!st.usedVerification;
+  if(decision === 'purchase') return verified ? (sc.outcomes.verifiedPurchase || sc.outcomes.purchase) : sc.outcomes.purchase;
+  return verified ? (sc.outcomes.verifiedReject || sc.outcomes.reject) : sc.outcomes.reject;
+}
+/* 星星评分：按“调查是否覆盖关键领域 / 是否核实 / 决定是否有依据”，不只看财务结果 */
+function c4GradeStars(sc, st, decision){
+  const ov = sc.scoring && sc.scoring.starsOverride;
+  if(ov && typeof ov[decision] === 'number') return ov[decision];
+  if(sc.status === 'placeholder' && !(sc.scoring && (sc.scoring.keyAreas || []).length)) return 1; // 占位案例：不因缺数据惩罚
+  const key = (sc.scoring && sc.scoring.keyAreas) || [];
+  const hit = (st.picked || []).filter(a => key.indexOf(a) >= 0).length;
+  const verified = !!st.usedVerification;
+  const dangerous = !!(sc.hiddenProfile && sc.hiddenProfile.supplierType === 'dangerous');
+  if(dangerous){
+    if(decision === 'reject') return (hit >= 1 || verified) ? 3 : 1;
+    return 0;
+  }
+  if(decision === 'purchase') return hit >= 1 ? 3 : 1;
+  return (hit >= 1 || verified) ? 1 : 0;
+}
+/* 统一结算：只扣一次，余额不足记入债务，不丢失损失金额 */
+function c4Settle(sc, st, decision, wallet){
+  wallet = wallet || state.ch4;
+  if(st.settlement) return st.settlement;
+  const oc = c4OutcomeFor(sc, st, decision);
+  const cost = oc.purchaseCost || 0;
+  const extra = oc.additionalLoss || 0;
+  const refund = oc.refund || 0;
+  const net = cost + extra - refund;
+  const coinsBefore = wallet.coins || 0;
+  let debtAdded = 0;
+  if(net > coinsBefore){
+    debtAdded = net - coinsBefore;
+    wallet.coins = 0;
+    wallet.debt = (wallet.debt || 0) + debtAdded;
+  } else {
+    wallet.coins = coinsBefore - net;
+  }
+  const riskD = oc.riskD || 0;
+  const riskBefore = wallet.risk || 0;
+  const riskRaw = riskBefore + riskD;
+  const riskAfter = Math.max(0, riskRaw);   // 风险下限 0：不允许负风险
+  wallet.risk = riskAfter;
+  const stars = c4GradeStars(sc, st, decision);
+  wallet.starsTotal = (wallet.starsTotal || 0) + stars;
+  st.stars = stars;
+  st.riskD = riskD;
+  st.settlement = {
+    decision: decision,
+    usedVerification: !!st.usedVerification,
+    purchaseCost: cost, additionalLoss: extra, refund: refund,
+    verifyCost: st.verifySpent || 0,
+    net: net, debtAdded: debtAdded,
+    coinsBefore: coinsBefore, coinsAfter: wallet.coins,
+    riskBefore: riskBefore, riskAfter: riskAfter, riskD: riskD,
+    riskApplied: riskAfter - riskBefore, riskClamped: riskRaw < 0,
+    stars: stars,
+    event: { en: oc.eventEn || '', zh: oc.eventZh || '' },
+    breakdown: oc.breakdown || [],
+    stakeholders: oc.stakeholders || []
+  };
+  st.phase = 'summary';
+  if(wallet === state.ch4) saveState();
+  return st.settlement;
+}
+
+/* 顶部任务条 */
+function c4Banner(sc, st, phaseEn, phaseZh){
+  const isDemo = sc.status === 'demo';
+  const w = isDemo ? c4DemoWallet : (state.ch4 || { coins: 0, risk: 0, starsTotal: 0, debt: 0 });
+  const statbar =
+    '<div class="c4-statbar">' +
+      '<span>COINS · 金币 <span class="v">' + (w.coins || 0) + '</span>' + ((w.debt || 0) ? '（债务 ' + w.debt + '）' : '') + '</span>' +
+      '<span>BUSINESS RISK · 商业风险 <span class="v">' + (w.risk || 0) + '</span></span>' +
+      '<span>TRADE STARS · 贸易之星 <span class="v">' + (w.starsTotal || 0) + '</span></span>' +
+    '</div>';
+  return '<div class="mission-banner">' +
+    '<span class="flag">' + ICON.book + '</span>' +
+    '<span><b>Chapter 4 · Scene ' + (sc.sceneNumber || 'Demo') + ' of 5 — ' + phaseEn + ' · ' + phaseZh + '</b>' +
+      '<span class="zh">Case · 案例：' + esc(sc.product.nameEn) + ' · ' + esc(sc.product.nameZh) + '</span></span>' +
+  '</div>' + statbar;
+}
+/* 占位提示 */
+function c4PlaceholderBlock(sc){
+  if(sc.status === 'demo'){
+    return '<div class="c4-demo-note">DEMO CASE — TEST DATA ONLY · 测试案例——仅供测试。This case is not part of the five formal scenes and is never saved to your progress. · 本案例不属于正式五场景，也不会写入游戏进度。</div>';
+  }
+  if(sc.status === 'complete') return '';
+  const miss = c4MissingFields(sc);
+  return '<div class="c4-placeholder"><span class="tag">PLACEHOLDER</span>' +
+    '<div><b>PLACEHOLDER — CASE CONTENT PENDING · 占位内容——案例待完善</b>' +
+    (miss.length ? '<div class="c4-missing">Missing fields · 缺失字段：' + miss.map(esc).join('；') + '</div>' : '') +
+    '</div></div>';
+}
+
+/* —— 第四章主页 —— */
+function renderChapter4(){
+  if(!ch3AllDone()){ location.hash = "#/"; return; }
+  if(!state.ch4){
+    state.ch4 = { started:false, coins:(state.ch3 ? state.ch3.coins : 0), starsTotal:0, risk:0, debt:0, sceneStates:{}, briefingSeen:false, budgetGranted:false };
+    saveState();
+  }
+  if(typeof state.ch4.briefingSeen !== "boolean") state.ch4.briefingSeen = false;
+  if(!state.ch4.briefingSeen){ location.hash = "#/ch4/intro"; return; }
+  const doneCount = C4_CASES.filter(sc => {
+    const st = state.ch4.sceneStates[sc.sceneNumber];
+    return !!(st && st.phase === 'done');
+  }).length;
+  const startLabel = doneCount > 0 ? 'Review Chapter 4 · 查看第四章总结' : 'Start Chapter 4 · 开始本章';
+  const cards = C4_CASES.map(sc => {
+    const st = state.ch4.sceneStates[sc.sceneNumber];
+    const isDone = !!(st && st.phase === 'done');
+    const locked = !c4SceneUnlocked(sc.sceneNumber);
+    const inProgress = !!(st && st.started && !isDone);
+    let statusEn, cls;
+    if(isDone){ statusEn = 'Completed · 已完成'; cls = 'done'; }
+    else if(locked){ statusEn = 'Locked · 已锁定'; cls = 'locked'; }
+    else if(inProgress){ statusEn = 'In progress · 进行中'; cls = 'ready'; }
+    else { statusEn = 'Not started · 未开始'; cls = ''; }
+    const pending = sc.status !== 'complete' && sc.status !== 'demo';
+    return '<button class="ch3-scene-card' + (locked ? ' locked' : '') + '" data-c4-scene="' + sc.sceneNumber + '"' + (locked ? ' disabled' : '') + '>' +
+      '<div class="ch3-sc-num">Scene ' + sc.sceneNumber + ' · 场景 ' + sc.sceneNumber + '</div>' +
+      '<div class="ch3-sc-name">' + esc(sc.product.nameEn) + '<span class="zh">' + esc(sc.product.nameZh) + '</span></div>' +
+      '<div class="ch3-sc-concept">' + esc(sc.supplier.name) + '</div>' +
+      (pending ? '<div class="ch3-sc-concept" style="color:#9a6a1c">PLACEHOLDER · 案例待完善</div>' : '') +
+      '<div class="ch3-sc-status ' + cls + '">' + (locked ? ICON.lock : '') + statusEn + '</div>' +
+    '</button>';
+  }).join('');
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-home>Market · 市场</button><span class="sep">/</span>' +
+      '<span>Chapter 4 · 第四章</span>' +
+    '</div>' +
+    '<section class="hero">' +
+      '<img src="' + IMG.supplier + '" alt="A school purchasing office / 学校采购办公室">' +
+      '<div class="hero-copy">' +
+        '<span class="hero-kicker">Chapter 4 · 第四章</span>' +
+        '<h2>' + esc(CHAPTER4.en) + '</h2>' +
+        '<div class="zh-title">' + esc(CHAPTER4.zh) + '</div>' +
+        '<p>' + esc(CHAPTER4.subEn) + ' · ' + esc(CHAPTER4.subZh) + '</p>' +
+      '</div>' +
+    '</section>' +
+    '<div class="ch3-story">' +
+      '<p class="en">' + esc(CHAPTER4.storyEn) + '<span class="zh">' + esc(CHAPTER4.storyZh) + '</span></p>' +
+      '<p class="turn">' + esc(CHAPTER4.turnEn) + '<span class="zh">' + esc(CHAPTER4.turnZh) + '</span></p>' +
+    '</div>' +
+    '<div class="core-question">' +
+      '<div class="q-label">Core Question of This Chapter · 本章核心问题</div>' +
+      '<div class="q-en">' + esc(CHAPTER4.questionEn) + '</div>' +
+      '<div class="q-zh">' + esc(CHAPTER4.questionZh) + '</div>' +
+    '</div>' +
+    '<div class="ch3-scenes-wrap">' +
+      '<div class="wrap-label">Cases · 采购案例</div>' +
+      '<div class="ch3-scenes-grid">' + cards + '</div>' +
+    '</div>' +
+    '<div class="btn-row ch3-start-row">' +
+      '<button class="btn primary" data-c4-start>' + startLabel + '</button>' +
+      '<button class="btn ghost" data-c4-demo>Open Demo Case · 打开测试案例</button>' +
+    '</div>';
+
+  $("#view").querySelectorAll("[data-home]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/"; });
+  });
+  $("#view").querySelectorAll("[data-c4-start]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.ch4.started = true;
+      saveState();
+      location.hash = doneCount === 0 ? "#/ch4/scene/1" : "#/ch4/report";
+    });
+  });
+  $("#view").querySelectorAll("[data-c4-scene]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = parseInt(btn.getAttribute("data-c4-scene"), 10);
+      if(!id) return;
+      state.ch4.started = true;
+      saveState();
+      location.hash = "#/ch4/scene/" + id;
+    });
+  });
+  $("#view").querySelectorAll("[data-c4-demo]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch4/demo"; });
+  });
+}
+
+/* —— 第四章场景入口 —— */
+function renderCh4Scene(sceneNumber){
+  if(!ch3AllDone()){ location.hash = "#/"; return; }
+  const sc = C4_CASES.find(x => x.sceneNumber === sceneNumber);
+  if(!sc){ renderChapter4(); return; }
+  if(!c4SceneUnlocked(sceneNumber)){ renderChapter4(); return; }
+  c4LockPrevious(sceneNumber);
+  const st = getC4SceneState(sceneNumber);
+  if(!st.started){
+    st.started = true;
+    st.startCoins = state.ch4.coins;
+    st.startStars = state.ch4.starsTotal;
+    st.startRisk = state.ch4.risk;
+    saveState();
+  }
+  let body;
+  if(st.phase === 'done') body = renderC4Done(sc, st);
+  else if(st.phase === 'summary') body = renderC4Summary(sc, st);
+  else if(st.phase === 'check') body = renderC4Check(sc, st);
+  else body = renderC4Ad(sc, st);
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-c4>Chapter 4 · 第四章</button><span class="sep">/</span>' +
+      '<span>Scene ' + sceneNumber + ' · 场景 ' + sceneNumber + '</span>' +
+    '</div>' +
+    '<section class="game-panel">' +
+      '<div class="game-head">' +
+        '<div class="crumb">Chapter 4 · The Responsible Sourcing Challenge · 第四章 负责任的采购挑战</div>' +
+        '<h2>Scene ' + sceneNumber + ': ' + esc(sc.product.nameEn) + '</h2>' +
+        '<div class="zh">场景 ' + sceneNumber + '：' + esc(sc.product.nameZh) + '</div>' +
+      '</div>' +
+      '<div class="game-body">' + body + '</div>' +
+    '</section>';
+
+  $("#view").querySelectorAll("[data-c4]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch4"; });
+  });
+  bindC4Events(sc, st, sceneNumber, false);
+}
+
+/* —— Stage 1：广告与报价 —— */
+function renderC4Ad(sc, st){
+  const maxReq = (sc.investigation && sc.investigation.maxRequests) || 3;
+  const opts = (sc.investigation && sc.investigation.options) || [];
+  const picked = st.picked || [];
+  const counterCls = picked.length >= maxReq ? ' full' : '';
+  const optCards = opts.map(o => {
+    const a = C4_AREAS[o.area] || { en:o.area, zh:'', icon:'cart' };
+    const on = picked.indexOf(o.area) >= 0;
+    const dim = !on && picked.length >= maxReq;
+    return '<button class="c4-opt' + (on ? ' on' : '') + (dim ? ' dim' : '') + '" data-c4-pick="' + o.area + '">' +
+      '<span class="box">' + (on ? ICON.check : '') + '</span>' +
+      '<span class="body">' +
+        '<span class="area">' + c4Icon(a.icon) + ' ' + esc(a.en) + '<span class="zh">' + esc(a.zh) + '</span></span>' +
+        '<span class="q">' + esc(o.questionEn || a.questionEn) + '<br>' + esc(o.questionZh || a.questionZh) + '</span>' +
+      '</span>' +
+    '</button>';
+  }).join('');
+
+  return c4Banner(sc, st, 'Advertisement', '广告与报价') +
+    c4PlaceholderBlock(sc) +
+    '<div class="c4-ad">' +
+      '<div class="c4-ad-top">' +
+        '<div class="c4-ad-img">' + (sc.product.image
+          ? '<img src="' + esc(sc.product.image) + '" alt="' + esc(sc.product.nameEn) + '">'
+          : '<div>PRODUCT IMAGE<br>产品图片</div><div style="font-weight:700">' + esc(sc.product.nameZh) + '</div>') + '</div>' +
+        '<div class="c4-slogan">' +
+          '<div class="brand">' + esc(sc.supplier.name) + '</div>' +
+          '<h3>' + esc(sc.product.nameEn) + '</h3>' +
+          '<div class="zh">' + esc(sc.product.nameZh) + ' · ' + esc(sc.product.descriptionZh) + '</div>' +
+          '<div class="slogan">' + esc(sc.supplier.advertisement.sloganEn) + '</div>' +
+          '<div class="zh">' + esc(sc.supplier.advertisement.sloganZh) + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<ul class="c4-claims">' + (sc.supplier.advertisement.claims || []).map(c =>
+        '<li><span class="dot">✔</span><span>' + esc(c) + '</span></li>').join('') + '</ul>' +
+      '<div class="c4-price-box">' +
+        '<div class="cell"><div class="k">Unit Price · 单价</div><div class="v">' + c4Num(sc.supplier.unitPrice) + ' <small>coins · 金币</small></div></div>' +
+        '<div class="cell"><div class="k">Min. Order · 最小订购量</div><div class="v">' + c4Num(sc.supplier.minimumOrder) + ' <small>units</small></div></div>' +
+        '<div class="cell total"><div class="k">Total Quotation · 总报价</div><div class="v">' + c4Num(sc.supplier.quotation) + ' <small>coins · 金币</small></div></div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="c4-sec-label">' +
+      '<h4>Choose what to investigate · 选择要调查的内容</h4>' +
+      '<div class="c4-counter' + counterCls + '">Information Requests: ' + picked.length + ' / ' + maxReq + ' · 调查请求</div>' +
+    '</div>' +
+    '<div class="c4-opts">' + optCards + '</div>' +
+    (st.notice ? '<div class="c4-verify" style="border-color:#e3a08a;background:#fff5f1;color:#a34a2c;border-style:solid">' + esc(st.notice) + '</div>' : '') +
+    '<div class="btn-row" style="margin-top:14px">' +
+      '<button class="btn primary" data-c4-submit' + (picked.length === 0 ? ' disabled' : '') + '>Submit Investigation Requests · 提交调查请求</button>' +
+    '</div>' +
+    '<div class="c4-verify" style="margin-top:10px">You may request up to ' + maxReq + ' areas of information. The supplier\'s full background is not shown before you decide. · 你最多可以申请 ' + maxReq + ' 个领域的信息。在你做决定之前，供应商的完整背景不会显示。</div>';
+}
+
+/* —— Stage 2：供应商背景调查 —— */
+function renderC4Check(sc, st){
+  const opts = (sc.investigation && sc.investigation.options) || [];
+  const selected = opts.filter(o => (st.picked || []).indexOf(o.area) >= 0);
+  const cards = selected.map(o => {
+    const a = C4_AREAS[o.area] || { en:o.area, zh:'', icon:'cart' };
+    const resp = o.response || {};
+    const stateInfo = C4_STATES[resp.state] || C4_STATES.statement;
+    const pending = String(resp.answerEn || '').indexOf('PLACEHOLDER') === 0;
+    const ev = resp.evidence || {};
+    const evRows = (ev.rows || []).length
+      ? '<table class="c4-stake c4-ev-table" style="margin-top:8px"><tbody>' +
+        ev.rows.map(r => '<tr><td>' + esc(r.en) + '</td><td class="' + (r.state === 'bad' ? 'neg' : (r.state === 'ok' ? 'pos' : '')) + '">' + esc(r.valueEn || r.value || '') + (r.valueZh ? ' / ' + esc(r.valueZh) : '') + '</td></tr>').join('') +
+        '</tbody></table>'
+      : '';
+    const evGap = (ev.gapEn || ev.gapZh)
+      ? '<div class="ev-meta" style="margin-top:8px;color:#8a6b3d"><b>What the document does not provide · 文件未提供：</b>' + esc(ev.gapEn || '') + (ev.gapZh ? '<br>' + esc(ev.gapZh) : '') + '</div>'
+      : '';
+    const evLine = (ev.titleEn || ev.source || ev.date || ev.rows)
+      ? '<div class="c4-evidence"><div class="ev-title">Document · 文件：' + esc(ev.titleEn || '—') + ' / ' + esc(ev.titleZh || '—') + '</div>' +
+        ((ev.source || ev.date) ? '<div class="ev-meta">' + esc(ev.source || '') + (ev.date ? ' · ' + esc(ev.date) : '') + '</div>' : '') +
+        evRows + evGap + '</div>'
+      : '';
+    return '<div class="c4-resp">' +
+      '<div class="c4-resp-top">' +
+        '<div class="area">' + c4Icon(a.icon) + ' ' + esc(a.en) + '<span class="zh">' + esc(a.zh) + '</span></div>' +
+        '<span class="c4-badge ' + stateInfo.cls + '">' + esc(stateInfo.en) + ' · ' + esc(stateInfo.zh) + '</span>' +
+      '</div>' +
+      '<div class="asked">' + esc(o.questionEn || a.questionEn) + '<br>' + esc(o.questionZh || a.questionZh) + '</div>' +
+      (pending
+        ? '<div class="c4-placeholder"><span class="tag">PLACEHOLDER</span><div><b>' + esc(C4_PENDING) + ' · ' + esc(C4_PENDING_ZH) + '</b></div></div>'
+        : '<div class="answer">' + esc(resp.answerEn || '') + '<span class="zh">' + esc(resp.answerZh || '') + '</span></div>') +
+      evLine +
+    '</div>';
+  }).join('');
+
+  const ver = sc.verification || { available:false, maxAttempts:1, cost:0 };
+  const maxAtt = ver.maxAttempts || 1;
+  const canVerify = !!ver.available && !st.verifyOpen && st.verifyUsed < maxAtt;
+  const verifyUsedBlock = st.verifyOpen
+    ? '<div class="c4-verify"><span class="vtag">EXTRA CHECK</span><b>Further verification result · 进一步核实结果</b><br>' +
+      esc(ver.responseEn || C4_PENDING) + '<br>' + esc(ver.responseZh || C4_PENDING_ZH) +
+      '<br><span style="color:#8a5a13">Cost paid · 已付核实费用：' + (ver.cost || 0) + ' coins · 金币</span></div>'
+    : '';
+  const noVerifyNote = (!ver.available)
+    ? '<div class="c4-verify">Further verification is not available for this case. · 本案例未配置进一步核实。</div>'
+    : (st.verifyUsed >= maxAtt && !st.verifyOpen
+      ? '<div class="c4-verify">You have already used the further verification for this case. · 本案例的进一步核实次数已用完。</div>'
+      : '');
+
+  return c4Banner(sc, st, 'Background Check', '供应商背景调查') +
+    c4PlaceholderBlock(sc) +
+    '<div class="c4-sec-label"><h4>What you requested · 你申请的调查领域</h4>' +
+      '<div class="c4-counter">Information Requests: ' + selected.length + ' / ' + ((sc.investigation && sc.investigation.maxRequests) || 3) + '</div></div>' +
+    (cards || '<div class="link-empty">No investigation requested. · 没有选择任何调查领域。</div>') +
+    (st.notice ? '<div class="c4-verify" style="border-color:#e3a08a;background:#fff5f1;color:#a34a2c;border-style:solid">' + esc(st.notice) + '</div>' : '') +
+    verifyUsedBlock +
+    '<div class="c4-decide">' +
+      '<h4>Purchase decision · 采购决定</h4>' +
+      '<div class="hint">Read the responses first. A polished statement is not the same as checkable evidence. · 先读回复。说得漂亮的声明不等于可核验的证据。</div>' +
+      '<div class="c4-decide-btns">' +
+        '<button class="btn primary" data-c4-buy>Option A — Purchase · 确认采购</button>' +
+        (canVerify ? '<button class="btn ghost" data-c4-verify>Option B — Request Further Verification · 要求进一步核实</button>' : '') +
+        '<button class="btn ghost" data-c4-reject>Option C — Reject · 拒绝采购</button>' +
+      '</div>' +
+      noVerifyNote +
+    '</div>';
+}
+
+/* —— Stage 3：采购结果总结 —— */
+function c4Feedback(sc, st, s){
+  const dangerous = !!(sc.hiddenProfile && sc.hiddenProfile.supplierType === 'dangerous');
+  /* 案例自带反馈（正式内容录入后优先使用） */
+  if(sc.feedback){
+    const key = s.decision === 'purchase'
+      ? (s.usedVerification ? 'verifiedPurchase' : 'purchase')
+      : (s.usedVerification ? 'verifiedReject' : 'reject');
+    const f = sc.feedback[key] || sc.feedback[s.decision] || {};
+    return {
+      en: f.en || '', zh: f.zh || '',
+      areas: sc.feedback.areas || [],
+      finalEn: sc.feedback.finalEn || '', finalZh: sc.feedback.finalZh || ''
+    };
+  }
+  if(sc.status !== 'complete' && sc.status !== 'demo'){
+    return {
+      en: "PLACEHOLDER — learning feedback pending. The mechanics worked, but the case story and the feedback text are not written yet.",
+      zh: "占位——学习反馈待录入。机制已经运行，但案例故事与反馈文字尚未填写。"
+    };
+  }
+  if(s.decision === 'purchase' && dangerous){
+    return {
+      en: "You bought from a supplier whose evidence had gaps or warnings. A responsible buyer compares the advertisement with checkable documents before paying. The cost of this decision is shown above.",
+      zh: "你向一个证据有缺口或警示的供应商下了订单。负责任的采购者会在付款前把广告和可核验的文件对照。这项决定的代价已列在上方。"
+    };
+  }
+  if(s.decision === 'reject' && dangerous){
+    return {
+      en: "You rejected a quotation whose evidence could not support its claims. That protected the school, but the school still needs the product and must find another supplier — rejecting everything is not free.",
+      zh: "你拒绝了证据无法支撑宣传的报价。这保护了学校，但学校仍然需要这件产品，必须另找供应商——全部拒绝并不是没有成本的。"
+    };
+  }
+  if(s.decision === 'purchase' && !dangerous){
+    return {
+      en: "You bought from a supplier that could provide checkable evidence. Buying from a responsible supplier is not just about price: the documents you checked are the reason this decision holds up.",
+      zh: "你向能提供可核验证据的供应商下了订单。选择负责任的供应商不只是看价格：你检查过的文件才是这项决定站得住脚的原因。"
+    };
+  }
+  return {
+    en: "You rejected a supplier that could provide evidence. That is a missed opportunity, not a mistake to hide: the school still needs the product, and the next request should ask what evidence was missing.",
+    zh: "你拒绝了一家能提供证据的供应商。这是错失的机会，而不是需要掩饰的错误：学校仍需要这件产品，下一次询价应明确缺少哪些证据。"
+  };
+}
+function renderC4Summary(sc, st){
+  const s = st.settlement;
+  if(!s) return renderC4Ad(sc, st);
+  const fb = c4Feedback(sc, st, s);
+  const verdictCls = s.decision === 'purchase' ? 'purchase' : 'reject';
+  const verdictTxt = s.decision === 'purchase'
+    ? (s.usedVerification ? 'Purchased after verification · 核实后采购' : 'Purchased · 已采购')
+    : (s.usedVerification ? 'Rejected after verification · 核实后拒绝' : 'Rejected · 已拒绝');
+  const rows = [
+    { k:'Purchase Cost · 采购成本', v: s.purchaseCost, cls:'' },
+    { k:'Verification Cost · 核实成本', v: s.verifyCost, cls:'' },
+    { k:'Additional Costs · 额外费用', v: s.additionalLoss, cls: s.additionalLoss ? 'neg' : '' },
+    { k:'Refund · 退款', v: s.refund, cls:'' }
+  ].map(r => '<div class="line ' + r.cls + '"><span>' + r.k + '</span><span>' + (r.v ? '−' + r.v : '0') + ' coins</span></div>').join('');
+  const breakdown = (s.breakdown || []).length
+    ? '<div class="c4-evidence" style="margin-top:10px"><div class="ev-title">Additional costs · 额外费用明细</div>' +
+      (s.breakdown || []).map(b => '<div class="ev-meta">· ' + esc(b.en) + ' / ' + esc(b.zh) + '：' + b.amount + ' coins</div>').join('') + '</div>'
+    : '';
+  const stakeRows = (s.stakeholders || []).length
+    ? '<table class="c4-stake"><thead><tr><th>Stakeholder · 受影响者</th><th>Responsibility area · 责任领域</th><th>Impact · 影响</th><th>Explanation · 说明</th></tr></thead><tbody>' +
+      (s.stakeholders || []).map(p =>
+        '<tr><td>' + esc(p.en) + ' / ' + esc(p.zh) + '</td>' +
+        '<td>' + c4AreaName(p.area) + '</td>' +
+        '<td class="' + (p.dir === 'pos' ? 'pos' : 'neg') + '">' + (p.dir === 'pos' ? 'Positive · 正面' : 'Negative · 负面') + '</td>' +
+        '<td>' + esc(p.explainEn) + '<br><span style="color:#6d6353">' + esc(p.explainZh) + '</span></td></tr>').join('') +
+      '</tbody></table>'
+    : '<div class="link-empty">PLACEHOLDER — stakeholder impact pending · 占位——利益相关者影响待录入</div>';
+
+  return c4Banner(sc, st, 'Summary', '采购结果总结') +
+    c4PlaceholderBlock(sc) +
+    '<div class="c4-outcome-hero">' +
+      '<span class="verdict ' + verdictCls + '">' + verdictTxt + '</span>' +
+      '<h3>' + (s.decision === 'purchase' ? 'The order went through · 订单已发出' : 'The quotation was turned down · 报价被拒绝') + '</h3>' +
+      '<div class="zh">' + esc(sc.product.nameEn) + ' · ' + esc(sc.product.nameZh) + '</div>' +
+    '</div>' +
+    (s.event && String(s.event.en).indexOf('PLACEHOLDER') === 0
+      ? '<div class="c4-placeholder"><span class="tag">PLACEHOLDER</span><div><b>' + esc(s.event.en) + ' · ' + esc(s.event.zh) + '</b></div></div>'
+      : '<div class="c4-feedback">' + esc(s.event.en) + '<span class="zh">' + esc(s.event.zh) + '</span></div>') +
+    '<div class="c4-fin" style="margin-top:12px">' +
+      '<h4>Money · 财务结算</h4>' + rows +
+      '<div class="line total"><span>Total Expenditure · 总支出</span><span>' + (s.purchaseCost + s.additionalLoss + s.verifyCost - s.refund) + ' coins</span></div>' +
+      '<div class="line ' + (s.additionalLoss ? 'neg' : '') + '"><span>Additional Loss · 额外损失</span><span>' + s.additionalLoss + ' coins</span></div>' +
+      '<div class="line"><span>Remaining Coins · 剩余金币</span><span>' + s.coinsAfter + ' coins</span></div>' +
+      (s.debtAdded ? '<div class="line neg"><span>Unpaid Debt · 未支付债务</span><span>' + s.debtAdded + ' coins</span></div>' : '') +
+      breakdown +
+    '</div>' +
+    '<div class="c4-fin">' +
+      '<h4>Risk · 风险</h4>' +
+      '<div class="line"><span>Risk Before · 决策前</span><span>' + s.riskBefore + '</span></div>' +
+      '<div class="line ' + (s.riskD > 0 ? 'neg' : '') + '"><span>Risk Change · 风险变化</span><span>' + (s.riskD > 0 ? '+' : '') + s.riskD + (s.riskClamped ? ' <small style="color:#6d6353">(floor 0 · 已到下限)</small>' : '') + '</span></div>' +
+      '<div class="line total"><span>Risk After · 决策后</span><span>' + s.riskAfter + '</span></div>' +
+    '</div>' +
+    '<div class="c4-fin">' +
+      '<h4>Stakeholder Impact Report · 利益相关者影响</h4>' + stakeRows +
+    '</div>' +
+    '<div class="c4-fin">' +
+      '<h4>Stars · 贸易之星</h4>' +
+      '<div class="line total"><span>This decision · 本次决定</span><span>' + ICON.star + ' ' + s.stars + '</span></div>' +
+    '</div>' +
+    '<div class="c4-feedback">' + esc(fb.en) + '<span class="zh">' + esc(fb.zh) + '</span>' +
+      ((fb.areas || []).length
+        ? '<div class="c4-sec-label" style="margin-top:12px"><h4>Responsibility areas in this case · 本案例涉及的责任领域</h4></div>' +
+          '<div class="c4-opts" style="grid-template-columns:repeat(auto-fill,minmax(210px,1fr))">' +
+          fb.areas.map(a => { const info = C4_AREAS[a] || { en:a, zh:'', icon:'cart' };
+            return '<div class="c4-opt on" style="cursor:default"><span class="body"><span class="area">' + c4Icon(info.icon) + ' ' + esc(info.en) + '<span class="zh">' + esc(info.zh) + '</span></span></span></div>';
+          }).join('') + '</div>'
+        : '') +
+      (fb.finalEn
+        ? '<div class="c4-verify" style="margin-top:12px"><b>Final message · 总结</b><br>' + esc(fb.finalEn) + '<br>' + esc(fb.finalZh) + '</div>'
+        : '') +
+    '</div>' +
+    '<div class="btn-row" style="margin-top:14px">' +
+      '<button class="btn primary" data-c4-next>' + (sc.sceneNumber >= C4_CASES.length ? 'See Chapter Report · 查看章节总结' : 'Next Case · 下一个案例') + '</button>' +
+      '<button class="btn ghost" data-c4-replay>Replay this case · 重玩本案例</button>' +
+      '<button class="btn ghost" data-c4>Back to Chapter 4 · 返回第四章</button>' +
+    '</div>';
+}
+
+/* —— 场景完成页 —— */
+function renderC4Done(sc, st){
+  const s = st.settlement || {};
+  const isLast = sc.sceneNumber >= C4_CASES.length;
+  return c4Banner(sc, st, 'Completed', '已完成') +
+    '<div class="complete-hero">' +
+      '<div class="seal">' + ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"') + '</div>' +
+      '<h2>Case completed · 案例已完成</h2>' +
+      '<div class="zh">' + esc(sc.product.nameEn) + ' · ' + esc(sc.product.nameZh) + ' — ' + ICON.star + ' ' + (s.stars || 0) + '</div>' +
+    '</div>' +
+    '<div class="btn-row">' +
+      (isLast
+        ? '<button class="btn primary" data-c4-report>Chapter Report · 章节总结</button>'
+        : '<button class="btn primary" data-c4-next>Next Case · 下一个案例</button>') +
+      '<button class="btn ghost" data-c4>Back to Chapter 4 · 返回第四章</button>' +
+    '</div>';
+}
+
+
+
+/* —— 第四章事件绑定 —— */
+function bindC4Events(sc, st, sceneNumber, isDemo){
+  const v = $("#view");
+  const wallet = isDemo ? c4DemoWallet : state.ch4;
+  const persist = () => { if(!isDemo) saveState(); };
+
+  /* 选择/取消调查领域（最多 3 个） */
+  v.querySelectorAll("[data-c4-pick]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st.phase !== 'ad' || st.submitted) return;
+      const area = btn.getAttribute("data-c4-pick");
+      const maxReq = (sc.investigation && sc.investigation.maxRequests) || 3;
+      if(!st.picked) st.picked = [];
+      const idx = st.picked.indexOf(area);
+      if(idx >= 0){
+        st.picked.splice(idx, 1);
+        st.notice = null;
+      } else if(st.picked.length < maxReq){
+        st.picked.push(area);
+        st.notice = null;
+      } else {
+        st.notice = 'You can request at most ' + maxReq + ' areas. Remove one before adding another. · 你最多只能申请 ' + maxReq + ' 个领域，请先取消一个再选新的。';
+      }
+      persist(); render();
+    });
+  });
+
+  /* 提交调查请求 → 锁定 */
+  v.querySelectorAll("[data-c4-submit]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st.phase !== 'ad' || st.submitted) return;
+      if(!(st.picked || []).length) return;
+      st.submitted = true;
+      st.phase = 'check';
+      st.notice = null;
+      persist(); render();
+    });
+  });
+
+  /* 进一步核实（有成本、有次数上限） */
+  v.querySelectorAll("[data-c4-verify]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st.phase !== 'check' || st.decision) return;
+      const ver = sc.verification || {};
+      const maxAtt = ver.maxAttempts || 1;
+      if(!ver.available || st.verifyUsed >= maxAtt || st.verifyOpen) return;
+      const cost = ver.cost || 0;
+      if((wallet.coins || 0) < cost){
+        st.notice = 'Not enough coins for the verification cost · 金币不足以支付核实费用';
+        persist(); render();
+        return;
+      }
+      wallet.coins -= cost;
+      st.verifySpent = (st.verifySpent || 0) + cost;
+      st.verifyUsed = (st.verifyUsed || 0) + 1;
+      st.verifyOpen = true;
+      st.notice = null;
+      persist(); render();
+    });
+  });
+
+  /* 采购 */
+  v.querySelectorAll("[data-c4-buy]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st.decision) return;
+      st.decision = 'purchase';
+      st.usedVerification = !!st.verifyOpen;
+      c4Settle(sc, st, 'purchase', wallet);
+      persist(); render();
+    });
+  });
+
+  /* 拒绝 */
+  v.querySelectorAll("[data-c4-reject]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(st.decision) return;
+      st.decision = 'reject';
+      st.usedVerification = !!st.verifyOpen;
+      c4Settle(sc, st, 'reject', wallet);
+      persist(); render();
+    });
+  });
+
+  /* 下一场景 */
+  v.querySelectorAll("[data-c4-next]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(isDemo){ c4DemoSt = null; location.hash = "#/ch4"; return; }
+      st.phase = 'done';
+      saveState();
+      if(sceneNumber >= C4_CASES.length) location.hash = "#/ch4/report";
+      else location.hash = "#/ch4/scene/" + (sceneNumber + 1);
+    });
+  });
+
+  /* 章节报告 */
+  v.querySelectorAll("[data-c4-report]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(!isDemo){ st.phase = 'done'; saveState(); }
+      location.hash = "#/ch4/report";
+    });
+  });
+
+  /* 重玩本案例 */
+  v.querySelectorAll("[data-c4-replay]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(isDemo){ c4DemoReset(); render(); return; }
+      if(c4ReplayScene(sceneNumber)) render();
+    });
+  });
+}
+
+/* —— 第四章总结报告 —— */
+const C4_REFLECT = [
+  { en:"Check the evidence and think about the consequences before buying.", zh:"先核实证据，并想清楚后果，再决定购买。", good:true },
+  { en:"Choose the cheapest advertisement as fast as possible.", zh:"尽快选择最便宜的广告。", good:false },
+  { en:"Buy first and check later if something goes wrong.", zh:"先买，出了问题再检查。", good:false },
+  { en:"Refuse every supplier so that no risk can ever happen.", zh:"为避免任何风险，一律拒绝所有供应商。", good:false }
+];
+function renderCh4Report(){
+  if(!ch3AllDone()){ location.hash = "#/"; return; }
+  if(!state.ch4){ state.ch4 = { started:true, coins:(state.ch3 ? state.ch3.coins : 0), starsTotal:0, risk:0, debt:0, sceneStates:{}, briefingSeen:true, budgetGranted:true }; saveState(); }
+  let totalCost = 0, totalExtra = 0, totalVerify = 0;
+  let responsibleBuys = 0, unsafeAvoided = 0, missedOpportunities = 0;
+  const rows = C4_CASES.map(sc => {
+    const st = state.ch4.sceneStates[sc.sceneNumber];
+    const isDone = !!(st && st.phase === 'done');
+    const s = (st && st.settlement) || null;
+    if(s){
+      totalCost += s.purchaseCost || 0;
+      totalExtra += s.additionalLoss || 0;
+      totalVerify += s.verifyCost || 0;
+      const dangerous = !!(sc.hiddenProfile && sc.hiddenProfile.supplierType === 'dangerous');
+      if(s.decision === 'purchase' && !dangerous) responsibleBuys += 1;
+      if(s.decision === 'reject' && dangerous) unsafeAvoided += 1;
+      if(s.decision === 'reject' && !dangerous) missedOpportunities += 1;
+    }
+    return '<div class="settle-row' + (isDone ? '' : ' pending') + '">' +
+      '<span>Scene ' + sc.sceneNumber + ' · ' + esc(sc.product.nameEn) + ' <span class="zh">' + esc(sc.product.nameZh) + '</span></span>' +
+      '<span>' + (isDone
+        ? (s ? (s.decision === 'purchase' ? 'Purchased · 已采购' : 'Rejected · 已拒绝') + '  ' + ICON.star + ' ' + (s.stars || 0) : 'Completed · 已完成')
+        : '<span class="no-star">Not completed · 未完成</span>') + '</span></div>';
+  }).join('');
+  const doneCount = C4_CASES.filter(sc => {
+    const st = state.ch4.sceneStates[sc.sceneNumber];
+    return !!(st && st.phase === 'done');
+  }).length;
+  const allDone = doneCount === C4_CASES.length;
+  const reflectPick = state.ch4.reflectPick;
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-home>Market · 市场</button><span class="sep">/</span>' +
+      '<button data-c4>Chapter 4 · 第四章</button><span class="sep">/</span>' +
+      '<span>Chapter Report · 章节总结</span>' +
+    '</div>' +
+    '<section class="game-panel">' +
+      '<div class="game-head">' +
+        '<div class="crumb">Chapter 4 · The Responsible Sourcing Challenge · 第四章 负责任的采购挑战</div>' +
+        '<h2>Responsible Sourcing Report · 负责任的采购总结报告</h2>' +
+        '<div class="zh">' + esc(CHAPTER4.en) + ' · ' + esc(CHAPTER4.zh) + '</div>' +
+      '</div>' +
+      '<div class="game-body">' +
+        '<div class="complete-hero">' +
+          '<div class="seal">' + (allDone
+            ? ICON.check.replace('width="16"','width="40"').replace('height="16"','height="40"')
+            : ICON.lock.replace('width="16"','width="40"').replace('height="16"','height="40"')) + '</div>' +
+          '<h2>' + (allDone ? 'Chapter 4 Complete! · 第四章完成！' : 'Chapter 4 in Progress · 第四章进行中') + '</h2>' +
+          '<div class="zh">' + doneCount + ' of ' + C4_CASES.length + ' cases completed · ' + doneCount + ' / ' + C4_CASES.length + ' 个案例已完成</div>' +
+        '</div>' +
+        '<div class="ch2-settle">' +
+          '<h3>Cases · 案例</h3>' + rows +
+          '<div class="settle-row spend"><span>Total Purchasing Expenditure · 总采购支出</span><span>' + ICON.coin + ' −' + totalCost + '</span></div>' +
+          '<div class="settle-row risk"><span>Additional Financial Losses · 额外财务损失</span><span>' + ICON.coin + ' −' + totalExtra + (totalVerify ? '（含核实 ' + totalVerify + '）' : '') + '</span></div>' +
+          '<div class="settle-row stars"><span>Total Trade Stars · 总星星</span><span>' + ICON.star + ' ' + (state.ch4.starsTotal || 0) + '</span></div>' +
+          '<div class="settle-row risk"><span>Final Risk · 最终风险</span><span>' + ICON.risk + ' +' + (state.ch4.risk || 0) + '</span></div>' +
+          '<div class="settle-row net"><span>Coins now · 当前金币</span><span>' + ICON.coin + ' ' + (state.ch4.coins || 0) + '</span></div>' +
+          (state.ch4.debt ? '<div class="settle-row risk"><span>Unpaid Debt · 未支付债务</span><span>' + state.ch4.debt + ' coins</span></div>' : '') +
+        '</div>' +
+        '<div class="c4-fin">' +
+          '<h4>Judgement summary · 判断结果</h4>' +
+          '<div class="line"><span>Responsible Purchases · 合理采购次数</span><span>' + responsibleBuys + '</span></div>' +
+          '<div class="line"><span>Unsafe Purchases Avoided · 避免的危险采购</span><span>' + unsafeAvoided + '</span></div>' +
+          '<div class="line"><span>Missed Responsible Opportunities · 错失的合理机会</span><span>' + missedOpportunities + '</span></div>' +
+        '</div>' +
+        '<div class="trade-quote">' + ICON.book + ' ' + esc(CHAPTER4.questionEn) + '<span class="zh">' + esc(CHAPTER4.questionZh) + '</span></div>' +
+        '<div class="ch2-settle" style="margin-top:12px">' +
+          '<h3>Reflection · 反思</h3>' + C4_REFLECT.map((r, i) =>
+            '<button class="reflect-opt' + (reflectPick === i ? ' picked' : '') + '" data-c4-reflect="' + i + '">' + esc(r.en) + '<br><span style="font-weight:600;color:#6d6353">' + esc(r.zh) + '</span></button>').join('') +
+          (typeof reflectPick === 'number'
+            ? '<div class="reflect-fb ' + (C4_REFLECT[reflectPick].good ? 'good' : 'bad') + '">' +
+              (C4_REFLECT[reflectPick].good
+                ? 'Yes — evidence first, then the decision. · 正确——先看证据，再做决定。'
+                : 'Think again: a responsible purchase is not about speed, avoiding everything, or fixing problems afterwards. · 再想想：负责任的采购不是比速度、不是一律拒绝，也不是事后补救。') + '</div>'
+            : '') +
+        '</div>' +
+        '<div class="btn-row">' +
+          '<button class="btn primary" data-c4>Back to Chapter 4 · 返回第四章</button>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+
+  $("#view").querySelectorAll("[data-home]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/"; });
+  });
+  $("#view").querySelectorAll("[data-c4]").forEach(btn => {
+    btn.addEventListener("click", () => { location.hash = "#/ch4"; });
+  });
+  $("#view").querySelectorAll("[data-c4-reflect]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      state.ch4.reflectPick = parseInt(btn.getAttribute("data-c4-reflect"), 10);
+      saveState(); render();
+    });
+  });
+}
+
+/* —— 独立测试案例（Demo，不进入存档） —— */
+let c4DemoSt = null;
+const c4DemoWallet = { coins: 2000, debt: 0, starsTotal: 0, risk: 0 };
+function c4DemoReset(){
+  c4DemoSt = { started:true, phase:'ad', picked:[], submitted:false, verifyUsed:0, verifyOpen:false,
+    verifySpent:0, decision:null, usedVerification:false, settlement:null, stars:0, riskD:0, notice:null };
+  c4DemoWallet.coins = 2000; c4DemoWallet.debt = 0; c4DemoWallet.starsTotal = 0; c4DemoWallet.risk = 0;
+}
+function renderC4Demo(){
+  if(!ch3AllDone()){ location.hash = "#/"; return; }
+  if(!c4DemoSt) c4DemoReset();
+  const sc = C4_DEMO_CASE, st = c4DemoSt;
+  let body;
+  if(st.phase === 'summary') body = renderC4Summary(sc, st);
+  else if(st.phase === 'check') body = renderC4Check(sc, st);
+  else body = renderC4Ad(sc, st);
+
+  $("#view").innerHTML =
+    '<div class="breadcrumb">' +
+      '<button data-c4>Chapter 4 · 第四章</button><span class="sep">/</span>' +
+      '<span>Demo Case · 测试案例</span>' +
+    '</div>' +
+    '<section class="game-panel">' +
+      '<div class="game-head">' +
+        '<div class="crumb">Chapter 4 · Demo Case · 第四章 测试案例</div>' +
+        '<h2>Demo Case: ' + esc(sc.product.nameEn) + '</h2>' +
+        '<div class="zh">测试案例：' + esc(sc.product.nameZh) + '</div>' +
+      '</div>' +
+      '<div class="game-body">' + body + '</div>' +
+    '</section>';
+
+  $("#view").querySelectorAll("[data-c4]").forEach(btn => {
+    btn.addEventListener("click", () => { c4DemoSt = null; location.hash = "#/ch4"; });
+  });
+  bindC4Events(sc, st, 0, true);
 }
 
 render();
